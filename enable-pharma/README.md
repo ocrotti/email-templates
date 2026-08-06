@@ -20,18 +20,35 @@ principale asset di conversione e ogni affermazione normativa è puntuale e veri
 | Font | self-hosted via `next/font/local`, subsettati |
 | Deploy | Vercel (SSG: tutte le pagine sono prerenderizzate) |
 
-## Setup
+## Guardare il sito in locale
+
+Serve **Node.js 20 o superiore** (testato su 22). Dalla cartella `enable-pharma/`:
 
 ```bash
-pnpm install
-cp .env.example .env.local     # opzionale in sviluppo
-pnpm dev                       # http://localhost:3000
+npm install
+npm run dev
 ```
 
-Build di produzione:
+Poi apri **http://localhost:3000**. La versione inglese è su
+**http://localhost:3000/en**.
+
+Non serve nessun file `.env` per vedere il sito: senza chiave email il form di
+contatto stampa la richiesta nel terminale invece di inviarla.
+
+Se preferisci pnpm (il lockfile committato è quello di pnpm, quindi le versioni
+sono esatte al bit):
 
 ```bash
-pnpm build && pnpm start
+corepack enable      # una volta sola, se pnpm non è installato
+pnpm install
+pnpm dev
+```
+
+Per vedere il sito come sarà in produzione — statico, minificato, con i punteggi
+Lighthouse riportati più sotto:
+
+```bash
+npm run build && npm start
 ```
 
 ### Variabili d'ambiente
