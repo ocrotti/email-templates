@@ -6,7 +6,10 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "og": "node scripts/generate-og.mjs"
+    "og": "node scripts/generate-og.mjs",
+    "check:build": "node scripts/check-build.mjs",
+    "check:a11y": "node scripts/check-a11y.mjs",
+    "check:vitals": "node scripts/check-vitals.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.4.0",

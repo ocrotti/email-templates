@@ -23,6 +23,21 @@ npm run preview   # anteprima della build
 npm run og        # rigenera le immagini Open Graph in public/og/ (vedi sotto)
 ```
 
+### Controlli di qualità
+
+Da eseguire dopo `npm run build`. I primi due richiedono `npx astro preview --port 4321` attivo in un altro terminale.
+
+```bash
+npm run check:build    # su dist/: title/description unici, un solo H1, ordine
+                       # degli heading, canonical, hreflang che risolve, JSON-LD
+                       # parsabile, link interni, immagini OG, alt, sitemap
+npm run check:a11y     # in Chromium, su tutte le rotte: contenuto visibile senza
+                       # JS, prefers-reduced-motion, skip link, focus ring su ogni
+                       # stop di tastiera, aria di menu e accordion, landmark
+npm run check:vitals   # Core Web Vitals con emulazione Pixel 5 e CPU 4×.
+                       # Budget: CLS ≤ 0.01 (target 0), LCP ≤ 2500 ms
+```
+
 ## Struttura
 
 ```

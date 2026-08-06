@@ -19,13 +19,23 @@ const { value, to, decimals = 0, suffix = '', label, source, light = false, lang
 ---
 
 <div data-reveal>
-  <p class="font-display text-num font-semibold" style="font-variant-numeric: tabular-nums;">
-    <span
-      data-counter
-      data-counter-to={to}
-      data-counter-decimals={decimals}
-      data-counter-lang={lang}>{value}</span
-    ><span class:list={[light ? 'text-accent-deep' : 'text-accent-soft']}>{suffix}</span>
+  <p class="font-display text-stat font-semibold" style="font-variant-numeric: tabular-nums;">
+    {/*
+      Il conteggio parte da zero e le cifre intermedie sono più strette del
+      valore finale. Un gemello invisibile col valore finale tiene la cella
+      alla larghezza definitiva già dal primo paint, così né il numero né il
+      suffisso si spostano mentre il contatore sale: CLS 0 per costruzione,
+      senza misurazioni in JS.
+    */}
+    <span class="num-slot">
+      <span class="num-sizer" aria-hidden="true">{value}</span>
+      <span
+        data-counter
+        data-counter-to={to}
+        data-counter-decimals={decimals}
+        data-counter-lang={lang}>{value}</span
+      >
+    </span><span class:list={[light ? 'text-accent-deep' : 'text-accent-soft']}>{suffix}</span>
   </p>
   <p class="mt-3 max-w-52 text-[0.9375rem] leading-snug">{label}</p>
   {

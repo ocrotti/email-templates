@@ -32,6 +32,11 @@
   --text-num: clamp(3.25rem, 6vw, 5.5rem);
   --text-num--line-height: 1;
   --text-num--letter-spacing: -0.02em;
+  /* I numeri di sezione sono di due cifre; le statistiche arrivano a sei più
+     il suffisso, che a --text-num andrebbe a capo da solo. Scala dedicata. */
+  --text-stat: clamp(2.125rem, 4vw, 3.75rem);
+  --text-stat--line-height: 1.05;
+  --text-stat--letter-spacing: -0.02em;
   --text-label: 0.8125rem;
   --text-label--line-height: 1.3;
   --text-label--letter-spacing: 0.14em;
@@ -343,6 +348,20 @@ body {
   }
 }
 
+/* --------------------------------- Counter --------------------------------
+   Gemello invisibile e valore vivo nella stessa cella di griglia: la cella
+   misura sempre il valore finale, quindi il conteggio non muove nulla.      */
+.num-slot {
+  display: inline-grid;
+}
+.num-slot > * {
+  grid-area: 1 / 1;
+  text-align: left;
+}
+.num-sizer {
+  visibility: hidden;
+}
+
 /* --------------------------- Progress line steps -------------------------- */
 .progress-track {
   position: absolute;
@@ -386,10 +405,11 @@ body {
 .site-header .header-bar {
   transition: padding 0.4s var(--ease-out-quart);
 }
+/* Barra piena, non vetro smerigliato: sotto scorrono anche superfici sature
+   (i CTA blu) che in trasparenza restavano visibili dietro il wordmark, e il
+   backdrop-filter non è garantito ovunque. Il contrasto così è sempre 17:1. */
 .site-header.is-scrolled {
-  background: rgb(14 13 11 / 0.82);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: var(--color-ink);
   border-bottom: 1px solid rgb(255 255 255 / 0.08);
 }
 .site-header.is-scrolled .header-bar {

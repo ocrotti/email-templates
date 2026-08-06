@@ -56,7 +56,8 @@ Scala (fluid, definita nei token):
 - `h3`: `clamp(1.5rem, 2.6vw, 2.125rem)`
 - `lead`: `clamp(1.125rem, 1.6vw, 1.375rem)` — sottotitoli
 - body `1.0625rem/1.7`, small `0.875rem`
-- Numeri di sezione: elemento grafico forte — Parkinsans 600, `clamp(3.5rem, 6vw, 5.5rem)`, colore `accent` su dark / `accent-deep` su light, tabular. Formato `01`, `02`…
+- Numeri di sezione (`--text-num`): elemento grafico forte — Parkinsans 600, `clamp(3.25rem, 6vw, 5.5rem)`, colore `accent` su dark / `accent-deep` su light, tabular. Formato `01`, `02`…
+- Statistiche (`--text-stat`): `clamp(2.125rem, 4vw, 3.75rem)`. Scala separata dai numeri di sezione, che sono di due cifre: una statistica arriva a sei cifre più il suffisso e alla scala dei numeri di sezione mandava il suffisso a capo da solo.
 
 ## 5. Layout
 
@@ -74,8 +75,8 @@ Scala (fluid, definita nei token):
 | Reveal on scroll | Fade + translateY 24px, 0.8s `power3.out`, once | `[data-reveal]`, gruppi con `[data-reveal-group]` stagger 80ms |
 | "Come lavoriamo" | Colonna sinistra sticky (CSS, zero CLS), progress line verticale che si disegna con lo scroll (scrub), step che si attivano | `[data-progress-line]` scaleY 0→1 scrub; step `.is-active` |
 | Card verticali/servizi | Hover: layer accent che sale, freccia che scatta in diagonale, tilt ≤2° solo pointer fine | CSS transforms + `[data-tilt]` JS leggero |
-| Counter | Count-up quando entra in viewport, once, formato locale | `[data-counter]` con `data-counter-to`, `data-counter-suffix` |
-| Nav sticky | Compressa dopo 80px di scroll (altezza e sfondo), blur backdrop | `.is-scrolled` su `<header>` |
+| Counter | Count-up all'ingresso in viewport, once, formato locale | `[data-counter]`. **La cella è dimensionata da un gemello invisibile col valore finale** (`.num-slot`: due elementi nella stessa cella di griglia): le cifre intermedie sono più strette del risultato, e senza il gemello numero e suffisso si spostavano a ogni frame — scarti minimi che sommati valevano 0,018 di CLS. Così la geometria è fissa dal primo paint, senza misurazioni in JS |
+| Nav sticky | Compressa dopo 80px di scroll (altezza e sfondo pieno) | `.is-scrolled` su `<header>`. Barra **piena**, non vetro smerigliato: in trasparenza le superfici sature che le scorrono sotto (i CTA blu) restavano visibili dietro il wordmark, e `backdrop-filter` non sopravvive alla minificazione in modo affidabile. Così il contrasto è sempre 17:1 |
 | Menu mobile | Overlay full-screen, voci a stagger, focus trap, Esc chiude | `[data-menu]`, aria-expanded corretto |
 | FAQ accordion | Altezza animata fluida via `grid-template-rows 0fr→1fr` (CSS, niente scatti) | `<button aria-expanded>` + region; niente `<details>` |
 | CTA | **Stile unico**: bottoni magnetici (≤8px, solo pointer fine) + freccia; link testuali con underline animato che scorre | `[data-magnetic]`; `.link-underline` |

@@ -128,6 +128,8 @@ function initCounters() {
       trigger: el,
       start: 'top 85%',
       once: true,
+      // La stabilità del layout è garantita dal markup (.num-slot in
+      // Counter.astro): qui si anima solo il testo.
       onEnter: () => {
         gsap.to(state, {
           value: to,
