@@ -10,7 +10,8 @@
     "check:build": "node scripts/check-build.mjs",
     "check:a11y": "node scripts/check-a11y.mjs",
     "check:layout": "node scripts/check-layout.mjs",
-    "check:vitals": "node scripts/check-vitals.mjs"
+    "check:vitals": "node scripts/check-vitals.mjs",
+    "portable": "node scripts/make-portable.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.4.0",

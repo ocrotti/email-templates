@@ -21,7 +21,23 @@ npm run dev       # dev server su localhost:4321
 npm run build     # build statica in dist/
 npm run preview   # anteprima della build
 npm run og        # rigenera le immagini Open Graph in public/og/ (vedi sotto)
+npm run portable  # dopo build: copia apribile senza server in dist-portable/
 ```
+
+### Aprire il sito in locale
+
+**Con Node (esperienza completa, consigliato)**
+
+```bash
+npm install
+npm run dev       # poi apri http://localhost:4321/it/
+```
+
+`npm run dev` è l'unico modo di vedere anche le transizioni fra pagine, che richiedono un server.
+
+**Senza Node (copia offline)**
+
+`npm run portable` produce `dist-portable/`: si apre `START.html` con un doppio clic, senza installare nulla. Animazioni, smooth scroll, contatori, menu e accordion funzionano; le transizioni fra pagine no, perché il browser blocca le richieste tra file locali e i link navigano in modo normale.
 
 ### Controlli di qualità
 
