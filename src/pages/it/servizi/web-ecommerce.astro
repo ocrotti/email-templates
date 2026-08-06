@@ -1,0 +1,528 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Pill from '../../../components/Pill.astro';
+import Button from '../../../components/Button.astro';
+import ArrowLink from '../../../components/ArrowLink.astro';
+import SectionHeading from '../../../components/SectionHeading.astro';
+import VerticalCard from '../../../components/VerticalCard.astro';
+import ProductCard from '../../../components/ProductCard.astro';
+import Accordion from '../../../components/Accordion.astro';
+import Counter from '../../../components/Counter.astro';
+import CtaSection from '../../../components/CtaSection.astro';
+import { path } from '../../../lib/routes';
+import { serviceSchema } from '../../../lib/seo';
+
+const lang = 'it' as const;
+
+const faq = [
+  {
+    q: 'Il mio sito ricade nell’European Accessibility Act?',
+    a: 'L’EAA è operativo dal 28 giugno 2025 e in Italia è recepito dal D.Lgs. 82/2022: riguarda i servizi digitali rivolti ai consumatori, e il commercio elettronico è espressamente nel perimetro. Sono escluse solo le microimprese, cioè chi ha meno di 10 dipendenti e meno di 2 milioni di euro di fatturato o bilancio annuo: servono entrambe le condizioni, non una sola. Se vendi online e superi una delle due soglie, sei dentro — e le sanzioni vanno da 2.500 a 40.000 € per violazione. Nei casi dubbi la risposta arriva dall’audit in pochi giorni, con il perimetro scritto nero su bianco.',
+  },
+  {
+    q: 'Cosa significa WCAG 2.1 AA in pratica?',
+    a: 'Significa cose molto concrete: contrasto sufficiente tra testo e sfondo, tutto il sito usabile da tastiera e con focus sempre visibile, moduli con etichette vere e messaggi d’errore comprensibili, testi alternativi alle immagini che veicolano informazione, una gerarchia di titoli coerente, nessuna informazione affidata al solo colore, video con sottotitoli. È il livello che la norma richiede, e non è una checklist da spuntare a fine progetto: è il modo in cui il sito va costruito, altrimenti si finisce a rifare gli stessi componenti due volte.',
+  },
+  {
+    q: 'Conviene rifare il sito o sistemare quello attuale?',
+    a: 'Dipende dalla base tecnica, e nella maggior parte dei casi conviene sistemare. I problemi di accessibilità si concentrano su pochi elementi ricorrenti — template, componenti, moduli, checkout — e correggerli costa una frazione di un rifacimento. Si rifà quando la piattaforma lavora contro di te: tema o plugin che non permettono di intervenire sul markup, prestazioni irrecuperabili, contenuti che non puoi aggiornare senza chiamare il fornitore. Te lo diciamo dopo l’audit, con i due numeri a confronto — non prima, e non a preventivo già scritto.',
+  },
+  {
+    q: 'L’accessibilità penalizza il design?',
+    a: 'No, e questo sito è la nostra dimostrazione: è costruito in WCAG 2.1 AA. I vincoli dell’accessibilità — contrasto, dimensioni leggibili, focus visibile, gerarchia chiara, interazioni che funzionano anche senza mouse — sono gli stessi vincoli del buon design. Quello che sparisce sono i vezzi: testo grigio chiaro su grigio, caroselli che si muovono da soli, menu che si aprono solo al passaggio del puntatore. Non è meno design: è design che deve funzionare anche fuori dalle condizioni ideali, cioè quasi sempre.',
+  },
+];
+
+const schema = [
+  serviceSchema({
+    name: 'Web, tech & e-commerce — accessibilità del sito web (EAA) ed e-commerce per PMI',
+    description:
+      'Siti web ed e-commerce per PMI italiane conformi all’European Accessibility Act (WCAG 2.1 AA): accessibilità, conversioni, prestazioni e SEO tecnica trattate come un unico progetto.',
+    path: path('serviceWeb', lang),
+    lang,
+  }),
+];
+---
+
+<Base
+  lang={lang}
+  routeKey="serviceWeb"
+  title="Siti web accessibili (EAA) ed e-commerce | enable.advisory"
+  description="Accessibilità del sito web e conformità EAA (WCAG 2.1 AA) per PMI, più e-commerce che vendono davvero: un sito che converte ed è in regola. Un solo referente senior."
+  ogImage="/og/serviceWeb-it.png"
+  schema={schema}
+>
+  <Breadcrumbs
+    lang={lang}
+    items={[
+      { name: 'Servizi', path: path('services', lang) },
+      { name: 'Web, tech & e-commerce', path: path('serviceWeb', lang) },
+    ]}
+  />
+
+  <!-- ============================== HERO ============================== -->
+  <section class="relative overflow-hidden">
+    <div
+      class="pointer-events-none absolute inset-0"
+      aria-hidden="true"
+      style="background: radial-gradient(50rem 34rem at 90% -20%, rgb(43 92 255 / 0.11), transparent 60%);"
+    >
+    </div>
+    <div class="wrap relative pt-12 pb-20 md:pt-16 md:pb-28">
+      <p class="label-caps text-mist" data-reveal>Verticale 04 — Web, tech &amp; e-commerce</p>
+      <h1 class="font-display text-display mt-6 max-w-6xl font-medium" data-reveal>
+        Accessibilità del sito web ed e-commerce: presenza digitale che converte ed è conforme.
+      </h1>
+      <p class="mt-8 max-w-xl text-lead text-mist" data-reveal>
+        Un sito bello che non converte è un costo. Un sito che converte ma non è accessibile è un
+        rischio — dal 28 giugno 2025 l’European Accessibility Act è operativo. Le due cose si
+        risolvono insieme, non in due progetti.
+      </p>
+      <div class="mt-10 flex flex-wrap items-center gap-4" data-reveal>
+        <Button href={path('contact', lang)}>Prenota l’audit</Button>
+        <Button href={path('products', lang)} variant="ghost">
+          Inizia con un passo a prezzo fisso
+        </Button>
+      </div>
+      <ul class="mt-12 flex flex-wrap gap-3" data-reveal-group>
+        <li data-reveal><Pill>Accessibilità WCAG 2.1 AA</Pill></li>
+        <li data-reveal><Pill>E-commerce</Pill></li>
+        <li data-reveal><Pill>Prestazioni e SEO tecnica</Pill></li>
+        <li data-reveal><Pill>Sviluppo su misura</Pill></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================ 01 IL PROBLEMA ============================ -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="01"
+        label="Il problema"
+        title="Due errori opposti, lo stesso conto da pagare."
+      >
+        <p class="mt-6 max-w-2xl text-lead text-mist" data-reveal>
+          Da una parte il sito-vetrina rifatto ogni tre anni perché “era vecchio”, senza che
+          nessuno sappia quanti contatti generi. Dall’altra l’e-commerce che macina ordini con un
+          checkout che una parte delle persone non riesce a completare. Spesso convivono nella
+          stessa azienda.
+        </p>
+      </SectionHeading>
+      <div class="mt-16 grid grid-cols-12 gap-x-6 gap-y-12" data-reveal-group>
+        <div class="col-span-12 md:col-span-4" data-reveal>
+          <p class="font-display text-[1.375rem] font-semibold text-accent-soft" aria-hidden="true">
+            1
+          </p>
+          <h3 class="font-display mt-3 text-[1.25rem] font-medium">
+            Il sito che non lavora
+          </h3>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            Nessuno sa quanti contatti porta, i moduli finiscono in una casella che qualcuno legge
+            quando può, i contenuti raccontano l’azienda invece di rispondere a chi la valuta. Non
+            è un problema di grafica: è che nessuno ha deciso cosa quel sito deve fare.
+          </p>
+        </div>
+        <div class="col-span-12 md:col-span-4" data-reveal>
+          <p class="font-display text-[1.375rem] font-semibold text-accent-soft" aria-hidden="true">
+            2
+          </p>
+          <h3 class="font-display mt-3 text-[1.25rem] font-medium">
+            L’obbligo che quasi nessuno ha visto arrivare
+          </h3>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            L’European Accessibility Act è operativo dal 28 giugno 2025, in Italia con il D.Lgs.
+            82/2022: livello richiesto WCAG 2.1 AA, commercio elettronico nel perimetro, escluse
+            solo le microimprese sotto i 10 dipendenti e i 2 milioni di euro. Le sanzioni vanno da
+            2.500 a 40.000 € per violazione.
+          </p>
+        </div>
+        <div class="col-span-12 md:col-span-4" data-reveal>
+          <p class="font-display text-[1.375rem] font-semibold text-accent-soft" aria-hidden="true">
+            3
+          </p>
+          <h3 class="font-display mt-3 text-[1.25rem] font-medium">
+            Il debito tecnico si paga in conversioni
+          </h3>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            Pagine lente, plugin accumulati negli anni, contenuti che il marketing non può
+            aggiornare senza chiamare il fornitore. Intanto il quadro normativo si precisa: dal 4
+            marzo 2026 ci sono le Linee Guida AgID a fare da riferimento operativo per
+            l’accessibilità.
+          </p>
+        </div>
+      </div>
+
+      <div class="hairline mt-20 pt-14">
+        <p class="label-caps text-mist" data-reveal>Il contesto, in numeri veri</p>
+        <div class="mt-10 grid grid-cols-2 gap-x-6 gap-y-12 lg:grid-cols-4" data-reveal-group>
+          <Counter
+            value="2.500"
+            to={2500}
+            suffix=" €"
+            label="sanzione minima per violazione dell’accessibilità"
+            source="Fonte: D.Lgs. 82/2022"
+            lang={lang}
+          />
+          <Counter
+            value="40.000"
+            to={40000}
+            suffix=" €"
+            label="sanzione massima, per ogni violazione contestata"
+            source="Fonte: D.Lgs. 82/2022"
+            lang={lang}
+          />
+          <Counter
+            value="10"
+            to={10}
+            label="dipendenti: la prima soglia dell’esclusione per microimprese"
+            source="Fonte: D.Lgs. 82/2022"
+            lang={lang}
+          />
+          <Counter
+            value="2"
+            to={2}
+            suffix=" M€"
+            label="di fatturato: la seconda soglia. Servono entrambe per essere esclusi"
+            source="Fonte: D.Lgs. 82/2022"
+            lang={lang}
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================== 02 COSA FACCIAMO ========================== -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="02"
+        label="Cosa facciamo"
+        title="Quattro obiettivi. Il sito è il mezzo, non il fine."
+      >
+        <p class="mt-6 max-w-2xl text-lead text-mist" data-reveal>
+          Non vendiamo restyling. Ogni intervento risponde a qualcosa che si misura: contatti
+          qualificati, ordini completati, rischio normativo, velocità. Se un’attività non sposta
+          nessuno dei quattro, non la proponiamo.
+        </p>
+      </SectionHeading>
+
+      <div class="mt-16 space-y-16 md:space-y-20">
+        <div class="grid grid-cols-12 gap-x-6 gap-y-6" data-reveal-group>
+          <div class="col-span-12 md:col-span-4" data-reveal>
+            <h3 class="font-display text-[1.375rem] font-medium md:text-[1.5rem]">
+              Un sito che è il tuo commerciale migliore
+            </h3>
+          </div>
+          <div class="col-span-12 space-y-4 text-[0.9375rem] text-mist md:col-span-7 md:col-start-6">
+            <p data-reveal>
+              Si parte da chi arriva e da cosa deve capire nei primi dieci secondi: cosa fate, per
+              chi, perché voi. Poi i percorsi — pagine che rispondono alle obiezioni vere, prove
+              verificabili al posto degli aggettivi, un solo invito all’azione per pagina.
+            </p>
+            <p data-reveal>
+              I moduli non finiscono in una casella condivisa: arrivano nel CRM, con la provenienza
+              tracciata. Il tracciamento lo configuriamo per misurare i contatti qualificati, non
+              le visite — le visite non le hai mai potute mettere a bilancio.
+            </p>
+            <p data-reveal>
+              <ArrowLink href={path('serviceCrm', lang)} class="text-paper">
+                Dove finiscono i contatti: il verticale CRM &amp; martech
+              </ArrowLink>
+            </p>
+          </div>
+        </div>
+
+        <div class="hairline grid grid-cols-12 gap-x-6 gap-y-6 pt-16 md:pt-20" data-reveal-group>
+          <div class="col-span-12 md:col-span-4" data-reveal>
+            <h3 class="font-display text-[1.375rem] font-medium md:text-[1.5rem]">
+              Un e-commerce che vende senza esporti a sanzioni
+            </h3>
+          </div>
+          <div class="col-span-12 space-y-4 text-[0.9375rem] text-mist md:col-span-7 md:col-start-6">
+            <p data-reveal>
+              Il checkout è il punto in cui accessibilità e conversione diventano la stessa cosa:
+              un campo senza etichetta, un errore segnalato solo col rosso, un passaggio che
+              funziona solo col mouse fanno perdere ordini prima ancora di essere un problema
+              normativo. Li correggiamo dove pesano di più — carrello, pagamento, ricerca, schede
+              prodotto.
+            </p>
+            <p data-reveal>
+              Lavoriamo sulla piattaforma che hai, integrata con gestionale, magazzino e
+              spedizioni, perché un e-commerce scollegato dai sistemi diventa lavoro manuale
+              travestito da automazione. E teniamo insieme quello che la legge chiede al commercio
+              elettronico con quello che serve per vendere.
+            </p>
+          </div>
+        </div>
+
+        <div class="hairline grid grid-cols-12 gap-x-6 gap-y-6 pt-16 md:pt-20" data-reveal-group>
+          <div class="col-span-12 md:col-span-4" data-reveal>
+            <h3 class="font-display text-[1.375rem] font-medium md:text-[1.5rem]">
+              L’accessibilità come qualità: più utenti, più SEO, meno rischio
+            </h3>
+          </div>
+          <div class="col-span-12 space-y-4 text-[0.9375rem] text-mist md:col-span-7 md:col-start-6">
+            <p data-reveal>
+              Audit WCAG 2.1 AA, correzioni ordinate per impatto, dichiarazione di accessibilità
+              pubblicabile: contrasti, navigazione da tastiera, struttura semantica, moduli con
+              etichette ed errori comprensibili, alternative testuali. Le stesse cose che rendono
+              una pagina leggibile da un motore di ricerca e da chi la usa con lo smartphone in
+              mano, sotto il sole.
+            </p>
+            <p data-reveal>
+              Il risultato non è solo evitare una sanzione: è un sito che funziona per più persone,
+              su più dispositivi, in più condizioni. È il motivo per cui questo verticale lavora a
+              stretto contatto con compliance &amp; governance digitale.
+            </p>
+            <p data-reveal>
+              <ArrowLink href={path('serviceCompliance', lang)} class="text-paper">
+                Il verticale compliance, nel dettaglio
+              </ArrowLink>
+            </p>
+          </div>
+        </div>
+
+        <div class="hairline grid grid-cols-12 gap-x-6 gap-y-6 pt-16 md:pt-20" data-reveal-group>
+          <div class="col-span-12 md:col-span-4" data-reveal>
+            <h3 class="font-display text-[1.375rem] font-medium md:text-[1.5rem]">
+              Prestazioni e SEO tecnica come fondamenta
+            </h3>
+          </div>
+          <div class="col-span-12 space-y-4 text-[0.9375rem] text-mist md:col-span-7 md:col-start-6">
+            <p data-reveal>
+              Peso delle pagine, immagini in formati moderni, font serviti dal tuo dominio, script
+              che non bloccano il rendering, output statico dove ha senso. La velocità non è una
+              vanity metric: è il primo filtro tra chi resta e chi torna indietro, e su mobile è
+              quasi tutta la partita.
+            </p>
+            <p data-reveal>
+              Sotto, la parte che nessuno vede e che decide se verrai trovato: struttura degli
+              URL, title e description unici, dati strutturati, hreflang se sei multilingua,
+              sitemap e canonical fatti bene. Contenuti che il tuo team può aggiornare da solo —
+              se ogni modifica richiede un preventivo, il sito smette di vivere il mese dopo il
+              lancio.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-16 rounded-xs border border-white/15 bg-ink-raise p-8 md:p-10" data-reveal>
+        <p class="label-caps text-mist">Nota onesta — la nostra demo sei tu che leggi</p>
+        <p class="mt-4 max-w-3xl text-[0.9375rem] text-mist">
+          Questo sito è costruito in WCAG 2.1 AA: navigabile da tastiera, contrasti verificati,
+          animazioni che si disattivano se il sistema lo chiede, contenuto completo anche senza
+          JavaScript. È il modo più semplice che abbiamo per farti vedere il lavoro prima di
+          venderlo. E siamo altrettanto onesti sul resto: nessuno può dichiarare una conformità
+          perfetta e permanente — l’accessibilità si mantiene nel tempo. Per questo la nostra
+          dichiarazione è pubblica, aggiornata, e include un canale per segnalarci un problema.
+        </p>
+        <p class="mt-6">
+          <ArrowLink href={path('accessibility', lang)} class="text-paper">
+            Leggi la nostra dichiarazione di accessibilità
+          </ArrowLink>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================== 03 IL PRIMO PASSO =========================== -->
+  <section class="section-light">
+    <div class="wrap grid grid-cols-12 gap-x-6 py-24 md:py-36">
+      <div class="col-span-12 lg:col-span-5">
+        <span class="sec-num block text-accent-deep" aria-hidden="true" data-reveal>03</span>
+        <p class="label-caps mt-4 text-umber" data-reveal>Il primo passo</p>
+        <h2 class="font-display text-h2 mt-4 font-medium" data-reveal>
+          Prima l’audit, poi il preventivo di un sito nuovo.
+        </h2>
+        <p class="mt-6 max-w-md text-lead text-umber" data-reveal>
+          Nella maggior parte dei casi non serve rifare tutto: serve sapere cosa non è conforme,
+          quanto costa sistemarlo e cosa invece conviene ricostruire. Perimetro chiuso, prezzo
+          fisso, e la dichiarazione di accessibilità pronta da pubblicare.
+        </p>
+        <p class="mt-8" data-reveal>
+          <ArrowLink href={path('products', lang)} class="text-accent-deep">
+            Tutti i prodotti a prezzo fisso
+          </ArrowLink>
+        </p>
+      </div>
+      <div class="col-span-12 mt-14 lg:col-span-6 lg:col-start-7 lg:mt-0" data-reveal>
+        <ProductCard
+          light
+          title="Accessibility (EAA) Sprint"
+          price="[PREZZO]"
+          duration="2–6 settimane · prezzo fisso"
+          description="Sito o e-commerce conforme all’European Accessibility Act: audit WCAG 2.1 AA, correzioni e dichiarazione di accessibilità."
+          deliverables={[
+            'Audit di accessibilità WCAG 2.1 AA',
+            'Correzioni tecniche prioritarie',
+            'Dichiarazione di accessibilità pubblicabile',
+          ]}
+          deliverablesLabel="Cosa ti porti a casa"
+          href={path('products', lang)}
+          ctaLabel="Dettagli del prodotto"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ 04 IL REFERENTE ============================ -->
+  <section class="section-light hairline hairline-dark">
+    <div class="wrap grid grid-cols-12 gap-x-6 py-24 md:py-36">
+      <div class="col-span-12 lg:col-span-6">
+        <SectionHeading
+          num="04"
+          label="Il referente"
+          title="Un senior con nome e cognome, non un team che ruota."
+          light
+          class="grid-cols-1!"
+        />
+        <div class="mt-8 space-y-4 text-[0.9375rem] text-umber" data-reveal>
+          <p>
+            Il verticale web, tech &amp; e-commerce è presidiato da un senior che ha portato in
+            produzione siti e piattaforme di vendita — e che l’accessibilità la scrive nel codice,
+            non la delega a un widget che promette la conformità con una riga di script.
+          </p>
+          <p>
+            È la persona che incontri alla prima call ed è la stessa che firma il lavoro. Se il
+            referente cambia durante l’ingaggio, hai diritto di recesso: è scritto nel contratto,
+            non nello slide deck.
+          </p>
+        </div>
+      </div>
+      <div class="col-span-12 mt-14 lg:col-span-5 lg:col-start-8 lg:mt-0" data-reveal>
+        <div class="rounded-xs border border-ink/15 bg-white/40 p-8">
+          <div
+            class="flex h-40 items-center justify-center rounded-xs bg-ink/5 text-[0.8125rem] text-umber"
+            role="img"
+            aria-label="Ritratto in arrivo"
+          >
+            [PLACEHOLDER: FOTO SENIOR]
+          </div>
+          <h3 class="font-display mt-6 text-[1.25rem] font-medium">[PLACEHOLDER: NOME]</h3>
+          <p class="mt-1 text-[0.875rem] text-accent-deep">
+            Senior referente — Web, tech &amp; e-commerce
+          </p>
+          <p class="mt-4 text-[0.9375rem] text-umber">[BIO SENIOR]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ 05 CASO STUDIO ============================ -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="05"
+        label="Caso studio"
+        title="Contesto, intervento, risultato — senza numeri inventati."
+      >
+        <p class="mt-6 max-w-2xl text-lead text-mist" data-reveal>
+          Il primo caso di questo verticale è in pubblicazione, con l’autorizzazione del cliente.
+          Preferiamo una casella vuota a una metrica inventata — soprattutto qui, dove “+300% di
+          conversioni” è la frase più abusata del settore.
+        </p>
+      </SectionHeading>
+      <div class="mt-14 rounded-xs border border-white/15 bg-ink-raise p-8 md:p-10" data-reveal>
+        <p class="label-caps text-mist">Primo caso in pubblicazione</p>
+        <div class="mt-8 grid grid-cols-12 gap-x-6 gap-y-10">
+          <div class="col-span-12 border-t-2 border-accent pt-5 md:col-span-4">
+            <h3 class="font-display text-[1.125rem] font-medium">Contesto</h3>
+            <p class="mt-3 text-[0.9375rem] text-mist">
+              [PLACEHOLDER: settore, dimensione e punto di partenza del cliente]
+            </p>
+          </div>
+          <div class="col-span-12 border-t-2 border-accent pt-5 md:col-span-4">
+            <h3 class="font-display text-[1.125rem] font-medium">Intervento</h3>
+            <p class="mt-3 text-[0.9375rem] text-mist">
+              [PLACEHOLDER: attività svolte, perimetro e durata dell’ingaggio]
+            </p>
+          </div>
+          <div class="col-span-12 border-t-2 border-accent pt-5 md:col-span-4">
+            <h3 class="font-display text-[1.125rem] font-medium">Risultato</h3>
+            <p class="mt-3 text-[0.9375rem] text-mist">
+              [PLACEHOLDER: risultati misurati e verificabili]
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="mt-10" data-reveal>
+        <ArrowLink href={path('caseStudies', lang)} class="text-paper">
+          Come documentiamo i casi studio
+        </ArrowLink>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== 06 FAQ =============================== -->
+  <section class="hairline">
+    <div class="wrap grid grid-cols-12 gap-x-6 py-24 md:py-36">
+      <div class="col-span-12 lg:col-span-4">
+        <div class="lg:sticky lg:top-32">
+          <span class="sec-num block text-accent" aria-hidden="true" data-reveal>06</span>
+          <p class="label-caps mt-4 text-mist" data-reveal>FAQ</p>
+          <h2 class="font-display text-h2 mt-4 font-medium" data-reveal>
+            Le domande giuste su accessibilità ed e-commerce.
+          </h2>
+          <p class="mt-6 max-w-sm text-[0.9375rem] text-mist" data-reveal>
+            Quelle che ci fanno gli imprenditori alla prima call — con risposte senza giri di
+            parole.
+          </p>
+        </div>
+      </div>
+      <div class="col-span-12 mt-12 lg:col-span-7 lg:col-start-6 lg:mt-0" data-reveal>
+        <Accordion items={faq} idPrefix="faq-web" withSchema />
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== 07 IL SISTEMA, NON I SILOS ======================== -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="07"
+        label="Il sistema, non i silos"
+        title="Un sito da solo non basta: conta cosa succede prima e dopo il clic."
+      >
+        <p class="mt-6 max-w-2xl text-lead text-mist" data-reveal>
+          Le conversioni diventano clienti solo se qualcuno le raccoglie e le segue. E i requisiti
+          di accessibilità arrivano dallo stesso quadro normativo che tocca dati, sicurezza e
+          contratti. Per questo i verticali lavorano insieme, sotto un unico referente.
+        </p>
+      </SectionHeading>
+      <div class="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2" data-reveal-group>
+        <div data-reveal>
+          <VerticalCard
+            href={path('serviceCrm', lang)}
+            num="03"
+            title="CRM & martech"
+            claim="Metti a valore i tuoi clienti."
+            items={['CRM adottato', 'Automazioni', 'Dati di prima parte']}
+            linkLabel="Esplora il verticale"
+          />
+        </div>
+        <div data-reveal>
+          <VerticalCard
+            href={path('serviceCompliance', lang)}
+            num="01"
+            title="Compliance & governance digitale"
+            claim="Dalla conformità alla crescita."
+            items={['GDPR', 'NIS2', 'AI Act']}
+            linkLabel="Esplora il verticale"
+          />
+        </div>
+      </div>
+      <p class="mt-10 max-w-2xl text-[0.9375rem] text-mist" data-reveal>
+        Se vendi online a clienti in perimetro NIS2, la sicurezza della tua piattaforma smette di
+        essere un tema tecnico e diventa una clausola contrattuale.
+      </p>
+      <p class="mt-4" data-reveal>
+        <ArrowLink href={path('resourceNis2', lang)} class="text-paper">
+          NIS2 per PMI: leggi la guida
+        </ArrowLink>
+      </p>
+    </div>
+  </section>
+
+  <CtaSection lang={lang} />
+</Base>

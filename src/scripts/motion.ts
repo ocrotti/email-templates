@@ -49,6 +49,11 @@ function initHero() {
   });
 }
 
+/** Vero se l'elemento è già (anche solo in parte) nel primo viewport al caricamento. */
+function inFirstViewport(el: Element): boolean {
+  return el.getBoundingClientRect().top < window.innerHeight;
+}
+
 function initReveals() {
   const groups = document.querySelectorAll<HTMLElement>('[data-reveal-group]');
   const grouped = new Set<Element>();
@@ -57,25 +62,26 @@ function initReveals() {
     const children = group.querySelectorAll<HTMLElement>('[data-reveal]');
     children.forEach((c) => grouped.add(c));
     if (!children.length) return;
-    gsap.to(children, {
-      y: 0,
-      opacity: 1,
-      duration: 0.8,
-      ease: EASE,
-      stagger: 0.08,
-      scrollTrigger: { trigger: group, start: 'top 82%', once: true },
-    });
+    const base = { y: 0, opacity: 1, duration: 0.8, ease: EASE, stagger: 0.08 };
+    // Il contenuto già visibile al caricamento entra subito: aspettare uno scroll
+    // che potrebbe non arrivare mai lo lascerebbe invisibile.
+    if (inFirstViewport(group)) gsap.to(children, { ...base, delay: 0.35 });
+    else
+      gsap.to(children, {
+        ...base,
+        scrollTrigger: { trigger: group, start: 'top 82%', once: true },
+      });
   });
 
   document.querySelectorAll<HTMLElement>('[data-reveal]').forEach((el) => {
     if (grouped.has(el)) return;
-    gsap.to(el, {
-      y: 0,
-      opacity: 1,
-      duration: 0.8,
-      ease: EASE,
-      scrollTrigger: { trigger: el, start: 'top 85%', once: true },
-    });
+    const base = { y: 0, opacity: 1, duration: 0.8, ease: EASE };
+    if (inFirstViewport(el)) gsap.to(el, { ...base, delay: 0.35 });
+    else
+      gsap.to(el, {
+        ...base,
+        scrollTrigger: { trigger: el, start: 'top 85%', once: true },
+      });
   });
 }
 
