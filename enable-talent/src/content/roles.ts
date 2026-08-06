@@ -1,0 +1,721 @@
+import type { Locale } from "@/lib/site";
+
+export interface RoleContent {
+  slug: string;
+  name: string;
+  seoTitle: string;
+  seoDescription: string;
+  tagline: string;
+  intro: string[];
+  inPod: { title: string; items: { title: string; body: string }[] };
+  stack: { title: string; items: string[] };
+  profile: {
+    title: string;
+    name: string;
+    summary: string;
+    facts: { label: string; value: string }[];
+    note: string;
+  };
+  savings: { title: string; body: string; band: string };
+  faq: { q: string; a: string }[];
+  cta: string;
+}
+
+export const roleSlugs = [
+  "paid-media",
+  "seo",
+  "content-social",
+  "design",
+  "marketing-automation",
+  "development",
+] as const;
+
+export const roles: Record<Locale, Record<string, RoleContent>> = {
+  en: {
+    "paid-media": {
+      slug: "paid-media",
+      name: "Paid media / Media buyer",
+      seoTitle: "Hire an Offshore Paid Media Specialist | Managed Pods — enable.talent",
+      seoDescription:
+        "Add a dedicated, managed paid media specialist to your agency's delivery. Google, Meta and LinkedIn Ads run from Nairobi, QA'd by senior European marketers. From €2,000/month, 2-week trial.",
+      tagline: "Campaigns built, launched and optimised daily — reviewed by a senior European buyer before your client sees a number.",
+      intro: [
+        "Paid media is where agency margins go to die: clients demand daily optimisation, platforms change weekly, and a good media buyer in Germany costs €3,600–5,200 a month before overhead. Most agencies respond by overloading one senior buyer across too many accounts — and performance quietly decays.",
+        "A pod paid media specialist takes the operational layer off that senior buyer's desk: campaign builds, audience and creative testing matrices, budget pacing, negative lists, weekly reporting. Your strategist decides; the pod executes and documents. Every account change and every report passes through your pod's senior European QA lead before it reaches the client.",
+        "This is not a freelancer juggling five agencies. Your specialist works only on your accounts, in your naming conventions, inside your reporting templates, on your business hours — Nairobi runs just 1–2 hours ahead of Central Europe.",
+      ],
+      inPod: {
+        title: "What a paid media specialist does inside your pod",
+        items: [
+          { title: "Campaign builds & restructures", body: "Search, PMax, Meta, LinkedIn — built from your media plan, with naming conventions and UTM discipline your team can audit." },
+          { title: "Daily optimisation", body: "Budget pacing, bid strategy adjustments, search-term mining, audience exclusions, creative rotation. Logged, so nothing happens silently." },
+          { title: "Testing programmes", body: "Structured creative and audience tests with hypotheses and stop-rules, not random duplicate-and-tweak." },
+          { title: "Reporting your clients can read", body: "Looker Studio dashboards and weekly commentary drafted for the client, QA'd by a senior European buyer before sending." },
+        ],
+      },
+      stack: {
+        title: "Skills & stack",
+        items: ["Google Ads", "Meta Ads", "LinkedIn Ads", "TikTok Ads", "GA4", "Google Tag Manager", "Looker Studio", "Excel / Sheets modelling", "Server-side tracking basics"],
+      },
+      profile: {
+        title: "A profile from our bench",
+        name: "P., 29 — Nairobi",
+        summary:
+          "Four years running performance accounts for East African e-commerce and fintech brands, the last two managing ad spend across Google and Meta for international clients. Google Ads certified, GA4-native, writes clear English reporting commentary.",
+        facts: [
+          { label: "Experience", value: "4+ years performance marketing" },
+          { label: "English", value: "Fluent, written & spoken" },
+          { label: "Timezone", value: "UTC+3 (CET +1/+2h)" },
+          { label: "Pay", value: "2–4x local market rate" },
+        ],
+        note: "Profiles are anonymised until a scoping call — our specialists get poached enough as it is.",
+      },
+      savings: {
+        title: "What you save",
+        body: "A media buyer costs €2,000–2,500/month in Italy and €3,600–5,200 in Germany, before taxes and overhead. A pod specialist starts at €2,000/month with management and senior QA included.",
+        band: "Typically 40–65% below EU employer cost",
+      },
+      faq: [
+        {
+          q: "Who owns the ad accounts?",
+          a: "You or your client, always. The pod works in your accounts with agency-managed access. Nothing is held hostage in ours.",
+        },
+        {
+          q: "Can the specialist talk to my clients?",
+          a: "Default is white-label: your team fronts, the pod executes. If you want, the European QA lead joins client calls as your delivery voice.",
+        },
+        {
+          q: "How fast can they take over live accounts?",
+          a: "Onboarding a live account typically takes the first week: access, audit, naming conventions, reporting handover. Full operating speed within the 2-week trial.",
+        },
+      ],
+      cta: "Scope a paid media pod",
+    },
+    seo: {
+      slug: "seo",
+      name: "SEO specialist",
+      seoTitle: "Hire a Remote SEO Specialist | Managed Pods — enable.talent",
+      seoDescription:
+        "Dedicated SEO specialists for European agencies: technical audits, content briefs, on-page and link operations from Nairobi, QA'd by senior European SEOs. From €2,000/month, 2-week trial.",
+      tagline: "The unglamorous 80% of SEO — audits, briefs, on-page, tracking — done consistently, so your strategists can strategise.",
+      intro: [
+        "Every agency sells SEO retainers; few can staff them profitably. An SEO specialist runs €2,400/month in Italy (median RAL €35,333) and €3,500–4,500 in Germany — for work that is largely systematic: crawls, audits, briefs, on-page implementation, internal linking, tracking hygiene.",
+        "A pod SEO specialist owns that systematic layer. They run the crawls and turn them into prioritised fixes, write content briefs from your keyword strategy, implement on-page changes, monitor Search Console, and keep the reporting honest. Your senior SEO sets direction and reviews the output — or ours does, as your QA layer.",
+        "The result: your retainers stop depending on whether your one senior SEO had a free afternoon. Deliverables ship weekly, documented, in your templates.",
+      ],
+      inPod: {
+        title: "What an SEO specialist does inside your pod",
+        items: [
+          { title: "Technical audits & fixes", body: "Screaming Frog / Semrush crawls turned into a prioritised, developer-ready backlog — and implemented where access allows." },
+          { title: "Content briefs & optimisation", body: "SERP-driven briefs your writers can execute, plus on-page optimisation of existing money pages." },
+          { title: "Internal linking & structure", body: "Systematic internal link programmes and information architecture recommendations, mapped to your keyword clusters." },
+          { title: "Tracking & reporting", body: "GA4 + Search Console dashboards, rank tracking, monthly narratives that clients understand, QA'd before sending." },
+        ],
+      },
+      stack: {
+        title: "Skills & stack",
+        items: ["Semrush", "Ahrefs", "Screaming Frog", "Google Search Console", "GA4", "WordPress", "Webflow", "Basic HTML/CSS", "Looker Studio", "Surfer / NLP tools"],
+      },
+      profile: {
+        title: "A profile from our bench",
+        name: "S., 31 — Nairobi",
+        summary:
+          "Five years of SEO for publishers and B2B services, including two years inside a UK-facing agency team. Comfortable across technical and content work; writes briefs in structured English that copywriters actually follow.",
+        facts: [
+          { label: "Experience", value: "5 years SEO, agency-side" },
+          { label: "English", value: "Fluent, written & spoken" },
+          { label: "Timezone", value: "UTC+3 (CET +1/+2h)" },
+          { label: "Pay", value: "2–4x local market rate" },
+        ],
+        note: "Profiles are anonymised until a scoping call — our specialists get poached enough as it is.",
+      },
+      savings: {
+        title: "What you save",
+        body: "An SEO specialist costs ~€2,400/month in Italy and €3,500–4,500 in Germany before overhead. A pod specialist starts at €2,000/month, management and senior QA included.",
+        band: "Typically 40–60% below EU employer cost",
+      },
+      faq: [
+        {
+          q: "Can they write content too?",
+          a: "They write briefs, metadata and on-page copy natively. For long-form content in Italian, German or Spanish, pair them with your writers or add a content specialist to the pod — briefs and QA keep the quality consistent.",
+        },
+        {
+          q: "Do they do link building?",
+          a: "Outreach operations, prospecting and tracking, yes — within white-hat programmes you define. We don't run PBNs or buy links, and we'll say so to your clients' faces if useful.",
+        },
+        {
+          q: "How do you QA SEO work?",
+          a: "Every audit, brief and report passes a senior European SEO before delivery. Implementation is checked against the brief with a documented checklist.",
+        },
+      ],
+      cta: "Scope an SEO pod",
+    },
+    "content-social": {
+      slug: "content-social",
+      name: "Content & Social specialist",
+      seoTitle: "Hire an Offshore Content & Social Media Specialist | enable.talent",
+      seoDescription:
+        "Dedicated content and social specialists for agencies: calendars, copy, community and reporting from Nairobi, QA'd in Europe. From €2,000/month with a 2-week trial.",
+      tagline: "Calendars filled, posts shipped, communities answered — every week, in your brand's voice, with European review.",
+      intro: [
+        "Content and social retainers are volume businesses: every client needs calendars, copy variants, scheduling, community management and monthly reports. In the UK a social media specialist costs around £3,000–4,500 a month; in Italy €1,500–2,000 — and they still only cover so many clients before quality slips.",
+        "A pod content & social specialist industrialises that volume. They draft calendars from your strategy, write English-language copy natively, adapt formats per channel, schedule, monitor and report. The European QA lead reviews tone and brand fit before anything is queued — so 'offshore' never shows up in your clients' feeds.",
+        "For non-English markets, the pod works brief-to-draft: your local team polishes language while the pod carries research, structure, visuals coordination and operations — usually the real bottleneck.",
+      ],
+      inPod: {
+        title: "What a content & social specialist does inside your pod",
+        items: [
+          { title: "Editorial calendars", body: "Monthly calendars per client, mapped to campaigns and content pillars, delivered for approval in your template." },
+          { title: "Copy & adaptation", body: "Native-quality English copy; structured drafts for other languages, ready for local polish. Format adaptation per channel." },
+          { title: "Scheduling & community", body: "Queue management across Meta, LinkedIn, TikTok and X; comment and DM triage with escalation rules you define." },
+          { title: "Social reporting", body: "Monthly performance reports with commentary clients can actually read, QA'd before sending." },
+        ],
+      },
+      stack: {
+        title: "Skills & stack",
+        items: ["Meta Business Suite", "LinkedIn", "TikTok", "Buffer / Hootsuite / Later", "Canva", "Figma (handoff)", "CapCut", "Notion", "GA4 basics"],
+      },
+      profile: {
+        title: "A profile from our bench",
+        name: "C., 27 — Nairobi",
+        summary:
+          "Three years managing social for consumer brands and a pan-African media company; ran multi-market calendars in English with 30+ posts a week. Strong writer, fast with short-form video editing.",
+        facts: [
+          { label: "Experience", value: "3+ years social & content" },
+          { label: "English", value: "Fluent — writes native-quality copy" },
+          { label: "Timezone", value: "UTC+3 (CET +1/+2h)" },
+          { label: "Pay", value: "2–4x local market rate" },
+        ],
+        note: "Profiles are anonymised until a scoping call — our specialists get poached enough as it is.",
+      },
+      savings: {
+        title: "What you save",
+        body: "A content/social specialist costs €1,500–2,000/month in Italy and £3,000–4,500 in the UK before overhead. Inside a pod, the role starts within the €2,000/month starter — with QA and management included, and capacity that doesn't call in sick.",
+        band: "Typically 35–60% below EU employer cost",
+      },
+      faq: [
+        {
+          q: "Will the copy sound offshore?",
+          a: "English copy is written natively and reviewed by the European QA lead for brand voice. For Italian, German or Spanish, the pod delivers structured drafts your local team polishes — the operational lift is still off your desk.",
+        },
+        {
+          q: "Can they handle community management SLAs?",
+          a: "Yes — response windows are defined in the pod SLA, and Nairobi's timezone means coverage during your actual business day, not asynchronous batches.",
+        },
+        {
+          q: "Do they make the visuals too?",
+          a: "Templated visuals in Canva/Figma, yes. For original design systems, add a pod designer — the two roles work as one delivery line.",
+        },
+      ],
+      cta: "Scope a content pod",
+    },
+    design: {
+      slug: "design",
+      name: "Designer",
+      seoTitle: "Hire a Remote Marketing Designer | Managed Pods — enable.talent",
+      seoDescription:
+        "Dedicated marketing designers for European agencies: social kits, ad creative, landing pages and brand collateral from Nairobi, art-directed from Europe. 2-week trial.",
+      tagline: "Ad creative, social kits and landing pages on production speed — art direction stays with you, or with our senior QA.",
+      intro: [
+        "Design is the first bottleneck agencies feel when campaign volume grows: every paid media test needs variants, every social calendar needs assets, every campaign needs a landing page — and senior EU designers are booked, expensive, or both.",
+        "A pod designer is a production-grade marketing designer: fast, systematic, fluent in your design system. They take art direction from your creative lead (or from our senior QA) and turn it into shippable assets — correctly named, correctly sized, delivered in the formats your channels need.",
+        "The QA layer matters double in design: nothing reaches your clients without review against the brand book. Revisions happen inside the pod, not in your client's inbox.",
+      ],
+      inPod: {
+        title: "What a designer does inside your pod",
+        items: [
+          { title: "Ad & social creative", body: "Static and light-motion variants for Meta, Google, LinkedIn and TikTok test matrices — batched, on naming convention." },
+          { title: "Landing pages", body: "Design in Figma on your system, ready for build in Webflow/WordPress — or built by the pod's developer." },
+          { title: "Brand collateral", body: "Decks, one-pagers, report covers, event assets. The recurring production work that eats senior designers' weeks." },
+          { title: "Design system hygiene", body: "Component libraries and templates kept clean, so every next asset is faster than the last." },
+        ],
+      },
+      stack: {
+        title: "Skills & stack",
+        items: ["Figma", "Adobe Photoshop", "Illustrator", "After Effects (basics)", "Canva (templated systems)", "Webflow handoff", "Motion for social", "Brand systems"],
+      },
+      profile: {
+        title: "A profile from our bench",
+        name: "D., 28 — Nairobi",
+        summary:
+          "Five years in digital design across a Nairobi studio and freelance international clients; portfolio spans fintech, FMCG and NGO campaign work. Systematic with components, fast on creative batching, comfortable receiving European art direction.",
+        facts: [
+          { label: "Experience", value: "5 years digital & brand design" },
+          { label: "English", value: "Fluent, written & spoken" },
+          { label: "Timezone", value: "UTC+3 (CET +1/+2h)" },
+          { label: "Pay", value: "2–4x local market rate" },
+        ],
+        note: "Profiles are anonymised until a scoping call — our specialists get poached enough as it is.",
+      },
+      savings: {
+        title: "What you save",
+        body: "Mid-level digital designers in Western Europe typically cost €2,500–4,000/month as employees, more via studios. A pod designer starts within the €2,000/month starter, art-directed and QA'd.",
+        band: "Typically 40–60% below EU employer cost",
+      },
+      faq: [
+        {
+          q: "Who does art direction?",
+          a: "You do, if you have a creative lead — the pod executes at production speed. If you don't, our senior European QA sets and enforces direction from your brand book.",
+        },
+        {
+          q: "What about revisions?",
+          a: "Internal revision loops happen before delivery: brief → draft → QA → delivery. Your client-facing revision rounds land on work that has already been reviewed once.",
+        },
+        {
+          q: "Can they do video?",
+          a: "Short-form social motion and creative-variant editing, yes. Full video production (shoots, long-form edit) is outside pod scope — we'll say so rather than fake it.",
+        },
+      ],
+      cta: "Scope a design pod",
+    },
+    "marketing-automation": {
+      slug: "marketing-automation",
+      name: "Marketing automation specialist",
+      seoTitle: "Hire a Marketing Automation Specialist | Managed Pods — enable.talent",
+      seoDescription:
+        "Dedicated marketing automation specialists: HubSpot, Klaviyo and Mailchimp flows, CRM hygiene, lead scoring and reporting — managed from Nairobi, QA'd in Europe.",
+      tagline: "Flows built, CRMs cleaned, emails shipped on schedule — the systematic work that automation platforms promise and agencies end up doing by hand.",
+      intro: [
+        "Marketing automation retainers have a dirty secret: platforms like HubSpot and Klaviyo don't run themselves. Someone has to build the flows, segment the lists, test the emails, clean the CRM and keep attribution honest — and that someone is usually a senior consultant whose time is worth 4x the task.",
+        "A pod automation specialist owns the build-and-run layer: journey builds from your architecture, email production and testing, list hygiene, lead scoring maintenance, integration monitoring and campaign reporting. Your consultants keep the strategy and the client relationship.",
+        "Every flow goes live only after the European QA lead has walked the journey end-to-end as a subscriber would. Broken automations get found by us, not by your client's prospects.",
+      ],
+      inPod: {
+        title: "What an automation specialist does inside your pod",
+        items: [
+          { title: "Journey & flow builds", body: "Welcome, nurture, cart, winback and lifecycle flows built in HubSpot, Klaviyo, Mailchimp or ActiveCampaign from your architecture." },
+          { title: "Email production", body: "Template-based email builds with proper testing across clients and devices — copy from your team or the pod's content specialist." },
+          { title: "CRM hygiene & scoring", body: "Deduplication, field discipline, list segmentation and lead-scoring maintenance nobody in your team wants to own." },
+          { title: "Reporting & attribution", body: "Flow and campaign performance dashboards with QA'd monthly commentary, tied to pipeline where the data allows." },
+        ],
+      },
+      stack: {
+        title: "Skills & stack",
+        items: ["HubSpot", "Klaviyo", "Mailchimp", "ActiveCampaign", "Zapier / Make", "GA4", "Basic HTML for email", "Segment basics", "Looker Studio"],
+      },
+      profile: {
+        title: "A profile from our bench",
+        name: "M., 30 — Nairobi",
+        summary:
+          "Four years in CRM and email marketing for e-commerce and SaaS, including HubSpot administration for a 40-person company. Certified in HubSpot Marketing Hub and Klaviyo; debugs a broken workflow faster than most consultants brief one.",
+        facts: [
+          { label: "Experience", value: "4 years automation & CRM" },
+          { label: "English", value: "Fluent, written & spoken" },
+          { label: "Timezone", value: "UTC+3 (CET +1/+2h)" },
+          { label: "Pay", value: "2–4x local market rate" },
+        ],
+        note: "Profiles are anonymised until a scoping call — our specialists get poached enough as it is.",
+      },
+      savings: {
+        title: "What you save",
+        body: "Automation specialists in Western Europe run €2,500–4,500/month as employees; senior freelance consultants far more. A pod specialist starts at €2,000/month with QA and management included.",
+        band: "Typically 40–60% below EU employer cost",
+      },
+      faq: [
+        {
+          q: "Can they design the automation strategy?",
+          a: "They contribute, but strategy stays with your consultants or our QA lead. The pod's job is flawless build-and-run — which is what actually breaks in most retainers.",
+        },
+        {
+          q: "What platforms do you cover?",
+          a: "HubSpot, Klaviyo, Mailchimp and ActiveCampaign natively; Zapier/Make for glue. Exotic stacks: ask — we'll be honest about ramp-up time.",
+        },
+        {
+          q: "How do you handle client data in CRMs?",
+          a: "DPA + Standard Contractual Clauses in every contract, least-privilege access, and activity logs. GDPR is covered contractually before a specialist ever touches a record.",
+        },
+      ],
+      cta: "Scope an automation pod",
+    },
+    development: {
+      slug: "development",
+      name: "Developer",
+      seoTitle: "Hire an Offshore Web Developer for Your Agency | enable.talent",
+      seoDescription:
+        "Dedicated mid-level developers for agency delivery: WordPress, Webflow, Shopify and Next.js builds from Nairobi, code-reviewed under European QA. From €2,400/month.",
+      tagline: "Landing pages, sites and storefronts shipped on schedule — with code review, staging discipline and no heroics.",
+      intro: [
+        "Agency dev work is feast-or-famine: three site builds this month, none the next. Hiring a mid-level developer in Germany costs €5,000–6,500 a month whether the pipeline is full or not — so the work goes to overbooked freelancers, and deadlines start to drift.",
+        "A pod developer gives you dedicated build capacity at a fraction of that: WordPress and Webflow sites, Shopify storefronts, landing pages, tracking implementations and the endless stream of 'small changes' that block your marketing team. Nairobi has real engineering depth — mid-level developers at ~$1,225/month local employer cost, trained in an ecosystem where Google, Microsoft and Safaricom recruit.",
+        "Delivery discipline is the differentiator: version control, staging environments, and review under the pod's European QA before anything touches production. Speed without cowboy deploys.",
+      ],
+      inPod: {
+        title: "What a developer does inside your pod",
+        items: [
+          { title: "Site & landing page builds", body: "WordPress, Webflow and Shopify builds from your designs — pixel-faithful, responsive, on deadline." },
+          { title: "Frontend development", body: "Next.js / React work for headless builds and web apps where the project calls for real code." },
+          { title: "Tracking & integrations", body: "GTM containers, GA4 events, pixel and CAPI implementations, CRM and form integrations — tested, documented." },
+          { title: "Maintenance & change queue", body: "The 'can we quickly change…' queue handled inside SLA, so client sites stop being your bottleneck." },
+        ],
+      },
+      stack: {
+        title: "Skills & stack",
+        items: ["WordPress / PHP", "Webflow", "Shopify / Liquid", "JavaScript / TypeScript", "React / Next.js", "HTML/CSS/Tailwind", "Git", "GTM / GA4", "REST APIs"],
+      },
+      profile: {
+        title: "A profile from our bench",
+        name: "K., 27 — Nairobi",
+        summary:
+          "Software engineering background via Moringa School plus four years shipping web work for agencies and startups — WordPress and Shopify in production, React for two SaaS frontends. Writes documented, reviewable code and actually enjoys tracking implementations.",
+        facts: [
+          { label: "Experience", value: "4 years web development" },
+          { label: "English", value: "Fluent, written & spoken" },
+          { label: "Timezone", value: "UTC+3 (CET +1/+2h)" },
+          { label: "Pay", value: "2–4x local market rate" },
+        ],
+        note: "Profiles are anonymised until a scoping call — our specialists get poached enough as it is.",
+      },
+      savings: {
+        title: "What you save",
+        body: "A mid-level developer costs €3,000–4,000/month in Italy and €5,000–6,500 in Germany before overhead. A pod developer starts around €2,400/month, code-reviewed and managed.",
+        band: "Typically 40–65% below EU employer cost",
+      },
+      faq: [
+        {
+          q: "Who reviews the code?",
+          a: "Every merge passes review — by your tech lead if you have one, or under our QA process with senior oversight. Staging before production, always.",
+        },
+        {
+          q: "Can they work in our repos and tooling?",
+          a: "Yes — your Git hosting, your CI, your project management. Least-privilege access, and everything contractually covered by DPA.",
+        },
+        {
+          q: "Backend and app development too?",
+          a: "The sweet spot is web delivery for marketing: sites, storefronts, landing pages, tracking. For deep backend or mobile products, we'll tell you straight and help you scope elsewhere.",
+        },
+      ],
+      cta: "Scope a dev pod",
+    },
+  },
+  it: {
+    "paid-media": {
+      slug: "paid-media",
+      name: "Paid media / Media buyer",
+      seoTitle: "Specialist Paid Media Offshore Gestito | Pod — enable.talent",
+      seoDescription:
+        "Aggiungi alla delivery della tua agenzia uno specialist paid media dedicato e gestito. Google, Meta e LinkedIn Ads da Nairobi, con QA di marketer senior europei. Da €2.000/mese, trial di 2 settimane.",
+      tagline: "Campagne costruite, lanciate e ottimizzate ogni giorno — riviste da un buyer senior europeo prima che il tuo cliente veda un numero.",
+      intro: [
+        "Il paid media è dove muoiono i margini delle agenzie: i clienti pretendono ottimizzazione quotidiana, le piattaforme cambiano ogni settimana, e un buon media buyer in Germania costa €3.600–5.200 al mese prima dell'overhead. La risposta tipica è sovraccaricare un buyer senior su troppi account — e la performance decade in silenzio.",
+        "Uno specialist paid media in pod toglie il livello operativo dalla scrivania di quel senior: build delle campagne, matrici di test su audience e creatività, pacing dei budget, liste negative, reporting settimanale. Il tuo strategist decide; il pod esegue e documenta. Ogni modifica e ogni report passa dal QA lead senior europeo del pod prima di arrivare al cliente.",
+        "Non è un freelance che si destreggia tra cinque agenzie. Il tuo specialist lavora solo sui tuoi account, con le tue naming convention, nei tuoi template di reporting, nel tuo orario — Nairobi è solo 1–2 ore avanti rispetto all'Europa centrale.",
+      ],
+      inPod: {
+        title: "Cosa fa uno specialist paid media nel tuo pod",
+        items: [
+          { title: "Build e ristrutturazioni", body: "Search, PMax, Meta, LinkedIn — costruite dal tuo media plan, con naming convention e disciplina UTM che il tuo team può auditare." },
+          { title: "Ottimizzazione quotidiana", body: "Pacing dei budget, aggiustamenti di bid strategy, mining dei termini di ricerca, esclusioni audience, rotazione creatività. Tutto loggato: niente avviene in silenzio." },
+          { title: "Programmi di test", body: "Test strutturati su creatività e audience, con ipotesi e stop-rule, non duplica-e-ritocca a caso." },
+          { title: "Report che i clienti capiscono", body: "Dashboard Looker Studio e commento settimanale scritto per il cliente, rivisto da un buyer senior europeo prima dell'invio." },
+        ],
+      },
+      stack: {
+        title: "Skill e stack",
+        items: ["Google Ads", "Meta Ads", "LinkedIn Ads", "TikTok Ads", "GA4", "Google Tag Manager", "Looker Studio", "Modelli Excel / Sheets", "Basi di tracking server-side"],
+      },
+      profile: {
+        title: "Un profilo dalla nostra bench",
+        name: "P., 29 — Nairobi",
+        summary:
+          "Quattro anni di account performance per brand e-commerce e fintech dell'Africa orientale, gli ultimi due gestendo spesa su Google e Meta per clienti internazionali. Certificato Google Ads, nativo su GA4, scrive commenti di reporting in inglese chiaro.",
+        facts: [
+          { label: "Esperienza", value: "4+ anni di performance marketing" },
+          { label: "Inglese", value: "Fluente, scritto e parlato" },
+          { label: "Fuso", value: "UTC+3 (CET +1/+2h)" },
+          { label: "Retribuzione", value: "2–4x il mercato locale" },
+        ],
+        note: "I profili restano anonimi fino alla call di scoping — i nostri specialist vengono già corteggiati abbastanza.",
+      },
+      savings: {
+        title: "Quanto risparmi",
+        body: "Un media buyer costa €2.000–2.500/mese in Italia e €3.600–5.200 in Germania, prima di tasse e overhead. Uno specialist in pod parte da €2.000/mese con gestione e QA senior inclusi.",
+        band: "Tipicamente 40–65% sotto il costo datoriale EU",
+      },
+      faq: [
+        { q: "Di chi sono gli ad account?", a: "Tuoi o del tuo cliente, sempre. Il pod lavora nei tuoi account con accessi gestiti da agenzia. Niente resta in ostaggio nei nostri." },
+        { q: "Lo specialist può parlare con i miei clienti?", a: "Il default è white-label: il tuo team ci mette la faccia, il pod esegue. Se vuoi, il QA lead europeo entra nelle call come voce della delivery." },
+        { q: "Quanto ci mette a prendere in mano account live?", a: "Tipicamente la prima settimana: accessi, audit, naming convention, passaggio del reporting. A regime entro il trial di 2 settimane." },
+      ],
+      cta: "Definisci un pod paid media",
+    },
+    seo: {
+      slug: "seo",
+      name: "SEO specialist",
+      seoTitle: "Specialist SEO Remoto Gestito | Pod — enable.talent",
+      seoDescription:
+        "Specialist SEO dedicati per agenzie europee: audit tecnici, brief per i contenuti, on-page e operations da Nairobi, con QA di SEO senior europei. Da €2.000/mese, trial di 2 settimane.",
+      tagline: "L'80% poco glamour della SEO — audit, brief, on-page, tracking — fatto con costanza, così i tuoi strategist possono fare strategia.",
+      intro: [
+        "Tutte le agenzie vendono retainer SEO; poche riescono a staffarli con margine. Uno specialist SEO costa €2.400/mese in Italia (RAL mediana €35.333) e €3.500–4.500 in Germania — per un lavoro in gran parte sistematico: crawl, audit, brief, implementazione on-page, internal linking, igiene del tracking.",
+        "Uno specialist SEO in pod possiede quel livello sistematico. Esegue i crawl e li trasforma in fix prioritizzati, scrive brief dai tuoi cluster di keyword, implementa l'on-page, monitora Search Console e tiene onesto il reporting. Il tuo SEO senior dà la direzione e rivede l'output — o lo fa il nostro, come layer di QA.",
+        "Risultato: i tuoi retainer smettono di dipendere dal pomeriggio libero del tuo unico SEO senior. I deliverable escono ogni settimana, documentati, nei tuoi template.",
+      ],
+      inPod: {
+        title: "Cosa fa uno specialist SEO nel tuo pod",
+        items: [
+          { title: "Audit tecnici e fix", body: "Crawl con Screaming Frog / Semrush trasformati in un backlog prioritizzato pronto per gli sviluppatori — e implementato dove gli accessi lo permettono." },
+          { title: "Brief e ottimizzazione contenuti", body: "Brief guidati dalla SERP che i tuoi copywriter possono eseguire, più ottimizzazione on-page delle pagine che convertono." },
+          { title: "Internal linking e struttura", body: "Programmi sistematici di link interni e raccomandazioni di architettura, mappati sui tuoi cluster." },
+          { title: "Tracking e reporting", body: "Dashboard GA4 + Search Console, rank tracking, narrative mensili comprensibili per i clienti, riviste prima dell'invio." },
+        ],
+      },
+      stack: {
+        title: "Skill e stack",
+        items: ["Semrush", "Ahrefs", "Screaming Frog", "Google Search Console", "GA4", "WordPress", "Webflow", "HTML/CSS di base", "Looker Studio", "Surfer / tool NLP"],
+      },
+      profile: {
+        title: "Un profilo dalla nostra bench",
+        name: "S., 31 — Nairobi",
+        summary:
+          "Cinque anni di SEO per publisher e servizi B2B, di cui due dentro un team d'agenzia con clienti UK. A suo agio sia sul tecnico sia sui contenuti; scrive brief in inglese strutturato che i copywriter seguono davvero.",
+        facts: [
+          { label: "Esperienza", value: "5 anni di SEO, lato agenzia" },
+          { label: "Inglese", value: "Fluente, scritto e parlato" },
+          { label: "Fuso", value: "UTC+3 (CET +1/+2h)" },
+          { label: "Retribuzione", value: "2–4x il mercato locale" },
+        ],
+        note: "I profili restano anonimi fino alla call di scoping — i nostri specialist vengono già corteggiati abbastanza.",
+      },
+      savings: {
+        title: "Quanto risparmi",
+        body: "Uno specialist SEO costa ~€2.400/mese in Italia e €3.500–4.500 in Germania prima dell'overhead. Uno specialist in pod parte da €2.000/mese, gestione e QA senior inclusi.",
+        band: "Tipicamente 40–60% sotto il costo datoriale EU",
+      },
+      faq: [
+        { q: "Scrive anche i contenuti?", a: "Brief, metadata e copy on-page in inglese, nativamente. Per long-form in italiano, tedesco o spagnolo, affiancalo ai tuoi writer o aggiungi uno specialist content al pod — brief e QA tengono la qualità costante." },
+        { q: "Fa link building?", a: "Operations di outreach, prospecting e tracking sì — dentro programmi white-hat definiti da te. Non gestiamo PBN né compriamo link, e se serve lo diciamo in faccia ai tuoi clienti." },
+        { q: "Come fate QA sul lavoro SEO?", a: "Ogni audit, brief e report passa da un SEO senior europeo prima della consegna. L'implementazione viene verificata contro il brief con una checklist documentata." },
+      ],
+      cta: "Definisci un pod SEO",
+    },
+    "content-social": {
+      slug: "content-social",
+      name: "Content & Social specialist",
+      seoTitle: "Specialist Content e Social Media Offshore | enable.talent",
+      seoDescription:
+        "Specialist content e social dedicati per agenzie: calendari, copy, community e reporting da Nairobi, con QA europeo. Da €2.000/mese con trial di 2 settimane.",
+      tagline: "Calendari pieni, post pubblicati, community seguite — ogni settimana, nella voce del tuo brand, con revisione europea.",
+      intro: [
+        "I retainer content e social sono un business di volume: ogni cliente vuole calendari, varianti di copy, scheduling, community management e report mensili. Nel Regno Unito uno specialist social costa £3.000–4.500 al mese; in Italia €1.500–2.000 — e comunque copre un numero finito di clienti prima che la qualità scivoli.",
+        "Uno specialist content & social in pod industrializza quel volume. Prepara i calendari dalla tua strategia, scrive copy in inglese a livello nativo, adatta i formati per canale, programma, monitora e riporta. Il QA lead europeo rivede tono e coerenza di brand prima che qualcosa entri in coda — così l''offshore' non compare mai nei feed dei tuoi clienti.",
+        "Per i mercati non anglofoni il pod lavora brief-to-draft: il tuo team locale rifinisce la lingua mentre il pod porta ricerca, struttura, coordinamento visual e operations — che di solito sono il vero collo di bottiglia.",
+      ],
+      inPod: {
+        title: "Cosa fa uno specialist content & social nel tuo pod",
+        items: [
+          { title: "Calendari editoriali", body: "Calendari mensili per cliente, mappati su campagne e pillar, consegnati in approvazione nel tuo template." },
+          { title: "Copy e adattamento", body: "Copy inglese di qualità nativa; bozze strutturate per le altre lingue, pronte per la rifinitura locale. Adattamento formati per canale." },
+          { title: "Scheduling e community", body: "Gestione code su Meta, LinkedIn, TikTok e X; triage di commenti e DM con regole di escalation definite da te." },
+          { title: "Reporting social", body: "Report mensili con un commento che i clienti leggono davvero, rivisti prima dell'invio." },
+        ],
+      },
+      stack: {
+        title: "Skill e stack",
+        items: ["Meta Business Suite", "LinkedIn", "TikTok", "Buffer / Hootsuite / Later", "Canva", "Figma (handoff)", "CapCut", "Notion", "Basi GA4"],
+      },
+      profile: {
+        title: "Un profilo dalla nostra bench",
+        name: "C., 27 — Nairobi",
+        summary:
+          "Tre anni di social per brand consumer e una media company panafricana; ha gestito calendari multi-mercato in inglese con 30+ post a settimana. Scrive bene, veloce nell'editing di short-form video.",
+        facts: [
+          { label: "Esperienza", value: "3+ anni di social e content" },
+          { label: "Inglese", value: "Fluente — copy di qualità nativa" },
+          { label: "Fuso", value: "UTC+3 (CET +1/+2h)" },
+          { label: "Retribuzione", value: "2–4x il mercato locale" },
+        ],
+        note: "I profili restano anonimi fino alla call di scoping — i nostri specialist vengono già corteggiati abbastanza.",
+      },
+      savings: {
+        title: "Quanto risparmi",
+        body: "Uno specialist content/social costa €1.500–2.000/mese in Italia e £3.000–4.500 nel Regno Unito prima dell'overhead. Nel pod, il ruolo rientra nello starter da €2.000/mese — con QA e gestione inclusi, e una capacità che non si mette in malattia.",
+        band: "Tipicamente 35–60% sotto il costo datoriale EU",
+      },
+      faq: [
+        { q: "Il copy suonerà 'offshore'?", a: "Il copy inglese è scritto a livello nativo e rivisto dal QA lead europeo per la voce del brand. Per italiano, tedesco o spagnolo il pod consegna bozze strutturate che il tuo team rifinisce — il carico operativo esce comunque dalla tua scrivania." },
+        { q: "Possono reggere SLA di community management?", a: "Sì — le finestre di risposta sono definite nello SLA del pod, e il fuso di Nairobi significa copertura durante il tuo orario di ufficio, non batch asincroni." },
+        { q: "Fanno anche i visual?", a: "Visual template-based in Canva/Figma, sì. Per sistemi di design originali aggiungi un designer al pod — i due ruoli lavorano come un'unica linea di delivery." },
+      ],
+      cta: "Definisci un pod content",
+    },
+    design: {
+      slug: "design",
+      name: "Designer",
+      seoTitle: "Designer Marketing Remoto Gestito | Pod — enable.talent",
+      seoDescription:
+        "Designer marketing dedicati per agenzie europee: kit social, creatività adv, landing page e materiali brand da Nairobi, con direzione artistica europea. Trial di 2 settimane.",
+      tagline: "Creatività adv, kit social e landing page a velocità di produzione — la direzione artistica resta a te, o al nostro QA senior.",
+      intro: [
+        "Il design è il primo collo di bottiglia quando il volume delle campagne cresce: ogni test paid vuole varianti, ogni calendario social vuole asset, ogni campagna vuole una landing — e i designer senior EU sono prenotati, costosi, o entrambe le cose.",
+        "Un designer in pod è un designer di marketing production-grade: veloce, sistematico, fluente nel tuo design system. Prende la direzione artistica dal tuo creative lead (o dal nostro QA senior) e la trasforma in asset consegnabili — nominati bene, nei formati giusti per ogni canale.",
+        "Il layer di QA nel design conta doppio: niente arriva ai tuoi clienti senza revisione contro il brand book. Le revisioni avvengono dentro il pod, non nella inbox del tuo cliente.",
+      ],
+      inPod: {
+        title: "Cosa fa un designer nel tuo pod",
+        items: [
+          { title: "Creatività adv e social", body: "Varianti statiche e light-motion per le matrici di test su Meta, Google, LinkedIn e TikTok — in batch, con naming convention." },
+          { title: "Landing page", body: "Design in Figma sul tuo sistema, pronto per il build in Webflow/WordPress — o costruito dal developer del pod." },
+          { title: "Materiali brand", body: "Deck, one-pager, cover di report, asset per eventi. La produzione ricorrente che divora le settimane dei designer senior." },
+          { title: "Igiene del design system", body: "Librerie di componenti e template tenuti puliti, così ogni asset successivo è più veloce del precedente." },
+        ],
+      },
+      stack: {
+        title: "Skill e stack",
+        items: ["Figma", "Adobe Photoshop", "Illustrator", "After Effects (base)", "Canva (sistemi template)", "Handoff Webflow", "Motion per social", "Sistemi di brand"],
+      },
+      profile: {
+        title: "Un profilo dalla nostra bench",
+        name: "D., 28 — Nairobi",
+        summary:
+          "Cinque anni di design digitale tra uno studio di Nairobi e clienti internazionali freelance; portfolio tra fintech, FMCG e campagne NGO. Sistematico con i componenti, veloce nel batching creativo, abituato a ricevere direzione artistica europea.",
+        facts: [
+          { label: "Esperienza", value: "5 anni di design digitale e brand" },
+          { label: "Inglese", value: "Fluente, scritto e parlato" },
+          { label: "Fuso", value: "UTC+3 (CET +1/+2h)" },
+          { label: "Retribuzione", value: "2–4x il mercato locale" },
+        ],
+        note: "I profili restano anonimi fino alla call di scoping — i nostri specialist vengono già corteggiati abbastanza.",
+      },
+      savings: {
+        title: "Quanto risparmi",
+        body: "Un designer digitale mid-level in Europa occidentale costa tipicamente €2.500–4.000/mese da dipendente, di più via studio. Un designer in pod rientra nello starter da €2.000/mese, con direzione artistica e QA.",
+        band: "Tipicamente 40–60% sotto il costo datoriale EU",
+      },
+      faq: [
+        { q: "Chi fa la direzione artistica?", a: "Tu, se hai un creative lead — il pod esegue a velocità di produzione. Se non ce l'hai, il nostro QA senior europeo definisce e fa rispettare la direzione dal tuo brand book." },
+        { q: "E le revisioni?", a: "I giri di revisione interni avvengono prima della consegna: brief → bozza → QA → delivery. I round col cliente arrivano su lavoro già rivisto una volta." },
+        { q: "Fanno video?", a: "Motion short-form per i social e editing di varianti creative, sì. La produzione video completa (riprese, long-form) è fuori scope — lo diciamo, invece di fingere." },
+      ],
+      cta: "Definisci un pod design",
+    },
+    "marketing-automation": {
+      slug: "marketing-automation",
+      name: "Marketing automation specialist",
+      seoTitle: "Specialist Marketing Automation Gestito | Pod — enable.talent",
+      seoDescription:
+        "Specialist marketing automation dedicati: flow HubSpot, Klaviyo e Mailchimp, igiene CRM, lead scoring e reporting — gestiti da Nairobi, QA in Europa.",
+      tagline: "Flow costruiti, CRM puliti, email spedite in orario — il lavoro sistematico che le piattaforme promettono e le agenzie finiscono per fare a mano.",
+      intro: [
+        "I retainer di marketing automation hanno un segreto sporco: piattaforme come HubSpot e Klaviyo non si gestiscono da sole. Qualcuno deve costruire i flow, segmentare le liste, testare le email, pulire il CRM e tenere onesta l'attribution — e quel qualcuno di solito è un consulente senior il cui tempo vale 4x il task.",
+        "Uno specialist automation in pod possiede il livello build-and-run: costruzione dei journey dalla tua architettura, produzione e test delle email, igiene delle liste, manutenzione del lead scoring, monitoraggio delle integrazioni e reporting. I tuoi consulenti tengono strategia e relazione col cliente.",
+        "Ogni flow va live solo dopo che il QA lead europeo ha percorso il journey da capo a fondo come farebbe un iscritto. Le automation rotte le troviamo noi, non i prospect del tuo cliente.",
+      ],
+      inPod: {
+        title: "Cosa fa uno specialist automation nel tuo pod",
+        items: [
+          { title: "Build di journey e flow", body: "Welcome, nurture, carrello, winback e lifecycle costruiti in HubSpot, Klaviyo, Mailchimp o ActiveCampaign dalla tua architettura." },
+          { title: "Produzione email", body: "Email su template con test seri su client e device — copy dal tuo team o dallo specialist content del pod." },
+          { title: "Igiene CRM e scoring", body: "Deduplica, disciplina dei campi, segmentazione e manutenzione del lead scoring che nessuno nel tuo team vuole possedere." },
+          { title: "Reporting e attribution", body: "Dashboard di performance di flow e campagne con commento mensile rivisto, legato alla pipeline dove i dati lo permettono." },
+        ],
+      },
+      stack: {
+        title: "Skill e stack",
+        items: ["HubSpot", "Klaviyo", "Mailchimp", "ActiveCampaign", "Zapier / Make", "GA4", "HTML per email", "Basi Segment", "Looker Studio"],
+      },
+      profile: {
+        title: "Un profilo dalla nostra bench",
+        name: "M., 30 — Nairobi",
+        summary:
+          "Quattro anni di CRM ed email marketing per e-commerce e SaaS, inclusa l'amministrazione HubSpot per un'azienda da 40 persone. Certificato HubSpot Marketing Hub e Klaviyo; debugga un workflow rotto più in fretta di quanto molti consulenti ci mettano a briffarlo.",
+        facts: [
+          { label: "Esperienza", value: "4 anni di automation e CRM" },
+          { label: "Inglese", value: "Fluente, scritto e parlato" },
+          { label: "Fuso", value: "UTC+3 (CET +1/+2h)" },
+          { label: "Retribuzione", value: "2–4x il mercato locale" },
+        ],
+        note: "I profili restano anonimi fino alla call di scoping — i nostri specialist vengono già corteggiati abbastanza.",
+      },
+      savings: {
+        title: "Quanto risparmi",
+        body: "Uno specialist automation in Europa occidentale costa €2.500–4.500/mese da dipendente; i consulenti freelance senior molto di più. Uno specialist in pod parte da €2.000/mese con QA e gestione inclusi.",
+        band: "Tipicamente 40–60% sotto il costo datoriale EU",
+      },
+      faq: [
+        { q: "Disegna anche la strategia di automation?", a: "Contribuisce, ma la strategia resta ai tuoi consulenti o al nostro QA lead. Il lavoro del pod è un build-and-run impeccabile — che è ciò che davvero si rompe nella maggior parte dei retainer." },
+        { q: "Che piattaforme coprite?", a: "HubSpot, Klaviyo, Mailchimp e ActiveCampaign nativamente; Zapier/Make come collante. Stack esotici: chiedi — saremo onesti sui tempi di ramp-up." },
+        { q: "Come gestite i dati dei clienti nei CRM?", a: "DPA + Standard Contractual Clauses in ogni contratto, accessi least-privilege e log di attività. Il GDPR è coperto contrattualmente prima che uno specialist tocchi un record." },
+      ],
+      cta: "Definisci un pod automation",
+    },
+    development: {
+      slug: "development",
+      name: "Developer",
+      seoTitle: "Developer Web Offshore per Agenzie | enable.talent",
+      seoDescription:
+        "Developer mid-level dedicati per la delivery d'agenzia: build WordPress, Webflow, Shopify e Next.js da Nairobi, con code review sotto QA europeo. Da €2.400/mese.",
+      tagline: "Landing, siti e storefront consegnati in orario — con code review, disciplina di staging e zero eroismi.",
+      intro: [
+        "Il lavoro dev in agenzia è festa-o-carestia: tre siti questo mese, zero il prossimo. Assumere un developer mid-level in Germania costa €5.000–6.500 al mese, pipeline piena o no — così il lavoro va a freelance strapieni, e le deadline iniziano a slittare.",
+        "Un developer in pod ti dà capacità di build dedicata a una frazione di quel costo: siti WordPress e Webflow, storefront Shopify, landing page, implementazioni di tracking e l'infinita coda di 'piccole modifiche' che blocca il tuo team marketing. Nairobi ha profondità ingegneristica vera — developer mid-level a ~$1.225/mese di costo datoriale locale, formati in un ecosistema dove reclutano Google, Microsoft e Safaricom.",
+        "La disciplina di delivery è il differenziatore: version control, ambienti di staging e review sotto il QA europeo del pod prima che qualcosa tocchi la produzione. Velocità senza deploy da cowboy.",
+      ],
+      inPod: {
+        title: "Cosa fa un developer nel tuo pod",
+        items: [
+          { title: "Build di siti e landing", body: "WordPress, Webflow e Shopify dai tuoi design — fedeli al pixel, responsive, in deadline." },
+          { title: "Sviluppo frontend", body: "Next.js / React per build headless e web app dove il progetto richiede codice vero." },
+          { title: "Tracking e integrazioni", body: "Container GTM, eventi GA4, pixel e CAPI, integrazioni CRM e form — testate, documentate." },
+          { title: "Manutenzione e coda modifiche", body: "La coda dei 'possiamo cambiare al volo…' gestita dentro lo SLA, così i siti dei clienti smettono di essere il tuo collo di bottiglia." },
+        ],
+      },
+      stack: {
+        title: "Skill e stack",
+        items: ["WordPress / PHP", "Webflow", "Shopify / Liquid", "JavaScript / TypeScript", "React / Next.js", "HTML/CSS/Tailwind", "Git", "GTM / GA4", "REST API"],
+      },
+      profile: {
+        title: "Un profilo dalla nostra bench",
+        name: "K., 27 — Nairobi",
+        summary:
+          "Background di software engineering via Moringa School più quattro anni di web per agenzie e startup — WordPress e Shopify in produzione, React su due frontend SaaS. Scrive codice documentato e revisionabile, e le implementazioni di tracking gli piacciono pure.",
+        facts: [
+          { label: "Esperienza", value: "4 anni di sviluppo web" },
+          { label: "Inglese", value: "Fluente, scritto e parlato" },
+          { label: "Fuso", value: "UTC+3 (CET +1/+2h)" },
+          { label: "Retribuzione", value: "2–4x il mercato locale" },
+        ],
+        note: "I profili restano anonimi fino alla call di scoping — i nostri specialist vengono già corteggiati abbastanza.",
+      },
+      savings: {
+        title: "Quanto risparmi",
+        body: "Un developer mid-level costa €3.000–4.000/mese in Italia e €5.000–6.500 in Germania prima dell'overhead. Un developer in pod parte da circa €2.400/mese, con code review e gestione.",
+        band: "Tipicamente 40–65% sotto il costo datoriale EU",
+      },
+      faq: [
+        { q: "Chi rivede il codice?", a: "Ogni merge passa da una review — dal tuo tech lead se ce l'hai, o dal nostro processo di QA con supervisione senior. Staging prima della produzione, sempre." },
+        { q: "Può lavorare nei nostri repo e tool?", a: "Sì — il tuo Git hosting, la tua CI, il tuo project management. Accessi least-privilege, tutto coperto contrattualmente da DPA." },
+        { q: "Anche backend e app?", a: "Lo sweet spot è la web delivery per il marketing: siti, storefront, landing, tracking. Per backend profondo o prodotti mobile te lo diciamo chiaro e ti aiutiamo a impostare il progetto altrove." },
+      ],
+      cta: "Definisci un pod dev",
+    },
+  },
+};
+
+interface RolesIndexContent {
+  seoTitle: string;
+  seoDescription: string;
+  title: string;
+  intro: string;
+  hint: string;
+}
+
+export const rolesIndex: Record<Locale, RolesIndexContent> = {
+  en: {
+    seoTitle: "Pod Roles: Offshore Marketing Specialists | enable.talent",
+    seoDescription:
+      "Six roles, one delivery engine: paid media, SEO, content & social, design, marketing automation and development — dedicated specialists in managed pods with European QA.",
+    title: "Six roles. One delivery engine.",
+    intro:
+      "Pods are assembled from these roles — one specialist or several, always dedicated, always under senior European QA. Pick the bottleneck; we'll build around it.",
+    hint: "Every role page includes real salary benchmarks, an anonymised profile and the questions agencies actually ask.",
+  },
+  it: {
+    seoTitle: "Ruoli dei Pod: Specialist Marketing Offshore | enable.talent",
+    seoDescription:
+      "Sei ruoli, un solo motore di delivery: paid media, SEO, content & social, design, marketing automation e sviluppo — specialist dedicati in pod gestiti con QA europeo.",
+    title: "Sei ruoli. Un solo motore di delivery.",
+    intro:
+      "I pod si compongono da questi ruoli — uno specialist o più, sempre dedicati, sempre sotto QA senior europeo. Scegli il collo di bottiglia; noi costruiamo intorno.",
+    hint: "Ogni pagina ruolo include benchmark salariali reali, un profilo anonimizzato e le domande che le agenzie fanno davvero.",
+  },
+};

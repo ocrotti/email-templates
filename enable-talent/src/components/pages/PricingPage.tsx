@@ -1,0 +1,111 @@
+import type { Locale } from "@/lib/site";
+import { localePath } from "@/lib/site";
+import { pricing } from "@/content/pricing";
+import { BreadcrumbJsonLd, FaqJsonLd, ServiceJsonLd } from "@/components/JsonLd";
+import Faq from "@/components/Faq";
+import MagneticButton from "@/components/MagneticButton";
+import Reveal from "@/components/Reveal";
+import Section from "@/components/Section";
+
+export default function PricingPage({ locale }: { locale: Locale }) {
+  const t = pricing[locale];
+
+  return (
+    <>
+      <ServiceJsonLd name="Managed marketing pods" description={t.seoDescription} path={localePath(locale, "/pricing")} />
+      <FaqJsonLd items={t.faq} />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "enable.talent", path: localePath(locale, "/") },
+          { name: "Pricing", path: localePath(locale, "/pricing") },
+        ]}
+      />
+
+      <section className="bg-ink px-5 pb-16 pt-32 text-paper md:px-10 md:pb-24 md:pt-44">
+        <div className="mx-auto w-full max-w-wrap">
+          <Reveal>
+            <h1 className="text-display-lg max-w-4xl font-display font-bold">{t.title}</h1>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mist">{t.intro}</p>
+          </Reveal>
+        </div>
+      </section>
+
+      <Section theme="dark">
+        <div className="grid gap-6 lg:grid-cols-2">
+          {t.tiers.map((tier, i) => (
+            <Reveal key={tier.name} delay={i * 0.12}>
+              <div
+                className={`flex h-full flex-col rounded-3xl border p-8 md:p-10 ${
+                  tier.highlighted
+                    ? "border-blue/50 bg-blue/10 shadow-glow-blue"
+                    : "border-ink-line bg-ink-soft/50"
+                }`}
+              >
+                <h2 className="font-display text-xl font-semibold text-paper">{tier.name}</h2>
+                <p className="mt-4">
+                  <span className={`font-display text-5xl font-bold ${tier.highlighted ? "text-blue-bright" : "text-paper"}`}>
+                    {tier.price}
+                  </span>
+                  <span className="ml-2 text-sm text-mist">{tier.priceNote}</span>
+                </p>
+                <p className="mt-5 text-sm leading-relaxed text-mist md:text-base">{tier.description}</p>
+                <ul className="mt-7 flex-1 space-y-3">
+                  {tier.features.map((f) => (
+                    <li key={f} className="flex items-start gap-3 text-sm text-paper/85">
+                      <span className={`mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full ${tier.highlighted ? "bg-blue-bright" : "bg-amber"}`} aria-hidden />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-9">
+                  <MagneticButton href={localePath(locale, "/contact")} variant={tier.highlighted ? "primary" : "ghost"}>
+                    {tier.cta} →
+                  </MagneticButton>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
+
+      <Section title={t.included.title} intro={t.included.intro} theme="light" compact>
+        <div className="overflow-x-auto">
+          <table className="w-full min-w-[640px] border-separate border-spacing-0 text-left text-sm">
+            <thead>
+              <tr>
+                <th className="border-b border-paper-line pb-3 pr-6 font-display text-base text-ink/70" />
+                <th className="border-b border-paper-line pb-3 pr-6 font-display text-base font-semibold text-blue">Starter</th>
+                <th className="border-b border-paper-line pb-3 font-display text-base font-semibold text-ink">Full</th>
+              </tr>
+            </thead>
+            <tbody>
+              {t.included.rows.map((row) => (
+                <tr key={row.label}>
+                  <td className="border-b border-paper-line/70 py-3.5 pr-6 font-medium text-ink">{row.label}</td>
+                  <td className="border-b border-paper-line/70 py-3.5 pr-6 text-ink/65">{row.starter}</td>
+                  <td className="border-b border-paper-line/70 py-3.5 text-ink/65">{row.full}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </Section>
+
+      <Section title={t.why.title} theme="dark" compact>
+        <div className="max-w-2xl space-y-5">
+          {t.why.body.map((p) => (
+            <Reveal key={p.slice(0, 24)}>
+              <p className="text-base leading-relaxed text-paper/80 md:text-lg">{p}</p>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
+
+      <Section title={locale === "en" ? "Pricing FAQ" : "FAQ sui prezzi"} theme="dark" compact>
+        <Faq items={t.faq} />
+      </Section>
+    </>
+  );
+}
