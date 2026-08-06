@@ -1,0 +1,374 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   ENABLE PHARMA — design tokens
+   Active theme: "lacca" — warm ivory paper, warm near-black ink, lacquer red.
+   Two alternate directions are documented at the bottom of this file
+   ("cobalto" and "clinico"): set data-theme on <html> to switch.
+--------------------------------------------------------------------------- */
+
+@theme {
+  /* Palette (theme: lacca) */
+  --color-paper: #f4f0e6;
+  --color-paper-2: #ebe5d6;
+  --color-ink: #1a1712;
+  --color-ink-2: #2b2820;
+  --color-ink-soft: #57503f;
+  --color-accent: #c73b16;
+  --color-accent-deep: #9c2c0e;
+  --color-accent-ondark: #ff5a2b;
+  --color-line: #d9d2c0;
+  --color-line-dark: #3a362b;
+
+  /* Typography */
+  --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, "SFMono-Regular", monospace;
+
+  /* Type scale helpers. The display floor is set by the longest
+     unbreakable word in the hero ("communities," in EN) at the
+     narrowest supported viewport (320px); the svh term keeps the whole
+     hero — headline, subtitle and primary CTA — above the fold on a
+     short laptop screen. See README. */
+  --text-display: clamp(2.45rem, min(8.2vw, 10.5svh), 8rem);
+  --text-display-2: clamp(2.1rem, 6vw, 5.5rem);
+  --text-title: clamp(1.75rem, 3.6vw, 3.25rem);
+
+  /* Motion */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-inout-quart: cubic-bezier(0.76, 0, 0.24, 1);
+
+  /* Layout */
+  --spacing-gutter: clamp(1.25rem, 4vw, 4rem);
+}
+
+/* ------------------------------------------------------------------ base */
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01" on;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-paper);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent-deep);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.on-dark :focus-visible {
+  outline-color: var(--color-accent-ondark);
+}
+
+/* ------------------------------------------------------- type utilities */
+
+.font-display {
+  font-family: var(--font-sans);
+  font-stretch: 125%;
+  font-weight: 680;
+  letter-spacing: -0.025em;
+  line-height: 0.94;
+  text-wrap: balance;
+}
+
+.font-display-soft {
+  font-family: var(--font-sans);
+  font-stretch: 118%;
+  font-weight: 620;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+
+/* On phones the expanded cut costs more width than the layout has.
+   A narrower axis keeps long words intact and actually reads better
+   at small sizes. */
+@media (max-width: 480px) {
+  .font-display {
+    font-stretch: 100%;
+    letter-spacing: -0.03em;
+  }
+
+  .font-display-soft {
+    font-stretch: 100%;
+  }
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.prose-copy {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  max-width: 68ch;
+}
+
+.prose-copy a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--color-accent);
+}
+
+/* Giant section numbers (01–08) */
+.section-number {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: clamp(4.5rem, 14vw, 13rem);
+  line-height: 0.8;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-ink-soft);
+  opacity: 0.55;
+  user-select: none;
+}
+
+.on-dark .section-number {
+  -webkit-text-stroke: 1px var(--color-line-dark);
+  opacity: 0.9;
+}
+
+/* ------------------------------------------------------------- marquee */
+
+@keyframes marquee-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-x var(--marquee-duration, 42s) linear infinite;
+  will-change: transform;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* ------------------------------------------------------------ accordion */
+
+.accordion-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.5s var(--ease-out-expo);
+}
+
+.accordion-panel > div {
+  overflow: hidden;
+}
+
+.accordion-item[data-open="true"] .accordion-panel {
+  grid-template-rows: 1fr;
+}
+
+/* ------------------------------------------------------------ reveal */
+
+/* [data-reveal] elements are NOT pre-hidden in CSS. MotionRoot hides
+   only the ones still below the fold when it initialises, so content
+   in the initial viewport paints immediately (good for LCP) and never
+   depends on the motion bundle loading at all. */
+
+/* CSS-only load reveals (hero): paint without waiting for hydration */
+@keyframes split-rise {
+  from {
+    transform: translateY(110%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.split-line {
+  transform: translateY(110%);
+  animation: split-rise 0.85s var(--ease-out-expo) forwards;
+}
+
+@keyframes fade-up-kf {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  opacity: 0;
+  animation: fade-up-kf 0.8s var(--ease-out-expo) forwards;
+}
+
+/* Page transition, replayed on every route change (template.tsx) */
+@keyframes page-enter-kf {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-enter {
+  animation: page-enter-kf 0.55s var(--ease-out-expo) both;
+}
+
+/* Progress line for the process timeline */
+.process-line {
+  transform-origin: top;
+}
+
+/* Card hover: single coherent effect — animated border sweep */
+.card-sweep {
+  position: relative;
+}
+
+.card-sweep::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--color-accent);
+  opacity: 0;
+  transform: scale(0.985);
+  transition:
+    opacity 0.45s var(--ease-out-expo),
+    transform 0.45s var(--ease-out-expo);
+  pointer-events: none;
+}
+
+@media (hover: hover) {
+  .card-sweep:hover::after {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ------------------------------------------------- reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  /* The track and its rows are flex containers whose children are
+     shrink-0; unsetting that on every level is what actually lets the
+     list wrap instead of overflowing once the animation is off. */
+  .marquee-track {
+    animation: none;
+    flex-wrap: wrap;
+    width: auto;
+  }
+
+  .marquee-track > ul {
+    flex-shrink: 1;
+    flex-wrap: wrap;
+    width: auto;
+  }
+
+  .marquee-track > ul > li {
+    flex-shrink: 1;
+  }
+
+  /* The duplicated row exists only to make the loop seamless. */
+  .marquee-track > ul[aria-hidden="true"] {
+    display: none;
+  }
+
+  .accordion-panel {
+    transition: none;
+  }
+
+  .split-line {
+    animation: none;
+    transform: none;
+  }
+
+  .fade-up {
+    animation: none;
+    opacity: 1;
+  }
+
+  .page-enter {
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.15s !important;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   ALTERNATE THEMES (documented, not active).
+   Switch by setting <html data-theme="cobalto"> or <html data-theme="clinico">
+   in src/app/[locale]/layout.tsx. Re-check WCAG AA contrast if you adjust.
+--------------------------------------------------------------------------- */
+
+/* Direction 2 — "cobalto": near-black blue ink on cool porcelain,
+   deep electric blue accent. Colder, more product-engineering. */
+[data-theme="cobalto"] {
+  --color-paper: #f2f3f1;
+  --color-paper-2: #e7e9e6;
+  --color-ink: #101422;
+  --color-ink-2: #1c2233;
+  --color-ink-soft: #4a5166;
+  --color-accent: #1f3fff;
+  --color-accent-deep: #1730c4;
+  --color-accent-ondark: #5f79ff;
+  --color-line: #d3d6d9;
+  --color-line-dark: #2c3247;
+}
+
+/* Direction 3 — "clinico": deep clinical green dominant with a vivid
+   spring accent. Darker, more institutional. */
+[data-theme="clinico"] {
+  --color-paper: #eff2ec;
+  --color-paper-2: #e3e8dd;
+  --color-ink: #14201a;
+  --color-ink-2: #1f3028;
+  --color-ink-soft: #49584f;
+  --color-accent: #0e7a4f;
+  --color-accent-deep: #0a5d3c;
+  --color-accent-ondark: #43d98c;
+  --color-line: #d0d7cc;
+  --color-line-dark: #2b3d33;
+}
