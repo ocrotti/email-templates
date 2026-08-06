@@ -11,7 +11,8 @@
     "check:a11y": "node scripts/check-a11y.mjs",
     "check:layout": "node scripts/check-layout.mjs",
     "check:vitals": "node scripts/check-vitals.mjs",
-    "portable": "node scripts/make-portable.mjs"
+    "portable": "node scripts/make-portable.mjs",
+    "artifact": "node scripts/make-artifact.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.4.0",
