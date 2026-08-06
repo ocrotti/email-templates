@@ -38,6 +38,16 @@ npm run check:vitals   # Core Web Vitals con emulazione Pixel 5 e CPU 4×.
                        # Budget: CLS ≤ 0.01 (target 0), LCP ≤ 2500 ms
 ```
 
+### Stato verificato
+
+Lighthouse mobile (Pixel 5 emulato) su home IT, home EN, una pagina servizio, prodotti e una guida:
+
+| | Performance | Accessibility | Best practices | SEO | CLS |
+|---|---|---|---|---|---|
+| tutte le pagine testate | 99 | 100 | 100 | 100 | 0 |
+
+I tre script di controllo passano su tutte e 36 le pagine. I dati citati nel copy sono solo questi, tutti con fonte in pagina: perimetro NIS2 e sanzioni (ACN, D.Lgs. 138/2024), soglie ed esclusioni EAA (D.Lgs. 82/2022), adozione AI nelle PMI (ISTAT 2025), mercato AI italiano (Osservatorio Politecnico di Milano). Nessun logo cliente, testimonianza, metrica di progetto o nome di persona è inventato.
+
 ## Struttura
 
 ```
