@@ -15,11 +15,12 @@ const defaults =
   lang === 'it'
     ? {
         title: 'Parla con un senior, non con un commerciale.',
-        text: 'Raccontaci dove sei: rispondiamo entro 24 ore lavorative con un parere onesto — anche quando la risposta è "non vi serve".',
+        text: 'Raccontaci dove sei: rispondiamo entro 24 ore lavorative con un parere onesto — anche quando la risposta è “non vi serve”.',
       }
     : {
         title: 'Talk to a senior, not a salesperson.',
-        text: 'Tell us where you stand: we reply within 24 business hours with an honest opinion — even when the answer is "you don\'t need us".',
+        text:
+          'Tell us where you stand: we reply within one business day with an honest opinion — even when the answer is “you don’t need us”.',
       };
 const { title = defaults.title, text = defaults.text } = Astro.props;
 const strings = t(lang);

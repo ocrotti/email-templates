@@ -13,7 +13,7 @@ const lang = 'en' as const;
 
 const nextSteps = [
   {
-    title: 'We reply within 24 business hours',
+    title: 'We reply within one business day',
     text: 'A reply written by a person, with real questions about your situation. Not a template, not “thanks, we’ll be in touch”.',
   },
   {
@@ -52,7 +52,7 @@ const verticals = [
     note: 'GDPR, NIS2, EAA, AI Act.',
   },
   { key: 'serviceData', title: 'Data & AI', note: 'AI-native for SMEs.' },
-  { key: 'serviceCrm', title: 'CRM & martech', note: 'Turn your customers into value.' },
+  { key: 'serviceCrm', title: 'CRM & martech', note: 'Turn your customer base into value.' },
   {
     key: 'serviceWeb',
     title: 'Web, tech & e-commerce',
@@ -65,7 +65,7 @@ const verticals = [
   lang={lang}
   routeKey="contact"
   title="Contact: book your audit | enable.advisory"
-  description="Talk to a senior at enable.advisory: we reply within 24 business hours, always a person. Book your audit, a 30-minute call, or just tell us your context."
+  description="Talk to a senior at enable.advisory: we reply within one business day, always a person. Book your audit, a 30-minute call, or just tell us your context."
   ogImage="/og/contact-en.png"
 >
   <Breadcrumbs lang={lang} items={[{ name: 'Contact', path: path('contact', lang) }]} />
@@ -84,12 +84,12 @@ const verticals = [
         Talk to a senior
       </h1>
       <p class="mt-8 max-w-xl text-lead text-mist" data-reveal>
-        Write to us here and we reply within 24 business hours. A person replies — one of the
+        Write to us here and we reply within one business day. A person replies — one of the
         seniors, not a salesperson and not an autoresponder. Even when the answer is “you don’t
         need us”.
       </p>
       <ul class="mt-12 flex flex-wrap gap-3" data-reveal-group>
-        <li data-reveal><Pill>Reply within 24 business hours</Pill></li>
+        <li data-reveal><Pill>Reply within one business day</Pill></li>
         <li data-reveal><Pill>Always a senior</Pill></li>
         <li data-reveal><Pill>Never an autoresponder</Pill></li>
         <li data-reveal><Pill>A no, when it is a no</Pill></li>

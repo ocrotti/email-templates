@@ -21,7 +21,7 @@ export const ui = {
       contact: 'Contatti',
     },
     cta: {
-      bookAudit: "Prenota l'audit",
+      bookAudit: 'Prenota l’audit',
       startFixed: 'Inizia con un passo a prezzo fisso',
       allServices: 'Tutti i servizi',
       readGuide: 'Leggi la guida',
@@ -120,7 +120,7 @@ export const ui = {
         'Company size, sector, what is not working, regulatory deadlines…',
       privacy: 'I have read the privacy policy and consent to data processing.',
       submit: 'Send request',
-      note: 'We reply within 24 business hours. Always a person, never an autoresponder.',
+      note: 'We reply within one business day. Always a person, never an autoresponder.',
     },
     notFound: {
       title: 'Page not found',
