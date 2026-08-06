@@ -132,6 +132,21 @@ for (const file of files) {
     if (!/\balt=/.test(m[1])) err(name, 'tag <img> senza attributo alt');
   }
 
+  // --- href non navigabili: un segnaposto in un href porta a un 404, e uno
+  // schermo lettore lo annuncia comunque come link. Finché l'URL non c'è,
+  // l'elemento non deve essere un link.
+  for (const m of html.matchAll(/href="([^"]*)"/g)) {
+    const href = m[1];
+    if (/PLACEHOLDER|\[PREZZO\]|TODO/i.test(href))
+      err(name, `href segnaposto (link rotto): ${href.slice(0, 60)}`);
+    else if (
+      href &&
+      !/^(https?:|mailto:|tel:|#|\/)/.test(href) &&
+      !href.startsWith('data:')
+    )
+      err(name, `href relativo sospetto: ${href.slice(0, 60)}`);
+  }
+
   // --- placeholder non marcati / testo segnaposto sfuggito
   if (/\bLorem ipsum\b/i.test(html)) err(name, 'contiene testo Lorem ipsum');
   if (/\bTODO\b/.test(html.replace(/<!--[\s\S]*?-->/g, '')))

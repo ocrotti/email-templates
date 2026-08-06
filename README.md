@@ -34,6 +34,9 @@ npm run check:build    # su dist/: title/description unici, un solo H1, ordine
 npm run check:a11y     # in Chromium, su tutte le rotte: contenuto visibile senza
                        # JS, prefers-reduced-motion, skip link, focus ring su ogni
                        # stop di tastiera, aria di menu e accordion, landmark
+npm run check:layout   # tutte le rotte × 4 viewport: overflow orizzontale,
+                       # elementi fuori dal viewport, sezioni vuote, immagini
+                       # non caricate, H1 coperto dalla nav fissa
 npm run check:vitals   # Core Web Vitals con emulazione Pixel 5 e CPU 4×.
                        # Budget: CLS ≤ 0.01 (target 0), LCP ≤ 2500 ms
 ```

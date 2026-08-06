@@ -9,6 +9,7 @@
     "og": "node scripts/generate-og.mjs",
     "check:build": "node scripts/check-build.mjs",
     "check:a11y": "node scripts/check-a11y.mjs",
+    "check:layout": "node scripts/check-layout.mjs",
     "check:vitals": "node scripts/check-vitals.mjs"
   },
   "dependencies": {

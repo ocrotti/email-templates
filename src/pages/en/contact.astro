@@ -131,13 +131,13 @@ const verticals = [
               Pick your own slot on the calendar. Half an hour with the senior for your topic: you
               leave with an opinion, not a quote.
             </p>
+            {/* Not a link until the URL exists: a placeholder href would lead
+                to a 404. At launch restore
+                <Button href="…" variant="ghost">Open the calendar</Button>. */}
             <div class="mt-5">
-              <Button
-                href="[PLACEHOLDER: URL calendario — Cal.com/Calendly]"
-                variant="ghost"
-              >
+              <span class="btn btn-ghost cursor-not-allowed opacity-60" aria-disabled="true">
                 Open the calendar
-              </Button>
+              </span>
             </div>
             <p class="mt-3 text-[0.8125rem] text-mist">
               [PLACEHOLDER: URL calendario — Cal.com/Calendly]
@@ -149,10 +149,9 @@ const verticals = [
             <p class="mt-2 text-[0.9375rem] text-mist">
               For the short questions, when opening your email client is already too much.
             </p>
+            {/* Same: at launch restore <a href="https://wa.me/…">. */}
             <p class="mt-4">
-              <a href="[PLACEHOLDER: link wa.me]" class="link-plain text-paper">
-                Message us on WhatsApp
-              </a>
+              <span class="text-paper opacity-60">Message us on WhatsApp</span>
             </p>
             <p class="mt-3 text-[0.8125rem] text-mist">[PLACEHOLDER: link wa.me]</p>
           </div>
