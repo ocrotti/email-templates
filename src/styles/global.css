@@ -405,13 +405,18 @@ body {
   background: var(--color-ink);
   opacity: 0;
   visibility: hidden;
+  /* visibility commuta a fine transizione in chiusura e istantaneamente in
+     apertura: un overlay ancora `hidden` non potrebbe ricevere il focus. */
   transition:
     opacity 0.5s var(--ease-out-quart),
-    visibility 0.5s;
+    visibility 0s linear 0.5s;
 }
 .mobile-menu.is-open {
   opacity: 1;
   visibility: visible;
+  transition:
+    opacity 0.5s var(--ease-out-quart),
+    visibility 0s linear 0s;
 }
 @media (prefers-reduced-motion: no-preference) {
   .mobile-menu .menu-link {

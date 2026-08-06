@@ -1,0 +1,527 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Pill from '../../../components/Pill.astro';
+import Button from '../../../components/Button.astro';
+import ArrowLink from '../../../components/ArrowLink.astro';
+import SectionHeading from '../../../components/SectionHeading.astro';
+import VerticalCard from '../../../components/VerticalCard.astro';
+import ProductCard from '../../../components/ProductCard.astro';
+import Accordion from '../../../components/Accordion.astro';
+import Counter from '../../../components/Counter.astro';
+import CtaSection from '../../../components/CtaSection.astro';
+import { path } from '../../../lib/routes';
+import { serviceSchema } from '../../../lib/seo';
+
+const lang = 'en' as const;
+
+const faq = [
+  {
+    q: 'Does my website fall under the European Accessibility Act?',
+    a: 'The EAA has applied since 28 June 2025 and is implemented in Italy by Legislative Decree 82/2022: it covers digital services aimed at consumers, and e-commerce is explicitly in scope. The only carve-out is for microenterprises — fewer than 10 employees and under €2 million in annual turnover or balance sheet total. Both conditions have to be met, not just one. If you sell online and cross either threshold, you are in scope, and fines run from €2,500 to €40,000 per violation. Where it is genuinely unclear, the audit settles it in a few days, with the scope written down.',
+  },
+  {
+    q: 'What does WCAG 2.1 AA mean in practice?',
+    a: 'Very concrete things: enough contrast between text and background, everything usable by keyboard with a focus state you can always see, forms with real labels and error messages a human can understand, alternative text for images that carry meaning, a consistent heading structure, no information conveyed by colour alone, captions on video. It is the level the law requires, and it is not a checklist you tick at the end of a project: it is how the site has to be built, otherwise you pay to build the same components twice.',
+  },
+  {
+    q: 'Rebuild the site or fix the one we have?',
+    a: 'It depends on the technical foundation, and in most cases fixing wins. Accessibility problems cluster in a handful of recurring places — templates, components, forms, checkout — and correcting them costs a fraction of a rebuild. You rebuild when the platform works against you: a theme or plugins that block access to the markup, performance you cannot recover, content your team cannot update without calling the vendor. We tell you after the audit, with both numbers side by side — not before, and not with the quote already written.',
+  },
+  {
+    q: 'Does accessibility hold the design back?',
+    a: 'No — and this site is our proof: it is built to WCAG 2.1 AA. The constraints of accessibility (contrast, readable sizes, a visible focus state, clear hierarchy, interactions that work without a mouse) are the constraints of good design. What disappears is the vanity: pale grey text on grey, carousels that move on their own, menus that only open on hover. It is not less design. It is design that also has to work outside ideal conditions — which is most of the time.',
+  },
+];
+
+const schema = [
+  serviceSchema({
+    name: 'Web, tech & e-commerce — European Accessibility Act compliance and e-commerce',
+    description:
+      'Websites and e-commerce for SMEs in Italy, compliant with the European Accessibility Act (WCAG 2.1 AA): accessibility, conversion, performance and technical SEO handled as one project.',
+    path: path('serviceWeb', lang),
+    lang,
+  }),
+];
+---
+
+<Base
+  lang={lang}
+  routeKey="serviceWeb"
+  title="Accessible websites (EAA) & e-commerce | enable.advisory"
+  description="European Accessibility Act compliance (WCAG 2.1 AA) and e-commerce for SMEs in Italy: a website that converts and complies, fast and findable. One senior lead."
+  ogImage="/og/serviceWeb-en.png"
+  schema={schema}
+>
+  <Breadcrumbs
+    lang={lang}
+    items={[
+      { name: 'Services', path: path('services', lang) },
+      { name: 'Web, tech & e-commerce', path: path('serviceWeb', lang) },
+    ]}
+  />
+
+  <!-- ============================== HERO ============================== -->
+  <section class="relative overflow-hidden">
+    <div
+      class="pointer-events-none absolute inset-0"
+      aria-hidden="true"
+      style="background: radial-gradient(50rem 34rem at 90% -20%, rgb(43 92 255 / 0.11), transparent 60%);"
+    >
+    </div>
+    <div class="wrap relative pt-12 pb-20 md:pt-16 md:pb-28">
+      <p class="label-caps text-mist" data-reveal>Vertical 04 — Web, tech &amp; e-commerce</p>
+      <h1 class="font-display text-display mt-6 max-w-6xl font-medium" data-reveal>
+        European Accessibility Act compliance and e-commerce: a digital presence that converts.
+      </h1>
+      <p class="mt-8 max-w-xl text-lead text-mist" data-reveal>
+        A beautiful site that doesn’t convert is a cost. A site that converts but isn’t accessible
+        is a liability — the EAA has applied since 28 June 2025. We fix both at once, not in two
+        separate projects.
+      </p>
+      <div class="mt-10 flex flex-wrap items-center gap-4" data-reveal>
+        <Button href={path('contact', lang)}>Book your audit</Button>
+        <Button href={path('products', lang)} variant="ghost">
+          Start with a fixed-price step
+        </Button>
+      </div>
+      <ul class="mt-12 flex flex-wrap gap-3" data-reveal-group>
+        <li data-reveal><Pill>WCAG 2.1 AA accessibility</Pill></li>
+        <li data-reveal><Pill>E-commerce</Pill></li>
+        <li data-reveal><Pill>Performance &amp; technical SEO</Pill></li>
+        <li data-reveal><Pill>Custom development</Pill></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================ 01 THE PROBLEM ============================ -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="01"
+        label="The problem"
+        title="Two opposite mistakes, the same bill at the end."
+      >
+        <p class="mt-6 max-w-2xl text-lead text-mist" data-reveal>
+          On one side, the brochure site rebuilt every three years because it "looked dated", with
+          nobody able to say how many leads it produced. On the other, the e-commerce that takes
+          orders while part of its customers can’t finish the checkout. Often both live in the
+          same company.
+        </p>
+      </SectionHeading>
+      <div class="mt-16 grid grid-cols-12 gap-x-6 gap-y-12" data-reveal-group>
+        <div class="col-span-12 md:col-span-4" data-reveal>
+          <p class="font-display text-[1.375rem] font-semibold text-accent-soft" aria-hidden="true">
+            1
+          </p>
+          <h3 class="font-display mt-3 text-[1.25rem] font-medium">
+            The website that doesn’t work
+          </h3>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            Nobody knows how many leads it brings in, form submissions land in a shared inbox
+            someone reads when they can, and the copy describes the company instead of answering
+            the people evaluating it. That’s not a design problem: nobody decided what the site is
+            for.
+          </p>
+        </div>
+        <div class="col-span-12 md:col-span-4" data-reveal>
+          <p class="font-display text-[1.375rem] font-semibold text-accent-soft" aria-hidden="true">
+            2
+          </p>
+          <h3 class="font-display mt-3 text-[1.25rem] font-medium">
+            The obligation almost nobody saw coming
+          </h3>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            The European Accessibility Act has applied since 28 June 2025, in Italy through
+            Legislative Decree 82/2022: the required level is WCAG 2.1 AA, e-commerce is in scope,
+            and only microenterprises are exempt — under 10 employees and under €2 million. Fines
+            run from €2,500 to €40,000 per violation.
+          </p>
+        </div>
+        <div class="col-span-12 md:col-span-4" data-reveal>
+          <p class="font-display text-[1.375rem] font-semibold text-accent-soft" aria-hidden="true">
+            3
+          </p>
+          <h3 class="font-display mt-3 text-[1.25rem] font-medium">
+            Technical debt is paid in conversions
+          </h3>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            Slow pages, plugins piled up over the years, content marketing can’t update without
+            calling the vendor. Meanwhile the rules keep sharpening: since 4 March 2026 the AgID
+            guidelines are the operational reference for accessibility in Italy.
+          </p>
+        </div>
+      </div>
+
+      <div class="hairline mt-20 pt-14">
+        <p class="label-caps text-mist" data-reveal>The context, in real numbers</p>
+        <div class="mt-10 grid grid-cols-2 gap-x-6 gap-y-12 lg:grid-cols-4" data-reveal-group>
+          <Counter
+            value="2,500"
+            to={2500}
+            suffix=" €"
+            label="minimum fine per accessibility violation"
+            source="Source: Italian Leg. Decree 82/2022"
+            lang={lang}
+          />
+          <Counter
+            value="40,000"
+            to={40000}
+            suffix=" €"
+            label="maximum fine, for each violation found"
+            source="Source: Italian Leg. Decree 82/2022"
+            lang={lang}
+          />
+          <Counter
+            value="10"
+            to={10}
+            label="employees: the first threshold of the microenterprise exemption"
+            source="Source: Italian Leg. Decree 82/2022"
+            lang={lang}
+          />
+          <Counter
+            value="2"
+            to={2}
+            suffix=" M€"
+            label="turnover: the second threshold. You need both to be exempt"
+            source="Source: Italian Leg. Decree 82/2022"
+            lang={lang}
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ 02 WHAT WE DO ============================ -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="02"
+        label="What we do"
+        title="Four objectives. The website is the means, not the point."
+      >
+        <p class="mt-6 max-w-2xl text-lead text-mist" data-reveal>
+          We don’t sell restyling. Every piece of work answers something measurable: qualified
+          leads, completed orders, regulatory exposure, speed. If an activity moves none of the
+          four, we don’t propose it.
+        </p>
+      </SectionHeading>
+
+      <div class="mt-16 space-y-16 md:space-y-20">
+        <div class="grid grid-cols-12 gap-x-6 gap-y-6" data-reveal-group>
+          <div class="col-span-12 md:col-span-4" data-reveal>
+            <h3 class="font-display text-[1.375rem] font-medium md:text-[1.5rem]">
+              A website that is your best salesperson
+            </h3>
+          </div>
+          <div class="col-span-12 space-y-4 text-[0.9375rem] text-mist md:col-span-7 md:col-start-6">
+            <p data-reveal>
+              We start from who lands on it and what they need to understand in the first ten
+              seconds: what you do, for whom, why you. Then the paths through the site — pages
+              that answer the real objections, verifiable proof instead of adjectives, one call to
+              action per page.
+            </p>
+            <p data-reveal>
+              Forms don’t drop into a shared inbox: they land in the CRM with their source
+              attached. And we configure tracking to measure qualified leads, not visits — you
+              have never been able to put visits on a P&amp;L.
+            </p>
+            <p data-reveal>
+              <ArrowLink href={path('serviceCrm', lang)} class="text-paper">
+                Where the leads go: the CRM &amp; martech vertical
+              </ArrowLink>
+            </p>
+          </div>
+        </div>
+
+        <div class="hairline grid grid-cols-12 gap-x-6 gap-y-6 pt-16 md:pt-20" data-reveal-group>
+          <div class="col-span-12 md:col-span-4" data-reveal>
+            <h3 class="font-display text-[1.375rem] font-medium md:text-[1.5rem]">
+              E-commerce that sells without exposing you to fines
+            </h3>
+          </div>
+          <div class="col-span-12 space-y-4 text-[0.9375rem] text-mist md:col-span-7 md:col-start-6">
+            <p data-reveal>
+              Checkout is where accessibility and conversion become the same problem: an unlabelled
+              field, an error signalled only in red, a step that works only with a mouse — each one
+              loses orders long before it becomes a compliance issue. We fix them where they cost
+              most: cart, payment, search, product pages.
+            </p>
+            <p data-reveal>
+              We work with the platform you already run, integrated with your ERP, stock and
+              shipping, because a store disconnected from your systems is manual work dressed up as
+              automation. And we hold together what the law asks of online sales with what it takes
+              to actually sell.
+            </p>
+          </div>
+        </div>
+
+        <div class="hairline grid grid-cols-12 gap-x-6 gap-y-6 pt-16 md:pt-20" data-reveal-group>
+          <div class="col-span-12 md:col-span-4" data-reveal>
+            <h3 class="font-display text-[1.375rem] font-medium md:text-[1.5rem]">
+              Accessibility as quality: more users, more SEO, less risk
+            </h3>
+          </div>
+          <div class="col-span-12 space-y-4 text-[0.9375rem] text-mist md:col-span-7 md:col-start-6">
+            <p data-reveal>
+              A WCAG 2.1 AA audit, fixes ranked by impact, and an accessibility statement you can
+              publish: contrast, keyboard navigation, semantic structure, forms with real labels
+              and understandable errors, text alternatives. The same things that make a page
+              readable to a search engine and to someone using a phone in bright sunlight.
+            </p>
+            <p data-reveal>
+              The outcome isn’t only avoiding a fine: it’s a site that works for more people, on
+              more devices, in more conditions. That’s why this vertical works hand in hand with
+              compliance &amp; digital governance.
+            </p>
+            <p data-reveal>
+              <ArrowLink href={path('serviceCompliance', lang)} class="text-paper">
+                The compliance vertical, in detail
+              </ArrowLink>
+            </p>
+          </div>
+        </div>
+
+        <div class="hairline grid grid-cols-12 gap-x-6 gap-y-6 pt-16 md:pt-20" data-reveal-group>
+          <div class="col-span-12 md:col-span-4" data-reveal>
+            <h3 class="font-display text-[1.375rem] font-medium md:text-[1.5rem]">
+              Performance and technical SEO as foundations
+            </h3>
+          </div>
+          <div class="col-span-12 space-y-4 text-[0.9375rem] text-mist md:col-span-7 md:col-start-6">
+            <p data-reveal>
+              Page weight, images in modern formats, fonts served from your own domain, scripts
+              that don’t block rendering, static output where it makes sense. Speed is not a vanity
+              metric: it is the first filter between the people who stay and the people who go
+              back — and on mobile it is most of the game.
+            </p>
+            <p data-reveal>
+              Underneath sits the part nobody sees and that decides whether you get found: URL
+              structure, unique titles and descriptions, structured data, hreflang if you run more
+              than one language, sitemap and canonicals done properly. Plus content your team can
+              update on its own — if every change needs a quote, the site stops living a month
+              after launch.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-16 rounded-xs border border-white/15 bg-ink-raise p-8 md:p-10" data-reveal>
+        <p class="label-caps text-mist">An honest note — the demo is the page you’re reading</p>
+        <p class="mt-4 max-w-3xl text-[0.9375rem] text-mist">
+          This site is built to WCAG 2.1 AA: navigable by keyboard, contrast checked, animations
+          that switch off when the system asks for it, full content even without JavaScript. It’s
+          the simplest way we have to show you the work before selling it. And we’re just as
+          straight about the rest: nobody can claim perfect, permanent conformance — accessibility
+          is maintained over time. That’s why our statement is public, kept current, and includes a
+          channel to report a problem to us.
+        </p>
+        <p class="mt-6">
+          <ArrowLink href={path('accessibility', lang)} class="text-paper">
+            Read our accessibility statement
+          </ArrowLink>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================== 03 THE FIRST STEP =========================== -->
+  <section class="section-light">
+    <div class="wrap grid grid-cols-12 gap-x-6 py-24 md:py-36">
+      <div class="col-span-12 lg:col-span-5">
+        <span class="sec-num block text-accent-deep" aria-hidden="true" data-reveal>03</span>
+        <p class="label-caps mt-4 text-umber" data-reveal>The first step</p>
+        <h2 class="font-display text-h2 mt-4 font-medium" data-reveal>
+          Audit first, quote for a new site second.
+        </h2>
+        <p class="mt-6 max-w-md text-lead text-umber" data-reveal>
+          In most cases you don’t need to rebuild everything: you need to know what isn’t
+          compliant, what it costs to fix, and what is genuinely worth rebuilding. Closed scope,
+          fixed price, and an accessibility statement ready to publish.
+        </p>
+        <p class="mt-8" data-reveal>
+          <ArrowLink href={path('products', lang)} class="text-accent-deep">
+            All fixed-price products
+          </ArrowLink>
+        </p>
+      </div>
+      <div class="col-span-12 mt-14 lg:col-span-6 lg:col-start-7 lg:mt-0" data-reveal>
+        <ProductCard
+          light
+          title="Accessibility (EAA) Sprint"
+          price="[PREZZO]"
+          duration="2–6 weeks · fixed price"
+          description="A website or e-commerce compliant with the European Accessibility Act: WCAG 2.1 AA audit, fixes and accessibility statement."
+          deliverables={[
+            'WCAG 2.1 AA accessibility audit',
+            'Priority technical fixes',
+            'A publishable accessibility statement',
+          ]}
+          deliverablesLabel="What you walk away with"
+          href={path('products', lang)}
+          ctaLabel="Product details"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ 04 YOUR LEAD ============================ -->
+  <section class="section-light hairline hairline-dark">
+    <div class="wrap grid grid-cols-12 gap-x-6 py-24 md:py-36">
+      <div class="col-span-12 lg:col-span-6">
+        <SectionHeading
+          num="04"
+          label="Your lead"
+          title="A senior with a first and last name, not a rotating team."
+          light
+          class="grid-cols-1!"
+        />
+        <div class="mt-8 space-y-4 text-[0.9375rem] text-umber" data-reveal>
+          <p>
+            The web, tech &amp; e-commerce vertical is run by a senior who has shipped sites and
+            selling platforms into production — and who writes accessibility into the code rather
+            than delegating it to an overlay widget that promises compliance in one line of script.
+          </p>
+          <p>
+            The person you meet on the first call is the person who signs the work. If your lead
+            changes during the engagement, you have the right to terminate: it’s written in the
+            contract, not in the slide deck.
+          </p>
+        </div>
+      </div>
+      <div class="col-span-12 mt-14 lg:col-span-5 lg:col-start-8 lg:mt-0" data-reveal>
+        <div class="rounded-xs border border-ink/15 bg-white/40 p-8">
+          <div
+            class="flex h-40 items-center justify-center rounded-xs bg-ink/5 text-[0.8125rem] text-umber"
+            role="img"
+            aria-label="Portrait coming soon"
+          >
+            [PLACEHOLDER: FOTO SENIOR]
+          </div>
+          <h3 class="font-display mt-6 text-[1.25rem] font-medium">[PLACEHOLDER: NOME]</h3>
+          <p class="mt-1 text-[0.875rem] text-accent-deep">
+            Senior lead — Web, tech &amp; e-commerce
+          </p>
+          <p class="mt-4 text-[0.9375rem] text-umber">[BIO SENIOR]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ 05 CASE STUDY ============================ -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="05"
+        label="Case study"
+        title="Context, intervention, result — with no invented numbers."
+      >
+        <p class="mt-6 max-w-2xl text-lead text-mist" data-reveal>
+          The first case for this vertical is being prepared for publication, with the client’s
+          permission. We’d rather show an empty box than an invented metric — especially here,
+          where "+300% conversions" is the most overused line in the industry.
+        </p>
+      </SectionHeading>
+      <div class="mt-14 rounded-xs border border-white/15 bg-ink-raise p-8 md:p-10" data-reveal>
+        <p class="label-caps text-mist">First case — in publication</p>
+        <div class="mt-8 grid grid-cols-12 gap-x-6 gap-y-10">
+          <div class="col-span-12 border-t-2 border-accent pt-5 md:col-span-4">
+            <h3 class="font-display text-[1.125rem] font-medium">Context</h3>
+            <p class="mt-3 text-[0.9375rem] text-mist">
+              [PLACEHOLDER: settore, dimensione e punto di partenza del cliente]
+            </p>
+          </div>
+          <div class="col-span-12 border-t-2 border-accent pt-5 md:col-span-4">
+            <h3 class="font-display text-[1.125rem] font-medium">Intervention</h3>
+            <p class="mt-3 text-[0.9375rem] text-mist">
+              [PLACEHOLDER: attività svolte, perimetro e durata dell’ingaggio]
+            </p>
+          </div>
+          <div class="col-span-12 border-t-2 border-accent pt-5 md:col-span-4">
+            <h3 class="font-display text-[1.125rem] font-medium">Result</h3>
+            <p class="mt-3 text-[0.9375rem] text-mist">
+              [PLACEHOLDER: risultati misurati e verificabili]
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="mt-10" data-reveal>
+        <ArrowLink href={path('caseStudies', lang)} class="text-paper">
+          How we document case studies
+        </ArrowLink>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== 06 FAQ =============================== -->
+  <section class="hairline">
+    <div class="wrap grid grid-cols-12 gap-x-6 py-24 md:py-36">
+      <div class="col-span-12 lg:col-span-4">
+        <div class="lg:sticky lg:top-32">
+          <span class="sec-num block text-accent" aria-hidden="true" data-reveal>06</span>
+          <p class="label-caps mt-4 text-mist" data-reveal>FAQ</p>
+          <h2 class="font-display text-h2 mt-4 font-medium" data-reveal>
+            The right questions about accessibility and e-commerce.
+          </h2>
+          <p class="mt-6 max-w-sm text-[0.9375rem] text-mist" data-reveal>
+            The ones business owners ask us on the first call — answered without hedging.
+          </p>
+        </div>
+      </div>
+      <div class="col-span-12 mt-12 lg:col-span-7 lg:col-start-6 lg:mt-0" data-reveal>
+        <Accordion items={faq} idPrefix="faq-web" withSchema />
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== 07 THE SYSTEM, NOT SILOS ======================== -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="07"
+        label="The system, not the silos"
+        title="A website alone isn’t enough: what happens before and after the click decides."
+      >
+        <p class="mt-6 max-w-2xl text-lead text-mist" data-reveal>
+          Conversions only become customers if someone picks them up and follows them through. And
+          accessibility requirements come from the same regulatory frame that touches data,
+          security and contracts. That’s why the verticals work together, under one accountable
+          lead.
+        </p>
+      </SectionHeading>
+      <div class="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2" data-reveal-group>
+        <div data-reveal>
+          <VerticalCard
+            href={path('serviceCrm', lang)}
+            num="03"
+            title="CRM & martech"
+            claim="Turn your customer base into value."
+            items={['CRM', 'Marketing automation', 'Integration']}
+            linkLabel="Explore the vertical"
+          />
+        </div>
+        <div data-reveal>
+          <VerticalCard
+            href={path('serviceCompliance', lang)}
+            num="01"
+            title="Compliance & digital governance"
+            claim="From compliance to growth."
+            items={['GDPR', 'NIS2', 'EAA', 'AI Act']}
+            linkLabel="Explore the vertical"
+          />
+        </div>
+      </div>
+      <p class="mt-10 max-w-2xl text-[0.9375rem] text-mist" data-reveal>
+        If you sell online to customers within the NIS2 scope, the security of your platform stops
+        being a technical topic and becomes a contract clause.
+      </p>
+      <p class="mt-4" data-reveal>
+        <ArrowLink href={path('resourceNis2', lang)} class="text-paper">
+          NIS2 for SMEs: read the guide
+        </ArrowLink>
+      </p>
+    </div>
+  </section>
+
+  <CtaSection lang={lang} />
+</Base>

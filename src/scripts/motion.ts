@@ -217,7 +217,9 @@ function initMenu() {
     }
     if (open) {
       lenis?.stop();
-      focusables()[0]?.focus();
+      // L'overlay parte da visibility:hidden — un elemento non ancora reso
+      // visibile non può ricevere il focus. Si attende il frame successivo.
+      requestAnimationFrame(() => focusables()[0]?.focus());
     } else {
       lenis?.start();
       toggle.focus();
