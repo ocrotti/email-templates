@@ -3,16 +3,22 @@
 import { useReducedMotion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
+import type { Locale } from "@/lib/site";
+
 interface Props {
   value: number;
   prefix?: string;
   suffix?: string;
   className?: string;
   duration?: number;
+  /** Formats digits for the page's language, not the visitor's browser. */
+  locale?: Locale;
 }
 
+const NUMBER_LOCALE: Record<Locale, string> = { en: "en-GB", it: "it-IT" };
+
 /** Count-up number that animates once when scrolled into view. */
-export default function Counter({ value, prefix = "", suffix = "", className, duration = 1.4 }: Props) {
+export default function Counter({ value, prefix = "", suffix = "", className, duration = 1.4, locale = "en" }: Props) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const reduced = useReducedMotion();
@@ -39,7 +45,7 @@ export default function Counter({ value, prefix = "", suffix = "", className, du
   return (
     <span ref={ref} className={className}>
       {prefix}
-      {display.toLocaleString()}
+      {display.toLocaleString(NUMBER_LOCALE[locale])}
       {suffix}
     </span>
   );

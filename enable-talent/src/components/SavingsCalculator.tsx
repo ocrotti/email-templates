@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { useMemo, useState } from "react";
 import Counter from "./Counter";
 import type { CalculatorRole } from "@/content/home";
+import type { Locale } from "@/lib/site";
 
 interface Props {
   roleLabel: string;
@@ -15,6 +16,7 @@ interface Props {
   savingsLabel: string;
   perMonth: string;
   disclaimer: string;
+  locale: Locale;
 }
 
 /**
@@ -70,7 +72,7 @@ export default function SavingsCalculator(props: Props) {
           <div className="mb-2 flex items-end justify-between gap-4">
             <span className="text-sm text-mist">{props.localLabel}</span>
             <span className="font-display text-2xl font-semibold text-paper md:text-3xl">
-              <Counter key={`local-${roleKey}-${market}`} value={local} prefix="€" />
+              <Counter key={`local-${roleKey}-${market}`} value={local} prefix="€" locale={props.locale} />
               <span className="text-sm font-normal text-mist">{props.perMonth}</span>
             </span>
           </div>
@@ -91,7 +93,7 @@ export default function SavingsCalculator(props: Props) {
           <div className="mb-2 flex items-end justify-between gap-4">
             <span className="text-sm text-paper">{props.podLabel}</span>
             <span className="font-display text-2xl font-semibold text-blue-bright md:text-3xl">
-              <Counter key={`pod-${roleKey}-${market}`} value={pod} prefix="€" />
+              <Counter key={`pod-${roleKey}-${market}`} value={pod} prefix="€" locale={props.locale} />
               <span className="text-sm font-normal text-mist">{props.perMonth}</span>
             </span>
           </div>
@@ -111,7 +113,7 @@ export default function SavingsCalculator(props: Props) {
         <div className="flex items-baseline justify-between gap-4 rounded-2xl border border-blue/30 bg-blue/10 px-6 py-5">
           <span className="text-sm font-medium text-paper/90">{props.savingsLabel}</span>
           <span className="font-display text-4xl font-bold text-blue-bright md:text-5xl">
-            <Counter key={`sav-${roleKey}-${market}`} value={savings} suffix="%" />
+            <Counter key={`sav-${roleKey}-${market}`} value={savings} suffix="%" locale={props.locale} />
           </span>
         </div>
       </div>

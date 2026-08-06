@@ -136,6 +136,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
           savingsLabel={t.calculator.savingsLabel}
           perMonth={t.calculator.perMonth}
           disclaimer={t.calculator.disclaimer}
+          locale={locale}
         />
       </Section>
 
@@ -185,7 +186,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
           {t.proof.stats.map((stat) => (
             <div key={stat.label} className="bg-ink p-7">
               <p className="font-display text-4xl font-bold text-blue-bright">
-                <Counter value={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
+                <Counter value={stat.value} prefix={stat.prefix} suffix={stat.suffix} locale={locale} />
               </p>
               <p className="mt-2 text-sm leading-snug text-mist">{stat.label}</p>
             </div>
