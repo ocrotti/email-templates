@@ -76,6 +76,7 @@ export const shared: Record<Locale, SharedContent> = {
           links: [
             { label: "Talent & Nairobi", path: "/talent" },
             { label: "Blog", path: "/blog" },
+            { label: "Enable Digital", path: "/enable-digital" },
             { label: "Contact", path: "/contact" },
           ],
         },
@@ -153,6 +154,7 @@ export const shared: Record<Locale, SharedContent> = {
           links: [
             { label: "Talento & Nairobi", path: "/talent" },
             { label: "Blog", path: "/blog" },
+            { label: "Enable Digital", path: "/enable-digital" },
             { label: "Contatti", path: "/contact" },
           ],
         },

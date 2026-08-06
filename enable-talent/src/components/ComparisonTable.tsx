@@ -43,7 +43,9 @@ export default function ComparisonTable({ columns, rows, note }: Props) {
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.55, delay: ri * 0.08, ease: [0.22, 1, 0.36, 1] }}
               >
-                <td className="border-b border-ink-line/60 py-4 pr-6 font-medium text-paper">{row.label}</td>
+                <th scope="row" className="border-b border-ink-line/60 py-4 pr-6 text-left font-medium text-paper">
+                  {row.label}
+                </th>
                 <td className="border-b border-ink-line/60 py-4 pr-6 text-mist">{row.inHouse}</td>
                 <td className="border-b border-ink-line/60 py-4 pr-6 text-mist">{row.freelance}</td>
                 <td

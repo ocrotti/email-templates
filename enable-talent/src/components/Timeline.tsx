@@ -104,7 +104,11 @@ export default function Timeline({ steps, theme = "dark" }: Props) {
               <span className="node-dot h-[5px] w-[5px] scale-0 rounded-full bg-blue-bright transition-transform duration-500" />
             </span>
             <div className={i % 2 ? "md:col-start-2" : "md:col-start-1"}>
-              <p className="step-day mb-1 font-mono text-xs uppercase tracking-[0.2em] text-blue-bright transition-opacity duration-500">
+              <p
+                className={`step-day mb-1 font-mono text-xs uppercase tracking-[0.2em] transition-opacity duration-500 ${
+                  dark ? "text-blue-bright" : "text-blue"
+                }`}
+              >
                 {step.day ?? step.duration}
               </p>
               <h3 className={`step-title font-display text-xl font-semibold transition-colors duration-500 md:text-2xl ${dark ? "text-paper" : "text-ink"}`}>

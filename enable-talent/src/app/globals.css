@@ -88,6 +88,26 @@ body {
   }
 }
 
+/* Hero word reveal — CSS-driven so the LCP heading paints without waiting for JS */
+@keyframes hero-word-in {
+  from {
+    transform: translateY(110%) rotate(3deg);
+  }
+  to {
+    transform: translateY(0) rotate(0);
+  }
+}
+.hero-word {
+  display: inline-block;
+  animation: hero-word-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-word {
+    animation: none;
+    transform: none;
+  }
+}
+
 /* Scroll-driven timeline states (driven by GSAP ScrollTrigger) */
 .timeline-step {
   opacity: 0.35;

@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/talent",
     "/case-study",
     "/blog",
+    "/enable-digital",
     "/contact",
   ];
 

@@ -1,6 +1,7 @@
 import type { Locale } from "@/lib/site";
 import { localePath } from "@/lib/site";
 import { home, marqueeItems } from "@/content/home";
+import { enableDigital } from "@/content/enable-digital";
 import { roles, roleSlugs } from "@/content/roles";
 import { shared } from "@/content/shared";
 import { FaqJsonLd, OrganizationJsonLd, ServiceJsonLd } from "@/components/JsonLd";
@@ -22,6 +23,7 @@ import Link from "next/link";
 export default function HomePage({ locale }: { locale: Locale }) {
   const t = home[locale];
   const roleData = roles[locale];
+  const bridge = enableDigital[locale];
 
   return (
     <>
@@ -44,10 +46,10 @@ export default function HomePage({ locale }: { locale: Locale }) {
               </p>
             </Reveal>
             <HeroReveal lines={t.hero.titleLines} className="text-display-xl font-display font-bold" />
-            <Reveal delay={0.7} y={20}>
+            <Reveal delay={0.42} y={20}>
               <p className="mt-8 max-w-xl text-lg leading-relaxed text-mist md:text-xl">{t.hero.sub}</p>
             </Reveal>
-            <Reveal delay={0.85} y={20}>
+            <Reveal delay={0.52} y={20}>
               <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2">
                 {t.hero.diff.map((d) => (
                   <li key={d} className="flex items-center gap-2 text-sm text-paper/80">
@@ -57,7 +59,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
                 ))}
               </ul>
             </Reveal>
-            <Reveal delay={1} y={20}>
+            <Reveal delay={0.62} y={20}>
               <div className="mt-10 flex flex-wrap gap-4">
                 <MagneticButton href={localePath(locale, "/contact")}>{t.hero.ctaPrimary} →</MagneticButton>
                 <MagneticButton href={localePath(locale, "/how-it-works")} variant="ghost">
@@ -230,6 +232,21 @@ export default function HomePage({ locale }: { locale: Locale }) {
             {t.faq.cta} →
           </Link>
         </p>
+      </Section>
+
+      {/* Bridge to Enable Digital — routes PM / senior-Italian demand to the sister agency */}
+      <Section theme="dark">
+        <Reveal>
+          <div className="flex flex-col gap-6 rounded-3xl border border-amber/30 bg-amber/5 p-8 md:flex-row md:items-center md:justify-between md:p-10">
+            <div className="max-w-2xl">
+              <h2 className="font-display text-2xl font-semibold text-amber">{bridge.teaser.title}</h2>
+              <p className="mt-3 text-sm leading-relaxed text-mist md:text-base">{bridge.teaser.body}</p>
+            </div>
+            <MagneticButton href={localePath(locale, "/enable-digital")} variant="ghost" className="shrink-0">
+              {bridge.teaser.cta} →
+            </MagneticButton>
+          </div>
+        </Reveal>
       </Section>
 
       {/* 09 — Final CTA */}

@@ -16,8 +16,9 @@ export default function Marquee({ items, label }: Props) {
           {doubled.map((item, i) => (
             <span
               key={`${item}-${i}`}
-              aria-hidden={i >= items.length}
-              className="whitespace-nowrap font-display text-lg font-medium text-paper/40 transition-colors hover:text-paper"
+              // Only the second pass is decorative duplication.
+              aria-hidden={i >= items.length || undefined}
+              className="whitespace-nowrap font-display text-lg font-medium text-paper/55 transition-colors hover:text-paper"
             >
               {item}
             </span>

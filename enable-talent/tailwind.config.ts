@@ -17,7 +17,8 @@ const config: Config = {
         },
         blue: {
           DEFAULT: "#2B4BFF",
-          bright: "#4D67FF",
+          // 5.3:1 on ink — the on-dark accent has to clear WCAG AA for body text.
+          bright: "#6178FF",
           deep: "#1E36C7",
         },
         amber: {

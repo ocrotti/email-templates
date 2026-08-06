@@ -20,14 +20,22 @@ export default function Footer({ locale }: { locale: Locale }) {
             <div className="mt-8 max-w-sm rounded-2xl border border-amber/30 bg-amber/5 p-5">
               <p className="font-display text-sm font-semibold text-amber">{t.footer.bridge.title}</p>
               <p className="mt-2 text-sm text-mist">{t.footer.bridge.body}</p>
-              <a
-                href={ENABLE_DIGITAL_URL}
-                target="_blank"
-                rel="noopener"
-                className="link-underline mt-3 inline-block text-sm font-medium text-amber"
-              >
-                {t.footer.bridge.cta} ↗
-              </a>
+              <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2">
+                <Link
+                  href={localePath(locale, "/enable-digital")}
+                  className="link-underline inline-block py-1 text-sm font-medium text-amber"
+                >
+                  {locale === "en" ? "Which one do you need?" : "Quale ti serve?"}
+                </Link>
+                <a
+                  href={ENABLE_DIGITAL_URL}
+                  target="_blank"
+                  rel="noopener"
+                  className="link-underline inline-block py-1 text-sm font-medium text-amber/80"
+                >
+                  {t.footer.bridge.cta} ↗
+                </a>
+              </div>
             </div>
           </div>
 
@@ -40,7 +48,7 @@ export default function Footer({ locale }: { locale: Locale }) {
                     <li key={link.path}>
                       <Link
                         href={localePath(locale, link.path)}
-                        className="link-underline text-sm text-paper/75 hover:text-paper"
+                        className="link-underline inline-block py-1 text-sm text-paper/75 hover:text-paper"
                       >
                         {link.label}
                       </Link>
@@ -57,7 +65,7 @@ export default function Footer({ locale }: { locale: Locale }) {
           <Link
             href={locale === "en" ? "/it" : "/"}
             hrefLang={locale === "en" ? "it" : "en"}
-            className="link-underline w-fit"
+            className="link-underline w-fit py-1"
           >
             {t.footer.langSwitch}
           </Link>

@@ -41,6 +41,7 @@ src/
   components/        UI + the 10 animated components from the brief
     pages/           full page compositions shared by both locales
   content/           ALL copy, EN + IT, typed per page
+docs/verification.md Lighthouse, a11y, structured-data and responsive evidence
   lib/               site config, SEO helper (canonical + hreflang), fonts
 public/fonts/        self-hosted woff2 (Parkinsans, Inter)
 ```
@@ -62,9 +63,23 @@ All copy lives in `src/content/*.ts`, typed and split per page, with `en` and `i
 1. Add a `BlogPost` object to `blogPosts.en` and `blogPosts.it` in `src/content/blog.ts` (same slug in both).
 2. Sections are `{ heading?, paragraphs[], list? }`; headings become the TOC automatically. `Article` + `BreadcrumbList` JSON-LD are emitted by the template.
 
+## The Enable Digital bridge
+
+`/enable-digital` (and `/it/enable-digital`) is the routing page for visitors who need Italian
+project management or senior in-market specialists rather than delivery capacity. It sorts four
+common situations to the right company instead of redirecting blindly, and it's reachable from
+the main nav footer column, a dedicated home-page section, and the footer bridge card. Copy
+lives in `src/content/enable-digital.ts`; the outbound URL is `ENABLE_DIGITAL_URL` in
+`src/lib/site.ts`.
+
 ## Contact form
 
 `src/components/LeadForm.tsx` is wired with qualifying fields (name, email, agency, team size, roles needed, message) and a placeholder submit handler. To go live, point `onSubmit` at your provider (Formspree/Basin endpoint or a Next API route) — the TODO marks the exact line.
+
+## Verification
+
+`docs/verification.md` holds the Lighthouse scores, the accessibility fixes, the structured-data
+validation and the responsive sweep, plus the one open caveat on LCP measurement.
 
 ## SEO checklist (brief §5)
 

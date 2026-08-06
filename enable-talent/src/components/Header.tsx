@@ -35,7 +35,7 @@ export default function Header({ locale }: { locale: Locale }) {
       }`}
     >
       <div className="mx-auto flex h-16 w-full max-w-wrap items-center justify-between px-5 md:h-20 md:px-10">
-        <Link href={localePath(locale, "/")} className="font-display text-lg font-bold tracking-tight text-paper">
+        <Link href={localePath(locale, "/")} className="py-2 font-display text-lg font-bold tracking-tight text-paper">
           enable<span className="text-blue-bright">.talent</span>
         </Link>
 
@@ -47,7 +47,7 @@ export default function Header({ locale }: { locale: Locale }) {
               <Link
                 key={item.path}
                 href={href}
-                className={`link-underline text-sm transition-colors ${
+                className={`link-underline py-2 text-sm transition-colors ${
                   active ? "text-paper" : "text-mist hover:text-paper"
                 }`}
               >
