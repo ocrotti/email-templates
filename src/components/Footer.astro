@@ -1,0 +1,111 @@
+---
+import type { Lang } from '../lib/routes';
+import { path } from '../lib/routes';
+import { t } from '../lib/i18n';
+import Wordmark from './Wordmark.astro';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const strings = t(lang);
+
+const serviceLinks = [
+  { key: 'serviceCompliance', it: 'Compliance & governance', en: 'Compliance & governance' },
+  { key: 'serviceData', it: 'Dati & AI', en: 'Data & AI' },
+  { key: 'serviceCrm', it: 'CRM & martech', en: 'CRM & martech' },
+  { key: 'serviceWeb', it: 'Web & e-commerce', en: 'Web & e-commerce' },
+  { key: 'products', it: 'Prodotti a prezzo fisso', en: 'Fixed-price products' },
+] as const;
+
+const companyLinks = [
+  { key: 'howWeWork', label: strings.nav.howWeWork },
+  { key: 'about', label: strings.nav.about },
+  { key: 'caseStudies', label: strings.nav.caseStudies },
+  { key: 'contact', label: strings.nav.contact },
+] as const;
+
+const legalLinks = [
+  { key: 'privacy', it: 'Privacy', en: 'Privacy' },
+  { key: 'cookies', it: 'Cookie policy', en: 'Cookie policy' },
+  { key: 'accessibility', it: 'Dichiarazione di accessibilità', en: 'Accessibility statement' },
+] as const;
+---
+
+<footer class="hairline">
+  <div class="wrap grid grid-cols-12 gap-x-6 gap-y-12 py-16 md:py-24">
+    <div class="col-span-12 lg:col-span-5">
+      <a href={path('home', lang)} class="text-[1.375rem]" aria-label="enable.advisory — Home">
+        <Wordmark />
+      </a>
+      <p class="mt-5 max-w-sm text-[0.9375rem] text-mist">{strings.footer.tagline}</p>
+      <p class="mt-6 text-sm text-mist">
+        {strings.footer.group}
+        <a
+          href="https://enableluxury.com"
+          class="link-plain text-paper"
+          rel="noopener">enable.luxury ↗</a
+        >
+      </p>
+    </div>
+
+    <nav class="col-span-6 md:col-span-4 lg:col-span-3" aria-label={strings.footer.services}>
+      <h2 class="label-caps text-mist">{strings.footer.services}</h2>
+      <ul class="mt-5 space-y-3">
+        {
+          serviceLinks.map((l) => (
+            <li>
+              <a href={path(l.key, lang)} class="link-plain text-[0.9375rem] text-paper">
+                {l[lang]}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <nav class="col-span-6 md:col-span-4 lg:col-span-2" aria-label={strings.footer.company}>
+      <h2 class="label-caps text-mist">{strings.footer.company}</h2>
+      <ul class="mt-5 space-y-3">
+        {
+          companyLinks.map((l) => (
+            <li>
+              <a href={path(l.key, lang)} class="link-plain text-[0.9375rem] text-paper">
+                {l.label}
+              </a>
+            </li>
+          ))
+        }
+        <li>
+          <a href={path('resources', lang)} class="link-plain text-[0.9375rem] text-paper">
+            {strings.nav.resources}
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <nav class="col-span-12 md:col-span-4 lg:col-span-2" aria-label={strings.footer.legal}>
+      <h2 class="label-caps text-mist">{strings.footer.legal}</h2>
+      <ul class="mt-5 space-y-3">
+        {
+          legalLinks.map((l) => (
+            <li>
+              <a href={path(l.key, lang)} class="link-plain text-[0.9375rem] text-paper">
+                {l[lang]}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+
+  <div class="hairline">
+    <div
+      class="wrap flex flex-col gap-2 py-6 text-[0.8125rem] text-mist md:flex-row md:items-center md:justify-between"
+    >
+      <p>© 2026 enable.advisory — {strings.footer.rights}</p>
+      <p>{strings.footer.vat}</p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,650 @@
+---
+import Base from '../../layouts/Base.astro';
+import Pill from '../../components/Pill.astro';
+import Button from '../../components/Button.astro';
+import ArrowLink from '../../components/ArrowLink.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import VerticalCard from '../../components/VerticalCard.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import Steps from '../../components/Steps.astro';
+import Accordion from '../../components/Accordion.astro';
+import Counter from '../../components/Counter.astro';
+import ContactForm from '../../components/ContactForm.astro';
+import { path } from '../../lib/routes';
+
+const lang = 'it' as const;
+
+const verticals = [
+  {
+    key: 'serviceCompliance',
+    num: '01',
+    title: 'Compliance & governance digitale',
+    claim: 'Dalla conformità alla crescita.',
+    items: ['GDPR', 'NIS2', 'EAA', 'AI Act'],
+  },
+  {
+    key: 'serviceData',
+    num: '02',
+    title: 'Dati & AI',
+    claim: 'AI-native per PMI.',
+    items: ['AI readiness', 'Automazione', 'Valorizzazione dati'],
+  },
+  {
+    key: 'serviceCrm',
+    num: '03',
+    title: 'CRM & martech',
+    claim: 'Metti a valore i tuoi clienti.',
+    items: ['CRM', 'Marketing automation', 'Integrazione'],
+  },
+  {
+    key: 'serviceWeb',
+    num: '04',
+    title: 'Web, tech & e-commerce',
+    claim: 'Presenza digitale che converte ed è conforme.',
+    items: ['Siti conformi EAA', 'E-commerce', 'Sviluppo'],
+  },
+] as const;
+
+const steps = [
+  {
+    title: 'Primo confronto con un senior',
+    text: 'Dal primo contatto parli con chi farà il lavoro. Nessun commerciale, nessun passaggio di mano.',
+  },
+  {
+    title: 'Audit: fotografia onesta',
+    text: 'Maturità digitale e gap normativi, in un documento che capisci e puoi usare anche senza di noi.',
+  },
+  {
+    title: 'Piano per priorità di business',
+    text: 'Poche cose, nell’ordine giusto: cosa è obbligato, cosa rende, cosa può aspettare.',
+  },
+  {
+    title: 'Un senior per ogni verticale',
+    text: 'Compliance, dati/AI, CRM, web: ogni area è presidiata da uno specialista con track record, non da un junior.',
+  },
+  {
+    title: 'Un unico referente accountable',
+    text: 'Una persona risponde del risultato complessivo e orchestra i verticali. Tu hai un solo numero da chiamare.',
+  },
+  {
+    title: 'Esecuzione potenziata dall’AI',
+    text: 'Agenti e automazioni moltiplicano le ore senior. Paghi giudizio ed esperienza, non ore di manovalanza.',
+  },
+  {
+    title: 'Metriche verificabili, review mensile',
+    text: 'Definiamo insieme i numeri che contano. Ogni mese li guardiamo, senza slide di contorno.',
+  },
+  {
+    title: 'Il metodo resta a te',
+    text: 'Processi, accessi e documentazione sono tuoi. Lavoriamo per non renderci indispensabili.',
+  },
+];
+
+const faq = [
+  {
+    q: 'Fate tutto, quindi non siete bravi in niente?',
+    a: 'No: facciamo quattro cose, con un senior dedicato per ciascuna. Non siamo generalisti che “fanno anche” — siamo specialisti orchestrati da un unico referente che risponde del risultato. È il contrario dell’agenzia full-service: pochi verticali, presidiati in profondità, che lavorano come un sistema.',
+  },
+  {
+    q: 'Quanto costa?',
+    a: 'I prodotti d’ingresso — audit, assessment e sprint — hanno un prezzo fisso pubblicato, così sai cosa spendi prima di iniziare. I retainer continuativi si definiscono su misura dopo l’audit, perché dipendono da priorità e perimetro. Nessun costo nascosto: ogni voce è scritta e motivata.',
+  },
+  {
+    q: 'Chi mi segue davvero?',
+    a: 'Un partner senior con nome e cognome, che conosci prima di firmare. Niente account manager junior, niente team che cambia ogni tre mesi. La persona che ti segue è la stessa che risponde del risultato.',
+  },
+  {
+    q: 'Perché non una web agency?',
+    a: 'Una web agency esegue un canale: il sito, le campagne, i social. Noi rispondiamo di un sistema: conformità normativa, dati, clienti e presenza digitale che lavorano insieme. Se ti serve solo un sito, una buona agenzia basta. Se ti serve qualcuno accountable sul risultato digitale complessivo, è un altro mestiere.',
+  },
+];
+---
+
+<Base
+  lang={lang}
+  routeKey="home"
+  title="Consulenza digitale per PMI | enable.advisory"
+  description="Il tuo partner digitale senior, accountable sul risultato. Compliance (GDPR, NIS2, EAA, AI Act), dati e AI, CRM, web: un unico referente per la crescita digitale della tua PMI."
+  ogImage="/og/home-it.png"
+>
+  <!-- ============================== HERO ============================== -->
+  <section class="relative flex min-h-svh flex-col justify-end overflow-hidden">
+    <div
+      class="pointer-events-none absolute inset-0"
+      aria-hidden="true"
+      style="background:
+        radial-gradient(60rem 40rem at 85% -10%, rgb(43 92 255 / 0.13), transparent 60%),
+        radial-gradient(40rem 30rem at -10% 110%, rgb(43 92 255 / 0.07), transparent 60%);"
+    >
+    </div>
+    <div class="wrap relative pt-40 pb-16 md:pb-24" data-hero>
+      <p class="label-caps text-mist">
+        <span class="hero-line"
+          ><span class="hero-line-inner">Consulenza digitale per PMI italiane</span></span
+        >
+      </p>
+      <h1 class="font-display text-display mt-6 max-w-6xl font-medium">
+        <span class="hero-line"><span class="hero-line-inner">Il tuo partner</span></span>
+        <span class="hero-line"
+          ><span class="hero-line-inner">digitale <span class="text-accent-soft">senior</span>,</span
+          ></span
+        >
+        <span class="hero-line"
+          ><span class="hero-line-inner">accountable sul risultato.</span></span
+        >
+      </h1>
+      <p class="mt-8 max-w-xl text-lead text-mist">
+        <span class="hero-line"
+          ><span class="hero-line-inner"
+            >Non un’agenzia di junior. Un referente unico che orchestra verticali profondi — e
+            risponde di quello che firma.</span
+          ></span
+        >
+      </p>
+      <div class="mt-10 flex flex-wrap items-center gap-4" data-reveal>
+        <Button href={path('contact', lang)}>Prenota l’audit</Button>
+        <Button href={path('howWeWork', lang)} variant="ghost">Come lavoriamo</Button>
+      </div>
+      <ul class="mt-12 flex flex-wrap gap-3" data-reveal-group>
+        <li data-reveal><Pill>Un senior per area</Pill></li>
+        <li data-reveal><Pill>Un unico referente</Pill></li>
+        <li data-reveal><Pill>Prezzi d’ingresso fissi</Pill></li>
+        <li data-reveal><Pill>Compliance + crescita</Pill></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================ 01 PROBLEMA ============================ -->
+  <section class="hairline" aria-labelledby="problema">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="01"
+        label="Il problema"
+        title="La tua PMI non ha bisogno di un altro fornitore."
+      />
+      <div class="mt-16 grid grid-cols-12 gap-x-6 gap-y-12" data-reveal-group>
+        <div class="col-span-12 md:col-span-4" data-reveal>
+          <p class="font-display text-[1.375rem] font-semibold text-accent-soft" aria-hidden="true">
+            1
+          </p>
+          <h3 class="font-display mt-3 text-[1.25rem] font-medium">
+            Troppi fornitori, nessun sistema
+          </h3>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            L’agenzia fa il sito, il consulente fa il GDPR, un altro tocca il CRM. Nessuno parla
+            con nessuno, e il direttore d’orchestra sei tu — nel tempo che non hai.
+          </p>
+        </div>
+        <div class="col-span-12 md:col-span-4" data-reveal>
+          <p class="font-display text-[1.375rem] font-semibold text-accent-soft" aria-hidden="true">
+            2
+          </p>
+          <h3 class="font-display mt-3 text-[1.25rem] font-medium">
+            Ti vendono senior, ti mandano junior
+          </h3>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            Al pitch c’è il partner, al lavoro c’è lo stagista. Le grandi società di consulenza non
+            scendono sotto l’enterprise; le agenzie scalano con manodopera junior. In mezzo, tu.
+          </p>
+        </div>
+        <div class="col-span-12 md:col-span-4" data-reveal>
+          <p class="font-display text-[1.375rem] font-semibold text-accent-soft" aria-hidden="true">
+            3
+          </p>
+          <h3 class="font-display mt-3 text-[1.25rem] font-medium">
+            La compliance vissuta come costo
+          </h3>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            GDPR, NIS2, accessibilità, AI Act: obblighi trattati come scartoffie da delegare al
+            ribasso. Intanto sono la porta d’ingresso di dati, processi e fiducia dei clienti.
+          </p>
+        </div>
+      </div>
+
+      <div class="hairline mt-20 pt-14">
+        <p class="label-caps text-mist" data-reveal>Il contesto, in numeri veri</p>
+        <div class="mt-10 grid grid-cols-2 gap-x-6 gap-y-12 lg:grid-cols-4" data-reveal-group>
+          <Counter
+            value="20.000"
+            to={20000}
+            suffix="+"
+            label="organizzazioni nel perimetro NIS2"
+            source="Fonte: ACN, 2025"
+            lang={lang}
+          />
+          <Counter
+            value="40.000"
+            to={40000}
+            suffix=" €"
+            label="sanzione massima per violazione EAA"
+            source="Fonte: D.Lgs. 82/2022"
+            lang={lang}
+          />
+          <Counter
+            value="15,7"
+            to={15.7}
+            decimals={1}
+            suffix="%"
+            label="delle PMI italiane usa l’AI — un anno fa era il 7,7%"
+            source="Fonte: ISTAT, 2025"
+            lang={lang}
+          />
+          <Counter
+            value="37"
+            to={37}
+            suffix=" punti"
+            label="di divario AI tra PMI e grandi imprese"
+            source="Fonte: ISTAT, 2025"
+            lang={lang}
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ 02 SOLUZIONE ============================ -->
+  <section class="hairline" aria-labelledby="soluzione">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="02"
+        label="La soluzione"
+        title="Un partner. Quattro verticali. Una sola accountability."
+      />
+      <div class="mt-16 grid grid-cols-12 gap-x-6 gap-y-10" data-reveal-group>
+        <div class="col-span-12 md:col-span-4" data-reveal>
+          <h3 class="font-display text-[1.25rem] font-medium">Orchestrazione senior</h3>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            Ogni verticale è guidato da uno specialista con anni di campo. L’orchestrazione la fa
+            un partner, non un project manager alle prime armi.
+          </p>
+        </div>
+        <div class="col-span-12 md:col-span-4" data-reveal>
+          <h3 class="font-display text-[1.25rem] font-medium">
+            Compliance che diventa crescita
+          </h3>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            Gli obblighi normativi hanno un budget: lo trasformiamo in dati ordinati, processi
+            migliori e un vantaggio sui concorrenti che si limitano ad adempiere.
+          </p>
+        </div>
+        <div class="col-span-12 md:col-span-4" data-reveal>
+          <h3 class="font-display text-[1.25rem] font-medium">Qualcuno che risponde</h3>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            Metriche definite insieme, review mensili, costi scritti. Se qualcosa non va, sai chi
+            chiamare — e chi ti risponde.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-20">
+        <p class="label-caps text-mist" data-reveal>I quattro verticali — il sistema, non i silos</p>
+        <div class="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2" data-reveal-group>
+          {
+            verticals.map((v) => (
+              <div data-reveal>
+                <VerticalCard
+                  href={path(v.key, lang)}
+                  num={v.num}
+                  title={v.title}
+                  claim={v.claim}
+                  items={[...v.items]}
+                  linkLabel="Esplora il verticale"
+                />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= 03 COME LAVORIAMO ========================= -->
+  <section class="section-light" aria-labelledby="come-lavoriamo">
+    <div class="py-24 md:py-36">
+      <Steps
+        num="03"
+        label="Come lavoriamo"
+        title="Il modello operativo, passo per passo."
+        intro="Senior per verticale, AI per moltiplicare le ore, un unico referente che risponde. Così, dal primo giorno."
+        steps={steps}
+        light
+      />
+      <div class="wrap mt-16">
+        <ArrowLink href={path('howWeWork', lang)} class="text-accent-deep">
+          Il modello in dettaglio
+        </ArrowLink>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ 04 ROADMAP ============================= -->
+  <section class="section-light hairline hairline-dark" aria-labelledby="roadmap">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="04"
+        label="Roadmap"
+        title="Come parte un ingaggio tipo."
+        light
+      />
+      <div class="mt-16 grid grid-cols-12 gap-x-6 gap-y-12" data-reveal-group>
+        <div class="col-span-12 border-t-2 border-accent-deep pt-6 md:col-span-4" data-reveal>
+          <p class="label-caps text-umber">Settimane 1–2</p>
+          <h3 class="font-display mt-3 text-[1.375rem] font-medium">Audit</h3>
+          <p class="mt-3 text-[0.9375rem] text-umber">
+            Fotografia di maturità digitale e gap normativi. Prezzo fisso, deliverable tuo,
+            nessun obbligo di proseguire.
+          </p>
+        </div>
+        <div class="col-span-12 border-t-2 border-accent-deep pt-6 md:col-span-4" data-reveal>
+          <p class="label-caps text-umber">Settimane 3–4</p>
+          <h3 class="font-display mt-3 text-[1.375rem] font-medium">Piano</h3>
+          <p class="mt-3 text-[0.9375rem] text-umber">
+            Priorità ordinate per rischio e ritorno, budget e metriche. Decidi tu cosa attivare,
+            con i numeri davanti.
+          </p>
+        </div>
+        <div class="col-span-12 border-t-2 border-accent-deep pt-6 md:col-span-4" data-reveal>
+          <p class="label-caps text-umber">Dal mese 2</p>
+          <h3 class="font-display mt-3 text-[1.375rem] font-medium">Esecuzione in retainer</h3>
+          <p class="mt-3 text-[0.9375rem] text-umber">
+            I verticali attivati lavorano come un sistema, con review mensile sulle metriche
+            concordate. Su preventivo, su misura.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ 05 GARANZIA ============================ -->
+  <section class="hairline" aria-labelledby="garanzia">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="05"
+        label="Garanzia"
+        title="Impegni scritti nel contratto, non nello slide deck."
+      />
+      <div class="mt-16 grid grid-cols-1 gap-5 md:grid-cols-2" data-reveal-group>
+        <div class="rounded-xs border border-white/15 bg-ink-raise p-8 md:p-10" data-reveal>
+          <p class="font-display text-[1.75rem] font-semibold text-accent-soft" aria-hidden="true">
+            A
+          </p>
+          <h3 class="font-display mt-4 text-[1.375rem] font-medium">
+            Un senior con nome e cognome
+          </h3>
+          <p class="mt-4 text-[0.9375rem] text-mist">
+            Il referente che conosci prima di firmare è quello che lavora con te. Se cambia, hai
+            diritto di recesso. È nel contratto.
+          </p>
+        </div>
+        <div class="rounded-xs border border-white/15 bg-ink-raise p-8 md:p-10" data-reveal>
+          <p class="font-display text-[1.75rem] font-semibold text-accent-soft" aria-hidden="true">
+            B
+          </p>
+          <h3 class="font-display mt-4 text-[1.375rem] font-medium">
+            Metriche verificabili e costi trasparenti
+          </h3>
+          <p class="mt-4 text-[0.9375rem] text-mist">
+            Obiettivi misurabili definiti insieme, review mensile, ogni voce di costo scritta e
+            motivata. Se un’attività non serve, te lo diciamo prima noi.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================== INVESTIMENTO ============================= -->
+  <section class="section-light" aria-labelledby="investimento">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        label="Investimento"
+        title="Inizia con un passo a prezzo fisso."
+        light
+      >
+        <p class="mt-6 max-w-2xl text-lead text-umber" data-reveal>
+          Nessun contratto annuale al buio: il primo passo è un prodotto chiuso, con prezzo,
+          durata e deliverable dichiarati. Poi decidi tu.
+        </p>
+      </SectionHeading>
+      <div class="mt-14 grid grid-cols-1 gap-5 lg:grid-cols-2" data-reveal-group>
+        <div data-reveal>
+          <ProductCard
+            light
+            title="Digital & Compliance Audit"
+            price="[PREZZO]"
+            duration="2 settimane · prezzo fisso"
+            description="Maturità digitale e gap normativi (GDPR, NIS2, EAA, AI Act) in un unico documento azionabile, con priorità ordinate per rischio e ritorno."
+            deliverables={[
+              'Report di maturità digitale e conformità',
+              'Gap analysis normativa con priorità',
+              'Roadmap 12 mesi con budget indicativi',
+            ]}
+            deliverablesLabel="Cosa ti porti a casa"
+            href={path('products', lang)}
+            ctaLabel="Dettagli del prodotto"
+          />
+        </div>
+        <div data-reveal>
+          <ProductCard
+            light
+            title="AI Readiness Assessment"
+            price="[PREZZO]"
+            duration="2 settimane · prezzo fisso"
+            description="Dove l’AI rende davvero nella tua azienda — processi, dati, competenze — e dove è solo moda. Con i casi d’uso ordinati per ritorno."
+            deliverables={[
+              'Mappa dei processi automatizzabili',
+              'Valutazione di qualità e accessibilità dei dati',
+              'Casi d’uso prioritari con stima di impatto',
+            ]}
+            deliverablesLabel="Cosa ti porti a casa"
+            href={path('products', lang)}
+            ctaLabel="Dettagli del prodotto"
+          />
+        </div>
+        <div data-reveal>
+          <ProductCard
+            light
+            title="CRM/Martech Sprint"
+            price="[PREZZO]"
+            duration="2–6 settimane · prezzo fisso"
+            description="Il tuo CRM smette di essere una rubrica: dati clienti ordinati, automazioni essenziali attive e un processo commerciale misurabile."
+            deliverables={[
+              'Setup o riordino del CRM',
+              'Automazioni marketing/vendite essenziali',
+              'Dashboard con le metriche commerciali',
+            ]}
+            deliverablesLabel="Cosa ti porti a casa"
+            href={path('products', lang)}
+            ctaLabel="Dettagli del prodotto"
+          />
+        </div>
+        <div data-reveal>
+          <ProductCard
+            light
+            title="Accessibility (EAA) Sprint"
+            price="[PREZZO]"
+            duration="2–6 settimane · prezzo fisso"
+            description="Sito o e-commerce conforme all’European Accessibility Act: audit WCAG 2.1 AA, correzioni e dichiarazione di accessibilità."
+            deliverables={[
+              'Audit di accessibilità WCAG 2.1 AA',
+              'Correzioni tecniche prioritarie',
+              'Dichiarazione di accessibilità pubblicabile',
+            ]}
+            deliverablesLabel="Cosa ti porti a casa"
+            href={path('products', lang)}
+            ctaLabel="Dettagli del prodotto"
+          />
+        </div>
+      </div>
+      <p class="mt-8 text-[0.875rem] text-umber" data-reveal>
+        I prezzi definitivi sono in via di pubblicazione. I retainer continuativi si definiscono su
+        preventivo, dopo l’audit.
+      </p>
+    </div>
+  </section>
+
+  <!-- ======================= 06 COME VEDI IL LAVORO ====================== -->
+  <section class="section-light hairline hairline-dark" aria-labelledby="reporting">
+    <div class="wrap grid grid-cols-12 items-center gap-x-6 py-24 md:py-36">
+      <div class="col-span-12 lg:col-span-6">
+        <SectionHeading
+          num="06"
+          label="Come vedi il lavoro"
+          title="Ogni mese sai cosa è stato fatto, cosa ha reso, cosa succede dopo."
+          light
+          class="grid-cols-1!"
+        />
+        <div class="mt-8 space-y-4 text-[0.9375rem] text-umber" data-reveal>
+          <p>
+            Un report mensile in linguaggio di business: attività chiuse, metriche concordate,
+            decisioni da prendere. Una board condivisa sempre accessibile, una call di review al
+            mese.
+          </p>
+          <p>
+            Niente dashboard-vetrina piene di numeri che non decidono nulla: i dati che guardiamo
+            sono quelli su cui abbiamo preso impegni.
+          </p>
+        </div>
+      </div>
+      <div class="col-span-12 mt-14 lg:col-span-5 lg:col-start-8 lg:mt-0" data-reveal>
+        <!-- Mockup astratto del report mensile (decorativo) -->
+        <div
+          class="rounded-xs border border-ink/15 bg-white/60 p-7 shadow-[0_24px_60px_-30px_rgb(14_13_11/0.25)]"
+          aria-hidden="true"
+        >
+          <div class="flex items-center justify-between">
+            <div class="h-2.5 w-24 rounded-full bg-ink/70"></div>
+            <div class="h-2.5 w-12 rounded-full bg-ink/20"></div>
+          </div>
+          <div class="mt-7 space-y-4">
+            <div>
+              <div class="mb-2 h-2 w-16 rounded-full bg-ink/25"></div>
+              <div class="h-3 w-[82%] rounded-full bg-accent"></div>
+            </div>
+            <div>
+              <div class="mb-2 h-2 w-20 rounded-full bg-ink/25"></div>
+              <div class="h-3 w-[64%] rounded-full bg-accent/70"></div>
+            </div>
+            <div>
+              <div class="mb-2 h-2 w-14 rounded-full bg-ink/25"></div>
+              <div class="h-3 w-[45%] rounded-full bg-accent/40"></div>
+            </div>
+          </div>
+          <div class="mt-8 grid grid-cols-3 gap-3">
+            <div class="rounded-xs border border-ink/10 p-3">
+              <div class="h-2 w-10 rounded-full bg-ink/25"></div>
+              <div class="mt-2 h-2.5 w-8 rounded-full bg-ink/60"></div>
+            </div>
+            <div class="rounded-xs border border-ink/10 p-3">
+              <div class="h-2 w-10 rounded-full bg-ink/25"></div>
+              <div class="mt-2 h-2.5 w-8 rounded-full bg-ink/60"></div>
+            </div>
+            <div class="rounded-xs border border-ink/10 p-3">
+              <div class="h-2 w-10 rounded-full bg-ink/25"></div>
+              <div class="mt-2 h-2.5 w-8 rounded-full bg-ink/60"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================== 07 PERCHÉ NOI =========================== -->
+  <section class="hairline" aria-labelledby="perche-noi">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="07"
+        label="Perché noi"
+        title="Le persone che rispondono, con nome e cognome."
+      />
+      <p class="mt-8 max-w-2xl text-lead text-mist" data-reveal>
+        Niente “team di 50 professionisti”. I senior che vedi qui sono quelli che lavorano sui tuoi
+        progetti — con il loro track record verificabile.
+      </p>
+      <div class="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3" data-reveal-group>
+        {
+          [1, 2, 3].map(() => (
+            <div class="rounded-xs border border-white/15 bg-ink-raise p-8" data-reveal>
+              <div
+                class="flex h-40 items-center justify-center rounded-xs bg-white/5 text-[0.8125rem] text-mist"
+                role="img"
+                aria-label="Ritratto in arrivo"
+              >
+                [PLACEHOLDER: FOTO SENIOR]
+              </div>
+              <h3 class="font-display mt-6 text-[1.25rem] font-medium">[PLACEHOLDER: NOME]</h3>
+              <p class="mt-1 text-[0.875rem] text-accent-soft">[PLACEHOLDER: RUOLO / VERTICALE]</p>
+              <p class="mt-4 text-[0.9375rem] text-mist">[BIO SENIOR]</p>
+            </div>
+          ))
+        }
+      </div>
+      <div class="mt-12" data-reveal>
+        <ArrowLink href={path('about', lang)} class="text-paper">Conosci i senior</ArrowLink>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================== 08 FILOSOFIA ============================ -->
+  <section class="hairline" aria-labelledby="filosofia">
+    <div class="wrap py-28 md:py-44">
+      <p class="label-caps text-mist" data-reveal>08 — Filosofia</p>
+      <p class="font-display text-h2 mt-8 max-w-4xl font-medium" data-reveal>
+        Pochi clienti in retainer, relazioni lunghe.
+        <span class="text-mist">
+          Cresciamo quando cresci tu — non aggiungendo loghi a un portfolio.</span
+        >
+      </p>
+      <p class="mt-8 max-w-xl text-lead text-mist" data-reveal>
+        Il modello senior non scala come un’agenzia di junior. È una scelta: meglio dire qualche no
+        in più che diluire la qualità di chi risponde.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================== 09 FAQ =============================== -->
+  <section class="hairline" aria-labelledby="faq">
+    <div class="wrap grid grid-cols-12 gap-x-6 py-24 md:py-36">
+      <div class="col-span-12 lg:col-span-4">
+        <div class="lg:sticky lg:top-32">
+          <span class="sec-num block text-accent" aria-hidden="true" data-reveal>09</span>
+          <p class="label-caps mt-4 text-mist" data-reveal>FAQ</p>
+          <h2 class="font-display text-h2 mt-4 font-medium" data-reveal>
+            Le obiezioni giuste.
+          </h2>
+          <p class="mt-6 max-w-sm text-[0.9375rem] text-mist" data-reveal>
+            Le domande che faremmo anche noi, con risposte senza giri di parole.
+          </p>
+        </div>
+      </div>
+      <div class="col-span-12 mt-12 lg:col-span-7 lg:col-start-6 lg:mt-0" data-reveal>
+        <Accordion items={faq} idPrefix="faq-home" withSchema />
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ 10 CONTATTI ============================ -->
+  <section class="hairline" aria-labelledby="contatti">
+    <div class="wrap grid grid-cols-12 gap-x-6 py-24 md:py-36">
+      <div class="col-span-12 lg:col-span-5">
+        <span class="sec-num block text-accent" aria-hidden="true" data-reveal>10</span>
+        <p class="label-caps mt-4 text-mist" data-reveal>Contatti</p>
+        <h2 class="font-display text-h2 mt-4 font-medium" data-reveal>
+          Raccontaci dove sei.
+        </h2>
+        <p class="mt-6 max-w-md text-lead text-mist" data-reveal>
+          Rispondiamo entro 24 ore lavorative, con un parere onesto. Anche quando la risposta è
+          “non vi serve”.
+        </p>
+        <p class="mt-8 text-[0.9375rem] text-mist" data-reveal>
+          Preferisci parlarne a voce?
+          <a href={path('contact', lang)} class="link-plain text-paper"
+            >Prenota una call di 30 minuti</a
+          >
+        </p>
+      </div>
+      <div class="col-span-12 mt-14 lg:col-span-6 lg:col-start-7 lg:mt-0" data-reveal>
+        <ContactForm lang={lang} />
+      </div>
+    </div>
+  </section>
+</Base>

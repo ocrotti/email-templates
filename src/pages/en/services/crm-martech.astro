@@ -1,0 +1,455 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Pill from '../../../components/Pill.astro';
+import Button from '../../../components/Button.astro';
+import ArrowLink from '../../../components/ArrowLink.astro';
+import SectionHeading from '../../../components/SectionHeading.astro';
+import VerticalCard from '../../../components/VerticalCard.astro';
+import ProductCard from '../../../components/ProductCard.astro';
+import Accordion from '../../../components/Accordion.astro';
+import CtaSection from '../../../components/CtaSection.astro';
+import { path } from '../../../lib/routes';
+import { serviceSchema } from '../../../lib/seo';
+
+const lang = 'en' as const;
+
+const faq = [
+  {
+    q: 'We already have a CRM nobody uses — can it be saved?',
+    a: 'Almost always, yes — and it is the scenario we start from most often. The problem is rarely the tool: it is a CRM configured far from how the team actually works — too many fields, no integrations, zero benefit for the people filling it in. The sprint starts there: clean data, fields cut to the essentials, integrations with the tools the team already uses. Switching platforms is the last option, not the first — we only consider it when the current tool works against the process.',
+  },
+  {
+    q: 'Which CRM do you recommend?',
+    a: 'None by default: we are vendor-neutral. We do not resell licences and we take no commissions from software vendors, so the advice is not conditioned. The choice depends on your sales process, the systems to integrate, the size of the team and the budget — and often the right answer is keeping the tool you already have, configured properly. If a change is genuinely needed, we say so with the criteria on the table, not with a brochure.',
+  },
+  {
+    q: 'How long until the team actually adopts it?',
+    a: 'It comes down to one thing: whether the CRM saves time for the people using it or demands more of it. That is why we design around the team’s real work — fewer fields to fill in, automations that remove data entry, useful information given back in exchange for what goes in. The first weeks include hands-on support and usage metrics: if adoption is not taking off, we see it in the numbers and fix the process. We do not schedule yet another training course.',
+  },
+  {
+    q: 'Isn’t marketing automation something for big companies?',
+    a: 'The opposite: it pays most in an SME, because it replaces manual hours nobody has. You do not need complicated scenarios: a few essential automations are enough — the follow-up after a quote, the welcome for new contacts, cart recovery if you sell online — built on clean data and properly collected consent. You start with two or three, measure what pays, then extend. Complexity comes later, if it is needed at all.',
+  },
+];
+
+const schema = [
+  serviceSchema({
+    name: 'CRM & martech — CRM consulting and marketing automation for SMEs',
+    description:
+      'CRM and martech consulting for SMEs operating in Italy: one source of truth on customers, a measurable sales process, essential automations and marketing on first-party data — with GDPR on your side.',
+    path: path('serviceCrm', lang),
+    lang,
+  }),
+];
+---
+
+<Base
+  lang={lang}
+  routeKey="serviceCrm"
+  title="CRM & martech consulting | enable.advisory"
+  description="CRM consulting for SMEs in Italy: one source of truth on your customers, a measurable sales process and marketing automation that saves real hours."
+  ogImage="/og/serviceCrm-en.png"
+  schema={schema}
+>
+  <Breadcrumbs
+    lang={lang}
+    items={[
+      { name: 'Services', path: path('services', lang) },
+      { name: 'CRM & martech', path: path('serviceCrm', lang) },
+    ]}
+  />
+
+  <!-- ============================== HERO ============================== -->
+  <section class="relative overflow-hidden">
+    <div
+      class="pointer-events-none absolute inset-0"
+      aria-hidden="true"
+      style="background: radial-gradient(50rem 34rem at 90% -20%, rgb(43 92 255 / 0.11), transparent 60%);"
+    >
+    </div>
+    <div class="wrap relative pt-12 pb-20 md:pt-16 md:pb-28">
+      <p class="label-caps text-mist" data-reveal>Vertical 03 — CRM & martech</p>
+      <h1 class="font-display text-display mt-6 max-w-6xl font-medium" data-reveal>
+        CRM &amp; martech consulting: turn your customer base into value.
+      </h1>
+      <p class="mt-8 max-w-xl text-lead text-mist" data-reveal>
+        The CRM exists, but the real data lives in spreadsheets and inboxes — and marketing runs
+        on its own. We put your customers back into one system: clean data, a measurable process,
+        automations that pay.
+      </p>
+      <div class="mt-10 flex flex-wrap items-center gap-4" data-reveal>
+        <Button href={path('contact', lang)}>Book your audit</Button>
+        <Button href={path('products', lang)} variant="ghost">
+          Start with a fixed-price step
+        </Button>
+      </div>
+      <ul class="mt-12 flex flex-wrap gap-3" data-reveal-group>
+        <li data-reveal><Pill>A CRM people actually use</Pill></li>
+        <li data-reveal><Pill>Marketing automation</Pill></li>
+        <li data-reveal><Pill>Systems integration</Pill></li>
+        <li data-reveal><Pill>First-party data</Pill></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================ 01 THE PROBLEM ============================ -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="01"
+        label="The problem"
+        title="The most neglected asset in an SME: the customers it already has."
+      >
+        <p class="mt-6 max-w-2xl text-lead text-mist" data-reveal>
+          Winning a new customer takes effort and budget. Yet in many SMEs the value of existing
+          customers leaks away across disconnected tools and processes nobody ever wrote down.
+        </p>
+      </SectionHeading>
+      <div class="mt-16 grid grid-cols-12 gap-x-6 gap-y-12" data-reveal-group>
+        <div class="col-span-12 md:col-span-4" data-reveal>
+          <p class="font-display text-[1.375rem] font-semibold text-accent-soft" aria-hidden="true">
+            1
+          </p>
+          <h3 class="font-display mt-3 text-[1.25rem] font-medium">
+            The CRM you bought and nobody adopted
+          </h3>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            The licence gets paid every year, but the sales team still works from its own files:
+            the CRM gets updated the night before the meeting, at best. It’s not a tool problem —
+            it’s a process nobody designed around the people who sell.
+          </p>
+        </div>
+        <div class="col-span-12 md:col-span-4" data-reveal>
+          <p class="font-display text-[1.375rem] font-semibold text-accent-soft" aria-hidden="true">
+            2
+          </p>
+          <h3 class="font-display mt-3 text-[1.25rem] font-medium">
+            Customer data everywhere except where you need it
+          </h3>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            Part in the ERP, part in a salesperson’s spreadsheet, the rest in personal inboxes.
+            Nobody sees the whole picture — and when someone leaves, the relationship history
+            leaves with them.
+          </p>
+        </div>
+        <div class="col-span-12 md:col-span-4" data-reveal>
+          <p class="font-display text-[1.375rem] font-semibold text-accent-soft" aria-hidden="true">
+            3
+          </p>
+          <h3 class="font-display mt-3 text-[1.25rem] font-medium">
+            Marketing and sales don’t talk
+          </h3>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            The newsletter goes out to everyone, leads come in and nobody follows up, and at the
+            end of the quarter you can’t tell which activity produced revenue. Two teams working
+            on the same customers — without sharing a single data point.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ 02 WHAT WE DO ============================ -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="02"
+        label="What we do"
+        title="Four business objectives. Not a platform catalogue."
+      >
+        <p class="mt-6 max-w-2xl text-lead text-mist" data-reveal>
+          We don’t start from the tool: we start from what needs to happen to your numbers.
+          Everything we do answers one of these objectives.
+        </p>
+      </SectionHeading>
+
+      <div class="mt-16 space-y-16 md:space-y-20">
+        <div class="grid grid-cols-12 gap-x-6 gap-y-6" data-reveal-group>
+          <div class="col-span-12 md:col-span-4" data-reveal>
+            <h3 class="font-display text-[1.375rem] font-medium md:text-[1.5rem]">
+              One source of truth on your customers
+            </h3>
+          </div>
+          <div class="col-span-12 space-y-4 text-[0.9375rem] text-mist md:col-span-7 md:col-start-6">
+            <p data-reveal>
+              Clean, de-duplicated records, and a CRM integrated with your ERP, e-commerce and
+              email: whoever opens a customer record finds history, deals and communications in
+              one place. Without digging through three tools and two inboxes.
+            </p>
+            <p data-reveal>
+              The most important result never shows up in a demo: customer knowledge becomes an
+              asset of the company, not of the memory of whoever handles the account.
+            </p>
+          </div>
+        </div>
+
+        <div class="hairline grid grid-cols-12 gap-x-6 gap-y-6 pt-16 md:pt-20" data-reveal-group>
+          <div class="col-span-12 md:col-span-4" data-reveal>
+            <h3 class="font-display text-[1.375rem] font-medium md:text-[1.5rem]">
+              A sales process you can measure
+            </h3>
+          </div>
+          <div class="col-span-12 space-y-4 text-[0.9375rem] text-mist md:col-span-7 md:col-start-6">
+            <p data-reveal>
+              A pipeline with defined stages, clear ownership and tracked loss reasons. You know
+              how many opportunities come in, where they stall and why — and sales forecasts stop
+              being a bet.
+            </p>
+            <p data-reveal>
+              Sales reviews run on numbers, not impressions. That’s the difference between
+              managing sales and hoping for the best.
+            </p>
+          </div>
+        </div>
+
+        <div class="hairline grid grid-cols-12 gap-x-6 gap-y-6 pt-16 md:pt-20" data-reveal-group>
+          <div class="col-span-12 md:col-span-4" data-reveal>
+            <h3 class="font-display text-[1.375rem] font-medium md:text-[1.5rem]">
+              Automations that save real hours
+            </h3>
+          </div>
+          <div class="col-span-12 space-y-4 text-[0.9375rem] text-mist md:col-span-7 md:col-start-6">
+            <p data-reveal>
+              Follow-ups that never went out, data retyped by hand from one system into another,
+              reminders managed from memory: we automate what the team actually does every week,
+              not demo scenarios. The hours you get back go into customers and deals.
+            </p>
+            <p data-reveal>
+              We start with a few essential automations, measure what they return, then extend.
+              An automation nobody understands is just one more thing to maintain.
+            </p>
+            <p data-reveal>
+              <ArrowLink href={path('resourceAi', lang)} class="text-paper">
+                AI for business: read the guide
+              </ArrowLink>
+            </p>
+          </div>
+        </div>
+
+        <div class="hairline grid grid-cols-12 gap-x-6 gap-y-6 pt-16 md:pt-20" data-reveal-group>
+          <div class="col-span-12 md:col-span-4" data-reveal>
+            <h3 class="font-display text-[1.375rem] font-medium md:text-[1.5rem]">
+              Marketing on data you own — with GDPR on your side
+            </h3>
+          </div>
+          <div class="col-span-12 space-y-4 text-[0.9375rem] text-mist md:col-span-7 md:col-start-6">
+            <p data-reveal>
+              We build marketing on first-party data: properly collected consent, segments based
+              on real buying behaviour, messages to people who chose to receive them. The data you
+              own is the one channel no platform can take away or make you pay for twice.
+            </p>
+            <p data-reveal>
+              Here GDPR is not an obstacle: it’s the advantage. Tracked consent and well-written
+              notices let you use your data with confidence where others freeze for fear of
+              getting it wrong. It’s why this vertical works hand in hand with compliance &amp;
+              digital governance.
+            </p>
+            <p data-reveal>
+              <ArrowLink href={path('serviceCompliance', lang)} class="text-paper">
+                The compliance vertical, in detail
+              </ArrowLink>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-16 rounded-xs border border-white/15 bg-ink-raise p-8 md:p-10" data-reveal>
+        <p class="label-caps text-mist">A vendor-neutral note</p>
+        <p class="mt-4 max-w-3xl text-[0.9375rem] text-mist">
+          We don’t resell licences and we take no commissions from software vendors. When we
+          recommend a CRM or a martech platform, the advice is not conditioned: we pick — or keep
+          — the tool that serves your process, not the one that pays us best.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================== 03 THE FIRST STEP =========================== -->
+  <section class="section-light">
+    <div class="wrap grid grid-cols-12 gap-x-6 py-24 md:py-36">
+      <div class="col-span-12 lg:col-span-5">
+        <span class="sec-num block text-accent-deep" aria-hidden="true" data-reveal>03</span>
+        <p class="label-caps mt-4 text-umber" data-reveal>The first step</p>
+        <h2 class="font-display text-h2 mt-4 font-medium" data-reveal>
+          A closed sprint, not a never-ending project.
+        </h2>
+        <p class="mt-6 max-w-md text-lead text-umber" data-reveal>
+          In a few weeks your CRM stops being an address book: clean data, the essential
+          automations running, commercial metrics on a dashboard. Fixed price, closed scope — and
+          everything we build stays yours.
+        </p>
+        <p class="mt-8" data-reveal>
+          <ArrowLink href={path('products', lang)} class="text-accent-deep">
+            All fixed-price products
+          </ArrowLink>
+        </p>
+      </div>
+      <div class="col-span-12 mt-14 lg:col-span-6 lg:col-start-7 lg:mt-0" data-reveal>
+        <ProductCard
+          light
+          title="CRM/Martech Sprint"
+          price="[PREZZO]"
+          duration="2–6 weeks · fixed price"
+          description="Your CRM stops being an address book: clean customer data, the essential automations running, and a sales process you can measure."
+          deliverables={[
+            'CRM set-up or clean-up',
+            'Essential marketing and sales automations',
+            'Dashboard with your commercial metrics',
+          ]}
+          deliverablesLabel="What you walk away with"
+          href={path('products', lang)}
+          ctaLabel="Product details"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ 04 YOUR LEAD ============================ -->
+  <section class="section-light hairline hairline-dark">
+    <div class="wrap grid grid-cols-12 gap-x-6 py-24 md:py-36">
+      <div class="col-span-12 lg:col-span-6">
+        <SectionHeading
+          num="04"
+          label="Your lead"
+          title="A senior with a first and last name, not a rotating team."
+          light
+          class="grid-cols-1!"
+        />
+        <div class="mt-8 space-y-4 text-[0.9375rem] text-umber" data-reveal>
+          <p>
+            The CRM &amp; martech vertical is run by a senior who has put order into the sales
+            processes of companies like yours — not by a junior who got certified last month. The
+            person you meet on the first call is the person who signs the work.
+          </p>
+          <p>
+            If your lead changes during the engagement, you have the right to terminate. It’s
+            written in the contract, not in the slide deck.
+          </p>
+        </div>
+      </div>
+      <div class="col-span-12 mt-14 lg:col-span-5 lg:col-start-8 lg:mt-0" data-reveal>
+        <div class="rounded-xs border border-ink/15 bg-white/40 p-8">
+          <div
+            class="flex h-40 items-center justify-center rounded-xs bg-ink/5 text-[0.8125rem] text-umber"
+            role="img"
+            aria-label="Portrait coming soon"
+          >
+            [PLACEHOLDER: FOTO SENIOR]
+          </div>
+          <h3 class="font-display mt-6 text-[1.25rem] font-medium">[PLACEHOLDER: NOME]</h3>
+          <p class="mt-1 text-[0.875rem] text-accent-deep">
+            Senior lead — CRM & martech
+          </p>
+          <p class="mt-4 text-[0.9375rem] text-umber">[BIO SENIOR]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ 05 CASE STUDY ============================ -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="05"
+        label="Case study"
+        title="Context, intervention, result — with no invented numbers."
+      >
+        <p class="mt-6 max-w-2xl text-lead text-mist" data-reveal>
+          The first case for this vertical is being prepared for publication, with the client’s
+          permission. We’d rather show an empty box than an invented metric.
+        </p>
+      </SectionHeading>
+      <div class="mt-14 rounded-xs border border-white/15 bg-ink-raise p-8 md:p-10" data-reveal>
+        <p class="label-caps text-mist">First case — in publication</p>
+        <div class="mt-8 grid grid-cols-12 gap-x-6 gap-y-10">
+          <div class="col-span-12 border-t-2 border-accent pt-5 md:col-span-4">
+            <h3 class="font-display text-[1.125rem] font-medium">Context</h3>
+            <p class="mt-3 text-[0.9375rem] text-mist">
+              [PLACEHOLDER: settore, dimensione e punto di partenza del cliente]
+            </p>
+          </div>
+          <div class="col-span-12 border-t-2 border-accent pt-5 md:col-span-4">
+            <h3 class="font-display text-[1.125rem] font-medium">Intervention</h3>
+            <p class="mt-3 text-[0.9375rem] text-mist">
+              [PLACEHOLDER: attività svolte, perimetro e durata dell’ingaggio]
+            </p>
+          </div>
+          <div class="col-span-12 border-t-2 border-accent pt-5 md:col-span-4">
+            <h3 class="font-display text-[1.125rem] font-medium">Result</h3>
+            <p class="mt-3 text-[0.9375rem] text-mist">
+              [PLACEHOLDER: risultati misurati e verificabili]
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="mt-10" data-reveal>
+        <ArrowLink href={path('caseStudies', lang)} class="text-paper">
+          How we document case studies
+        </ArrowLink>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== 06 FAQ =============================== -->
+  <section class="hairline">
+    <div class="wrap grid grid-cols-12 gap-x-6 py-24 md:py-36">
+      <div class="col-span-12 lg:col-span-4">
+        <div class="lg:sticky lg:top-32">
+          <span class="sec-num block text-accent" aria-hidden="true" data-reveal>06</span>
+          <p class="label-caps mt-4 text-mist" data-reveal>FAQ</p>
+          <h2 class="font-display text-h2 mt-4 font-medium" data-reveal>
+            The right questions about CRM and martech.
+          </h2>
+          <p class="mt-6 max-w-sm text-[0.9375rem] text-mist" data-reveal>
+            The ones business owners ask us on the first call — answered without hedging.
+          </p>
+        </div>
+      </div>
+      <div class="col-span-12 mt-12 lg:col-span-7 lg:col-start-6 lg:mt-0" data-reveal>
+        <Accordion items={faq} idPrefix="faq-crm" withSchema />
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== 07 THE SYSTEM, NOT SILOS ======================== -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="07"
+        label="The system, not the silos"
+        title="Your customers pay more when the verticals work together."
+      >
+        <p class="mt-6 max-w-2xl text-lead text-mist" data-reveal>
+          Clean customer data is the foundation of any serious AI project; properly collected
+          consent is what makes first-party marketing possible. That’s why CRM &amp; martech works
+          hand in hand with the other verticals, under one accountable lead.
+        </p>
+      </SectionHeading>
+      <div class="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2" data-reveal-group>
+        <div data-reveal>
+          <VerticalCard
+            href={path('serviceData', lang)}
+            num="02"
+            title="Data & AI"
+            claim="AI-native for SMEs."
+            items={['AI readiness', 'Automation', 'Data value']}
+            linkLabel="Explore the vertical"
+          />
+        </div>
+        <div data-reveal>
+          <VerticalCard
+            href={path('serviceCompliance', lang)}
+            num="01"
+            title="Compliance & digital governance"
+            claim="From compliance to growth."
+            items={['GDPR', 'NIS2', 'EAA', 'AI Act']}
+            linkLabel="Explore the vertical"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaSection lang={lang} />
+</Base>

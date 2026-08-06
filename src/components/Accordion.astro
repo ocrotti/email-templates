@@ -1,0 +1,55 @@
+---
+/**
+ * FAQ accordion accessibile: button + region, altezza animata via CSS grid.
+ * Emette opzionalmente lo schema FAQPage (usare una sola volta per pagina).
+ */
+import { faqSchema } from '../lib/seo';
+
+interface Props {
+  items: { q: string; a: string }[];
+  /** Prefisso univoco per gli id (es. "faq-home"). */
+  idPrefix: string;
+  withSchema?: boolean;
+}
+const { items, idPrefix, withSchema = false } = Astro.props;
+---
+
+{
+  withSchema && (
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema(items))} />
+  )
+}
+
+<div class="border-b border-white/12 [.section-light_&]:border-ink/14">
+  {
+    items.map((item, i) => (
+      <div class="accordion-item" data-accordion-item>
+        <h3>
+          <button
+            type="button"
+            class="accordion-trigger"
+            aria-expanded="false"
+            aria-controls={`${idPrefix}-panel-${i}`}
+            id={`${idPrefix}-btn-${i}`}
+            data-accordion-trigger
+          >
+            <span>{item.q}</span>
+            <span class="accordion-icon" aria-hidden="true" />
+          </button>
+        </h3>
+        <div
+          class="accordion-panel"
+          id={`${idPrefix}-panel-${i}`}
+          role="region"
+          aria-labelledby={`${idPrefix}-btn-${i}`}
+        >
+          <div class="accordion-panel-inner">
+            <p class="max-w-2xl pb-7 text-[0.9375rem] text-mist [.section-light_&]:text-umber">
+              {item.a}
+            </p>
+          </div>
+        </div>
+      </div>
+    ))
+  }
+</div>

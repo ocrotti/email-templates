@@ -1,0 +1,459 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Pill from '../../../components/Pill.astro';
+import Button from '../../../components/Button.astro';
+import ArrowLink from '../../../components/ArrowLink.astro';
+import SectionHeading from '../../../components/SectionHeading.astro';
+import VerticalCard from '../../../components/VerticalCard.astro';
+import ProductCard from '../../../components/ProductCard.astro';
+import Accordion from '../../../components/Accordion.astro';
+import CtaSection from '../../../components/CtaSection.astro';
+import { path } from '../../../lib/routes';
+import { serviceSchema } from '../../../lib/seo';
+
+const lang = 'it' as const;
+
+const faq = [
+  {
+    q: 'Abbiamo già un CRM che nessuno usa: si recupera?',
+    a: 'Quasi sempre sì, ed è lo scenario da cui partiamo più spesso. Il problema raramente è lo strumento: è un CRM configurato lontano da come il team lavora davvero — troppi campi, nessuna integrazione, zero vantaggio per chi lo compila. Lo sprint parte da lì: dati puliti, campi ridotti all’essenziale, integrazioni con gli strumenti che il team già usa. Cambiare piattaforma è l’ultima opzione, non la prima — si valuta solo quando lo strumento attuale lavora contro il processo.',
+  },
+  {
+    q: 'Quale CRM consigliate?',
+    a: 'Nessuno a priori: siamo vendor-neutral. Non rivendiamo licenze e non riceviamo commissioni dai produttori di software, quindi il consiglio non è condizionato. La scelta dipende dal tuo processo commerciale, dai sistemi da integrare, dalla dimensione del team e dal budget — e spesso la risposta giusta è tenere lo strumento che hai già, configurato come si deve. Se serve cambiare, te lo diciamo con i criteri sul tavolo, non con una brochure.',
+  },
+  {
+    q: 'Quanto ci mette il team ad adottarlo?',
+    a: 'Dipende da una cosa sola: se il CRM fa risparmiare tempo a chi lo usa o gliene chiede di più. Per questo lo progettiamo intorno al lavoro reale del team — meno campi da compilare, automazioni che eliminano il data entry, informazioni utili in cambio di quelle inserite. Le prime settimane prevedono affiancamento e metriche d’uso: se l’adozione non decolla, lo vediamo dai numeri e correggiamo il processo. Non organizziamo l’ennesimo corso.',
+  },
+  {
+    q: 'Il marketing automation è roba da grandi aziende?',
+    a: 'Al contrario: è in una PMI che rende di più, perché sostituisce ore di lavoro manuale che nessuno ha. Non servono scenari complicati: bastano poche automazioni essenziali — il follow-up dopo un preventivo, il benvenuto ai nuovi contatti, il recupero dei carrelli se vendi online — costruite su dati puliti e consensi in regola. Si parte da due o tre, si misura cosa rende, si estende. La complessità arriva dopo, se serve.',
+  },
+];
+
+const schema = [
+  serviceSchema({
+    name: 'CRM & martech — consulenza CRM e marketing automation per PMI',
+    description:
+      'Consulenza CRM e martech per PMI italiane: un’unica fonte di verità sui clienti, processi commerciali misurabili, automazioni essenziali e marketing su dati propri, con il GDPR dalla tua parte.',
+    path: path('serviceCrm', lang),
+    lang,
+  }),
+];
+---
+
+<Base
+  lang={lang}
+  routeKey="serviceCrm"
+  title="Consulenza CRM e martech per PMI | enable.advisory"
+  description="Consulenza CRM e martech per PMI: un’unica fonte di verità sui clienti, processi commerciali misurabili e automazioni che fanno risparmiare ore vere."
+  ogImage="/og/serviceCrm-it.png"
+  schema={schema}
+>
+  <Breadcrumbs
+    lang={lang}
+    items={[
+      { name: 'Servizi', path: path('services', lang) },
+      { name: 'CRM & martech', path: path('serviceCrm', lang) },
+    ]}
+  />
+
+  <!-- ============================== HERO ============================== -->
+  <section class="relative overflow-hidden">
+    <div
+      class="pointer-events-none absolute inset-0"
+      aria-hidden="true"
+      style="background: radial-gradient(50rem 34rem at 90% -20%, rgb(43 92 255 / 0.11), transparent 60%);"
+    >
+    </div>
+    <div class="wrap relative pt-12 pb-20 md:pt-16 md:pb-28">
+      <p class="label-caps text-mist" data-reveal>Verticale 03 — CRM & martech</p>
+      <h1 class="font-display text-display mt-6 max-w-6xl font-medium" data-reveal>
+        Consulenza CRM e martech: metti a valore i tuoi clienti.
+      </h1>
+      <p class="mt-8 max-w-xl text-lead text-mist" data-reveal>
+        Il CRM c’è, ma i dati veri vivono in fogli Excel e caselle email — e il marketing va per
+        conto suo. Rimettiamo i clienti in un sistema unico: dati ordinati, processo misurabile,
+        automazioni che rendono.
+      </p>
+      <div class="mt-10 flex flex-wrap items-center gap-4" data-reveal>
+        <Button href={path('contact', lang)}>Prenota l’audit</Button>
+        <Button href={path('products', lang)} variant="ghost">
+          Inizia con un passo a prezzo fisso
+        </Button>
+      </div>
+      <ul class="mt-12 flex flex-wrap gap-3" data-reveal-group>
+        <li data-reveal><Pill>CRM adottato davvero</Pill></li>
+        <li data-reveal><Pill>Marketing automation</Pill></li>
+        <li data-reveal><Pill>Integrazione sistemi</Pill></li>
+        <li data-reveal><Pill>Dati di prima parte</Pill></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================ 01 IL PROBLEMA ============================ -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="01"
+        label="Il problema"
+        title="Il patrimonio più trascurato di una PMI: i clienti che ha già."
+      >
+        <p class="mt-6 max-w-2xl text-lead text-mist" data-reveal>
+          Acquisire un cliente nuovo costa fatica e budget. Eppure in molte PMI il valore dei
+          clienti esistenti si disperde tra strumenti scollegati e processi mai scritti.
+        </p>
+      </SectionHeading>
+      <div class="mt-16 grid grid-cols-12 gap-x-6 gap-y-12" data-reveal-group>
+        <div class="col-span-12 md:col-span-4" data-reveal>
+          <p class="font-display text-[1.375rem] font-semibold text-accent-soft" aria-hidden="true">
+            1
+          </p>
+          <h3 class="font-display mt-3 text-[1.25rem] font-medium">
+            Il CRM comprato e mai adottato
+          </h3>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            La licenza si paga ogni anno, ma i commerciali continuano a lavorare sui loro file: il
+            CRM si aggiorna la sera prima della riunione, se va bene. Non è un problema di
+            strumento — è un processo che nessuno ha progettato intorno a chi vende.
+          </p>
+        </div>
+        <div class="col-span-12 md:col-span-4" data-reveal>
+          <p class="font-display text-[1.375rem] font-semibold text-accent-soft" aria-hidden="true">
+            2
+          </p>
+          <h3 class="font-display mt-3 text-[1.25rem] font-medium">
+            Dati clienti ovunque, tranne dove servono
+          </h3>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            Un pezzo nel gestionale, un pezzo nell’Excel di un commerciale, il resto in caselle
+            email personali. Nessuno ha il quadro intero — e quando una persona se ne va, la
+            storia delle relazioni se ne va con lei.
+          </p>
+        </div>
+        <div class="col-span-12 md:col-span-4" data-reveal>
+          <p class="font-display text-[1.375rem] font-semibold text-accent-soft" aria-hidden="true">
+            3
+          </p>
+          <h3 class="font-display mt-3 text-[1.25rem] font-medium">
+            Marketing e vendite non si parlano
+          </h3>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            La newsletter parte per tutti, i lead arrivano e nessuno li lavora, e a fine trimestre
+            non sai quale attività ha prodotto fatturato. Due reparti che lavorano sugli stessi
+            clienti — senza condividere un dato.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================== 02 COSA FACCIAMO ========================== -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="02"
+        label="Cosa facciamo"
+        title="Quattro obiettivi di business. Non un catalogo di piattaforme."
+      >
+        <p class="mt-6 max-w-2xl text-lead text-mist" data-reveal>
+          Non partiamo dallo strumento: partiamo da cosa deve succedere ai tuoi numeri. Ogni
+          attività risponde a uno di questi obiettivi.
+        </p>
+      </SectionHeading>
+
+      <div class="mt-16 space-y-16 md:space-y-20">
+        <div class="grid grid-cols-12 gap-x-6 gap-y-6" data-reveal-group>
+          <div class="col-span-12 md:col-span-4" data-reveal>
+            <h3 class="font-display text-[1.375rem] font-medium md:text-[1.5rem]">
+              Un’unica fonte di verità sui clienti
+            </h3>
+          </div>
+          <div class="col-span-12 space-y-4 text-[0.9375rem] text-mist md:col-span-7 md:col-start-6">
+            <p data-reveal>
+              Anagrafiche pulite e deduplicate, CRM integrato con gestionale, e-commerce ed email:
+              chi apre una scheda cliente trova storia, trattative e comunicazioni in un posto
+              solo. Senza cercare in tre strumenti e due caselle di posta.
+            </p>
+            <p data-reveal>
+              Il risultato più importante non si vede in demo: la conoscenza dei clienti diventa
+              un patrimonio dell’azienda, non della memoria di chi li segue.
+            </p>
+          </div>
+        </div>
+
+        <div class="hairline grid grid-cols-12 gap-x-6 gap-y-6 pt-16 md:pt-20" data-reveal-group>
+          <div class="col-span-12 md:col-span-4" data-reveal>
+            <h3 class="font-display text-[1.375rem] font-medium md:text-[1.5rem]">
+              Processi commerciali misurabili
+            </h3>
+          </div>
+          <div class="col-span-12 space-y-4 text-[0.9375rem] text-mist md:col-span-7 md:col-start-6">
+            <p data-reveal>
+              Una pipeline con fasi definite, responsabilità chiare e motivi di perdita tracciati.
+              Sai quante opportunità entrano, dove si fermano e perché — e le previsioni di
+              vendita smettono di essere una scommessa.
+            </p>
+            <p data-reveal>
+              Le review commerciali si fanno sui numeri, non sulle impressioni. È la differenza
+              tra gestire le vendite e sperarci.
+            </p>
+          </div>
+        </div>
+
+        <div class="hairline grid grid-cols-12 gap-x-6 gap-y-6 pt-16 md:pt-20" data-reveal-group>
+          <div class="col-span-12 md:col-span-4" data-reveal>
+            <h3 class="font-display text-[1.375rem] font-medium md:text-[1.5rem]">
+              Automazioni che fanno risparmiare ore vere
+            </h3>
+          </div>
+          <div class="col-span-12 space-y-4 text-[0.9375rem] text-mist md:col-span-7 md:col-start-6">
+            <p data-reveal>
+              Follow-up che non partivano, dati ricopiati a mano da un sistema all’altro,
+              promemoria gestiti a memoria: automatizziamo quello che il team fa davvero ogni
+              settimana, non gli scenari da demo. Le ore recuperate tornano su clienti e
+              trattative.
+            </p>
+            <p data-reveal>
+              Partiamo da poche automazioni essenziali, misuriamo cosa rendono, poi estendiamo.
+              Un’automazione che nessuno capisce è solo un’altra cosa da mantenere.
+            </p>
+            <p data-reveal>
+              <ArrowLink href={path('resourceAi', lang)} class="text-paper">
+                AI per aziende: leggi la guida
+              </ArrowLink>
+            </p>
+          </div>
+        </div>
+
+        <div class="hairline grid grid-cols-12 gap-x-6 gap-y-6 pt-16 md:pt-20" data-reveal-group>
+          <div class="col-span-12 md:col-span-4" data-reveal>
+            <h3 class="font-display text-[1.375rem] font-medium md:text-[1.5rem]">
+              Marketing su dati propri — con il GDPR dalla tua parte
+            </h3>
+          </div>
+          <div class="col-span-12 space-y-4 text-[0.9375rem] text-mist md:col-span-7 md:col-start-6">
+            <p data-reveal>
+              Costruiamo il marketing sui dati di prima parte: consensi raccolti bene, segmenti
+              basati sul comportamento reale d’acquisto, messaggi a chi ha scelto di riceverli. I
+              dati che possiedi sono l’unico canale che nessuna piattaforma può toglierti o farti
+              ripagare.
+            </p>
+            <p data-reveal>
+              Qui il GDPR non è un ostacolo: è il vantaggio. Consensi tracciati e informative
+              fatte bene ti permettono di usare i dati con serenità dove altri si fermano per
+              paura di sbagliare. È il motivo per cui questo verticale lavora a stretto contatto
+              con compliance &amp; governance digitale.
+            </p>
+            <p data-reveal>
+              <ArrowLink href={path('serviceCompliance', lang)} class="text-paper">
+                Il verticale compliance, nel dettaglio
+              </ArrowLink>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-16 rounded-xs border border-white/15 bg-ink-raise p-8 md:p-10" data-reveal>
+        <p class="label-caps text-mist">Nota vendor-neutral</p>
+        <p class="mt-4 max-w-3xl text-[0.9375rem] text-mist">
+          Non rivendiamo licenze e non riceviamo commissioni dai produttori di software. Quando
+          consigliamo un CRM o una piattaforma martech, il consiglio non è condizionato: scegliamo
+          — o teniamo — lo strumento che serve al tuo processo, non quello che paga meglio noi.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================== 03 IL PRIMO PASSO =========================== -->
+  <section class="section-light">
+    <div class="wrap grid grid-cols-12 gap-x-6 py-24 md:py-36">
+      <div class="col-span-12 lg:col-span-5">
+        <span class="sec-num block text-accent-deep" aria-hidden="true" data-reveal>03</span>
+        <p class="label-caps mt-4 text-umber" data-reveal>Il primo passo</p>
+        <h2 class="font-display text-h2 mt-4 font-medium" data-reveal>
+          Uno sprint chiuso, non un progetto infinito.
+        </h2>
+        <p class="mt-6 max-w-md text-lead text-umber" data-reveal>
+          In poche settimane il CRM smette di essere una rubrica: dati ordinati, automazioni
+          essenziali attive, metriche commerciali in dashboard. Prezzo fisso, perimetro chiuso —
+          e tutto quello che costruiamo resta tuo.
+        </p>
+        <p class="mt-8" data-reveal>
+          <ArrowLink href={path('products', lang)} class="text-accent-deep">
+            Tutti i prodotti a prezzo fisso
+          </ArrowLink>
+        </p>
+      </div>
+      <div class="col-span-12 mt-14 lg:col-span-6 lg:col-start-7 lg:mt-0" data-reveal>
+        <ProductCard
+          light
+          title="CRM/Martech Sprint"
+          price="[PREZZO]"
+          duration="2–6 settimane · prezzo fisso"
+          description="Il tuo CRM smette di essere una rubrica: dati clienti ordinati, automazioni essenziali attive e un processo commerciale misurabile."
+          deliverables={[
+            'Setup o riordino del CRM',
+            'Automazioni marketing/vendite essenziali',
+            'Dashboard con le metriche commerciali',
+          ]}
+          deliverablesLabel="Cosa ti porti a casa"
+          href={path('products', lang)}
+          ctaLabel="Dettagli del prodotto"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ 04 IL REFERENTE ============================ -->
+  <section class="section-light hairline hairline-dark">
+    <div class="wrap grid grid-cols-12 gap-x-6 py-24 md:py-36">
+      <div class="col-span-12 lg:col-span-6">
+        <SectionHeading
+          num="04"
+          label="Il referente"
+          title="Un senior con nome e cognome, non un team che ruota."
+          light
+          class="grid-cols-1!"
+        />
+        <div class="mt-8 space-y-4 text-[0.9375rem] text-umber" data-reveal>
+          <p>
+            Il verticale CRM &amp; martech è presidiato da un senior che ha messo ordine in
+            processi commerciali di aziende come la tua — non da un junior con la certificazione
+            presa il mese scorso. È la persona che incontri alla prima call ed è la stessa che
+            firma il lavoro.
+          </p>
+          <p>
+            Se il referente cambia durante l’ingaggio, hai diritto di recesso. È scritto nel
+            contratto, non nello slide deck.
+          </p>
+        </div>
+      </div>
+      <div class="col-span-12 mt-14 lg:col-span-5 lg:col-start-8 lg:mt-0" data-reveal>
+        <div class="rounded-xs border border-ink/15 bg-white/40 p-8">
+          <div
+            class="flex h-40 items-center justify-center rounded-xs bg-ink/5 text-[0.8125rem] text-umber"
+            role="img"
+            aria-label="Ritratto in arrivo"
+          >
+            [PLACEHOLDER: FOTO SENIOR]
+          </div>
+          <h3 class="font-display mt-6 text-[1.25rem] font-medium">[PLACEHOLDER: NOME]</h3>
+          <p class="mt-1 text-[0.875rem] text-accent-deep">
+            Senior referente — CRM & martech
+          </p>
+          <p class="mt-4 text-[0.9375rem] text-umber">[BIO SENIOR]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ 05 CASO STUDIO ============================ -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="05"
+        label="Caso studio"
+        title="Contesto, intervento, risultato — senza numeri inventati."
+      >
+        <p class="mt-6 max-w-2xl text-lead text-mist" data-reveal>
+          Il primo caso di questo verticale è in pubblicazione, con l’autorizzazione del cliente.
+          Preferiamo una casella vuota a una metrica inventata.
+        </p>
+      </SectionHeading>
+      <div class="mt-14 rounded-xs border border-white/15 bg-ink-raise p-8 md:p-10" data-reveal>
+        <p class="label-caps text-mist">Primo caso in pubblicazione</p>
+        <div class="mt-8 grid grid-cols-12 gap-x-6 gap-y-10">
+          <div class="col-span-12 border-t-2 border-accent pt-5 md:col-span-4">
+            <h3 class="font-display text-[1.125rem] font-medium">Contesto</h3>
+            <p class="mt-3 text-[0.9375rem] text-mist">
+              [PLACEHOLDER: settore, dimensione e punto di partenza del cliente]
+            </p>
+          </div>
+          <div class="col-span-12 border-t-2 border-accent pt-5 md:col-span-4">
+            <h3 class="font-display text-[1.125rem] font-medium">Intervento</h3>
+            <p class="mt-3 text-[0.9375rem] text-mist">
+              [PLACEHOLDER: attività svolte, perimetro e durata dell’ingaggio]
+            </p>
+          </div>
+          <div class="col-span-12 border-t-2 border-accent pt-5 md:col-span-4">
+            <h3 class="font-display text-[1.125rem] font-medium">Risultato</h3>
+            <p class="mt-3 text-[0.9375rem] text-mist">
+              [PLACEHOLDER: risultati misurati e verificabili]
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="mt-10" data-reveal>
+        <ArrowLink href={path('caseStudies', lang)} class="text-paper">
+          Come documentiamo i casi studio
+        </ArrowLink>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== 06 FAQ =============================== -->
+  <section class="hairline">
+    <div class="wrap grid grid-cols-12 gap-x-6 py-24 md:py-36">
+      <div class="col-span-12 lg:col-span-4">
+        <div class="lg:sticky lg:top-32">
+          <span class="sec-num block text-accent" aria-hidden="true" data-reveal>06</span>
+          <p class="label-caps mt-4 text-mist" data-reveal>FAQ</p>
+          <h2 class="font-display text-h2 mt-4 font-medium" data-reveal>
+            Le domande giuste su CRM e martech.
+          </h2>
+          <p class="mt-6 max-w-sm text-[0.9375rem] text-mist" data-reveal>
+            Quelle che ci fanno gli imprenditori alla prima call — con risposte senza giri di
+            parole.
+          </p>
+        </div>
+      </div>
+      <div class="col-span-12 mt-12 lg:col-span-7 lg:col-start-6 lg:mt-0" data-reveal>
+        <Accordion items={faq} idPrefix="faq-crm" withSchema />
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== 07 IL SISTEMA, NON I SILOS ======================== -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="07"
+        label="Il sistema, non i silos"
+        title="I clienti rendono di più quando i verticali lavorano insieme."
+      >
+        <p class="mt-6 max-w-2xl text-lead text-mist" data-reveal>
+          I dati clienti ordinati sono la base di ogni progetto AI serio; i consensi in regola
+          sono ciò che rende possibile il marketing su dati propri. Per questo CRM &amp; martech
+          lavora a stretto contatto con gli altri verticali, sotto un unico referente.
+        </p>
+      </SectionHeading>
+      <div class="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2" data-reveal-group>
+        <div data-reveal>
+          <VerticalCard
+            href={path('serviceData', lang)}
+            num="02"
+            title="Dati & AI"
+            claim="AI-native per PMI."
+            items={['AI readiness', 'Automazione', 'Valorizzazione dati']}
+            linkLabel="Esplora il verticale"
+          />
+        </div>
+        <div data-reveal>
+          <VerticalCard
+            href={path('serviceCompliance', lang)}
+            num="01"
+            title="Compliance & governance digitale"
+            claim="Dalla conformità alla crescita."
+            items={['GDPR', 'NIS2', 'EAA', 'AI Act']}
+            linkLabel="Esplora il verticale"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaSection lang={lang} />
+</Base>

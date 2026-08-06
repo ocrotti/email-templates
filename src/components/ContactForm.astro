@@ -1,0 +1,144 @@
+---
+/**
+ * Form contatti: markup pronto con action configurabile + honeypot antispam.
+ * Endpoint: sostituire FORM_ENDPOINT con Formspree ("https://formspree.io/f/XXXX")
+ * o con un webhook n8n. La validazione usa l'HTML nativo (accessibile di default).
+ */
+import type { Lang } from '../lib/routes';
+import { path } from '../lib/routes';
+import { t } from '../lib/i18n';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const f = t(lang).form;
+
+const FORM_ENDPOINT = '#'; /* [PLACEHOLDER: endpoint form — es. https://formspree.io/f/XXXX o webhook n8n] */
+---
+
+<form
+  action={FORM_ENDPOINT}
+  method="POST"
+  class="grid grid-cols-1 gap-6 md:grid-cols-2"
+  accept-charset="UTF-8"
+>
+  <p class="hp-field" aria-hidden="true">
+    <label for="cf-website">Website</label>
+    <input
+      type="text"
+      id="cf-website"
+      name="website"
+      tabindex="-1"
+      autocomplete="off"
+    />
+  </p>
+
+  <div>
+    <label for="cf-name" class="field-label">{f.name} *</label>
+    <input
+      type="text"
+      id="cf-name"
+      name="name"
+      class="field-input"
+      required
+      autocomplete="name"
+    />
+  </div>
+
+  <div>
+    <label for="cf-company" class="field-label">{f.company} *</label>
+    <input
+      type="text"
+      id="cf-company"
+      name="company"
+      class="field-input"
+      required
+      autocomplete="organization"
+    />
+  </div>
+
+  <div>
+    <label for="cf-email" class="field-label">{f.email} *</label>
+    <input
+      type="email"
+      id="cf-email"
+      name="email"
+      class="field-input"
+      required
+      autocomplete="email"
+    />
+  </div>
+
+  <div>
+    <label for="cf-phone" class="field-label">{f.phone}</label>
+    <input
+      type="tel"
+      id="cf-phone"
+      name="phone"
+      class="field-input"
+      autocomplete="tel"
+    />
+  </div>
+
+  <div class="md:col-span-2">
+    <label for="cf-topic" class="field-label">{f.topic} *</label>
+    <select id="cf-topic" name="topic" class="field-input" required>
+      <option value="audit">{f.topicOptions.audit}</option>
+      <option value="ai">{f.topicOptions.ai}</option>
+      <option value="crm">{f.topicOptions.crm}</option>
+      <option value="eaa">{f.topicOptions.eaa}</option>
+      <option value="retainer">{f.topicOptions.retainer}</option>
+      <option value="other">{f.topicOptions.other}</option>
+    </select>
+  </div>
+
+  <div class="md:col-span-2">
+    <label for="cf-message" class="field-label">{f.message} *</label>
+    <textarea
+      id="cf-message"
+      name="message"
+      class="field-input min-h-36"
+      required
+      placeholder={f.messagePlaceholder}></textarea>
+  </div>
+
+  <div class="md:col-span-2">
+    <div class="flex items-start gap-3">
+      <input
+        type="checkbox"
+        id="cf-privacy"
+        name="privacy"
+        required
+        class="mt-1.5 h-4 w-4 accent-(--color-accent)"
+      />
+      <label for="cf-privacy" class="text-[0.875rem] text-mist">
+        {f.privacy}
+        <a href={path('privacy', lang)} class="link-plain text-paper">Privacy policy</a> *
+      </label>
+    </div>
+  </div>
+
+  <div class="md:col-span-2">
+    <button type="submit" class="btn btn-primary" data-magnetic>
+      {f.submit}
+      <svg
+        class="btn-arrow"
+        width="15"
+        height="15"
+        viewBox="0 0 16 16"
+        fill="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M1 8h13M9 3l5 5-5 5"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </button>
+    <p class="mt-4 text-[0.875rem] text-mist">{f.note}</p>
+  </div>
+</form>

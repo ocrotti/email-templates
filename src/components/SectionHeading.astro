@@ -1,0 +1,46 @@
+---
+/**
+ * Testata di sezione editoriale: numero grande + label + titolo.
+ * `num` è decorativo (aria-hidden), il titolo è un heading vero.
+ */
+interface Props {
+  num?: string;
+  label: string;
+  title: string;
+  /** Livello heading del titolo (default h2). */
+  as?: 'h1' | 'h2' | 'h3';
+  light?: boolean;
+  class?: string;
+}
+const { num, label, title, as: Tag = 'h2', light = false, class: className = '' } = Astro.props;
+---
+
+<div class:list={['grid grid-cols-12 gap-x-6', className]}>
+  {
+    num && (
+      <div class="col-span-12 md:col-span-2" aria-hidden="true">
+        <span
+          class:list={[
+            'sec-num block',
+            light ? 'text-accent-deep' : 'text-accent',
+          ]}
+          data-reveal
+        >
+          {num}
+        </span>
+      </div>
+    )
+  }
+  <div class:list={[num ? 'col-span-12 md:col-span-9' : 'col-span-12 md:col-span-10']}>
+    <p
+      class:list={['label-caps', light ? 'text-umber' : 'text-mist']}
+      data-reveal
+    >
+      {label}
+    </p>
+    <Tag class="font-display text-h2 mt-4 max-w-4xl font-medium" data-reveal>
+      {title}
+    </Tag>
+    <slot />
+  </div>
+</div>

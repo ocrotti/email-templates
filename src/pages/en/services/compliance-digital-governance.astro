@@ -1,0 +1,494 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Pill from '../../../components/Pill.astro';
+import Button from '../../../components/Button.astro';
+import ArrowLink from '../../../components/ArrowLink.astro';
+import SectionHeading from '../../../components/SectionHeading.astro';
+import VerticalCard from '../../../components/VerticalCard.astro';
+import ProductCard from '../../../components/ProductCard.astro';
+import Accordion from '../../../components/Accordion.astro';
+import Counter from '../../../components/Counter.astro';
+import CtaSection from '../../../components/CtaSection.astro';
+import { path } from '../../../lib/routes';
+import { serviceSchema } from '../../../lib/seo';
+
+const lang = 'en' as const;
+
+const faq = [
+  {
+    q: 'Do we need a lawyer for GDPR?',
+    a: 'Not for most of the work. Processing registers, DPIAs, privacy notices, data-breach procedures: that is organisational and technical work, and it is what we do. For activities reserved by law to lawyers — legal opinions, litigation, representation before the Italian Data Protection Authority — we work in partnership with a specialised law firm. You keep a single point of contact; the division of roles is declared from day one.',
+  },
+  {
+    q: 'We supply a company covered by NIS2 — does it affect us?',
+    a: 'Almost certainly, yes. NIS2 requires in-scope entities — over 20,000 organisations on the Italian cybersecurity agency (ACN) list — to secure their supply chain. In practice, your customers pass obligations down to you through contract clauses and verification questionnaires. If you cannot answer with documentation, the risk is not a fine: it is losing the contract. Preparing early costs far less than improvising once the questionnaire lands.',
+  },
+  {
+    q: 'How long does compliance work take?',
+    a: 'It depends on where you start — which is why we start with the audit: two weeks, fixed price, producing a plan with priorities and realistic timelines. Then we work in order of exposure: first what could trigger fines or block contracts, then the rest. No never-ending "compliance programmes": each phase has a closed scope and a deliverable that stays yours.',
+  },
+  {
+    q: 'What happens after the audit?',
+    a: 'You decide, with the numbers in front of you. The audit produces a document you can use even without us: gaps, priorities, indicative budgets. If you want to continue, we scope a remediation plan or a retainer — with agreed metrics and a monthly review. If you would rather stop or do it in-house, the method and documentation stay with you. No obligation to continue: that is the point of a fixed-price first step.',
+  },
+];
+
+const schema = [
+  serviceSchema({
+    name: 'Compliance & digital governance — GDPR, NIS2 & AI Act consulting',
+    description:
+      'GDPR, NIS2, EAA and AI Act consulting for SMEs operating in Italy: pragmatic compliance that stands up to audits and supply-chain questionnaires — and becomes better data and processes.',
+    path: path('serviceCompliance', lang),
+    lang,
+  }),
+];
+---
+
+<Base
+  lang={lang}
+  routeKey="serviceCompliance"
+  title="GDPR, NIS2 & AI Act consulting | enable.advisory"
+  description="GDPR consulting in Italy, plus NIS2 and the AI Act: compliance that stands up to audits and supplier questionnaires — and becomes better data and processes."
+  ogImage="/og/serviceCompliance-en.png"
+  schema={schema}
+>
+  <Breadcrumbs
+    lang={lang}
+    items={[
+      { name: 'Services', path: path('services', lang) },
+      { name: 'Compliance & digital governance', path: path('serviceCompliance', lang) },
+    ]}
+  />
+
+  <!-- ============================== HERO ============================== -->
+  <section class="relative overflow-hidden">
+    <div
+      class="pointer-events-none absolute inset-0"
+      aria-hidden="true"
+      style="background: radial-gradient(50rem 34rem at 90% -20%, rgb(43 92 255 / 0.11), transparent 60%);"
+    >
+    </div>
+    <div class="wrap relative pt-12 pb-20 md:pt-16 md:pb-28">
+      <p class="label-caps text-mist" data-reveal>Vertical 01 — Compliance & digital governance</p>
+      <h1 class="font-display text-display mt-6 max-w-6xl font-medium" data-reveal>
+        GDPR, NIS2 and AI Act consulting in Italy: from compliance to growth.
+      </h1>
+      <p class="mt-8 max-w-xl text-lead text-mist" data-reveal>
+        The regulations all arrived at once — and large customers are passing them down to their
+        suppliers. We put them in order: first what exposes you, then what pays. Without stopping
+        the business.
+      </p>
+      <div class="mt-10 flex flex-wrap items-center gap-4" data-reveal>
+        <Button href={path('contact', lang)}>Book your audit</Button>
+        <Button href={path('products', lang)} variant="ghost">
+          Start with a fixed-price step
+        </Button>
+      </div>
+      <ul class="mt-12 flex flex-wrap gap-3" data-reveal-group>
+        <li data-reveal><Pill>Operational GDPR</Pill></li>
+        <li data-reveal><Pill>NIS2 & supply chain</Pill></li>
+        <li data-reveal><Pill>Accessibility (EAA)</Pill></li>
+        <li data-reveal><Pill>AI governance</Pill></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================ 01 THE PROBLEM ============================ -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="01"
+        label="The problem"
+        title="Compliance will reach you either way. Better to get there first."
+      >
+        <p class="mt-6 max-w-2xl text-lead text-mist" data-reveal>
+          For years, "compliance" meant GDPR and a binder nobody opened. That season is over: the
+          obligations are stacking up, and they come from three directions at once.
+        </p>
+      </SectionHeading>
+      <div class="mt-16 grid grid-cols-12 gap-x-6 gap-y-12" data-reveal-group>
+        <div class="col-span-12 md:col-span-4" data-reveal>
+          <p class="font-display text-[1.375rem] font-semibold text-accent-soft" aria-hidden="true">
+            1
+          </p>
+          <h3 class="font-display mt-3 text-[1.25rem] font-medium">
+            It’s no longer just GDPR
+          </h3>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            NIS2 since 2024 (Italian Leg. Decree 138/2024), the EAA accessibility rules in force
+            since 28 June 2025, the AI Act phasing in as we speak. Each regime has its own
+            registers, procedures and deadlines — and none of them waits for you to finish the
+            previous one.
+          </p>
+        </div>
+        <div class="col-span-12 md:col-span-4" data-reveal>
+          <p class="font-display text-[1.375rem] font-semibold text-accent-soft" aria-hidden="true">
+            2
+          </p>
+          <h3 class="font-display mt-3 text-[1.25rem] font-medium">
+            The supply-chain effect hits you even off the list
+          </h3>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            NIS2 requires in-scope entities to secure their suppliers: obligations flow down
+            through contract clauses and verification questionnaires. A questionnaire you can’t
+            answer doesn’t generate a fine — it puts the contract at risk.
+          </p>
+        </div>
+        <div class="col-span-12 md:col-span-4" data-reveal>
+          <p class="font-display text-[1.375rem] font-semibold text-accent-soft" aria-hidden="true">
+            3
+          </p>
+          <h3 class="font-display mt-3 text-[1.25rem] font-medium">
+            The fines are written to hurt
+          </h3>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            NIS2: up to €10 million or 2% of turnover for essential entities, €7 million or 1.4%
+            for important ones. EAA: €2,500 to €40,000 per violation. These are not figures an SME
+            can afford to ignore.
+          </p>
+        </div>
+      </div>
+
+      <div class="hairline mt-20 pt-14">
+        <p class="label-caps text-mist" data-reveal>The context, in real numbers</p>
+        <div class="mt-10 grid grid-cols-2 gap-x-6 gap-y-12 lg:grid-cols-4" data-reveal-group>
+          <Counter
+            value="20,000"
+            to={20000}
+            suffix="+"
+            label="organisations on the ACN’s NIS2 list"
+            source="Source: ACN, 2025"
+            lang={lang}
+          />
+          <Counter
+            value="5,000"
+            to={5000}
+            suffix="+"
+            label="essential entities, facing the strictest obligations"
+            source="Source: ACN, 2025"
+            lang={lang}
+          />
+          <Counter
+            value="10"
+            to={10}
+            suffix=" M€"
+            label="or 2% of turnover: the maximum NIS2 fine for essential entities"
+            source="Source: Italian Leg. Decree 138/2024"
+            lang={lang}
+          />
+          <Counter
+            value="40,000"
+            to={40000}
+            suffix=" €"
+            label="maximum fine per accessibility (EAA) violation"
+            source="Source: Italian Leg. Decree 82/2022"
+            lang={lang}
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ 02 WHAT WE DO ============================ -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="02"
+        label="What we do"
+        title="Four business objectives. Not a list of obligations."
+      >
+        <p class="mt-6 max-w-2xl text-lead text-mist" data-reveal>
+          Compliance is not the goal: it’s the means. Everything we do answers an objective a
+          business owner recognises.
+        </p>
+      </SectionHeading>
+
+      <div class="mt-16 space-y-16 md:space-y-20">
+        <div class="grid grid-cols-12 gap-x-6 gap-y-6" data-reveal-group>
+          <div class="col-span-12 md:col-span-4" data-reveal>
+            <h3 class="font-display text-[1.375rem] font-medium md:text-[1.5rem]">
+              Get compliant without stopping the business
+            </h3>
+          </div>
+          <div class="col-span-12 space-y-4 text-[0.9375rem] text-mist md:col-span-7 md:col-start-6">
+            <p data-reveal>
+              Operational GDPR, not theoretical: processing registers, DPIAs, privacy notices,
+              appointments, data-breach procedures. Built into your processes — not into a binder
+              that ages in a drawer and gets rewritten from scratch at every inspection.
+            </p>
+            <p data-reveal>
+              The goal is that the company keeps selling, hiring and launching projects while it
+              gets compliant. Compliance that blocks the business is compliance done badly.
+            </p>
+          </div>
+        </div>
+
+        <div class="hairline grid grid-cols-12 gap-x-6 gap-y-6 pt-16 md:pt-20" data-reveal-group>
+          <div class="col-span-12 md:col-span-4" data-reveal>
+            <h3 class="font-display text-[1.375rem] font-medium md:text-[1.5rem]">
+              Stand up to an inspection or a NIS2 supplier questionnaire
+            </h3>
+          </div>
+          <div class="col-span-12 space-y-4 text-[0.9375rem] text-mist md:col-span-7 md:col-start-6">
+            <p data-reveal>
+              If you’re within the NIS2 scope, we bring you to the required measures: risk,
+              incident and continuity management, with the documentation an inspection expects to
+              find. If you supply a NIS2 entity, we prepare you to answer your customers’
+              questionnaires — before they arrive with a deadline attached.
+            </p>
+            <p data-reveal>
+              Either way, the outcome is the same: when someone says "prove it", you have
+              something to show.
+            </p>
+            <p data-reveal>
+              <ArrowLink href={path('resourceNis2', lang)} class="text-paper">
+                NIS2 for SMEs: read the guide
+              </ArrowLink>
+            </p>
+          </div>
+        </div>
+
+        <div class="hairline grid grid-cols-12 gap-x-6 gap-y-6 pt-16 md:pt-20" data-reveal-group>
+          <div class="col-span-12 md:col-span-4" data-reveal>
+            <h3 class="font-display text-[1.375rem] font-medium md:text-[1.5rem]">
+              Govern AI before the AI Act makes you
+            </h3>
+          </div>
+          <div class="col-span-12 space-y-4 text-[0.9375rem] text-mist md:col-span-7 md:col-start-6">
+            <p data-reveal>
+              The AI Act is already in force, in stages: progressive obligations since February
+              2025, general-purpose AI rules since August 2025, high-risk systems from August
+              2026. Meanwhile, in many companies, AI came in through the back door: tools used by
+              teams with no policy, no inventory, no control over where the data ends up.
+            </p>
+            <p data-reveal>
+              We inventory the systems in use, classify the risk and write usage policies people
+              can actually follow. So AI adoption accelerates instead of being frozen by the first
+              incident.
+            </p>
+          </div>
+        </div>
+
+        <div class="hairline grid grid-cols-12 gap-x-6 gap-y-6 pt-16 md:pt-20" data-reveal-group>
+          <div class="col-span-12 md:col-span-4" data-reveal>
+            <h3 class="font-display text-[1.375rem] font-medium md:text-[1.5rem]">
+              Turn compliance into clean data and better processes
+            </h3>
+          </div>
+          <div class="col-span-12 space-y-4 text-[0.9375rem] text-mist md:col-span-7 md:col-start-6">
+            <p data-reveal>
+              The compliance budget is money you have to spend anyway — so make it pay twice. A
+              processing register done well is a map of your data; a documented procedure is a
+              process someone finally wrote down; an AI inventory is the starting point of a data
+              strategy.
+            </p>
+            <p data-reveal>
+              That’s the difference between complying and capitalising — and it’s why this
+              vertical works hand in hand with data &amp; AI.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-16 rounded-xs border border-white/15 bg-ink-raise p-8 md:p-10" data-reveal>
+        <p class="label-caps text-mist">A transparent note</p>
+        <p class="mt-4 max-w-3xl text-[0.9375rem] text-mist">
+          We are not a law firm, and we don’t pretend to be. For activities reserved by law to
+          lawyers — legal opinions, litigation, representation before the Italian Data Protection
+          Authority — we work in partnership with a specialised law firm,
+          [PLACEHOLDER: nome studio partner]. We run the operational and technical side, and keep
+          the direction: you still have a single point of contact.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================== 03 THE FIRST STEP =========================== -->
+  <section class="section-light">
+    <div class="wrap grid grid-cols-12 gap-x-6 py-24 md:py-36">
+      <div class="col-span-12 lg:col-span-5">
+        <span class="sec-num block text-accent-deep" aria-hidden="true" data-reveal>03</span>
+        <p class="label-caps mt-4 text-umber" data-reveal>The first step</p>
+        <h2 class="font-display text-h2 mt-4 font-medium" data-reveal>
+          First the snapshot, then the decisions.
+        </h2>
+        <p class="mt-6 max-w-md text-lead text-umber" data-reveal>
+          You don’t start by signing a remediation programme: you start by measuring where you
+          stand. Two weeks, fixed price, a document that stays yours — even if you then go it
+          alone.
+        </p>
+        <p class="mt-8" data-reveal>
+          <ArrowLink href={path('products', lang)} class="text-accent-deep">
+            All fixed-price products
+          </ArrowLink>
+        </p>
+      </div>
+      <div class="col-span-12 mt-14 lg:col-span-6 lg:col-start-7 lg:mt-0" data-reveal>
+        <ProductCard
+          light
+          title="Digital & Compliance Audit"
+          price="[PREZZO]"
+          duration="2 weeks · fixed price"
+          description="An honest snapshot of your compliance — GDPR, NIS2, EAA, AI Act — and of your digital maturity, with priorities ranked by risk and return."
+          deliverables={[
+            'Digital maturity and compliance report',
+            'Regulatory gap analysis with priorities',
+            '12-month roadmap with indicative budgets',
+          ]}
+          deliverablesLabel="What you walk away with"
+          href={path('products', lang)}
+          ctaLabel="Product details"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ 04 YOUR LEAD ============================ -->
+  <section class="section-light hairline hairline-dark">
+    <div class="wrap grid grid-cols-12 gap-x-6 py-24 md:py-36">
+      <div class="col-span-12 lg:col-span-6">
+        <SectionHeading
+          num="04"
+          label="Your lead"
+          title="A senior with a first and last name, not a rotating team."
+          light
+          class="grid-cols-1!"
+        />
+        <div class="mt-8 space-y-4 text-[0.9375rem] text-umber" data-reveal>
+          <p>
+            The compliance vertical is run by a senior who has applied these regulations in
+            companies like yours — not by a junior who studied them last night. The person you
+            meet on the first call is the person who signs the work.
+          </p>
+          <p>
+            If your lead changes during the engagement, you have the right to terminate. It’s
+            written in the contract, not in the slide deck.
+          </p>
+        </div>
+      </div>
+      <div class="col-span-12 mt-14 lg:col-span-5 lg:col-start-8 lg:mt-0" data-reveal>
+        <div class="rounded-xs border border-ink/15 bg-white/40 p-8">
+          <div
+            class="flex h-40 items-center justify-center rounded-xs bg-ink/5 text-[0.8125rem] text-umber"
+            role="img"
+            aria-label="Portrait coming soon"
+          >
+            [PLACEHOLDER: FOTO SENIOR]
+          </div>
+          <h3 class="font-display mt-6 text-[1.25rem] font-medium">[PLACEHOLDER: NOME]</h3>
+          <p class="mt-1 text-[0.875rem] text-accent-deep">
+            Senior lead — Compliance & digital governance
+          </p>
+          <p class="mt-4 text-[0.9375rem] text-umber">[BIO SENIOR]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ 05 CASE STUDY ============================ -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="05"
+        label="Case study"
+        title="Context, intervention, result — with no invented numbers."
+      >
+        <p class="mt-6 max-w-2xl text-lead text-mist" data-reveal>
+          The first case for this vertical is being prepared for publication, with the client’s
+          permission. We’d rather show an empty box than an invented metric.
+        </p>
+      </SectionHeading>
+      <div class="mt-14 rounded-xs border border-white/15 bg-ink-raise p-8 md:p-10" data-reveal>
+        <p class="label-caps text-mist">First case — in publication</p>
+        <div class="mt-8 grid grid-cols-12 gap-x-6 gap-y-10">
+          <div class="col-span-12 border-t-2 border-accent pt-5 md:col-span-4">
+            <h3 class="font-display text-[1.125rem] font-medium">Context</h3>
+            <p class="mt-3 text-[0.9375rem] text-mist">
+              [PLACEHOLDER: settore, dimensione e punto di partenza del cliente]
+            </p>
+          </div>
+          <div class="col-span-12 border-t-2 border-accent pt-5 md:col-span-4">
+            <h3 class="font-display text-[1.125rem] font-medium">Intervention</h3>
+            <p class="mt-3 text-[0.9375rem] text-mist">
+              [PLACEHOLDER: attività svolte, perimetro e durata dell’ingaggio]
+            </p>
+          </div>
+          <div class="col-span-12 border-t-2 border-accent pt-5 md:col-span-4">
+            <h3 class="font-display text-[1.125rem] font-medium">Result</h3>
+            <p class="mt-3 text-[0.9375rem] text-mist">
+              [PLACEHOLDER: risultati misurati e verificabili]
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="mt-10" data-reveal>
+        <ArrowLink href={path('caseStudies', lang)} class="text-paper">
+          How we document case studies
+        </ArrowLink>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== 06 FAQ =============================== -->
+  <section class="hairline">
+    <div class="wrap grid grid-cols-12 gap-x-6 py-24 md:py-36">
+      <div class="col-span-12 lg:col-span-4">
+        <div class="lg:sticky lg:top-32">
+          <span class="sec-num block text-accent" aria-hidden="true" data-reveal>06</span>
+          <p class="label-caps mt-4 text-mist" data-reveal>FAQ</p>
+          <h2 class="font-display text-h2 mt-4 font-medium" data-reveal>
+            The right questions about compliance.
+          </h2>
+          <p class="mt-6 max-w-sm text-[0.9375rem] text-mist" data-reveal>
+            The ones business owners ask us on the first call — answered without hedging.
+          </p>
+        </div>
+      </div>
+      <div class="col-span-12 mt-12 lg:col-span-7 lg:col-start-6 lg:mt-0" data-reveal>
+        <Accordion items={faq} idPrefix="faq-compliance" withSchema />
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== 07 THE SYSTEM, NOT SILOS ======================== -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="07"
+        label="The system, not the silos"
+        title="Compliance pays more when it feeds the other verticals."
+      >
+        <p class="mt-6 max-w-2xl text-lead text-mist" data-reveal>
+          The data you map for GDPR becomes the foundation of your AI projects. EAA requirements
+          become a better website for everyone. That’s why the verticals work together, under one
+          accountable lead.
+        </p>
+      </SectionHeading>
+      <div class="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2" data-reveal-group>
+        <div data-reveal>
+          <VerticalCard
+            href={path('serviceData', lang)}
+            num="02"
+            title="Data & AI"
+            claim="AI-native for SMEs."
+            items={['AI readiness', 'Automation', 'Data value']}
+            linkLabel="Explore the vertical"
+          />
+        </div>
+        <div data-reveal>
+          <VerticalCard
+            href={path('serviceWeb', lang)}
+            num="04"
+            title="Web, tech & e-commerce"
+            claim="A digital presence that converts — and complies."
+            items={['EAA-compliant websites', 'E-commerce', 'Development']}
+            linkLabel="Explore the vertical"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaSection lang={lang} />
+</Base>

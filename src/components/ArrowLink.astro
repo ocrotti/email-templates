@@ -1,0 +1,28 @@
+---
+/** Link testuale con underline animato + freccia diagonale. */
+interface Props {
+  href: string;
+  class?: string;
+}
+const { href, class: className = '' } = Astro.props;
+---
+
+<a href={href} class:list={['group inline-flex items-center gap-1.5 font-medium', className]}>
+  <span class="link-underline"><slot /></span>
+  <svg
+    width="13"
+    height="13"
+    viewBox="0 0 16 16"
+    fill="none"
+    aria-hidden="true"
+    class="transition-transform duration-450 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+  >
+    <path
+      d="M3 13L13 3M5 3h8v8"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+</a>

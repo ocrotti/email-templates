@@ -1,0 +1,385 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Pill from '../../components/Pill.astro';
+import Button from '../../components/Button.astro';
+import ArrowLink from '../../components/ArrowLink.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import Steps from '../../components/Steps.astro';
+import Accordion from '../../components/Accordion.astro';
+import CtaSection from '../../components/CtaSection.astro';
+import { path } from '../../lib/routes';
+
+const lang = 'it' as const;
+
+const steps = [
+  {
+    title: 'Primo confronto con un senior',
+    text: 'Trenta minuti con lo specialista del tuo tema, non con un commerciale. Ne esci con un parere onesto — a volte è “non vi serve”.',
+  },
+  {
+    title: 'Audit: la fotografia onesta',
+    text: 'Due settimane, prezzo fisso. Maturità digitale e gap normativi in un documento che capisci e che resta tuo, anche se ci fermiamo qui.',
+  },
+  {
+    title: 'Piano per priorità di business',
+    text: 'Ordiniamo per rischio e ritorno: cosa è obbligato per legge, cosa rende, cosa può aspettare. Con budget indicativi, prima di ogni firma.',
+  },
+  {
+    title: 'Attivazione dei verticali',
+    text: 'Attivi solo le aree che servono, nell’ordine che serve. Ogni verticale ha il suo senior; il referente unico li orchestra.',
+  },
+  {
+    title: 'Esecuzione AI-augmented',
+    text: 'Agenti e automazioni fanno il lavoro ripetitivo; i senior rivedono, decidono e firmano. Le ore che paghi sono ore di giudizio.',
+  },
+  {
+    title: 'Review mensile sulle metriche',
+    text: 'Ogni mese: attività chiuse, numeri concordati, decisioni da prendere. Un report in linguaggio di business, senza slide di contorno.',
+  },
+  {
+    title: 'Il metodo resta a te',
+    text: 'Processi, accessi e documentazione sono di tua proprietà dal primo giorno. Lavoriamo per non renderci indispensabili.',
+  },
+];
+
+const faq = [
+  {
+    q: 'Se lavorate solo con senior, chi esegue davvero il lavoro?',
+    a: 'La parte ripetitiva — analisi documentali, prime stesure, configurazioni, reportistica — la fanno agenti AI e automazioni che costruiamo e controlliamo noi. Il senior rivede, corregge e firma ogni output. Non c’è un junior nascosto dietro le quinte: c’è software, con sopra un responsabile con nome e cognome.',
+  },
+  {
+    q: 'Un referente unico non diventa un collo di bottiglia?',
+    a: 'Il referente non esegue tutto: orchestra. I quattro verticali lavorano in parallelo, ciascuno con il proprio senior; il referente tiene priorità e coerenza, e risponde del risultato complessivo. Il collo di bottiglia vero è l’alternativa: quattro fornitori che non si parlano, coordinati da te la sera.',
+  },
+  {
+    q: 'Cosa significa “accountable sul risultato”, in concreto?',
+    a: 'Prima di iniziare definiamo insieme le metriche su cui prendiamo impegni. Ogni mese le guardiamo in una review, con un report in linguaggio di business. Se un’attività non sta rendendo, te lo diciamo noi per primi. E se il referente cambia, il contratto ti dà diritto di recesso.',
+  },
+  {
+    q: 'Perché un consulente fractional e non un’assunzione interna?',
+    a: 'Un dirigente interno copre una competenza; qui ne servono quattro — compliance, dati e AI, CRM, web — difficili da trovare in una persona sola e costose da assumere separatamente. Il modello fractional ti dà accesso agli specialisti quando servono. E quando ha senso internalizzare, te lo diciamo: metodo e documentazione restano tuoi proprio per questo.',
+  },
+];
+---
+
+<Base
+  lang={lang}
+  routeKey="howWeWork"
+  title="Consulente digitalizzazione PMI | enable.advisory"
+  description="Consulente di digitalizzazione per PMI: un referente senior unico e accountable, uno specialista per verticale, AI che moltiplica le ore di esperienza."
+  ogImage="/og/howWeWork-it.png"
+>
+  <Breadcrumbs
+    lang={lang}
+    items={[{ name: 'Come lavoriamo', path: path('howWeWork', lang) }]}
+  />
+
+  <!-- ============================== HERO ============================== -->
+  <section class="relative overflow-hidden">
+    <div
+      class="pointer-events-none absolute inset-0"
+      aria-hidden="true"
+      style="background: radial-gradient(50rem 34rem at 90% -20%, rgb(43 92 255 / 0.11), transparent 60%);"
+    >
+    </div>
+    <div class="wrap relative pt-12 pb-20 md:pt-16 md:pb-28">
+      <p class="label-caps text-mist" data-reveal>Il modello operativo</p>
+      <h1 class="font-display text-display mt-6 max-w-6xl font-medium" data-reveal>
+        Il consulente di digitalizzazione per PMI che non delega ai junior.
+      </h1>
+      <p class="mt-8 max-w-xl text-lead text-mist" data-reveal>
+        Il modello standard della consulenza vende senior e consegna junior. Il nostro fa il
+        contrario: pochi specialisti con anni di campo, AI che moltiplica le loro ore, un referente
+        unico che risponde del risultato. Qui lo spieghiamo passo per passo.
+      </p>
+      <div class="mt-10 flex flex-wrap items-center gap-4" data-reveal>
+        <Button href={path('contact', lang)}>Prenota l’audit</Button>
+        <Button href={path('products', lang)} variant="ghost">
+          Inizia con un passo a prezzo fisso
+        </Button>
+      </div>
+      <ul class="mt-12 flex flex-wrap gap-3" data-reveal-group>
+        <li data-reveal><Pill>Solo senior, per scelta</Pill></li>
+        <li data-reveal><Pill>Esecuzione AI-augmented</Pill></li>
+        <li data-reveal><Pill>Un unico referente</Pill></li>
+        <li data-reveal><Pill>Recesso se cambia il referente</Pill></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ====================== 01 IL MODELLO AGENZIA ====================== -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="01"
+        label="Il modello agenzia"
+        title="Perché il modello che conosci ti delude — per costruzione."
+      >
+        <p class="mt-6 max-w-2xl text-lead text-mist" data-reveal>
+          Non è cattiva volontà: è aritmetica. Un’agenzia scala vendendo a margine le ore di chi
+          costa poco. Come va a finire lo sai già.
+        </p>
+      </SectionHeading>
+      <div class="mt-16 grid grid-cols-12 gap-x-6 gap-y-12" data-reveal-group>
+        <div class="col-span-12 md:col-span-4" data-reveal>
+          <p class="font-display text-[1.375rem] font-semibold text-accent-soft" aria-hidden="true">
+            1
+          </p>
+          <h3 class="font-display mt-3 text-[1.25rem] font-medium">L’esercito di junior</h3>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            Il modello agenzia è una piramide: pochi senior che vendono, molti junior che
+            eseguono. Il margine sta nella base — e la base impara il mestiere sui progetti dei
+            clienti. Anche sul tuo.
+          </p>
+        </div>
+        <div class="col-span-12 md:col-span-4" data-reveal>
+          <p class="font-display text-[1.375rem] font-semibold text-accent-soft" aria-hidden="true">
+            2
+          </p>
+          <h3 class="font-display mt-3 text-[1.25rem] font-medium">
+            Il pitch del partner, il lavoro dello stagista
+          </h3>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            In sala riunioni parli con la persona più esperta della struttura. Poi il progetto
+            passa “al team”: un account, un junior, uno stagista volenteroso. Chi ti aveva
+            convinto lo rivedi al rinnovo.
+          </p>
+        </div>
+        <div class="col-span-12 md:col-span-4" data-reveal>
+          <p class="font-display text-[1.375rem] font-semibold text-accent-soft" aria-hidden="true">
+            3
+          </p>
+          <h3 class="font-display mt-3 text-[1.25rem] font-medium">
+            Le grandi società non scendono qui
+          </h3>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            Le Big Four i senior li hanno — a tariffe e strutture pensate per l’enterprise. Per
+            una PMI da 10–250 dipendenti i conti non tornano. Così il mercato ti fa scegliere tra
+            junior a buon prezzo e senior che non puoi permetterti.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== 02 IL NOSTRO MODELLO ======================= -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="02"
+        label="Il nostro modello"
+        title="Tre scelte strutturali, non tre slogan."
+      />
+      <div class="mt-16 space-y-16 md:space-y-20">
+        <div class="grid grid-cols-12 gap-x-6 gap-y-6" data-reveal-group>
+          <div class="col-span-12 md:col-span-4" data-reveal>
+            <h3 class="font-display text-[1.375rem] font-medium md:text-[1.5rem]">
+              Un senior per verticale
+            </h3>
+          </div>
+          <div class="col-span-12 space-y-4 text-[0.9375rem] text-mist md:col-span-7 md:col-start-6">
+            <p data-reveal>
+              Compliance e governance, dati &amp; AI, CRM e martech, web ed e-commerce: quattro
+              verticali, quattro specialisti. Nessun “consulente digitale” tuttofare che oggi fa
+              GDPR e domani campagne: chi ti segue su un tema ha fatto quel mestiere per anni — e
+              si sente dalla prima call.
+            </p>
+            <p data-reveal>
+              Un imprenditore riconosce subito la differenza tra chi ha studiato la normativa ieri
+              sera e chi l’ha già applicata in aziende come la sua. È su questa differenza che
+              costruiamo la fiducia.
+            </p>
+            <p data-reveal>
+              <ArrowLink href={path('services', lang)} class="text-paper">
+                Esplora i quattro verticali
+              </ArrowLink>
+            </p>
+          </div>
+        </div>
+
+        <div class="hairline grid grid-cols-12 gap-x-6 gap-y-6 pt-16 md:pt-20" data-reveal-group>
+          <div class="col-span-12 md:col-span-4" data-reveal>
+            <h3 class="font-display text-[1.375rem] font-medium md:text-[1.5rem]">
+              L’AI moltiplica le ore senior
+            </h3>
+          </div>
+          <div class="col-span-12 space-y-4 text-[0.9375rem] text-mist md:col-span-7 md:col-start-6">
+            <p data-reveal>
+              Il lavoro ripetitivo — analisi documentali, prime stesure, configurazioni,
+              reportistica — lo fanno agenti e automazioni costruiti da noi. Il senior rivede,
+              corregge, decide e firma. Così un’ora di specialista rende molto più di un’ora.
+            </p>
+            <p data-reveal>
+              È questo che rende sostenibile un modello solo-senior per una PMI: paghi giudizio ed
+              esperienza, non ore di manovalanza. L’alternativa — junior che imparano sul tuo
+              progetto — costa meno all’ora e di più alla fine.
+            </p>
+          </div>
+        </div>
+
+        <div class="hairline grid grid-cols-12 gap-x-6 gap-y-6 pt-16 md:pt-20" data-reveal-group>
+          <div class="col-span-12 md:col-span-4" data-reveal>
+            <h3 class="font-display text-[1.375rem] font-medium md:text-[1.5rem]">
+              Un unico referente accountable
+            </h3>
+          </div>
+          <div class="col-span-12 space-y-4 text-[0.9375rem] text-mist md:col-span-7 md:col-start-6">
+            <p data-reveal>
+              Quattro specialisti senza regia sono quattro silos. Per questo hai un solo
+              referente: orchestra i verticali, tiene la visione d’insieme e risponde del
+              risultato complessivo — con metriche definite insieme e una review al mese.
+            </p>
+            <p data-reveal>
+              Un solo numero da chiamare, una sola persona che non può dire “non è il mio pezzo”.
+              E se il referente cambia, hai diritto di recesso: è scritto nel contratto.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ 03 IL METODO =========================== -->
+  <section class="section-light">
+    <div class="py-24 md:py-36">
+      <Steps
+        num="03"
+        label="Il metodo"
+        title="Passo per passo, dal primo contatto in poi."
+        intro="Nessuna fase misteriosa, nessun impegno al buio: ogni passaggio produce qualcosa che resta tuo. E a ogni passaggio puoi fermarti."
+        steps={steps}
+        light
+      />
+      <div class="wrap mt-16">
+        <ArrowLink href={path('products', lang)} class="text-accent-deep">
+          Il primo passo, a prezzo fisso
+        </ArrowLink>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 04 QUANDO NON SIAMO LA SCELTA ================== -->
+  <section class="section-light hairline hairline-dark">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="04"
+        label="Onestà di posizionamento"
+        title="Quando non siamo la scelta giusta."
+        light
+      >
+        <p class="mt-6 max-w-2xl text-lead text-umber" data-reveal>
+          Un posizionamento è onesto solo se esclude qualcuno. Ecco tre casi in cui faresti meglio
+          a non chiamarci.
+        </p>
+      </SectionHeading>
+      <div class="mt-16 grid grid-cols-12 gap-x-6 gap-y-12" data-reveal-group>
+        <div class="col-span-12 border-t-2 border-accent-deep pt-6 md:col-span-4" data-reveal>
+          <h3 class="font-display text-[1.375rem] font-medium">Ti serve solo un sito</h3>
+          <p class="mt-3 text-[0.9375rem] text-umber">
+            Per un sito vetrina o un restyling, una buona web agency costa meno ed è più veloce.
+            In Italia ce ne sono circa 18.000, e molte lavorano bene. Torna da noi quando il sito
+            diventa il pezzo di un sistema: conformità, dati, clienti.
+          </p>
+        </div>
+        <div class="col-span-12 border-t-2 border-accent-deep pt-6 md:col-span-4" data-reveal>
+          <h3 class="font-display text-[1.375rem] font-medium">Sei un gruppo enterprise</h3>
+          <p class="mt-3 text-[0.9375rem] text-umber">
+            Sopra una certa complessità — più paesi, centinaia di utenti, procurement strutturato
+            — servono le grandi società di consulenza, con la struttura che ne consegue. È un
+            altro mestiere. Il nostro perimetro è la PMI da 10 a 250 dipendenti.
+          </p>
+        </div>
+        <div class="col-span-12 border-t-2 border-accent-deep pt-6 md:col-span-4" data-reveal>
+          <h3 class="font-display text-[1.375rem] font-medium">Cerchi la tariffa più bassa</h3>
+          <p class="mt-3 text-[0.9375rem] text-umber">
+            Il modello senior non vince le gare al ribasso. Se il criterio è il prezzo orario
+            minimo, saremo quasi sempre la scelta sbagliata — sul preventivo. Sul costo totale del
+            risultato, i conti si fanno alla fine.
+          </p>
+        </div>
+      </div>
+      <p class="mt-14 max-w-2xl text-[0.9375rem] text-umber" data-reveal>
+        Dirtelo prima costa poco a noi e vale molto per te: la fiducia si costruisce anche con i
+        no.
+      </p>
+    </div>
+  </section>
+
+  <!-- ====================== 05 IMPEGNI CONTRATTUALI ====================== -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="05"
+        label="Impegni contrattuali"
+        title="Garanzie scritte dove contano: nel contratto."
+      />
+      <div class="mt-16 grid grid-cols-1 gap-5 md:grid-cols-3" data-reveal-group>
+        <div class="rounded-xs border border-white/15 bg-ink-raise p-8 md:p-10" data-reveal>
+          <p class="font-display text-[1.75rem] font-semibold text-accent-soft" aria-hidden="true">
+            A
+          </p>
+          <h3 class="font-display mt-4 text-[1.25rem] font-medium">
+            Il senior che conosci è quello che lavora
+          </h3>
+          <p class="mt-4 text-[0.9375rem] text-mist">
+            Il referente che incontri prima di firmare è quello che risponde durante l’ingaggio.
+            Se cambia, hai diritto di recesso.
+          </p>
+        </div>
+        <div class="rounded-xs border border-white/15 bg-ink-raise p-8 md:p-10" data-reveal>
+          <p class="font-display text-[1.75rem] font-semibold text-accent-soft" aria-hidden="true">
+            B
+          </p>
+          <h3 class="font-display mt-4 text-[1.25rem] font-medium">
+            Metriche e costi, nero su bianco
+          </h3>
+          <p class="mt-4 text-[0.9375rem] text-mist">
+            Obiettivi misurabili definiti prima di iniziare, review mensile, ogni voce di costo
+            scritta e motivata. Se un’attività non serve, te lo diciamo prima noi.
+          </p>
+        </div>
+        <div class="rounded-xs border border-white/15 bg-ink-raise p-8 md:p-10" data-reveal>
+          <p class="font-display text-[1.75rem] font-semibold text-accent-soft" aria-hidden="true">
+            C
+          </p>
+          <h3 class="font-display mt-4 text-[1.25rem] font-medium">
+            Tutto resta di tua proprietà
+          </h3>
+          <p class="mt-4 text-[0.9375rem] text-mist">
+            Accessi, processi e documentazione sono intestati a te dal primo giorno. Nessun
+            lock-in: puoi lasciarci senza perdere il lavoro fatto.
+          </p>
+        </div>
+      </div>
+      <div class="mt-12" data-reveal>
+        <ArrowLink href={path('about', lang)} class="text-paper">
+          Conosci i senior, con nome e cognome
+        </ArrowLink>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== 06 FAQ =============================== -->
+  <section class="hairline">
+    <div class="wrap grid grid-cols-12 gap-x-6 py-24 md:py-36">
+      <div class="col-span-12 lg:col-span-4">
+        <div class="lg:sticky lg:top-32">
+          <span class="sec-num block text-accent" aria-hidden="true" data-reveal>06</span>
+          <p class="label-caps mt-4 text-mist" data-reveal>FAQ</p>
+          <h2 class="font-display text-h2 mt-4 font-medium" data-reveal>
+            Le domande sul modello.
+          </h2>
+          <p class="mt-6 max-w-sm text-[0.9375rem] text-mist" data-reveal>
+            Le obiezioni che sentiamo più spesso, con risposte senza giri di parole.
+          </p>
+        </div>
+      </div>
+      <div class="col-span-12 mt-12 lg:col-span-7 lg:col-start-6 lg:mt-0" data-reveal>
+        <Accordion items={faq} idPrefix="faq-modello" withSchema />
+      </div>
+    </div>
+  </section>
+
+  <CtaSection lang={lang} />
+</Base>

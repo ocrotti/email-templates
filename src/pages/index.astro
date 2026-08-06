@@ -1,0 +1,27 @@
+---
+/**
+ * Fallback redirect verso la lingua di default.
+ * Su Cloudflare Pages il redirect vero è server-side (public/_redirects).
+ */
+---
+
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>enable.advisory</title>
+    <meta http-equiv="refresh" content="0; url=/it/" />
+    <link rel="canonical" href="https://enableadvisory.com/it/" />
+    <meta name="robots" content="noindex" />
+    <script is:inline>
+      location.replace('/it/');
+    </script>
+  </head>
+  <body>
+    <p>
+      <a href="/it/">enable.advisory — Italiano</a> ·
+      <a href="/en/">English</a>
+    </p>
+  </body>
+</html>

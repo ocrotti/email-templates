@@ -1,0 +1,351 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Pill from '../../components/Pill.astro';
+import Button from '../../components/Button.astro';
+import ArrowLink from '../../components/ArrowLink.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import VerticalCard from '../../components/VerticalCard.astro';
+import CtaSection from '../../components/CtaSection.astro';
+import { path } from '../../lib/routes';
+import { serviceSchema } from '../../lib/seo';
+
+const lang = 'it' as const;
+
+const verticals = [
+  {
+    key: 'serviceCompliance',
+    num: '01',
+    title: 'Compliance & governance digitale',
+    claim: 'Dalla conformità alla crescita.',
+    items: ['GDPR', 'NIS2', 'EAA', 'AI Act'],
+  },
+  {
+    key: 'serviceData',
+    num: '02',
+    title: 'Dati & AI',
+    claim: 'AI-native per PMI.',
+    items: ['AI readiness', 'Automazione', 'Valorizzazione dati'],
+  },
+  {
+    key: 'serviceCrm',
+    num: '03',
+    title: 'CRM & martech',
+    claim: 'Metti a valore i tuoi clienti.',
+    items: ['CRM', 'Marketing automation', 'Integrazione'],
+  },
+  {
+    key: 'serviceWeb',
+    num: '04',
+    title: 'Web, tech & e-commerce',
+    claim: 'Presenza digitale che converte ed è conforme.',
+    items: ['Siti conformi EAA', 'E-commerce', 'Sviluppo'],
+  },
+] as const;
+
+const products = [
+  {
+    title: 'Digital & Compliance Audit',
+    duration: '2 settimane · prezzo fisso',
+    text: 'La fotografia: maturità digitale e gap normativi, con priorità ordinate per rischio e ritorno.',
+  },
+  {
+    title: 'AI Readiness Assessment',
+    duration: '2 settimane · prezzo fisso',
+    text: 'Dove l’AI rende davvero nella tua azienda — e dove è solo moda. Casi d’uso ordinati per impatto.',
+  },
+  {
+    title: 'CRM/Martech Sprint',
+    duration: '2–6 settimane · prezzo fisso',
+    text: 'Dati clienti ordinati, automazioni essenziali attive, un processo commerciale misurabile.',
+  },
+  {
+    title: 'Accessibility (EAA) Sprint',
+    duration: '2–6 settimane · prezzo fisso',
+    text: 'Sito o e-commerce conforme all’EAA, con dichiarazione di accessibilità pubblicabile.',
+  },
+];
+
+const schema = [
+  serviceSchema({
+    name: 'Servizi di consulenza digitale per PMI',
+    description:
+      'Quattro verticali di consulenza digitale per PMI italiane: compliance e governance (GDPR, NIS2, EAA, AI Act), dati e AI, CRM e martech, web ed e-commerce. Un unico referente senior, accountable sul risultato.',
+    path: path('services', lang),
+    lang,
+  }),
+];
+---
+
+<Base
+  lang={lang}
+  routeKey="services"
+  title="Servizi di consulenza digitale | enable.advisory"
+  description="Servizi di consulenza digitale per PMI: compliance (GDPR, NIS2, EAA, AI Act), dati e AI, CRM e martech, web ed e-commerce. Quattro verticali, un sistema."
+  ogImage="/og/services-it.png"
+  schema={schema}
+>
+  <Breadcrumbs lang={lang} items={[{ name: 'Servizi', path: path('services', lang) }]} />
+
+  <!-- ============================== HERO ============================== -->
+  <section class="relative overflow-hidden">
+    <div
+      class="pointer-events-none absolute inset-0"
+      aria-hidden="true"
+      style="background: radial-gradient(50rem 34rem at 90% -20%, rgb(43 92 255 / 0.11), transparent 60%);"
+    >
+    </div>
+    <div class="wrap relative pt-12 pb-20 md:pt-16 md:pb-28">
+      <p class="label-caps text-mist" data-reveal>Servizi</p>
+      <h1 class="font-display text-display mt-6 max-w-6xl font-medium" data-reveal>
+        Consulenza digitale in quattro verticali. Un sistema, non un catalogo.
+      </h1>
+      <p class="mt-8 max-w-xl text-lead text-mist" data-reveal>
+        Qui non trovi venti servizi: ne trovi quattro, presidiati da senior e orchestrati da un
+        referente unico che risponde del risultato. Parti dall’obiettivo di business — il sistema
+        viene di conseguenza.
+      </p>
+      <div class="mt-10 flex flex-wrap items-center gap-4" data-reveal>
+        <Button href={path('contact', lang)}>Prenota l’audit</Button>
+        <Button href={path('products', lang)} variant="ghost">
+          Inizia con un passo a prezzo fisso
+        </Button>
+      </div>
+      <ul class="mt-12 flex flex-wrap gap-3" data-reveal-group>
+        <li data-reveal><Pill>Un senior per verticale</Pill></li>
+        <li data-reveal><Pill>Un referente unico</Pill></li>
+        <li data-reveal><Pill>Bundle multi-verticale</Pill></li>
+        <li data-reveal><Pill>Prodotti d’ingresso a prezzo fisso</Pill></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========================= 01 I QUATTRO VERTICALI ========================= -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="01"
+        label="I quattro verticali"
+        title="Parti dall’obiettivo, non dallo strumento."
+      >
+        <p class="mt-6 max-w-2xl text-lead text-mist" data-reveal>
+          Ogni verticale risponde a un obiettivo di business preciso. Gli strumenti — normative,
+          piattaforme, tecnologie — stanno sotto, al loro posto.
+        </p>
+      </SectionHeading>
+      <div class="mt-16 grid grid-cols-1 gap-5 md:grid-cols-2" data-reveal-group>
+        {
+          verticals.map((v) => (
+            <div data-reveal>
+              <VerticalCard
+                href={path(v.key, lang)}
+                num={v.num}
+                title={v.title}
+                claim={v.claim}
+                items={[...v.items]}
+                linkLabel="Esplora il verticale"
+              />
+            </div>
+          ))
+        }
+      </div>
+      <div class="mt-12" data-reveal>
+        <ArrowLink href={path('howWeWork', lang)} class="text-paper">
+          Come orchestriamo i verticali — il modello operativo
+        </ArrowLink>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ 02 I BUNDLE ============================ -->
+  <section class="section-light">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="02"
+        label="I bundle"
+        title="Quando i verticali si combinano, lo stesso budget rende due volte."
+        light
+      >
+        <p class="mt-6 max-w-2xl text-lead text-umber" data-reveal>
+          Alcuni obiettivi attraversano più verticali. Per i due percorsi più richiesti abbiamo un
+          formato pronto: un solo piano, un solo referente, nessuna cucitura a carico tuo.
+        </p>
+      </SectionHeading>
+      <div class="mt-14 grid grid-cols-1 gap-5 lg:grid-cols-2" data-reveal-group>
+        <div class="rounded-xs border border-ink/15 bg-white/60 p-8 md:p-10" data-reveal>
+          <p class="label-caps text-umber">Compliance &amp; governance + dati &amp; CRM</p>
+          <h3 class="font-display mt-4 text-[1.5rem] leading-tight font-medium md:text-[1.75rem]">
+            Compliance-to-Growth
+          </h3>
+          <p class="mt-2 text-[0.9375rem] font-medium text-accent-deep">
+            Il budget obbligato che diventa crescita.
+          </p>
+          <div class="mt-5 space-y-4 text-[0.9375rem] text-umber">
+            <p>
+              Se sei tra le oltre 20.000 organizzazioni nel perimetro NIS2 — o i tuoi clienti ti
+              girano obblighi di sicurezza via clausole contrattuali — quel budget lo spenderai
+              comunque. Il bundle unisce l’adeguamento normativo all’attivazione di dati e CRM: la
+              mappatura dei dati diventa una base clienti ordinata, i processi documentati per
+              l’audit diventano processi migliori.
+            </p>
+            <p>
+              Adempiere al minimo costa quasi uguale e non lascia niente. Qui la stessa spesa
+              produce due risultati. Per capire se sei nel perimetro, parti dalla nostra
+              <a href={path('resourceNis2', lang)} class="link-plain text-ink">guida NIS2 per PMI</a>.
+            </p>
+          </div>
+          <div class="mt-8">
+            <ArrowLink href={path('contact', lang)} class="text-accent-deep">
+              Parliamone — 30 minuti con un senior
+            </ArrowLink>
+          </div>
+        </div>
+        <div class="rounded-xs border border-ink/15 bg-white/60 p-8 md:p-10" data-reveal>
+          <p class="label-caps text-umber">Dati &amp; AI + compliance &amp; governance</p>
+          <h3 class="font-display mt-4 text-[1.5rem] leading-tight font-medium md:text-[1.75rem]">
+            AI-Ready SME
+          </h3>
+          <p class="mt-2 text-[0.9375rem] font-medium text-accent-deep">
+            L’AI in produzione, con la governance già a posto.
+          </p>
+          <div class="mt-5 space-y-4 text-[0.9375rem] text-umber">
+            <p>
+              L’adozione dell’AI tra le PMI italiane è raddoppiata in un anno — dal 7,7% al 15,7%,
+              dice l’ISTAT — ma solo l’8% ha avviato progetti AI, contro il 71% delle grandi imprese. Il bundle unisce
+              governance AI Act e automazione dei processi: scegli i casi d’uso che rendono, li
+              metti in produzione e arrivi pronto agli obblighi sui sistemi ad alto rischio,
+              operativi da agosto 2026.
+            </p>
+            <p>
+              Chi separa le due cose paga due volte: prima il progetto pilota, poi la messa in
+              regola. Per orientarti, c’è la nostra
+              <a href={path('resourceAi', lang)} class="link-plain text-ink">guida all’AI per PMI</a>.
+            </p>
+          </div>
+          <div class="mt-8">
+            <ArrowLink href={path('contact', lang)} class="text-accent-deep">
+              Parliamone — 30 minuti con un senior
+            </ArrowLink>
+          </div>
+        </div>
+      </div>
+      <p class="mt-8 text-[0.875rem] text-umber" data-reveal>
+        I bundle si definiscono su preventivo, dopo l’audit. Nessun pacchetto al buio: prima i
+        numeri, poi la firma.
+      </p>
+    </div>
+  </section>
+
+  <!-- ======================= 03 PRODOTTI D'INGRESSO ======================= -->
+  <section class="section-light hairline hairline-dark">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="03"
+        label="Prodotti d’ingresso"
+        title="Il primo passo ha un prezzo fisso."
+        light
+      >
+        <p class="mt-6 max-w-2xl text-lead text-umber" data-reveal>
+          Quattro prodotti chiusi — prezzo, durata e deliverable dichiarati — uno per verticale. Il
+          modo più semplice per vederci al lavoro senza firmare un retainer.
+        </p>
+      </SectionHeading>
+      <div class="mt-16 grid grid-cols-12 gap-x-6 gap-y-12" data-reveal-group>
+        {
+          products.map((p) => (
+            <div
+              class="col-span-12 border-t-2 border-accent-deep pt-6 md:col-span-6 lg:col-span-3"
+              data-reveal
+            >
+              <p class="label-caps text-umber">{p.duration}</p>
+              <h3 class="font-display mt-3 text-[1.25rem] font-medium">{p.title}</h3>
+              <p class="mt-3 text-[0.9375rem] text-umber">{p.text}</p>
+            </div>
+          ))
+        }
+      </div>
+      <div class="mt-12" data-reveal>
+        <ArrowLink href={path('products', lang)} class="text-accent-deep">
+          Prodotti, prezzi e deliverable
+        </ArrowLink>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= 04 DA DOVE PARTIRE ========================= -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="04"
+        label="Da dove partire"
+        title="Tre punti di partenza tipici."
+      >
+        <p class="mt-6 max-w-2xl text-lead text-mist" data-reveal>
+          Se ti riconosci in una di queste frasi, sai già quale verticale aprire per primo.
+        </p>
+      </SectionHeading>
+      <div class="mt-16 grid grid-cols-12 gap-x-6 gap-y-12" data-reveal-group>
+        <div class="col-span-12 md:col-span-4" data-reveal>
+          <p class="font-display text-[1.375rem] font-semibold text-accent-soft" aria-hidden="true">
+            1
+          </p>
+          <h3 class="font-display mt-3 text-[1.25rem] font-medium">
+            “Ho una scadenza normativa”
+          </h3>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            EAA operativo dal 28 giugno 2025, NIS2 già in vigore, AI Act a tappe fino ad agosto
+            2026. Se una scadenza ti riguarda, si parte dalla compliance — e si usa quel budget per
+            mettere ordine anche in dati e processi.
+          </p>
+          <p class="mt-5">
+            <ArrowLink href={path('serviceCompliance', lang)} class="text-paper">
+              Compliance &amp; governance digitale
+            </ArrowLink>
+          </p>
+        </div>
+        <div class="col-span-12 md:col-span-4" data-reveal>
+          <p class="font-display text-[1.375rem] font-semibold text-accent-soft" aria-hidden="true">
+            2
+          </p>
+          <h3 class="font-display mt-3 text-[1.25rem] font-medium">
+            “Voglio capire se l’AI rende”
+          </h3>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            Prima dei tool vengono i processi e i dati. L’assessment separa i casi d’uso che
+            rendono da quelli di moda, con una stima d’impatto — non con le promesse dei vendor.
+          </p>
+          <p class="mt-5">
+            <ArrowLink href={path('serviceData', lang)} class="text-paper">
+              Dati &amp; AI
+            </ArrowLink>
+          </p>
+        </div>
+        <div class="col-span-12 md:col-span-4" data-reveal>
+          <p class="font-display text-[1.375rem] font-semibold text-accent-soft" aria-hidden="true">
+            3
+          </p>
+          <h3 class="font-display mt-3 text-[1.25rem] font-medium">
+            “Il CRM è una rubrica”
+          </h3>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            Se i dati clienti vivono in fogli sparsi e le email partono a mano, il problema non è
+            il software: è il processo. Si parte dal CRM — e i clienti che hai già iniziano a
+            rendere.
+          </p>
+          <p class="mt-5">
+            <ArrowLink href={path('serviceCrm', lang)} class="text-paper">
+              CRM &amp; martech
+            </ArrowLink>
+          </p>
+        </div>
+      </div>
+      <p class="mt-14 max-w-2xl text-[0.9375rem] text-mist" data-reveal>
+        Quarto caso, il sito: se converte poco o non regge l’esame dell’accessibilità, parti da
+        <a href={path('serviceWeb', lang)} class="link-plain text-paper">web, tech &amp; e-commerce</a>.
+        E se non sai da dove partire, è esattamente il lavoro dell’audit.
+      </p>
+    </div>
+  </section>
+
+  <CtaSection lang={lang} />
+</Base>
