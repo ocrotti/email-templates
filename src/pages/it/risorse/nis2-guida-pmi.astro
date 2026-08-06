@@ -1,0 +1,513 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import ArrowLink from '../../../components/ArrowLink.astro';
+import ProductCard from '../../../components/ProductCard.astro';
+import Accordion from '../../../components/Accordion.astro';
+import CtaSection from '../../../components/CtaSection.astro';
+import { path } from '../../../lib/routes';
+import { articleSchema } from '../../../lib/seo';
+
+const lang = 'it' as const;
+
+const headline = 'NIS2 per PMI: cosa cambia davvero, anche se non sei in elenco';
+const description =
+  'NIS2 per PMI: chi rientra, obblighi, sanzioni e l’effetto filiera che coinvolge i fornitori. Guida operativa 2026 con checklist da dove partire.';
+
+const toc = [
+  { id: 'cos-e-la-nis2', label: 'Cos’è la NIS2 e perché ti riguarda' },
+  { id: 'chi-rientra', label: 'Chi rientra: essenziali e importanti' },
+  { id: 'obblighi', label: 'Gli obblighi principali' },
+  { id: 'sanzioni', label: 'Le sanzioni' },
+  { id: 'fornitori', label: 'Sono un fornitore: cosa mi chiederanno' },
+  { id: 'checklist', label: 'Da dove partire: la checklist' },
+];
+
+const checklist = [
+  {
+    title: 'Verifica per iscritto la tua posizione',
+    text: 'Due domande, una risposta scritta: sei tra i soggetti censiti dall’ACN? Fornisci qualcuno che lo è? Elenca i clienti che ritieni in perimetro. È il documento su cui poggia tutto il resto.',
+  },
+  {
+    title: 'Rileggi i contratti che hai già firmato',
+    text: 'Cerca clausole di sicurezza, obblighi di notifica degli incidenti, diritti di audit. Molte aziende scoprono di aver già accettato requisiti che oggi non stanno rispettando.',
+  },
+  {
+    title: 'Fai l’inventario di asset, dati e fornitori',
+    text: 'Quali sistemi usi, dove stanno i dati, chi ha gli accessi, da quali fornitori dipendi per operare. Senza questa lista ogni misura successiva è un’ipotesi.',
+  },
+  {
+    title: 'Scrivi l’analisi dei rischi',
+    text: 'Non ottanta pagine: i rischi reali, la probabilità, l’impatto sul business e cosa fai per ridurli. Datata, approvata, rivedibile. È il cuore documentale della NIS2.',
+  },
+  {
+    title: 'Attiva il minimo tecnico indispensabile',
+    text: 'Autenticazione a più fattori su tutti gli accessi esterni, backup verificati con un ripristino vero, gestione delle patch e delle vulnerabilità, separazione degli ambienti critici.',
+  },
+  {
+    title: 'Definisci — e prova — la procedura di incidente',
+    text: 'Chi se ne accorge, chi decide che è significativo, chi notifica, entro quando, con quali contatti e quali dati. Una prova a tavolino costa mezza giornata e la prima volta ti salva.',
+  },
+  {
+    title: 'Porta la sicurezza in consiglio',
+    text: 'Una delibera che approva le misure e una sessione di formazione documentata per chi amministra. È un requisito della norma ed è anche ciò che sblocca il budget.',
+  },
+  {
+    title: 'Prepara il dossier di risposta ai clienti',
+    text: 'Una cartella con politiche, evidenze e risposte standard alle domande ricorrenti dei questionari. La prima volta costa; dalla seconda risparmi settimane.',
+  },
+];
+
+const faq = [
+  {
+    q: 'La NIS2 vale anche per le piccole imprese?',
+    a: 'Il perimetro diretto è costruito principalmente su settore e dimensione: la maggior parte delle micro e piccole imprese resta fuori dall’elenco, salvo eccezioni previste per chi eroga servizi critici. L’obbligo indiretto, però, non ha soglie dimensionali: se fornisci un soggetto in perimetro, i requisiti ti arrivano via contratto — che tu abbia otto dipendenti o ottanta. È la ragione per cui molte PMI italiane sono già dentro la NIS2 senza esserci mai entrate formalmente.',
+  },
+  {
+    q: 'Come faccio a sapere se sono nell’elenco ACN?',
+    a: 'I soggetti individuati vengono informati dall’Agenzia per la cybersicurezza nazionale e si registrano sulla piattaforma dedicata nelle finestre annuali previste. Se non hai ricevuto nulla, con ogni probabilità non sei in perimetro diretto — il che non esclude gli obblighi che ti arrivano dai clienti. Verifica entrambe le strade: l’elenco è solo la prima.',
+  },
+  {
+    q: 'Serve la certificazione ISO/IEC 27001 per essere conformi?',
+    a: 'No: nessuna certificazione è obbligatoria per la NIS2, e averla non equivale a essere conformi. Detto questo, un sistema di gestione della sicurezza strutturato copre buona parte delle misure richieste e accorcia molto le risposte ai questionari dei clienti. Ha senso se il tuo mercato la chiede spesso; non ha senso come scorciatoia per saltare l’analisi dei rischi.',
+  },
+  {
+    q: 'Quanto tempo serve per mettersi in regola?',
+    a: 'Dipende dal punto di partenza. Le misure tecniche di base — autenticazione a più fattori, backup testati, gestione delle vulnerabilità — si attivano in poche settimane. Governance, analisi dei rischi, procedure di incidente e presidio della filiera richiedono qualche mese di lavoro ordinato. Il rischio vero non è la durata: è iniziare senza sapere cosa ti serve davvero, e spendere sulle cose sbagliate. Per questo si parte da un audit.',
+  },
+];
+
+const schema = [
+  articleSchema({
+    headline,
+    description,
+    path: path('resourceNis2', lang),
+    lang,
+    datePublished: '2026-08-06',
+  }),
+];
+---
+
+<Base
+  lang={lang}
+  routeKey="resourceNis2"
+  title="NIS2 per PMI: guida completa 2026 | enable.advisory"
+  description={description}
+  ogImage="/og/resourceNis2-it.png"
+  ogType="article"
+  schema={schema}
+>
+  <Breadcrumbs
+    lang={lang}
+    items={[
+      { name: 'Risorse', path: path('resources', lang) },
+      { name: 'NIS2 per PMI', path: path('resourceNis2', lang) },
+    ]}
+  />
+
+  <!-- ============================== HERO ============================== -->
+  <section class="relative overflow-hidden">
+    <div
+      class="pointer-events-none absolute inset-0"
+      aria-hidden="true"
+      style="background: radial-gradient(50rem 34rem at 88% -20%, rgb(43 92 255 / 0.11), transparent 60%);"
+    >
+    </div>
+    <div class="wrap relative pt-12 pb-16 md:pt-16 md:pb-24">
+      <p class="label-caps text-mist" data-reveal>Guida · Compliance</p>
+      <h1 class="font-display text-display mt-6 max-w-5xl font-medium" data-reveal>
+        NIS2 per PMI: cosa cambia davvero, anche se non sei in elenco.
+      </h1>
+      <p class="mt-8 max-w-2xl text-lead text-mist" data-reveal>
+        La direttiva è stata recepita in Italia con il D.Lgs. 138/2024 e ha allargato di molto il
+        perimetro della cybersecurity obbligatoria. Ma per la maggior parte delle PMI l’impatto
+        non arriva da un elenco: arriva da un contratto.
+      </p>
+      <p class="mt-8 text-[0.8125rem] text-mist" data-reveal>
+        Aggiornata ad agosto 2026 · 9 minuti di lettura · Fonti: D.Lgs. 138/2024, ACN
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================ INDICE ============================ -->
+  <section class="hairline">
+    <div class="wrap py-10 md:py-12">
+      <nav class="max-w-3xl" aria-label="Indice della guida" data-reveal>
+        <h2 class="label-caps text-mist">In questa guida</h2>
+        <ol class="mt-5 grid gap-x-8 gap-y-2 text-[0.9375rem] md:grid-cols-2">
+          {
+            toc.map((item) => (
+              <li>
+                <a href={`#${item.id}`} class="link-plain text-paper">
+                  {item.label}
+                </a>
+              </li>
+            ))
+          }
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ============================ CORPO GUIDA ============================ -->
+  <section class="hairline">
+    <div class="wrap py-20 md:py-28">
+      <div class="max-w-3xl">
+        <!-- 1. Cos'è la NIS2 -->
+        <div data-reveal-group>
+          <h2 id="cos-e-la-nis2" class="font-display text-h3 font-medium" data-reveal>
+            Cos’è la NIS2 e perché ti riguarda anche se non sei in elenco
+          </h2>
+          <p class="mt-6 text-mist" data-reveal>
+            La NIS2 è la direttiva europea che alza il livello minimo di sicurezza informatica per
+            le organizzazioni considerate rilevanti per il funzionamento del Paese. In Italia è
+            stata recepita con il D.Lgs. 138/2024 e l’autorità competente è l’ACN, l’Agenzia per la
+            cybersicurezza nazionale.
+          </p>
+          <p class="mt-5 text-mist" data-reveal>
+            Il primo numero che conta è la dimensione del perimetro: l’elenco ACN dei soggetti
+            individuati supera le 20.000 organizzazioni, di cui oltre 5.000 classificate come
+            essenziali. È un altro ordine di grandezza rispetto alla vecchia direttiva NIS, che si
+            fermava agli operatori più critici.
+          </p>
+          <p class="mt-5 text-mist" data-reveal>
+            Se il tuo nome non compare lì dentro, la tentazione è archiviare la pratica. È
+            l’errore più comune che vediamo.
+          </p>
+        </div>
+
+        <div class="mt-12" data-reveal-group>
+          <h3 class="font-display text-[1.375rem] font-medium" data-reveal>
+            L’effetto filiera: la parte che nessuno ti spiega
+          </h3>
+          <p class="mt-5 text-mist" data-reveal>
+            La norma obbliga i soggetti in perimetro a presidiare la sicurezza della propria catena
+            di fornitura. Devono sapere chi sono i loro fornitori, come gestiscono il rischio, cosa
+            succede quando subiscono un incidente. E devono poterlo dimostrare.
+          </p>
+          <p class="mt-5 text-mist" data-reveal>
+            L’unico strumento che hanno per farlo è il contratto. Così l’obbligo scende a valle
+            sotto forma di clausole di sicurezza, requisiti minimi, diritti di audit e tempi di
+            notifica. Il risultato è che migliaia di PMI italiane sono già dentro la NIS2 senza
+            saperlo: non per legge, ma per contratto. Se ne accorgono il giorno in cui arriva il
+            questionario del cliente più grande, con due settimane per rispondere.
+          </p>
+        </div>
+
+        <!-- 2. Chi rientra -->
+        <div class="mt-16" data-reveal-group>
+          <h2 id="chi-rientra" class="font-display text-h3 font-medium" data-reveal>
+            Chi rientra: soggetti essenziali e soggetti importanti
+          </h2>
+          <p class="mt-6 text-mist" data-reveal>
+            Il decreto divide i soggetti in due categorie, in base al settore di attività e alla
+            dimensione dell’organizzazione. La differenza non è formale: cambia il regime di
+            vigilanza e cambia il tetto delle sanzioni.
+          </p>
+        </div>
+
+        <div class="mt-10" data-reveal-group>
+          <h3 class="font-display text-[1.375rem] font-medium" data-reveal>Soggetti essenziali</h3>
+          <p class="mt-5 text-mist" data-reveal>
+            Sono le organizzazioni dei settori ad alta criticità — energia, trasporti, banche e
+            infrastrutture dei mercati finanziari, sanità, acqua potabile e acque reflue,
+            infrastrutture digitali, gestione dei servizi ICT, pubblica amministrazione, spazio —
+            sopra le soglie dimensionali fissate dal decreto. Sono soggette a vigilanza proattiva:
+            l’autorità può intervenire anche senza che sia successo nulla.
+          </p>
+        </div>
+
+        <div class="mt-10" data-reveal-group>
+          <h3 class="font-display text-[1.375rem] font-medium" data-reveal>Soggetti importanti</h3>
+          <p class="mt-5 text-mist" data-reveal>
+            Sono le organizzazioni degli altri settori critici — servizi postali e di corriere,
+            gestione dei rifiuti, chimica, produzione e distribuzione alimentare, fabbricazione
+            (dispositivi medici, elettronica, macchinari, autoveicoli), fornitori di servizi
+            digitali, ricerca — insieme a chi opera nei settori ad alta criticità restando sotto le
+            soglie da soggetto essenziale. Qui la vigilanza è reattiva: si attiva su segnalazione o
+            dopo un incidente.
+          </p>
+          <p class="mt-5 text-mist" data-reveal>
+            Le soglie dimensionali sono definite dal decreto e da alcune eccezioni che catturano
+            anche organizzazioni più piccole quando il servizio erogato è critico. È il punto in
+            cui l’intuizione non basta: la posizione va verificata sul testo e sulle determinazioni
+            dell’ACN, non dedotta dal settore.
+          </p>
+        </div>
+
+        <!-- 3. Obblighi -->
+        <div class="mt-16" data-reveal-group>
+          <h2 id="obblighi" class="font-display text-h3 font-medium" data-reveal>
+            Gli obblighi principali, in quattro blocchi
+          </h2>
+          <p class="mt-6 text-mist" data-reveal>
+            Chi è in perimetro non deve “installare qualcosa”: deve dimostrare di governare il
+            rischio. Gli obblighi si raggruppano in quattro famiglie.
+          </p>
+        </div>
+
+        <div class="mt-10" data-reveal-group>
+          <h3 class="font-display text-[1.375rem] font-medium" data-reveal>
+            1. Governance: risponde chi amministra
+          </h3>
+          <p class="mt-5 text-mist" data-reveal>
+            La NIS2 sposta la sicurezza dal tavolo del sistemista a quello dell’organo di
+            amministrazione: approva le misure di gestione del rischio, ne sorveglia l’attuazione,
+            risponde delle violazioni e deve seguire formazione specifica. Tradotto: non è più una
+            materia delegabile “all’informatico”.
+          </p>
+        </div>
+
+        <div class="mt-10" data-reveal-group>
+          <h3 class="font-display text-[1.375rem] font-medium" data-reveal>
+            2. Gestione del rischio: misure tecniche e organizzative
+          </h3>
+          <p class="mt-5 text-mist" data-reveal>
+            Il decreto indica un set minimo di misure, da adottare con approccio multirischio e
+            proporzionato all’esposizione:
+          </p>
+          <ul class="mt-6 space-y-3 text-mist" data-reveal>
+            <li class="flex gap-3">
+              <span class="mt-2.5 h-1 w-4 shrink-0 bg-accent" aria-hidden="true"></span>
+              <span>analisi dei rischi e politiche di sicurezza dei sistemi informativi;</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-2.5 h-1 w-4 shrink-0 bg-accent" aria-hidden="true"></span>
+              <span>gestione degli incidenti, continuità operativa, backup e ripristino;</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-2.5 h-1 w-4 shrink-0 bg-accent" aria-hidden="true"></span>
+              <span>sicurezza della catena di approvvigionamento e dei rapporti con i fornitori;</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-2.5 h-1 w-4 shrink-0 bg-accent" aria-hidden="true"></span>
+              <span>sicurezza nell’acquisizione, sviluppo e manutenzione dei sistemi;</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-2.5 h-1 w-4 shrink-0 bg-accent" aria-hidden="true"></span>
+              <span>procedure per valutare l’efficacia delle misure adottate;</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-2.5 h-1 w-4 shrink-0 bg-accent" aria-hidden="true"></span>
+              <span>igiene informatica di base e formazione delle persone;</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-2.5 h-1 w-4 shrink-0 bg-accent" aria-hidden="true"></span>
+              <span>crittografia, controllo degli accessi, gestione degli asset;</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-2.5 h-1 w-4 shrink-0 bg-accent" aria-hidden="true"></span>
+              <span>autenticazione a più fattori e comunicazioni sicure.</span>
+            </li>
+          </ul>
+          <p class="mt-6 text-mist" data-reveal>
+            Non è una lista da spuntare una volta: è un ciclo che va mantenuto, aggiornato e
+            documentato. La documentazione non è burocrazia — è l’unica prova che le misure
+            esistono davvero.
+          </p>
+        </div>
+
+        <div class="mt-10" data-reveal-group>
+          <h3 class="font-display text-[1.375rem] font-medium" data-reveal>
+            3. Notifica degli incidenti
+          </h3>
+          <p class="mt-5 text-mist" data-reveal>
+            Gli incidenti significativi vanno notificati all’autorità con una procedura a più
+            stadi: una prima segnalazione rapida, una notifica più completa, poi una relazione
+            finale. Le finestre temporali sono strette e non ammettono improvvisazione.
+          </p>
+          <p class="mt-5 text-mist" data-reveal>
+            La parte difficile non è tecnica, è organizzativa: chi si accorge dell’incidente, chi
+            decide che è significativo, chi scrive la notifica, chi la firma. Se queste risposte
+            non esistono prima, la scadenza ti passa sopra mentre stai ancora capendo cos’è
+            successo.
+          </p>
+        </div>
+
+        <div class="mt-10" data-reveal-group>
+          <h3 class="font-display text-[1.375rem] font-medium" data-reveal>
+            4. Sicurezza della catena di fornitura
+          </h3>
+          <p class="mt-5 text-mist" data-reveal>
+            È l’obbligo che genera l’effetto domino. Il soggetto in perimetro deve valutare la
+            sicurezza dei propri fornitori diretti, tenerne conto nella scelta e nei contratti, e
+            sorvegliarla nel tempo. Da qui nascono i questionari, le clausole e i requisiti minimi
+            che ricevono le PMI fornitrici.
+          </p>
+        </div>
+
+        <!-- 4. Sanzioni -->
+        <div class="mt-16" data-reveal-group>
+          <h2 id="sanzioni" class="font-display text-h3 font-medium" data-reveal>
+            Le sanzioni: quanto costa non fare nulla
+          </h2>
+          <p class="mt-6 text-mist" data-reveal>
+            Per i soggetti essenziali il massimo è 10 milioni di euro oppure il 2% del fatturato
+            annuo, a seconda di quale importo sia più elevato. Per i soggetti importanti il tetto
+            scende a 7 milioni o all’1,4%.
+          </p>
+          <p class="mt-5 text-mist" data-reveal>
+            Sono cifre scritte per non essere ignorate. Ma per una PMI fornitrice il rischio più
+            probabile non è la sanzione: è commerciale. Un cliente capofila che non riesce a
+            documentare la sicurezza della propria filiera non discute — cambia fornitore. Nessuna
+            multa, contratto perso.
+          </p>
+        </div>
+
+        <!-- 5. Sono un fornitore -->
+        <div class="mt-16" data-reveal-group>
+          <h2 id="fornitori" class="font-display text-h3 font-medium" data-reveal>
+            Sono un fornitore: cosa mi chiederanno
+          </h2>
+          <p class="mt-6 text-mist" data-reveal>
+            Se lavori con un’azienda in perimetro — o con un suo fornitore di primo livello — prima
+            o poi la richiesta arriva. Quasi sempre in tre forme, spesso tutte insieme.
+          </p>
+          <ul class="mt-8 space-y-6" data-reveal>
+            <li class="border-t border-white/12 pt-5">
+              <p class="font-display text-[1.0625rem] font-medium text-paper">
+                Il questionario di sicurezza
+              </p>
+              <p class="mt-2 text-[0.9375rem] text-mist">
+                Un file da compilare, spesso decine di domande su politiche, backup, gestione degli
+                accessi, incidenti, subfornitori, formazione. Chi risponde “ci stiamo lavorando” a
+                metà delle voci esce dalla shortlist senza una telefonata.
+              </p>
+            </li>
+            <li class="border-t border-white/12 pt-5">
+              <p class="font-display text-[1.0625rem] font-medium text-paper">
+                Le clausole contrattuali
+              </p>
+              <p class="mt-2 text-[0.9375rem] text-mist">
+                Un addendum o una nuova versione del contratto con requisiti di sicurezza, obbligo
+                di notificare gli incidenti al cliente entro tempi definiti, diritto di audit e, in
+                certi casi, penali. Si firmano una volta e valgono per anni.
+              </p>
+            </li>
+            <li class="border-t border-white/12 pt-5">
+              <p class="font-display text-[1.0625rem] font-medium text-paper">
+                I requisiti minimi tecnici
+              </p>
+              <p class="mt-2 text-[0.9375rem] text-mist">
+                Autenticazione a più fattori, backup testati, gestione delle vulnerabilità,
+                segregazione degli accessi. A volte una certificazione riconosciuta, più spesso
+                un’evidenza equivalente e documentata.
+              </p>
+            </li>
+          </ul>
+          <p class="mt-8 text-mist" data-reveal>
+            Il punto non è avere risposte perfette: è averle scritte, coerenti e verificabili. Un
+            fornitore che dichiara “questo lo facciamo così, quest’altro non ancora e sarà pronto a
+            giugno” è più credibile di uno che spunta tutte le caselle e non sa dimostrarne
+            nessuna.
+          </p>
+        </div>
+
+        <!-- 6. Checklist -->
+        <div class="mt-16" data-reveal-group>
+          <h2 id="checklist" class="font-display text-h3 font-medium" data-reveal>
+            Da dove partire: la checklist operativa
+          </h2>
+          <p class="mt-6 text-mist" data-reveal>
+            Otto passi, nell’ordine in cui li faremmo noi. I primi tre costano tempo e non soldi, e
+            sono quelli che evitano di spendere sulle cose sbagliate.
+          </p>
+        </div>
+        <ol class="mt-10 space-y-8" data-reveal-group>
+          {
+            checklist.map((step, i) => (
+              <li class="grid grid-cols-[2.75rem_1fr] border-t border-white/12 pt-5" data-reveal>
+                <span
+                  class="font-display text-[1.0625rem] font-semibold text-accent-soft"
+                  aria-hidden="true"
+                >
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <div>
+                  <p class="font-display text-[1.0625rem] font-medium text-paper">{step.title}</p>
+                  <p class="mt-2 text-[0.9375rem] text-mist">{step.text}</p>
+                </div>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================== COME TI AIUTIAMO ========================== -->
+  <section class="section-light">
+    <div class="wrap grid grid-cols-12 gap-x-6 py-24 md:py-36">
+      <div class="col-span-12 lg:col-span-5">
+        <p class="label-caps text-umber" data-reveal>Come ti aiutiamo</p>
+        <h2 class="font-display text-h2 mt-4 font-medium" data-reveal>
+          Prima capire dove sei, poi decidere cosa fare.
+        </h2>
+        <p class="mt-6 max-w-md text-lead text-umber" data-reveal>
+          Il verticale compliance &amp; governance digitale segue le PMI sulla NIS2 in due
+          direzioni: chi è in perimetro va portato alle misure richieste, chi è fornitore va
+          preparato a rispondere ai clienti — prima che arrivi il questionario con la scadenza
+          attaccata.
+        </p>
+        <p class="mt-8" data-reveal>
+          <ArrowLink href={path('serviceCompliance', lang)} class="text-accent-deep">
+            Compliance &amp; governance digitale
+          </ArrowLink>
+        </p>
+      </div>
+      <div class="col-span-12 mt-14 lg:col-span-6 lg:col-start-7 lg:mt-0" data-reveal>
+        <ProductCard
+          light
+          title="Digital & Compliance Audit"
+          price="[PREZZO]"
+          duration="2 settimane · prezzo fisso"
+          description="La fotografia onesta della tua posizione NIS2 — perimetro diretto, obblighi contrattuali, misure già in piedi e buchi aperti — dentro un quadro più ampio di conformità e maturità digitale."
+          deliverables={[
+            'Verifica del perimetro: elenco ACN ed effetto filiera',
+            'Gap analysis sulle misure minime, con priorità',
+            'Roadmap 12 mesi con budget indicativi',
+          ]}
+          deliverablesLabel="Cosa ti porti a casa"
+          href={path('products', lang)}
+          ctaLabel="Dettagli del prodotto"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== FAQ =============================== -->
+  <section class="hairline">
+    <div class="wrap grid grid-cols-12 gap-x-6 py-24 md:py-36">
+      <div class="col-span-12 lg:col-span-4">
+        <div class="lg:sticky lg:top-32">
+          <p class="label-caps text-mist" data-reveal>FAQ</p>
+          <h2 class="font-display text-h2 mt-4 font-medium" data-reveal>Le domande che riceviamo.</h2>
+          <p class="mt-6 max-w-sm text-[0.9375rem] text-mist" data-reveal>
+            Quelle che ci fanno gli imprenditori dopo aver letto la prima clausola NIS2 in un
+            contratto.
+          </p>
+        </div>
+      </div>
+      <div class="col-span-12 mt-12 lg:col-span-7 lg:col-start-6 lg:mt-0" data-reveal>
+        <Accordion items={faq} idPrefix="faq-nis2" withSchema />
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ DISCLAIMER ============================ -->
+  <section class="hairline">
+    <div class="wrap py-16 md:py-20">
+      <div class="max-w-3xl rounded-xs border border-white/15 bg-ink-raise p-8 md:p-10" data-reveal>
+        <p class="label-caps text-mist">Nota</p>
+        <p class="mt-4 text-[0.9375rem] text-mist">
+          Guida informativa aggiornata ad agosto 2026. Non costituisce consulenza legale: i testi
+          di riferimento sono la direttiva (UE) 2022/2555, il D.Lgs. 138/2024 e le determinazioni
+          dell’ACN, che continuano a evolvere. Per la tua situazione specifica verifica con i tuoi
+          consulenti — oppure scrivici e ne parliamo.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CtaSection lang={lang} />
+</Base>

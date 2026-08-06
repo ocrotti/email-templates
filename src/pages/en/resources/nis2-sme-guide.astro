@@ -1,0 +1,508 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import ArrowLink from '../../../components/ArrowLink.astro';
+import ProductCard from '../../../components/ProductCard.astro';
+import Accordion from '../../../components/Accordion.astro';
+import CtaSection from '../../../components/CtaSection.astro';
+import { path } from '../../../lib/routes';
+import { articleSchema } from '../../../lib/seo';
+
+const lang = 'en' as const;
+
+const headline = 'NIS2 for SMEs: what actually changes, even if you are not on the list';
+const description =
+  'NIS2 for SMEs: who is in scope, the obligations, the fines and the supply-chain effect that pulls suppliers in. Practical 2026 guide with a checklist.';
+
+const toc = [
+  { id: 'what-is-nis2', label: 'What NIS2 is, and why it reaches you' },
+  { id: 'who-is-in-scope', label: 'Who is in scope: essential and important' },
+  { id: 'obligations', label: 'The core obligations' },
+  { id: 'fines', label: 'The fines' },
+  { id: 'suppliers', label: 'I am a supplier: what will they ask' },
+  { id: 'checklist', label: 'Where to start: the checklist' },
+];
+
+const checklist = [
+  {
+    title: 'Establish your position in writing',
+    text: 'Two questions, one written answer: are you among the entities identified by the Italian cybersecurity agency (ACN)? Do you supply someone who is? List the customers you believe are in scope. Everything else rests on that document.',
+  },
+  {
+    title: 'Re-read the contracts you have already signed',
+    text: 'Look for security clauses, incident-notification duties, audit rights. Plenty of companies discover they already accepted requirements they are not currently meeting.',
+  },
+  {
+    title: 'Inventory your assets, data and suppliers',
+    text: 'Which systems you run, where the data sits, who holds access, which suppliers you depend on to operate. Without that list, every later measure is guesswork.',
+  },
+  {
+    title: 'Write the risk assessment',
+    text: 'Not eighty pages: the real risks, their likelihood, the business impact and what you do to reduce them. Dated, approved, revisable. It is the documentary core of NIS2.',
+  },
+  {
+    title: 'Turn on the technical minimum',
+    text: 'Multi-factor authentication on every external access, backups verified by an actual restore, patch and vulnerability management, separation of critical environments.',
+  },
+  {
+    title: 'Define — and rehearse — the incident procedure',
+    text: 'Who notices, who decides it is significant, who notifies, by when, with which contacts and which data. A tabletop rehearsal costs half a day and saves you the first time it matters.',
+  },
+  {
+    title: 'Take security to the board',
+    text: 'A resolution approving the risk-management measures and a documented training session for the management body. It is a requirement of the law — and it is also what unlocks the budget.',
+  },
+  {
+    title: 'Build the customer response pack',
+    text: 'One folder with policies, evidence and standard answers to the questions questionnaires keep repeating. The first one costs you; from the second, it saves weeks.',
+  },
+];
+
+const faq = [
+  {
+    q: 'Does NIS2 apply to small companies?',
+    a: 'Direct scope is built mainly on sector and size: most micro and small companies stay off the list, except for the cases the law carves out for critical services. The indirect obligation, though, has no size threshold: if you supply an in-scope entity, the requirements reach you through the contract — whether you have eight employees or eighty. That is why many small Italian companies are already inside NIS2 without ever formally entering it.',
+  },
+  {
+    q: 'How do I know whether I am on the ACN list?',
+    a: 'Identified entities are informed by the Italian national cybersecurity agency (ACN) and register on its dedicated platform during the annual windows. If you have received nothing, you are most likely outside direct scope — which does not remove the obligations that arrive from your customers. Check both routes: the list is only the first one.',
+  },
+  {
+    q: 'Do we need ISO/IEC 27001 certification to comply?',
+    a: 'No: no certification is mandatory under NIS2, and holding one does not equal compliance. That said, a structured information-security management system covers a good share of the required measures and makes customer questionnaires far quicker to answer. It makes sense if your market asks for it often; it makes no sense as a shortcut around the risk assessment.',
+  },
+  {
+    q: 'How long does it take to get compliant?',
+    a: 'It depends where you start. The basic technical measures — multi-factor authentication, tested backups, vulnerability management — go live in weeks. Governance, risk assessment, incident procedures and supply-chain oversight take a few months of orderly work. The real risk is not the timeline: it is starting without knowing what you actually need, and spending on the wrong things. That is why we start with an audit.',
+  },
+];
+
+const schema = [
+  articleSchema({
+    headline,
+    description,
+    path: path('resourceNis2', lang),
+    lang,
+    datePublished: '2026-08-06',
+  }),
+];
+---
+
+<Base
+  lang={lang}
+  routeKey="resourceNis2"
+  title="NIS2 for SMEs: complete guide | enable.advisory"
+  description={description}
+  ogImage="/og/resourceNis2-en.png"
+  ogType="article"
+  schema={schema}
+>
+  <Breadcrumbs
+    lang={lang}
+    items={[
+      { name: 'Resources', path: path('resources', lang) },
+      { name: 'NIS2 for SMEs', path: path('resourceNis2', lang) },
+    ]}
+  />
+
+  <!-- ============================== HERO ============================== -->
+  <section class="relative overflow-hidden">
+    <div
+      class="pointer-events-none absolute inset-0"
+      aria-hidden="true"
+      style="background: radial-gradient(50rem 34rem at 88% -20%, rgb(43 92 255 / 0.11), transparent 60%);"
+    >
+    </div>
+    <div class="wrap relative pt-12 pb-16 md:pt-16 md:pb-24">
+      <p class="label-caps text-mist" data-reveal>Guide · Compliance</p>
+      <h1 class="font-display text-display mt-6 max-w-5xl font-medium" data-reveal>
+        NIS2 for SMEs: what actually changes, even if you’re not on the list.
+      </h1>
+      <p class="mt-8 max-w-2xl text-lead text-mist" data-reveal>
+        Italy transposed the directive with Legislative Decree 138/2024, and the perimeter of
+        mandatory cybersecurity widened sharply. For most smaller companies, though, the impact
+        doesn’t arrive through a list. It arrives through a contract.
+      </p>
+      <p class="mt-8 text-[0.8125rem] text-mist" data-reveal>
+        Updated August 2026 · 9 min read · Sources: Italian Leg. Decree 138/2024, ACN
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================ CONTENTS ============================ -->
+  <section class="hairline">
+    <div class="wrap py-10 md:py-12">
+      <nav class="max-w-3xl" aria-label="Guide contents" data-reveal>
+        <h2 class="label-caps text-mist">In this guide</h2>
+        <ol class="mt-5 grid gap-x-8 gap-y-2 text-[0.9375rem] md:grid-cols-2">
+          {
+            toc.map((item) => (
+              <li>
+                <a href={`#${item.id}`} class="link-plain text-paper">
+                  {item.label}
+                </a>
+              </li>
+            ))
+          }
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ============================ GUIDE BODY ============================ -->
+  <section class="hairline">
+    <div class="wrap py-20 md:py-28">
+      <div class="max-w-3xl">
+        <!-- 1. What NIS2 is -->
+        <div data-reveal-group>
+          <h2 id="what-is-nis2" class="font-display text-h3 font-medium" data-reveal>
+            What NIS2 is, and why it reaches you even off the list
+          </h2>
+          <p class="mt-6 text-mist" data-reveal>
+            NIS2 is the European directive that raises the minimum cybersecurity bar for
+            organisations considered relevant to how a country functions. Italy transposed it with
+            Legislative Decree 138/2024, and the competent authority is ACN, the national
+            cybersecurity agency.
+          </p>
+          <p class="mt-5 text-mist" data-reveal>
+            The first number that matters is the size of the perimeter: ACN’s list of identified
+            entities exceeds 20,000 organisations, of which more than 5,000 are classified as
+            essential. That is a different order of magnitude from the old NIS directive, which
+            stopped at the most critical operators.
+          </p>
+          <p class="mt-5 text-mist" data-reveal>
+            If your name is not in there, the temptation is to file the whole thing away. It is
+            the most common mistake we see.
+          </p>
+        </div>
+
+        <div class="mt-12" data-reveal-group>
+          <h3 class="font-display text-[1.375rem] font-medium" data-reveal>
+            The supply-chain effect: the part nobody explains
+          </h3>
+          <p class="mt-5 text-mist" data-reveal>
+            The law obliges in-scope entities to secure their own supply chain. They have to know
+            who their suppliers are, how those suppliers manage risk, what happens when they suffer
+            an incident. And they have to be able to prove it.
+          </p>
+          <p class="mt-5 text-mist" data-reveal>
+            The only instrument they have for that is the contract. So the obligation flows
+            downstream as security clauses, minimum requirements, audit rights and notification
+            deadlines. The result: thousands of small Italian companies are already inside NIS2
+            without knowing it — not by law, but by contract. They find out the day their largest
+            customer sends a questionnaire with two weeks to answer.
+          </p>
+        </div>
+
+        <!-- 2. Who is in scope -->
+        <div class="mt-16" data-reveal-group>
+          <h2 id="who-is-in-scope" class="font-display text-h3 font-medium" data-reveal>
+            Who is in scope: essential and important entities
+          </h2>
+          <p class="mt-6 text-mist" data-reveal>
+            The decree splits entities into two categories, based on sector and size. The
+            difference is not cosmetic: it changes the supervisory regime and it changes the
+            ceiling on fines.
+          </p>
+        </div>
+
+        <div class="mt-10" data-reveal-group>
+          <h3 class="font-display text-[1.375rem] font-medium" data-reveal>Essential entities</h3>
+          <p class="mt-5 text-mist" data-reveal>
+            Organisations in the highly critical sectors — energy, transport, banking and financial
+            market infrastructure, health, drinking water and waste water, digital infrastructure,
+            managed ICT services, public administration, space — above the size thresholds set by
+            the decree. They face proactive supervision: the authority can step in even when
+            nothing has gone wrong.
+          </p>
+        </div>
+
+        <div class="mt-10" data-reveal-group>
+          <h3 class="font-display text-[1.375rem] font-medium" data-reveal>Important entities</h3>
+          <p class="mt-5 text-mist" data-reveal>
+            Organisations in the other critical sectors — postal and courier services, waste
+            management, chemicals, food production and distribution, manufacturing (medical
+            devices, electronics, machinery, motor vehicles), digital providers, research — plus
+            those operating in the highly critical sectors while staying below the essential
+            thresholds. Supervision here is reactive: it triggers on a report or after an incident.
+          </p>
+          <p class="mt-5 text-mist" data-reveal>
+            Size thresholds are set by the decree, with exceptions that catch smaller organisations
+            when the service they provide is critical. This is where intuition is not enough: your
+            position has to be checked against the text and ACN’s determinations, not inferred from
+            your sector.
+          </p>
+        </div>
+
+        <!-- 3. Obligations -->
+        <div class="mt-16" data-reveal-group>
+          <h2 id="obligations" class="font-display text-h3 font-medium" data-reveal>
+            The core obligations, in four blocks
+          </h2>
+          <p class="mt-6 text-mist" data-reveal>
+            In-scope entities are not asked to "install something". They are asked to demonstrate
+            that they govern risk. The obligations fall into four families.
+          </p>
+        </div>
+
+        <div class="mt-10" data-reveal-group>
+          <h3 class="font-display text-[1.375rem] font-medium" data-reveal>
+            1. Governance: the board answers for it
+          </h3>
+          <p class="mt-5 text-mist" data-reveal>
+            NIS2 moves security off the sysadmin’s desk and onto the management body’s: it approves
+            the risk-management measures, oversees their implementation, answers for breaches and
+            has to undergo specific training. Translated: it can no longer be delegated "to the IT
+            guy".
+          </p>
+        </div>
+
+        <div class="mt-10" data-reveal-group>
+          <h3 class="font-display text-[1.375rem] font-medium" data-reveal>
+            2. Risk management: technical and organisational measures
+          </h3>
+          <p class="mt-5 text-mist" data-reveal>
+            The decree sets out a minimum package of measures, to be adopted with an all-hazards
+            approach proportionate to your exposure:
+          </p>
+          <ul class="mt-6 space-y-3 text-mist" data-reveal>
+            <li class="flex gap-3">
+              <span class="mt-2.5 h-1 w-4 shrink-0 bg-accent" aria-hidden="true"></span>
+              <span>risk analysis and information system security policies;</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-2.5 h-1 w-4 shrink-0 bg-accent" aria-hidden="true"></span>
+              <span>incident handling, business continuity, backup and recovery;</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-2.5 h-1 w-4 shrink-0 bg-accent" aria-hidden="true"></span>
+              <span>supply-chain security and management of supplier relationships;</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-2.5 h-1 w-4 shrink-0 bg-accent" aria-hidden="true"></span>
+              <span>security in system acquisition, development and maintenance;</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-2.5 h-1 w-4 shrink-0 bg-accent" aria-hidden="true"></span>
+              <span>procedures to assess how effective the measures actually are;</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-2.5 h-1 w-4 shrink-0 bg-accent" aria-hidden="true"></span>
+              <span>basic cyber hygiene practices and staff training;</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-2.5 h-1 w-4 shrink-0 bg-accent" aria-hidden="true"></span>
+              <span>cryptography, access control, asset management;</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-2.5 h-1 w-4 shrink-0 bg-accent" aria-hidden="true"></span>
+              <span>multi-factor authentication and secured communications.</span>
+            </li>
+          </ul>
+          <p class="mt-6 text-mist" data-reveal>
+            This is not a list you tick once: it is a cycle to maintain, update and document. The
+            documentation is not bureaucracy — it is the only proof the measures exist at all.
+          </p>
+        </div>
+
+        <div class="mt-10" data-reveal-group>
+          <h3 class="font-display text-[1.375rem] font-medium" data-reveal>
+            3. Incident notification
+          </h3>
+          <p class="mt-5 text-mist" data-reveal>
+            Significant incidents must be notified to the authority through a multi-stage
+            procedure: an early warning, then a fuller notification, then a final report. The time
+            windows are tight and leave no room for improvisation.
+          </p>
+          <p class="mt-5 text-mist" data-reveal>
+            The hard part is not technical, it is organisational: who spots the incident, who
+            decides it is significant, who drafts the notification, who signs it. If those answers
+            don’t exist beforehand, the deadline passes while you are still working out what
+            happened.
+          </p>
+        </div>
+
+        <div class="mt-10" data-reveal-group>
+          <h3 class="font-display text-[1.375rem] font-medium" data-reveal>
+            4. Supply-chain security
+          </h3>
+          <p class="mt-5 text-mist" data-reveal>
+            This is the obligation that sets off the domino effect. In-scope entities have to
+            assess the security of their direct suppliers, factor it into selection and contracts,
+            and keep watching it over time. That is where the questionnaires, the clauses and the
+            minimum requirements landing on smaller suppliers come from.
+          </p>
+        </div>
+
+        <!-- 4. Fines -->
+        <div class="mt-16" data-reveal-group>
+          <h2 id="fines" class="font-display text-h3 font-medium" data-reveal>
+            The fines: what doing nothing costs
+          </h2>
+          <p class="mt-6 text-mist" data-reveal>
+            For essential entities the maximum is €10 million or 2% of annual turnover, whichever
+            is higher. For important entities the ceiling drops to €7 million or 1.4%.
+          </p>
+          <p class="mt-5 text-mist" data-reveal>
+            Those numbers are written to be noticed. But for a smaller supplier the likelier risk
+            is not the fine: it is commercial. A lead customer who cannot document the security of
+            its own supply chain does not argue — it changes supplier. No penalty, contract gone.
+          </p>
+        </div>
+
+        <!-- 5. Suppliers -->
+        <div class="mt-16" data-reveal-group>
+          <h2 id="suppliers" class="font-display text-h3 font-medium" data-reveal>
+            I am a supplier: what will they ask me
+          </h2>
+          <p class="mt-6 text-mist" data-reveal>
+            If you work with an in-scope company — or with one of its first-tier suppliers — the
+            request comes sooner or later. Almost always in three forms, often all at once.
+          </p>
+          <ul class="mt-8 space-y-6" data-reveal>
+            <li class="border-t border-white/12 pt-5">
+              <p class="font-display text-[1.0625rem] font-medium text-paper">
+                The security questionnaire
+              </p>
+              <p class="mt-2 text-[0.9375rem] text-mist">
+                A file to fill in, often dozens of questions on policies, backups, access
+                management, incidents, sub-suppliers, training. Answer "we’re working on it" to
+                half of them and you drop off the shortlist without a phone call.
+              </p>
+            </li>
+            <li class="border-t border-white/12 pt-5">
+              <p class="font-display text-[1.0625rem] font-medium text-paper">
+                The contract clauses
+              </p>
+              <p class="mt-2 text-[0.9375rem] text-mist">
+                An addendum or a new contract version carrying security requirements, a duty to
+                notify incidents to the customer within a set time, audit rights and sometimes
+                penalties. You sign once and live with it for years.
+              </p>
+            </li>
+            <li class="border-t border-white/12 pt-5">
+              <p class="font-display text-[1.0625rem] font-medium text-paper">
+                The minimum technical requirements
+              </p>
+              <p class="mt-2 text-[0.9375rem] text-mist">
+                Multi-factor authentication, tested backups, vulnerability management, segregated
+                access. Sometimes a recognised certification, more often documented evidence that
+                achieves the same thing.
+              </p>
+            </li>
+          </ul>
+          <p class="mt-8 text-mist" data-reveal>
+            The point is not to have perfect answers: it is to have them written down, consistent
+            and verifiable. A supplier who says "we do this, we don’t do that yet and it will be
+            ready by June" is more credible than one who ticks every box and can prove none of
+            them.
+          </p>
+        </div>
+
+        <!-- 6. Checklist -->
+        <div class="mt-16" data-reveal-group>
+          <h2 id="checklist" class="font-display text-h3 font-medium" data-reveal>
+            Where to start: the operational checklist
+          </h2>
+          <p class="mt-6 text-mist" data-reveal>
+            Eight steps, in the order we would take them. The first three cost time rather than
+            money — and they are what stops you spending on the wrong things.
+          </p>
+        </div>
+        <ol class="mt-10 space-y-8" data-reveal-group>
+          {
+            checklist.map((step, i) => (
+              <li class="grid grid-cols-[2.75rem_1fr] border-t border-white/12 pt-5" data-reveal>
+                <span
+                  class="font-display text-[1.0625rem] font-semibold text-accent-soft"
+                  aria-hidden="true"
+                >
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <div>
+                  <p class="font-display text-[1.0625rem] font-medium text-paper">{step.title}</p>
+                  <p class="mt-2 text-[0.9375rem] text-mist">{step.text}</p>
+                </div>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================== HOW WE HELP ========================== -->
+  <section class="section-light">
+    <div class="wrap grid grid-cols-12 gap-x-6 py-24 md:py-36">
+      <div class="col-span-12 lg:col-span-5">
+        <p class="label-caps text-umber" data-reveal>How we help</p>
+        <h2 class="font-display text-h2 mt-4 font-medium" data-reveal>
+          First understand where you stand, then decide what to do.
+        </h2>
+        <p class="mt-6 max-w-md text-lead text-umber" data-reveal>
+          Our compliance &amp; digital governance vertical works on NIS2 in two directions: if
+          you’re in scope, we take you to the required measures; if you’re a supplier, we get you
+          ready to answer your customers — before the questionnaire arrives with a deadline
+          attached.
+        </p>
+        <p class="mt-8" data-reveal>
+          <ArrowLink href={path('serviceCompliance', lang)} class="text-accent-deep">
+            Compliance &amp; digital governance
+          </ArrowLink>
+        </p>
+      </div>
+      <div class="col-span-12 mt-14 lg:col-span-6 lg:col-start-7 lg:mt-0" data-reveal>
+        <ProductCard
+          light
+          title="Digital & Compliance Audit"
+          price="[PREZZO]"
+          duration="2 weeks · fixed price"
+          description="An honest snapshot of your NIS2 position — direct scope, contractual obligations, measures already in place and gaps left open — inside a wider picture of compliance and digital maturity."
+          deliverables={[
+            'Scope check: ACN list and supply-chain exposure',
+            'Gap analysis against the minimum measures, prioritised',
+            '12-month roadmap with indicative budgets',
+          ]}
+          deliverablesLabel="What you walk away with"
+          href={path('products', lang)}
+          ctaLabel="Product details"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== FAQ =============================== -->
+  <section class="hairline">
+    <div class="wrap grid grid-cols-12 gap-x-6 py-24 md:py-36">
+      <div class="col-span-12 lg:col-span-4">
+        <div class="lg:sticky lg:top-32">
+          <p class="label-caps text-mist" data-reveal>FAQ</p>
+          <h2 class="font-display text-h2 mt-4 font-medium" data-reveal>The questions we get.</h2>
+          <p class="mt-6 max-w-sm text-[0.9375rem] text-mist" data-reveal>
+            The ones business owners ask after reading their first NIS2 clause in a contract.
+          </p>
+        </div>
+      </div>
+      <div class="col-span-12 mt-12 lg:col-span-7 lg:col-start-6 lg:mt-0" data-reveal>
+        <Accordion items={faq} idPrefix="faq-nis2" withSchema />
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ DISCLAIMER ============================ -->
+  <section class="hairline">
+    <div class="wrap py-16 md:py-20">
+      <div class="max-w-3xl rounded-xs border border-white/15 bg-ink-raise p-8 md:p-10" data-reveal>
+        <p class="label-caps text-mist">Note</p>
+        <p class="mt-4 text-[0.9375rem] text-mist">
+          Informational guide, updated August 2026. It is not legal advice: the reference texts are
+          Directive (EU) 2022/2555, Italian Legislative Decree 138/2024 and ACN’s determinations,
+          which keep evolving. For your specific situation, check with your advisors — or write to
+          us and we’ll talk it through.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CtaSection lang={lang} />
+</Base>

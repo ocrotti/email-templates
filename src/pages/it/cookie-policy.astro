@@ -1,0 +1,155 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { path } from '../../lib/routes';
+
+const lang = 'it' as const;
+const updated = '6 agosto 2026';
+---
+
+<Base
+  lang={lang}
+  routeKey="cookies"
+  title="Informativa cookie | enable.advisory"
+  description="Cookie policy di enable.advisory: questo sito non usa cookie di profilazione né strumenti di analytics, ma solo cookie tecnici necessari. Spiegati in chiaro."
+  ogImage="/og/cookies-it.png"
+>
+  <Breadcrumbs lang={lang} items={[{ name: 'Cookie policy', path: path('cookies', lang) }]} />
+
+  <!-- ============================== INTESTAZIONE ============================== -->
+  <section>
+    <div class="wrap pt-12 pb-14 md:pt-16 md:pb-20">
+      <div class="max-w-3xl">
+        <p class="label-caps text-mist" data-reveal>Note legali</p>
+        <h1 class="font-display text-h2 mt-6 font-medium" data-reveal>Cookie policy</h1>
+        <p class="mt-8 text-lead text-mist">
+          Questa pagina è corta perché il sito è semplice. Al momento della pubblicazione non
+          usiamo cookie di profilazione, pixel pubblicitari o strumenti di analytics: non ti
+          misuriamo e non ti seguiamo altrove.
+        </p>
+        <p class="mt-8 text-[0.8125rem] text-mist">Ultimo aggiornamento: {updated}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================= CORPO ================================= -->
+  <section class="hairline">
+    <div class="wrap py-16 md:py-24">
+      <div class="max-w-3xl">
+        <!-- 1 -->
+        <div>
+          <h2 class="font-display text-h3 font-medium" data-reveal>Cosa sono i cookie</h2>
+          <p class="mt-6 text-mist">
+            Un cookie è un piccolo file di testo che un sito salva nel tuo browser e può rileggere
+            alle visite successive. Tecnologie diverse — localStorage, pixel, SDK, fingerprinting —
+            fanno cose simili con nomi diversi, e la normativa le tratta allo stesso modo.
+          </p>
+          <p class="mt-5 text-mist">
+            Semplificando, esistono due famiglie. I <span class="text-paper">cookie tecnici</span>
+            servono a far funzionare il sito o a erogare un servizio che hai chiesto tu: ricordare
+            una preferenza, tenere una sessione aperta, proteggere un form dagli invii automatici.
+            I <span class="text-paper">cookie di profilazione e di misurazione</span> servono a
+            contare, riconoscere e ricostruire i tuoi interessi, spesso per conto di terzi: sono
+            quelli per cui esiste il banner del consenso.
+          </p>
+        </div>
+
+        <!-- 2 -->
+        <div class="hairline mt-12 pt-12">
+          <h2 class="font-display text-h3 font-medium" data-reveal>
+            Quali cookie usa questo sito
+          </h2>
+          <p class="mt-6 text-mist">
+            Alla data di ultimo aggiornamento indicata sopra:
+          </p>
+          <ul class="mt-6 space-y-4 text-mist">
+            <li>
+              <span class="text-paper">Nessun cookie di profilazione</span> e nessun pixel
+              pubblicitario, di nessuna piattaforma.
+            </li>
+            <li>
+              <span class="text-paper">Nessuno strumento di analytics</span> — né Google Analytics
+              né alternative, comprese quelle che si dichiarano privacy-friendly.
+            </li>
+            <li>
+              <span class="text-paper">Nessun componente di terze parti incorporato.</span> I
+              caratteri tipografici sono ospitati sul nostro dominio e non caricati da servizi
+              esterni; nelle pagine non ci sono video, mappe, chat o widget social che aprano una
+              connessione verso altri siti mentre navighi.
+            </li>
+            <li>
+              <span class="text-paper">Eventuali cookie tecnici necessari</span>, generati
+              dall’infrastruttura che serve le pagine o dal servizio che riceve il form contatti,
+              per sicurezza e protezione antispam. [PLACEHOLDER: elencare i cookie tecnici
+              effettivamente impostati da hosting/CDN e dal provider del form — nome, finalità e
+              durata; se non ne viene impostato nessuno, dichiararlo esplicitamente qui.]
+            </li>
+          </ul>
+          <p class="mt-6 text-mist">
+            Se compili il form contatti, i dati che inserisci vengono trattati come spiegato
+            nell’<a href={path('privacy', lang)} class="link-plain text-paper">informativa privacy</a>.
+            Sono due cose diverse: quella riguarda i dati che ci mandi, questa i file che restano
+            nel tuo browser.
+          </p>
+        </div>
+
+        <!-- 3 -->
+        <div class="hairline mt-12 pt-12">
+          <h2 class="font-display text-h3 font-medium" data-reveal>
+            Perché non vedi un banner di consenso
+          </h2>
+          <p class="mt-6 text-mist">
+            Il banner serve quando un sito installa strumenti che richiedono il tuo consenso
+            preventivo. Per i soli cookie tecnici necessari l’art. 122 del Codice privacy (D.Lgs.
+            196/2003) e le Linee guida cookie del Garante non richiedono il consenso: è sufficiente
+            informare, ed è esattamente quello che fa questa pagina.
+          </p>
+          <p class="mt-5 text-mist">
+            Mostrarti un banner che non serve sarebbe teatro — e, per una società che vive di
+            compliance, un modo curioso di dimostrare competenza.
+          </p>
+        </div>
+
+        <!-- 4 -->
+        <div class="hairline mt-12 pt-12">
+          <h2 class="font-display text-h3 font-medium" data-reveal>
+            Come controllare i cookie dal browser
+          </h2>
+          <p class="mt-6 text-mist">
+            Anche senza banner, il controllo resta tuo. Ogni browser permette di vedere i cookie
+            salvati, bloccarli in tutto o in parte ed eliminarli: le istruzioni si trovano nelle
+            impostazioni di privacy e sicurezza di Chrome, Safari, Firefox ed Edge. Puoi anche
+            navigare in finestra anonima, che cancella tutto alla chiusura.
+          </p>
+          <p class="mt-5 text-mist">
+            Attenzione a una cosa sola: bloccare indiscriminatamente i cookie tecnici può impedire
+            ad alcune funzioni — l’invio di un form, per esempio — di completarsi correttamente. Su
+            questo sito, comunque, i contenuti restano leggibili in ogni caso.
+          </p>
+        </div>
+
+        <!-- 5 -->
+        <div class="hairline mt-12 pt-12">
+          <h2 class="font-display text-h3 font-medium" data-reveal>Se qualcosa cambia</h2>
+          <p class="mt-6 text-mist">
+            Questa pagina fotografa una situazione, non una promessa eterna. Se in futuro
+            attiveremo strumenti di misurazione o di marketing, questa pagina verrà aggiornata
+            prima della loro attivazione, non dopo.
+          </p>
+          <p class="mt-5 text-mist">
+            [PLACEHOLDER: aggiornare questa pagina se si aggiungono analytics, pixel o strumenti di
+            marketing, e attivare un banner di consenso conforme — blocco preventivo degli script
+            prima della scelta, consenso granulare per finalità, rifiuto facile quanto
+            l’accettazione, possibilità di cambiare idea in ogni momento.]
+          </p>
+          <p class="mt-8 text-[0.9375rem] text-mist">
+            Domande su questa pagina o sull’<a href={path('privacy', lang)} class="link-plain text-paper"
+              >informativa privacy</a
+            >? <a href={path('contact', lang)} class="link-plain text-paper">Scrivici</a>: risponde
+            una persona, entro 24 ore lavorative.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

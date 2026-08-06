@@ -1,0 +1,218 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArrowLink from '../../components/ArrowLink.astro';
+import CtaSection from '../../components/CtaSection.astro';
+import { path } from '../../lib/routes';
+
+const lang = 'en' as const;
+const updated = '6 August 2026';
+
+const commitments = [
+  {
+    title: 'Contrast',
+    text: 'Text and interface components meet the minimum contrast ratios required by WCAG 2.1 AA. No pale grey on grey: if a piece of text exists, it has to be readable.',
+  },
+  {
+    title: 'Keyboard navigation',
+    text: 'Every function can be reached and operated without a mouse, in a predictable reading order. The first focusable element on every page is a “Skip to content” link.',
+  },
+  {
+    title: 'Focus always visible',
+    text: 'The focus state is never removed: a thick outline with an offset from the edge, legible both on the dark background and on the light sections.',
+  },
+  {
+    title: 'Motion that behaves',
+    text: 'Animations respect the prefers-reduced-motion system setting: with it enabled, the site renders without transitions. No carousels, no autoplay, nothing that moves on its own.',
+  },
+  {
+    title: 'Semantic structure',
+    text: 'Semantic HTML, one h1 per page, a consistent heading hierarchy, navigation landmarks (header, nav, main, footer) and the page language declared in the markup.',
+  },
+  {
+    title: 'Images and icons',
+    text: 'Alternative text for images that carry information; purely decorative elements are hidden from assistive technology so they don’t clutter the reading experience.',
+  },
+  {
+    title: 'Accessible forms',
+    text: 'Every field has a visible, associated label, required fields are declared, and errors are communicated in plain text rather than by colour alone.',
+  },
+  {
+    title: 'Never colour alone',
+    text: 'No information is conveyed by colour only. Text stays readable at up to 200% zoom and on narrow screens, without horizontal scrolling.',
+  },
+  {
+    title: 'Content without JavaScript',
+    text: 'The site is static: text, links and structure remain available even if scripts never run. Animation is an enhancement, not a prerequisite.',
+  },
+];
+---
+
+<Base
+  lang={lang}
+  routeKey="accessibility"
+  title="Accessibility statement | enable.advisory"
+  description="enable.advisory accessibility statement: how we apply WCAG 2.1 AA, our conformance status, known limitations and how to report an accessibility barrier to us."
+  ogImage="/og/accessibility-en.png"
+>
+  <Breadcrumbs
+    lang={lang}
+    items={[{ name: 'Accessibility statement', path: path('accessibility', lang) }]}
+  />
+
+  <!-- ================================ HEADER ================================ -->
+  <section>
+    <div class="wrap pt-12 pb-14 md:pt-16 md:pb-20">
+      <div class="max-w-3xl">
+        <p class="label-caps text-mist" data-reveal>Legal</p>
+        <h1 class="font-display text-h2 mt-6 font-medium" data-reveal>Accessibility statement</h1>
+        <p class="mt-8 text-lead text-mist">
+          This website is designed and built to WCAG 2.1 level AA, the technical standard European
+          accessibility law points to. We help other companies get there: applying it here is the
+          least we can do.
+        </p>
+        <p class="mt-8 text-[0.8125rem] text-mist">Last updated: {updated}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================= BODY ================================= -->
+  <section class="hairline">
+    <div class="wrap py-16 md:py-24">
+      <div class="max-w-3xl">
+        <!-- Commitment -->
+        <div>
+          <h2 class="font-display text-h3 font-medium" data-reveal>Our commitment</h2>
+          <p class="mt-6 text-mist">
+            Accessibility is not a check you run at the end of a project: it is how the site gets
+            built from the first line. Here is what that means, concretely, on these pages.
+          </p>
+          <dl class="mt-8 space-y-6">
+            {
+              commitments.map((c) => (
+                <div class="grid grid-cols-12 gap-x-6 gap-y-2">
+                  <dt class="col-span-12 font-medium text-paper md:col-span-4">{c.title}</dt>
+                  <dd class="col-span-12 text-[0.9375rem] text-mist md:col-span-8">{c.text}</dd>
+                </div>
+              ))
+            }
+          </dl>
+        </div>
+
+        <!-- Conformance status -->
+        <div class="hairline mt-12 pt-12">
+          <h2 class="font-display text-h3 font-medium" data-reveal>Conformance status</h2>
+          <p class="mt-6 text-mist">
+            [PLACEHOLDER: outcome and date of the formal conformance assessment — state the level
+            claimed (fully conformant / partially conformant), the methodology used (automated
+            analysis, manual review, testing with assistive technology), the sample of pages
+            examined and who carried out the assessment.]
+          </p>
+          <p class="mt-5 text-mist">
+            Until that assessment is complete and documented, you won’t find a badge here. Claiming
+            “fully conformant” without an audit behind it isn’t a statement, it’s a promise — and in
+            accessibility, promises are paid for by users.
+          </p>
+          <p class="mt-5 text-mist">
+            We publish this statement by choice, not because a specific template is imposed on us.
+            [PLACEHOLDER: confirm with counsel whether, given legal form and size, a mandatory
+            statement under the AgID model applies.]
+          </p>
+        </div>
+
+        <!-- Known limitations -->
+        <div class="hairline mt-12 pt-12">
+          <h2 class="font-display text-h3 font-medium" data-reveal>Known limitations</h2>
+          <p class="mt-6 text-mist">
+            [PLACEHOLDER: list the limitations found during the assessment, each with the page or
+            component affected, why it is not fixed yet and the expected date of correction. If none
+            were found, say so explicitly.]
+          </p>
+          <p class="mt-5 text-mist">
+            <span class="text-paper">Third-party content.</span> [PLACEHOLDER: list any embedded
+            components whose code we do not control — forms, video, maps, chat, payment systems —
+            with their accessibility assessment.] Our rule is simple: where a third-party component
+            is not accessible, we replace it or provide an equivalent alternative route. We don’t
+            ask the user to work around it.
+          </p>
+        </div>
+
+        <!-- Feedback -->
+        <div class="hairline mt-12 pt-12">
+          <h2 class="font-display text-h3 font-medium" data-reveal>
+            How to report an accessibility problem
+          </h2>
+          <p class="mt-6 text-mist">
+            If you hit a barrier on this site, write to [PLACEHOLDER: dedicated accessibility
+            feedback email address]. It helps to know: the page, what you were trying to do, what
+            didn’t work and — if you can tell us — your browser, operating system and any assistive
+            technology you use.
+          </p>
+          <p class="mt-5 text-mist">
+            <span class="text-paper">We reply within 5 business days.</span> If the problem can be
+            fixed immediately, we fix it and confirm. If it takes more work, we tell you what we
+            will do and by when, and in the meantime we give you the content or the service in an
+            accessible alternative form: email, document, phone call.
+          </p>
+          <p class="mt-5 text-mist">
+            If our answer doesn’t satisfy you, or never arrives, you can escalate to the authority
+            responsible for digital accessibility. [PLACEHOLDER: state the complaint channel
+            applicable to private entities, to be confirmed with legal counsel.]
+          </p>
+        </div>
+
+        <!-- Legal references -->
+        <div class="hairline mt-12 pt-12">
+          <h2 class="font-display text-h3 font-medium" data-reveal>Legal references</h2>
+          <ul class="mt-6 space-y-4 text-mist">
+            <li>
+              <span class="text-paper">European Accessibility Act</span>, in force since 28 June
+              2025: it extends digital accessibility obligations to a large share of
+              consumer-facing services, e-commerce included.
+            </li>
+            <li>
+              <span class="text-paper">Legislative Decree 82/2022</span>, the Italian
+              implementation of the directive.
+            </li>
+            <li>
+              <span class="text-paper">AgID Guidelines of 4 March 2026</span>, which set out
+              requirements and verification methods for the Italian context.
+            </li>
+            <li>
+              <span class="text-paper">WCAG 2.1 level AA</span>, the technical standard the
+              legislation refers to.
+            </li>
+          </ul>
+          <p class="mt-6 text-mist">
+            Microenterprises are out of scope — fewer than 10 employees and under €2 million in
+            annual turnover or balance sheet total. For everyone else, fines run from €2,500 to
+            €40,000 per violation.
+          </p>
+        </div>
+
+        <!-- Sober commercial pointer -->
+        <div class="hairline mt-12 pt-12">
+          <h2 class="font-display text-h3 font-medium" data-reveal>
+            If the site that needs fixing is yours
+          </h2>
+          <p class="mt-6 text-mist">
+            The Accessibility (EAA) Sprint is our entry point on this topic: an audit of your site
+            or e-commerce against WCAG 2.1 AA, a list of issues ranked by severity and cost to fix,
+            and a prioritised remediation plan. Fixed price [PREZZO], fixed duration, no commitment
+            beyond it.
+          </p>
+          <div class="mt-8 flex flex-col gap-4">
+            <ArrowLink href={path('serviceWeb', lang)} class="text-paper">
+              Web, tech &amp; e-commerce: accessibility and EAA compliance
+            </ArrowLink>
+            <ArrowLink href={path('products', lang)} class="text-paper">
+              All fixed-price products
+            </ArrowLink>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaSection lang={lang} />
+</Base>

@@ -1,0 +1,316 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Pill from '../../components/Pill.astro';
+import Button from '../../components/Button.astro';
+import ArrowLink from '../../components/ArrowLink.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import CtaSection from '../../components/CtaSection.astro';
+import { path } from '../../lib/routes';
+
+const lang = 'en' as const;
+
+/**
+ * The seniors are not published yet: these cards are intentionally placeholders.
+ * Once real names and bios land, replace the placeholders and add the Person
+ * schema (see the TODO in section 01).
+ */
+const seniors = [1, 2, 3];
+---
+
+<Base
+  lang={lang}
+  routeKey="about"
+  title="About: the seniors | enable.advisory"
+  description="The senior consultants who answer for the outcome: names, track records, written commitments. About enable.advisory, part of the Enable Digital group."
+  ogImage="/og/about-en.png"
+>
+  <Breadcrumbs lang={lang} items={[{ name: 'About', path: path('about', lang) }]} />
+
+  <!-- ============================== HERO ============================== -->
+  <section class="relative overflow-hidden">
+    <div
+      class="pointer-events-none absolute inset-0"
+      aria-hidden="true"
+      style="background: radial-gradient(50rem 34rem at 90% -20%, rgb(43 92 255 / 0.11), transparent 60%);"
+    >
+    </div>
+    <div class="wrap relative pt-12 pb-20 md:pt-16 md:pb-28">
+      <p class="label-caps text-mist" data-reveal>About — the senior consultants</p>
+      <h1 class="font-display text-display mt-6 max-w-5xl font-medium" data-reveal>
+        The people who answer
+      </h1>
+      <p class="mt-8 max-w-xl text-lead text-mist" data-reveal>
+        A new firm has no wall of client logos to point at, and we won’t pretend otherwise. Early
+        on, trust gets built another way: names, track records you can check, commitments written
+        into the contract. The senior you meet before signing is the one who does the work — and if
+        they change, you can walk away.
+      </p>
+      <div class="mt-10 flex flex-wrap items-center gap-4" data-reveal>
+        <Button href={path('contact', lang)}>Talk to a senior</Button>
+        <Button href={path('howWeWork', lang)} variant="ghost">How we work</Button>
+      </div>
+      <ul class="mt-12 flex flex-wrap gap-3" data-reveal-group>
+        <li data-reveal><Pill>One senior per vertical</Pill></li>
+        <li data-reveal><Pill>Track records you can check</Pill></li>
+        <li data-reveal><Pill>Walk away if your partner changes</Pill></li>
+        <li data-reveal><Pill>Part of Enable Digital</Pill></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- =========================== 01 THE SENIORS ========================== -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading num="01" label="The seniors" title="A named person for every vertical.">
+        <p class="mt-6 max-w-2xl text-lead text-mist" data-reveal>
+          Four areas, four specialists with years in the field. No “team of 50 professionals”: the
+          people on this page are the people on your projects.
+        </p>
+      </SectionHeading>
+
+      <!-- TODO: add personSchema once the bios are real (personSchema helper in src/lib/seo.ts) -->
+      <div class="mt-16 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3" data-reveal-group>
+        {
+          seniors.map(() => (
+            <div class="rounded-xs border border-white/15 bg-ink-raise p-8" data-reveal>
+              <div
+                class="flex h-44 items-center justify-center rounded-xs bg-white/5 text-[0.8125rem] text-mist"
+                role="img"
+                aria-label="Portrait coming soon"
+              >
+                [PLACEHOLDER: FOTO SENIOR]
+              </div>
+              <h3 class="font-display mt-6 text-[1.25rem] font-medium">[PLACEHOLDER: NOME]</h3>
+              <p class="mt-1 text-[0.875rem] text-accent-soft">[PLACEHOLDER: RUOLO / VERTICALE]</p>
+              <p class="mt-4 text-[0.9375rem] text-mist">[BIO SENIOR]</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="mt-12 rounded-xs border border-white/15 bg-ink-raise p-8 md:p-10" data-reveal>
+        <p class="label-caps text-mist">An honest note</p>
+        <p class="mt-4 max-w-3xl text-[0.9375rem] text-mist">
+          Bios and track records are being published. We would rather show an empty card than an
+          inflated CV: when these go live, every line will be checkable — companies, years, work
+          actually done. In the meantime there is a shortcut, and it beats any web page: thirty
+          minutes with the senior for your topic, before any quote.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-x-10 gap-y-4">
+          <ArrowLink href={path('contact', lang)} class="text-paper">
+            Book thirty minutes with a senior
+          </ArrowLink>
+          <ArrowLink href={path('services', lang)} class="text-paper">
+            The four verticals
+          </ArrowLink>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ 02 THE GROUP =========================== -->
+  <section class="section-light">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="02"
+        label="The group"
+        title="Enable Digital: two brands, one philosophy."
+        light
+      >
+        <p class="mt-6 max-w-2xl text-lead text-umber" data-reveal>
+          enable.advisory didn’t appear out of nowhere. It is part of Enable Digital, alongside its
+          sister brand enable.luxury. Different markets, the same way of working with clients.
+        </p>
+      </SectionHeading>
+
+      <div class="mt-16 grid grid-cols-1 gap-5 md:grid-cols-2" data-reveal-group>
+        <div class="rounded-xs border border-ink/15 bg-white/40 p-8 md:p-10" data-reveal>
+          <p class="label-caps text-umber">This brand</p>
+          <h3 class="font-display mt-4 text-[1.5rem] font-medium">enable.advisory</h3>
+          <p class="mt-4 text-[0.9375rem] text-umber">
+            Senior digital consulting for Italian SMEs from 10 to 250 employees: compliance and
+            governance, data &amp; AI, CRM and martech, web and e-commerce. Four verticals held by
+            specialists, orchestrated by one partner who answers for the whole outcome.
+          </p>
+          <p class="mt-6">
+            <ArrowLink href={path('services', lang)} class="text-accent-deep">
+              What we do
+            </ArrowLink>
+          </p>
+        </div>
+
+        <div class="rounded-xs border border-ink/15 bg-white/40 p-8 md:p-10" data-reveal>
+          <p class="label-caps text-umber">The sister brand</p>
+          <h3 class="font-display mt-4 text-[1.5rem] font-medium">enable.luxury</h3>
+          <p class="mt-4 text-[0.9375rem] text-umber">
+            The other brand inside Enable Digital. Different scope, identical setup: seniors on the
+            front line, transparent costs, few clients looked after properly.
+            [PLACEHOLDER: one-line description of enable.luxury approved by the group]
+          </p>
+          <p class="mt-6">
+            <a href="https://enableluxury.com" class="link-plain font-medium text-accent-deep" rel="noopener">
+              Visit enable.luxury ↗
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <div class="hairline hairline-dark mt-16 pt-14">
+        <p class="label-caps text-umber" data-reveal>What we share, beyond the logo</p>
+        <div class="mt-10 grid grid-cols-12 gap-x-6 gap-y-12" data-reveal-group>
+          <div class="col-span-12 border-t-2 border-accent-deep pt-6 md:col-span-4" data-reveal>
+            <h3 class="font-display text-[1.25rem] font-medium">Transparency</h3>
+            <p class="mt-3 text-[0.9375rem] text-umber">
+              Entry prices stated up front, every cost line justified, the method explained before
+              it is sold. If something isn’t needed, we say so while there is still time not to pay
+              for it.
+            </p>
+          </div>
+          <div class="col-span-12 border-t-2 border-accent-deep pt-6 md:col-span-4" data-reveal>
+            <h3 class="font-display text-[1.25rem] font-medium">Selectivity</h3>
+            <p class="mt-3 text-[0.9375rem] text-umber">
+              Neither brand takes everything that walks through the door. One client too many is a
+              client we can’t serve properly — and everyone else pays for it.
+            </p>
+          </div>
+          <div class="col-span-12 border-t-2 border-accent-deep pt-6 md:col-span-4" data-reveal>
+            <h3 class="font-display text-[1.25rem] font-medium">Someone who answers</h3>
+            <p class="mt-3 text-[0.9375rem] text-umber">
+              A named person for every client, who cannot say “that’s not my part”. It is the only
+              promise that still holds when something goes wrong.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================== 03 PHILOSOPHY =========================== -->
+  <section class="section-light hairline hairline-dark">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="03"
+        label="Philosophy"
+        title="Few retainers, long relationships."
+        light
+      />
+      <div class="mt-16 grid grid-cols-12 gap-x-6 gap-y-10">
+        <div class="col-span-12 lg:col-span-5" data-reveal>
+          <p class="font-display text-h2 max-w-md font-medium">
+            We grow when you grow.
+            <span class="text-umber">Not by adding logos to a portfolio.</span>
+          </p>
+        </div>
+        <div
+          class="col-span-12 space-y-5 text-[0.9375rem] text-umber lg:col-span-6 lg:col-start-7"
+          data-reveal-group
+        >
+          <p data-reveal>
+            The senior model doesn’t scale the way an agency of juniors does, and we don’t try to
+            make it. An agency grows by widening the base of the pyramid: more hands, more hours to
+            resell at a margin. Here the scarce resource is the judgement of someone who has seen
+            the problem three times before — and you can’t hire that in three weeks.
+          </p>
+          <p data-reveal>
+            So we keep few retainers running at once. This isn’t scarcity manufactured for
+            marketing: it is the point beyond which your partner stops actually being your partner,
+            and the promise we made you turns into a polite lie.
+          </p>
+          <p data-reveal>
+            The practical consequence is that we say no more often. To anyone shopping for the
+            lowest hourly rate, to anyone who wants an executor rather than an opinion, to projects
+            where we wouldn’t add enough value to justify the cost. A no said early costs both of
+            us very little; a badly considered yes costs you.
+          </p>
+          <p data-reveal>
+            The other consequence is that relationships last. An audit isn’t a closed sale: it is
+            month one of something that only makes sense if, two years in, you are more independent
+            than when we arrived.
+          </p>
+          <p data-reveal>
+            <ArrowLink href={path('howWeWork', lang)} class="text-accent-deep">
+              When we are the wrong choice
+            </ArrowLink>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== 04 HOW WE MEASURE OURSELVES ================== -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="04"
+        label="How we measure ourselves"
+        title="Commitments you can check, not adjectives."
+      >
+        <p class="mt-6 max-w-2xl text-lead text-mist" data-reveal>
+          “Accountable for the outcome” is worth nothing unless it turns into something you can
+          verify every month. Here is what it turns into.
+        </p>
+      </SectionHeading>
+      <div class="mt-16 grid grid-cols-1 gap-5 md:grid-cols-2" data-reveal-group>
+        <div class="rounded-xs border border-white/15 bg-ink-raise p-8 md:p-10" data-reveal>
+          <p class="font-display text-[1.75rem] font-semibold text-accent-soft" aria-hidden="true">
+            A
+          </p>
+          <h3 class="font-display mt-4 text-[1.25rem] font-medium">
+            Metrics agreed before we start
+          </h3>
+          <p class="mt-4 text-[0.9375rem] text-mist">
+            Before you sign, we pick together the two or three numbers we commit to. If a metric
+            can’t be measured with the data you have today, we don’t write it down — we make it
+            measurable first.
+          </p>
+        </div>
+        <div class="rounded-xs border border-white/15 bg-ink-raise p-8 md:p-10" data-reveal>
+          <p class="font-display text-[1.75rem] font-semibold text-accent-soft" aria-hidden="true">
+            B
+          </p>
+          <h3 class="font-display mt-4 text-[1.25rem] font-medium">
+            One review a month, numbers on the table
+          </h3>
+          <p class="mt-4 text-[0.9375rem] text-mist">
+            Work completed, the metrics we agreed on, decisions to make: a report in business
+            language, not a shop window of charts. If something isn’t paying back, you hear it from
+            us first.
+          </p>
+        </div>
+        <div class="rounded-xs border border-white/15 bg-ink-raise p-8 md:p-10" data-reveal>
+          <p class="font-display text-[1.75rem] font-semibold text-accent-soft" aria-hidden="true">
+            C
+          </p>
+          <h3 class="font-display mt-4 text-[1.25rem] font-medium">Costs written down and justified</h3>
+          <p class="mt-4 text-[0.9375rem] text-mist">
+            Entry products carry a stated fixed price. Retainers are scoped after the audit, once
+            we know what we are talking about. Every line has a reason, and none of them appear
+            halfway through.
+          </p>
+        </div>
+        <div class="rounded-xs border border-white/15 bg-ink-raise p-8 md:p-10" data-reveal>
+          <p class="font-display text-[1.75rem] font-semibold text-accent-soft" aria-hidden="true">
+            D
+          </p>
+          <h3 class="font-display mt-4 text-[1.25rem] font-medium">The method stays with you</h3>
+          <p class="mt-4 text-[0.9375rem] text-mist">
+            Processes, accounts and documentation are in your name from day one. We work at not
+            making ourselves indispensable: if you bring it in-house one day, the work stays where
+            it belongs.
+          </p>
+        </div>
+      </div>
+      <div class="mt-12 flex flex-wrap gap-x-10 gap-y-4" data-reveal>
+        <ArrowLink href={path('caseStudies', lang)} class="text-paper">
+          How we document case studies
+        </ArrowLink>
+        <ArrowLink href={path('products', lang)} class="text-paper">
+          The fixed-price products
+        </ArrowLink>
+      </div>
+    </div>
+  </section>
+
+  <CtaSection lang={lang} />
+</Base>

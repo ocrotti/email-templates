@@ -9,9 +9,11 @@ interface Props {
   title: string;
   intro?: string;
   steps: { title: string; text: string }[];
+  /** id del titolo, per il collegamento aria-labelledby della sezione. */
+  titleId?: string;
   light?: boolean;
 }
-const { num, label, title, intro, steps, light = false } = Astro.props;
+const { num, label, title, intro, steps, titleId, light = false } = Astro.props;
 ---
 
 <div class="wrap grid grid-cols-12 gap-x-6">
@@ -25,7 +27,7 @@ const { num, label, title, intro, steps, light = false } = Astro.props;
       <p class:list={['label-caps mt-4', light ? 'text-umber' : 'text-mist']} data-reveal>
         {label}
       </p>
-      <h2 class="font-display text-h2 mt-4 font-medium" data-reveal>{title}</h2>
+      <h2 id={titleId} class="font-display text-h2 mt-4 font-medium" data-reveal>{title}</h2>
       {
         intro && (
           <p

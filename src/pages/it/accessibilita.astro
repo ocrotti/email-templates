@@ -1,0 +1,219 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArrowLink from '../../components/ArrowLink.astro';
+import CtaSection from '../../components/CtaSection.astro';
+import { path } from '../../lib/routes';
+
+const lang = 'it' as const;
+const updated = '6 agosto 2026';
+
+const commitments = [
+  {
+    title: 'Contrasto',
+    text: 'Testi e componenti di interfaccia rispettano i rapporti di contrasto minimi richiesti dalle WCAG 2.1 AA. Niente grigio chiaro su grigio: se un testo esiste, deve potersi leggere.',
+  },
+  {
+    title: 'Navigazione da tastiera',
+    text: 'Ogni funzione è raggiungibile e azionabile senza mouse, in un ordine di lettura prevedibile. Il primo elemento focalizzabile di ogni pagina è un link “Salta al contenuto”.',
+  },
+  {
+    title: 'Focus sempre visibile',
+    text: 'Lo stato di focus non è mai rimosso: è un contorno spesso, con distanza dal bordo, leggibile sia sul fondo scuro sia sulle sezioni chiare.',
+  },
+  {
+    title: 'Movimento rispettoso',
+    text: 'Le animazioni rispettano la preferenza di sistema prefers-reduced-motion: con quella impostazione attiva il sito si mostra senza transizioni. Nessun carosello, nessun autoplay, nessun contenuto che si muove da solo.',
+  },
+  {
+    title: 'Struttura semantica',
+    text: 'HTML semantico, un solo h1 per pagina, gerarchia dei titoli coerente, landmark di navigazione (header, nav, main, footer) e lingua della pagina dichiarata nel markup.',
+  },
+  {
+    title: 'Immagini e icone',
+    text: 'Testo alternativo per le immagini che veicolano informazione; gli elementi puramente decorativi sono nascosti alle tecnologie assistive, per non sporcare la lettura.',
+  },
+  {
+    title: 'Form accessibili',
+    text: 'Ogni campo ha una label visibile e associata, i campi obbligatori sono dichiarati, gli errori sono comunicati con testo comprensibile e non affidati al solo colore.',
+  },
+  {
+    title: 'Contenuto indipendente dal colore',
+    text: 'Nessuna informazione è veicolata dal solo colore. Il testo resta leggibile con ingrandimento fino al 200% e su schermi stretti, senza scorrimento orizzontale.',
+  },
+  {
+    title: 'Contenuto indipendente da JavaScript',
+    text: 'Il sito è statico: testi, link e struttura restano disponibili anche se gli script non vengono eseguiti. Le animazioni sono un miglioramento, non un prerequisito.',
+  },
+];
+---
+
+<Base
+  lang={lang}
+  routeKey="accessibility"
+  title="Dichiarazione di accessibilità | enable.advisory"
+  description="Dichiarazione di accessibilità di enable.advisory: come applichiamo le WCAG 2.1 AA, stato di conformità, limitazioni note e come segnalarci una barriera."
+  ogImage="/og/accessibility-it.png"
+>
+  <Breadcrumbs
+    lang={lang}
+    items={[{ name: 'Dichiarazione di accessibilità', path: path('accessibility', lang) }]}
+  />
+
+  <!-- ============================== INTESTAZIONE ============================== -->
+  <section>
+    <div class="wrap pt-12 pb-14 md:pt-16 md:pb-20">
+      <div class="max-w-3xl">
+        <p class="label-caps text-mist" data-reveal>Note legali</p>
+        <h1 class="font-display text-h2 mt-6 font-medium" data-reveal>
+          Dichiarazione di accessibilità
+        </h1>
+        <p class="mt-8 text-lead text-mist">
+          Questo sito è progettato e costruito secondo le WCAG 2.1 livello AA, lo standard tecnico
+          richiesto dalla normativa europea sull’accessibilità. Aiutiamo altre aziende a metterlo in
+          pratica: il minimo è applicarlo qui.
+        </p>
+        <p class="mt-8 text-[0.8125rem] text-mist">Ultimo aggiornamento: {updated}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================= CORPO ================================= -->
+  <section class="hairline">
+    <div class="wrap py-16 md:py-24">
+      <div class="max-w-3xl">
+        <!-- Impegno -->
+        <div>
+          <h2 class="font-display text-h3 font-medium" data-reveal>Il nostro impegno</h2>
+          <p class="mt-6 text-mist">
+            L’accessibilità non è una verifica che si fa alla fine: è il modo in cui il sito viene
+            costruito dall’inizio. Ecco cosa significa, in concreto, su queste pagine.
+          </p>
+          <dl class="mt-8 space-y-6">
+            {
+              commitments.map((c) => (
+                <div class="grid grid-cols-12 gap-x-6 gap-y-2">
+                  <dt class="col-span-12 font-medium text-paper md:col-span-4">{c.title}</dt>
+                  <dd class="col-span-12 text-[0.9375rem] text-mist md:col-span-8">{c.text}</dd>
+                </div>
+              ))
+            }
+          </dl>
+        </div>
+
+        <!-- Stato di conformità -->
+        <div class="hairline mt-12 pt-12">
+          <h2 class="font-display text-h3 font-medium" data-reveal>Stato di conformità</h2>
+          <p class="mt-6 text-mist">
+            [PLACEHOLDER: esito della verifica formale di conformità e data — indicare il livello
+            dichiarato (conforme / parzialmente conforme), la metodologia utilizzata (analisi
+            automatica, verifica manuale, test con tecnologie assistive), le pagine campione
+            esaminate e il soggetto che ha eseguito la verifica.]
+          </p>
+          <p class="mt-5 text-mist">
+            Finché quella verifica non è chiusa e documentata, qui non troverai un bollino.
+            Dichiarare “pienamente conforme” senza un audit alle spalle non è una dichiarazione: è
+            una promessa. E le promesse, in materia di accessibilità, le pagano gli utenti.
+          </p>
+          <p class="mt-5 text-mist">
+            Pubblichiamo questa dichiarazione per scelta, non perché ci sia imposto un modello
+            specifico. [PLACEHOLDER: verificare con il consulente se, per forma giuridica e
+            dimensione, si applica un obbligo di dichiarazione secondo il modello AgID.]
+          </p>
+        </div>
+
+        <!-- Limitazioni note -->
+        <div class="hairline mt-12 pt-12">
+          <h2 class="font-display text-h3 font-medium" data-reveal>Limitazioni note</h2>
+          <p class="mt-6 text-mist">
+            [PLACEHOLDER: elencare le limitazioni emerse dalla verifica, ciascuna con la pagina o il
+            componente interessato, la ragione per cui non è ancora risolta e la data prevista di
+            correzione. Se non emergono limitazioni, dichiararlo esplicitamente.]
+          </p>
+          <p class="mt-5 text-mist">
+            <span class="text-paper">Contenuti di terze parti.</span> [PLACEHOLDER: indicare gli
+            eventuali componenti incorporati di cui non controlliamo direttamente il codice — form,
+            video, mappe, chat, sistemi di pagamento — con la relativa valutazione di
+            accessibilità.] La nostra regola è semplice: quando un componente di terzi non è
+            accessibile, lo sostituiamo o forniamo un percorso alternativo equivalente. Non
+            chiediamo all’utente di arrangiarsi.
+          </p>
+        </div>
+
+        <!-- Segnalazioni -->
+        <div class="hairline mt-12 pt-12">
+          <h2 class="font-display text-h3 font-medium" data-reveal>
+            Come segnalare un problema di accessibilità
+          </h2>
+          <p class="mt-6 text-mist">
+            Se incontri una barriera su questo sito, scrivi a [PLACEHOLDER: indirizzo email dedicato
+            alle segnalazioni di accessibilità]. Ci aiuta sapere: la pagina, che cosa stavi
+            facendo, che cosa non ha funzionato e — se puoi indicarli — browser, sistema operativo
+            ed eventuale tecnologia assistiva in uso.
+          </p>
+          <p class="mt-5 text-mist">
+            <span class="text-paper">Rispondiamo entro 5 giorni lavorativi.</span> Se il problema è
+            risolvibile subito, lo correggiamo e te lo confermiamo. Se richiede più lavoro, ti
+            diciamo che cosa faremo ed entro quando e, nel frattempo, ti forniamo il contenuto o il
+            servizio in una forma alternativa accessibile: email, documento, telefonata.
+          </p>
+          <p class="mt-5 text-mist">
+            Se la nostra risposta non ti soddisfa o non arriva, puoi rivolgerti all’autorità
+            competente in materia di accessibilità digitale. [PLACEHOLDER: indicare il canale di
+            reclamo applicabile ai soggetti privati, da verificare con il consulente legale.]
+          </p>
+        </div>
+
+        <!-- Riferimenti normativi -->
+        <div class="hairline mt-12 pt-12">
+          <h2 class="font-display text-h3 font-medium" data-reveal>Riferimenti normativi</h2>
+          <ul class="mt-6 space-y-4 text-mist">
+            <li>
+              <span class="text-paper">European Accessibility Act</span>, operativo dal 28 giugno
+              2025: estende gli obblighi di accessibilità digitale a una larga parte dei servizi
+              rivolti ai consumatori, e-commerce compreso.
+            </li>
+            <li>
+              <span class="text-paper">D.Lgs. 82/2022</span>, il provvedimento con cui l’Italia ha
+              recepito la direttiva.
+            </li>
+            <li>
+              <span class="text-paper">Linee Guida AgID del 4 marzo 2026</span>, che precisano
+              requisiti e modalità di verifica per il contesto italiano.
+            </li>
+            <li>
+              <span class="text-paper">WCAG 2.1 livello AA</span>, lo standard tecnico di
+              riferimento richiamato dalla normativa.
+            </li>
+          </ul>
+          <p class="mt-6 text-mist">
+            Restano escluse dall’obbligo le microimprese, cioè quelle con meno di 10 dipendenti e
+            meno di 2 milioni di euro di fatturato o totale di bilancio. Per tutte le altre le
+            sanzioni previste vanno da 2.500 a 40.000 euro per violazione.
+          </p>
+        </div>
+
+        <!-- Segnale commerciale, sobrio -->
+        <div class="hairline mt-12 pt-12">
+          <h2 class="font-display text-h3 font-medium" data-reveal>Se il sito da sistemare è il tuo</h2>
+          <p class="mt-6 text-mist">
+            L’Accessibility (EAA) Sprint è il nostro percorso d’ingresso su questo tema: audit del
+            sito o dell’e-commerce rispetto alle WCAG 2.1 AA, elenco dei problemi ordinato per
+            gravità e per costo di correzione, piano di rimedio con priorità. Prezzo fisso
+            [PREZZO], durata definita, nessun impegno oltre.
+          </p>
+          <div class="mt-8 flex flex-col gap-4">
+            <ArrowLink href={path('serviceWeb', lang)} class="text-paper">
+              Web, tech &amp; e-commerce: accessibilità e conformità EAA
+            </ArrowLink>
+            <ArrowLink href={path('products', lang)} class="text-paper">
+              Tutti i prodotti a prezzo fisso
+            </ArrowLink>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaSection lang={lang} />
+</Base>

@@ -9,10 +9,20 @@ interface Props {
   title: string;
   /** Livello heading del titolo (default h2). */
   as?: 'h1' | 'h2' | 'h3';
+  /** id del titolo, per il collegamento aria-labelledby della sezione. */
+  titleId?: string;
   light?: boolean;
   class?: string;
 }
-const { num, label, title, as: Tag = 'h2', light = false, class: className = '' } = Astro.props;
+const {
+  num,
+  label,
+  title,
+  as: Tag = 'h2',
+  titleId,
+  light = false,
+  class: className = '',
+} = Astro.props;
 ---
 
 <div class:list={['grid grid-cols-12 gap-x-6', className]}>
@@ -38,7 +48,7 @@ const { num, label, title, as: Tag = 'h2', light = false, class: className = '' 
     >
       {label}
     </p>
-    <Tag class="font-display text-h2 mt-4 max-w-4xl font-medium" data-reveal>
+    <Tag id={titleId} class="font-display text-h2 mt-4 max-w-4xl font-medium" data-reveal>
       {title}
     </Tag>
     <slot />

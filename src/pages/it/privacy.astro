@@ -1,0 +1,349 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { path } from '../../lib/routes';
+
+const lang = 'it' as const;
+const updated = '6 agosto 2026';
+
+const rights = [
+  {
+    art: 'Art. 15 — Accesso',
+    text: 'Sapere se trattiamo dati che ti riguardano e ottenerne una copia, insieme alle informazioni su finalità, destinatari e tempi di conservazione.',
+  },
+  {
+    art: 'Art. 16 — Rettifica',
+    text: 'Far correggere dati inesatti o completare dati incompleti, senza doverci spiegare perché.',
+  },
+  {
+    art: 'Art. 17 — Cancellazione',
+    text: 'Ottenere la cancellazione dei dati quando non servono più alle finalità per cui li abbiamo raccolti, quando revochi il consenso o quando ti opponi legittimamente al trattamento.',
+  },
+  {
+    art: 'Art. 18 — Limitazione',
+    text: 'Chiedere che i dati restino conservati ma non vengano usati, per esempio mentre verifichiamo una tua contestazione sull’esattezza.',
+  },
+  {
+    art: 'Art. 20 — Portabilità',
+    text: 'Ricevere in formato strutturato e leggibile da un computer i dati che ci hai fornito, o chiederci di trasmetterli a un altro titolare.',
+  },
+  {
+    art: 'Art. 21 — Opposizione',
+    text: 'Opporti al trattamento fondato sul nostro legittimo interesse. Se ti opponi a comunicazioni commerciali, l’opposizione è sempre efficace e senza eccezioni.',
+  },
+  {
+    art: 'Art. 22 — Decisioni automatizzate',
+    text: 'Non sottostare a decisioni basate unicamente su un trattamento automatizzato. Nel nostro caso non se ne pone il problema: non profiliamo e non prendiamo decisioni automatiche su di te.',
+  },
+  {
+    art: 'Art. 7.3 — Revoca del consenso',
+    text: 'Revocare in qualsiasi momento un consenso già dato, con la stessa facilità con cui lo hai prestato. La revoca non tocca la liceità di quanto trattato prima.',
+  },
+];
+---
+
+<Base
+  lang={lang}
+  routeKey="privacy"
+  title="Informativa privacy | enable.advisory"
+  description="Informativa privacy di enable.advisory: quali dati raccoglie il form contatti, con quale base giuridica, quanto li conserviamo e come esercitare i tuoi diritti."
+  ogImage="/og/privacy-it.png"
+>
+  <Breadcrumbs lang={lang} items={[{ name: 'Privacy', path: path('privacy', lang) }]} />
+
+  <!-- ============================== INTESTAZIONE ============================== -->
+  <section>
+    <div class="wrap pt-12 pb-14 md:pt-16 md:pb-20">
+      <div class="max-w-3xl">
+        <p class="label-caps text-mist" data-reveal>Note legali</p>
+        <h1 class="font-display text-h2 mt-6 font-medium" data-reveal>Informativa privacy</h1>
+        <p class="mt-8 text-lead text-mist">
+          Questa pagina spiega quali dati personali raccogliamo attraverso questo sito, perché li
+          trattiamo, per quanto tempo li teniamo e come puoi controllarli. È scritta per essere
+          letta: se qualcosa non ti è chiaro, scrivici e te lo spieghiamo in parole nostre.
+        </p>
+        <p class="mt-8 text-[0.8125rem] text-mist">Ultimo aggiornamento: {updated}</p>
+
+        <div class="mt-10 rounded-xs border border-accent-soft/40 bg-ink-raise p-6 md:p-8">
+          <p class="text-[0.9375rem] font-medium text-paper">
+            [PLACEHOLDER: testo da validare con il consulente legale prima della pubblicazione]
+          </p>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            La struttura è corretta e completa rispetto al GDPR, ma i dati identificativi del
+            titolare, i fornitori nominati responsabili e i tempi di conservazione vanno confermati
+            prima di andare online. Tutti i punti aperti sono marcati come placeholder nel testo.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================= CORPO ================================= -->
+  <section class="hairline">
+    <div class="wrap py-16 md:py-24">
+      <div class="max-w-3xl">
+        <!-- 1 -->
+        <div>
+          <h2 class="font-display text-h3 font-medium" data-reveal>1. Titolare del trattamento</h2>
+          <p class="mt-6 text-mist">
+            Il titolare del trattamento è [PLACEHOLDER: ragione sociale], con sede in [PLACEHOLDER:
+            indirizzo completo], P.IVA [PLACEHOLDER: partita IVA]. Per qualsiasi questione relativa
+            ai tuoi dati personali puoi scrivere a [PLACEHOLDER: indirizzo email per le richieste
+            privacy].
+          </p>
+          <p class="mt-5 text-mist">
+            Non abbiamo nominato un Responsabile della protezione dei dati (DPO) perché non
+            ricorrono i casi previsti dall’art. 37 del GDPR. [PLACEHOLDER: confermare con il
+            consulente legale; se il DPO viene nominato, inserire qui nome e recapiti.]
+          </p>
+        </div>
+
+        <!-- 2 -->
+        <div class="hairline mt-12 pt-12">
+          <h2 class="font-display text-h3 font-medium" data-reveal>2. Quali dati trattiamo</h2>
+          <p class="mt-6 text-mist">
+            Raccogliamo pochi dati e solo quelli che servono a risponderti. Nel dettaglio:
+          </p>
+          <ul class="mt-6 space-y-5 text-mist">
+            <li>
+              <span class="text-paper">Dati che ci dai tu con il form contatti.</span> Nome e cognome,
+              azienda, email di lavoro, telefono (facoltativo), l’argomento che selezioni e il testo
+              del messaggio. I campi facoltativi sono indicati come tali: puoi lasciarli vuoti senza
+              conseguenze sulla risposta che ricevi.
+            </li>
+            <li>
+              <span class="text-paper">Dati che ci mandi in altri modi.</span> Se ci scrivi via email
+              o ci contatti su altri canali, trattiamo il contenuto del messaggio e i dati di contatto
+              che decidi di condividere.
+            </li>
+            <li>
+              <span class="text-paper">Dati tecnici raccolti automaticamente.</span> Indirizzo IP,
+              data e ora della richiesta, tipo di browser e sistema operativo, pagina di provenienza:
+              informazioni registrate nei log del provider che ospita il sito, per sicurezza e
+              diagnostica. [PLACEHOLDER: provider di hosting e durata di conservazione dei log.]
+            </li>
+          </ul>
+          <p class="mt-6 text-mist">
+            Non ti chiediamo categorie particolari di dati (art. 9 GDPR: salute, convinzioni,
+            appartenenze) e non ci servono. Se le scrivi spontaneamente nel messaggio le usiamo solo
+            per risponderti e le eliminiamo appena non sono più necessarie.
+          </p>
+          <p class="mt-5 text-mist">
+            Non usiamo cookie di profilazione né strumenti di analytics: i dettagli sono nella
+            <a href={path('cookies', lang)} class="link-plain text-paper">Cookie policy</a>.
+          </p>
+        </div>
+
+        <!-- 3 -->
+        <div class="hairline mt-12 pt-12">
+          <h2 class="font-display text-h3 font-medium" data-reveal>
+            3. Perché li trattiamo e con quale base giuridica
+          </h2>
+          <ul class="mt-6 space-y-5 text-mist">
+            <li>
+              <span class="text-paper">Rispondere alla tua richiesta e prepararti un preventivo.</span>
+              Base giuridica: esecuzione di misure precontrattuali adottate su tua richiesta (art.
+              6.1.b GDPR). La casella che spunti nel form serve a confermare che hai letto questa
+              informativa.
+            </li>
+            <li>
+              <span class="text-paper">Gestire il rapporto, se diventiamo il tuo fornitore.</span>
+              Base giuridica: esecuzione del contratto (art. 6.1.b) e adempimento degli obblighi
+              contabili e fiscali di legge (art. 6.1.c).
+            </li>
+            <li>
+              <span class="text-paper">Tenere il sito sicuro e fermare gli abusi.</span> Log tecnici
+              e filtri antispam servono a proteggere l’infrastruttura e a evitare invii automatici.
+              Base giuridica: nostro legittimo interesse alla sicurezza (art. 6.1.f).
+            </li>
+            <li>
+              <span class="text-paper">Inviarti comunicazioni commerciali o contenuti periodici.</span>
+              Solo se ci dai un consenso specifico, libero e revocabile in qualsiasi momento (art.
+              6.1.a). [PLACEHOLDER: eliminare questo punto se non vengono attivate newsletter o
+              comunicazioni commerciali.]
+            </li>
+          </ul>
+          <p class="mt-6 text-mist">
+            Non facciamo profilazione e non prendiamo decisioni automatizzate che producano effetti
+            su di te (art. 22 GDPR). Le tue informazioni le legge una persona, e ti risponde una
+            persona.
+          </p>
+        </div>
+
+        <!-- 4 -->
+        <div class="hairline mt-12 pt-12">
+          <h2 class="font-display text-h3 font-medium" data-reveal>
+            4. Per quanto tempo conserviamo i dati
+          </h2>
+          <ul class="mt-6 space-y-5 text-mist">
+            <li>
+              <span class="text-paper">Richieste che non diventano un progetto.</span> [PLACEHOLDER:
+              periodo — indicativamente 24 mesi] dall’ultimo contatto utile, poi cancellazione.
+            </li>
+            <li>
+              <span class="text-paper">Clienti.</span> Per tutta la durata del rapporto e, per i
+              documenti contrattuali, contabili e fiscali, per i dieci anni previsti dalla legge.
+            </li>
+            <li>
+              <span class="text-paper">Log tecnici.</span> [PLACEHOLDER: durata di conservazione
+              impostata dal provider di hosting.]
+            </li>
+            <li>
+              <span class="text-paper">Consensi a comunicazioni commerciali.</span> Fino alla revoca
+              o [PLACEHOLDER: periodo massimo previsto], con verifica periodica dell’interesse.
+            </li>
+          </ul>
+          <p class="mt-6 text-mist">
+            Scaduti i termini i dati vengono cancellati o resi anonimi in modo irreversibile. Non
+            teniamo archivi “per sicurezza”.
+          </p>
+        </div>
+
+        <!-- 5 -->
+        <div class="hairline mt-12 pt-12">
+          <h2 class="font-display text-h3 font-medium" data-reveal>
+            5. Chi tratta i dati oltre a noi
+          </h2>
+          <p class="mt-6 text-mist">
+            All’interno della nostra organizzazione i dati sono accessibili solo alle persone
+            autorizzate e istruite al trattamento. All’esterno ci appoggiamo a fornitori nominati
+            responsabili del trattamento ai sensi dell’art. 28 GDPR, vincolati da contratto a
+            trattare i dati solo per nostro conto:
+          </p>
+          <ul class="mt-6 space-y-3 text-mist">
+            <li>[PLACEHOLDER: provider che riceve e recapita gli invii del form contatti.]</li>
+            <li>[PLACEHOLDER: provider di hosting e CDN che serve le pagine del sito.]</li>
+            <li>[PLACEHOLDER: provider di posta elettronica su cui gestiamo le risposte.]</li>
+            <li>[PLACEHOLDER: eventuale CRM o strumento di gestione dei contatti commerciali.]</li>
+          </ul>
+          <p class="mt-6 text-mist">
+            Possono inoltre trattare i dati i professionisti che ci assistono (commercialista,
+            consulenti legali), ciascuno nel proprio ruolo, e le autorità pubbliche quando la legge
+            lo impone. L’elenco aggiornato dei responsabili è disponibile su richiesta scrivendo a
+            [PLACEHOLDER: indirizzo email per le richieste privacy].
+          </p>
+          <p class="mt-5 text-mist">
+            Non vendiamo, non affittiamo e non cediamo i tuoi dati a terzi per finalità di
+            marketing. Mai, nemmeno in forma aggregata a scopo commerciale.
+          </p>
+        </div>
+
+        <!-- 6 -->
+        <div class="hairline mt-12 pt-12">
+          <h2 class="font-display text-h3 font-medium" data-reveal>
+            6. Trasferimenti fuori dall’Unione europea
+          </h2>
+          <p class="mt-6 text-mist">
+            Alcuni fornitori tecnologici possono trattare dati al di fuori dello Spazio economico
+            europeo. In quel caso il trasferimento avviene soltanto verso paesi coperti da una
+            decisione di adeguatezza della Commissione europea, oppure sulla base delle Clausole
+            contrattuali standard previste dall’art. 46 del GDPR, con le misure supplementari
+            necessarie a garantire un livello di protezione equivalente.
+          </p>
+          <p class="mt-5 text-mist">
+            [PLACEHOLDER: elencare i fornitori che trattano dati fuori dall’UE, il paese di
+            destinazione e la garanzia applicata a ciascuno.] Puoi chiederci copia delle garanzie
+            adottate scrivendo all’indirizzo indicato al punto 9.
+          </p>
+        </div>
+
+        <!-- 7 -->
+        <div class="hairline mt-12 pt-12">
+          <h2 class="font-display text-h3 font-medium" data-reveal>7. Come proteggiamo i dati</h2>
+          <p class="mt-6 text-mist">
+            Adottiamo misure tecniche e organizzative adeguate al rischio: connessione cifrata
+            (HTTPS) su tutte le pagine, accessi limitati alle sole persone che ne hanno bisogno,
+            principio del privilegio minimo. [PLACEHOLDER: elencare le misure effettivamente
+            adottate — ad esempio autenticazione a più fattori, backup cifrati, gestione degli
+            accessi e delle utenze.]
+          </p>
+          <p class="mt-5 text-mist">
+            Nessuna misura azzera il rischio. Se si verificasse una violazione dei dati con rischio
+            per i tuoi diritti, lo comunicheremmo a te e all’autorità di controllo nei termini e nei
+            modi previsti dagli artt. 33 e 34 del GDPR.
+          </p>
+        </div>
+
+        <!-- 8 -->
+        <div class="hairline mt-12 pt-12">
+          <h2 class="font-display text-h3 font-medium" data-reveal>
+            8. I tuoi diritti (artt. 15–22 GDPR)
+          </h2>
+          <p class="mt-6 text-mist">
+            Il regolamento ti riconosce diritti precisi. Eccoli, in italiano corrente:
+          </p>
+          <dl class="mt-8 space-y-6">
+            {
+              rights.map((r) => (
+                <div class="grid grid-cols-12 gap-x-6 gap-y-2">
+                  <dt class="col-span-12 font-medium text-paper md:col-span-4">{r.art}</dt>
+                  <dd class="col-span-12 text-[0.9375rem] text-mist md:col-span-8">{r.text}</dd>
+                </div>
+              ))
+            }
+          </dl>
+        </div>
+
+        <!-- 9 -->
+        <div class="hairline mt-12 pt-12">
+          <h2 class="font-display text-h3 font-medium" data-reveal>
+            9. Come esercitare i tuoi diritti
+          </h2>
+          <p class="mt-6 text-mist">
+            Scrivi a [PLACEHOLDER: indirizzo email per le richieste privacy] indicando quale diritto
+            vuoi esercitare. Non servono moduli né formule particolari: basta una richiesta chiara.
+          </p>
+          <p class="mt-5 text-mist">
+            Ti rispondiamo senza ingiustificato ritardo e comunque entro un mese dalla richiesta. Se
+            la richiesta è complessa possiamo prorogare di ulteriori due mesi, spiegandoti perché
+            entro il primo mese. L’esercizio dei diritti è gratuito, salvo richieste manifestamente
+            infondate o eccessive. Potremmo chiederti un’informazione aggiuntiva solo per essere
+            ragionevolmente certi che sei tu.
+          </p>
+        </div>
+
+        <!-- 10 -->
+        <div class="hairline mt-12 pt-12">
+          <h2 class="font-display text-h3 font-medium" data-reveal>
+            10. Reclamo all’autorità di controllo
+          </h2>
+          <p class="mt-6 text-mist">
+            Se ritieni che il trattamento dei tuoi dati violi il GDPR, hai diritto di proporre
+            reclamo al Garante per la protezione dei dati personali (garanteprivacy.it), oppure di
+            rivolgerti all’autorità giudiziaria. Puoi farlo anche senza averci contattato prima —
+            anche se, se il problema si può risolvere in due email, preferiamo risolverlo.
+          </p>
+        </div>
+
+        <!-- 11 -->
+        <div class="hairline mt-12 pt-12">
+          <h2 class="font-display text-h3 font-medium" data-reveal>
+            11. Cookie e strumenti di misurazione
+          </h2>
+          <p class="mt-6 text-mist">
+            Questo sito non usa cookie di profilazione, pixel pubblicitari o strumenti di analytics.
+            Quello che c’è — e non è molto — è spiegato nella
+            <a href={path('cookies', lang)} class="link-plain text-paper">Cookie policy</a>.
+          </p>
+        </div>
+
+        <!-- 12 -->
+        <div class="hairline mt-12 pt-12">
+          <h2 class="font-display text-h3 font-medium" data-reveal>
+            12. Modifiche a questa informativa
+          </h2>
+          <p class="mt-6 text-mist">
+            Se cambiano strumenti, fornitori o finalità, aggiorniamo questa pagina e la data in
+            cima. Quando la modifica è sostanziale te lo diciamo in modo evidente, senza aspettare
+            che te ne accorga da solo. Le versioni precedenti sono disponibili su richiesta.
+          </p>
+          <p class="mt-8 text-[0.9375rem] text-mist">
+            Domande su questa informativa?
+            <a href={path('contact', lang)} class="link-plain text-paper">Scrivici</a>: risponde una
+            persona, entro 24 ore lavorative.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

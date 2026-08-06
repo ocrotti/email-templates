@@ -1,0 +1,152 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { path } from '../../lib/routes';
+
+const lang = 'en' as const;
+const updated = '6 August 2026';
+---
+
+<Base
+  lang={lang}
+  routeKey="cookies"
+  title="Cookie policy | enable.advisory"
+  description="enable.advisory cookie policy: this site uses no profiling cookies and no analytics tools, only strictly necessary technical ones. Explained in plain language."
+  ogImage="/og/cookies-en.png"
+>
+  <Breadcrumbs lang={lang} items={[{ name: 'Cookie policy', path: path('cookies', lang) }]} />
+
+  <!-- ================================ HEADER ================================ -->
+  <section>
+    <div class="wrap pt-12 pb-14 md:pt-16 md:pb-20">
+      <div class="max-w-3xl">
+        <p class="label-caps text-mist" data-reveal>Legal</p>
+        <h1 class="font-display text-h2 mt-6 font-medium" data-reveal>Cookie policy</h1>
+        <p class="mt-8 text-lead text-mist">
+          This page is short because the site is simple. As of today we use no profiling cookies, no
+          advertising pixels and no analytics tools: we don’t measure you, and we don’t follow you
+          anywhere else.
+        </p>
+        <p class="mt-8 text-[0.8125rem] text-mist">Last updated: {updated}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================= BODY ================================= -->
+  <section class="hairline">
+    <div class="wrap py-16 md:py-24">
+      <div class="max-w-3xl">
+        <!-- 1 -->
+        <div>
+          <h2 class="font-display text-h3 font-medium" data-reveal>What cookies are</h2>
+          <p class="mt-6 text-mist">
+            A cookie is a small text file a website stores in your browser and can read back on your
+            next visit. Other technologies — localStorage, pixels, SDKs, fingerprinting — do similar
+            things under different names, and the law treats them the same way.
+          </p>
+          <p class="mt-5 text-mist">
+            Broadly, there are two families. <span class="text-paper">Technical cookies</span> make
+            the site work or deliver something you actively asked for: remembering a preference,
+            keeping a session open, protecting a form from automated submissions.
+            <span class="text-paper">Profiling and measurement cookies</span> count, recognise and
+            reconstruct your interests, often on behalf of third parties — those are the ones the
+            consent banner exists for.
+          </p>
+        </div>
+
+        <!-- 2 -->
+        <div class="hairline mt-12 pt-12">
+          <h2 class="font-display text-h3 font-medium" data-reveal>
+            What this website actually uses
+          </h2>
+          <p class="mt-6 text-mist">As of the last update shown above:</p>
+          <ul class="mt-6 space-y-4 text-mist">
+            <li>
+              <span class="text-paper">No profiling cookies</span> and no advertising pixels, from
+              any platform.
+            </li>
+            <li>
+              <span class="text-paper">No analytics tools</span> — no Google Analytics and no
+              alternative either, including the ones that call themselves privacy-friendly.
+            </li>
+            <li>
+              <span class="text-paper">No embedded third-party components.</span> Typefaces are
+              served from our own domain rather than loaded from an external service, and there are
+              no videos, maps, chat widgets or social embeds opening connections to other sites while
+              you browse.
+            </li>
+            <li>
+              <span class="text-paper">Strictly necessary technical cookies, if any</span>, set by
+              the infrastructure serving the pages or by the service receiving contact form
+              submissions, for security and spam protection. [PLACEHOLDER: list the technical cookies
+              actually set by the hosting/CDN and by the form provider — name, purpose and duration;
+              if none are set, state that explicitly here.]
+            </li>
+          </ul>
+          <p class="mt-6 text-mist">
+            If you fill in the contact form, the data you enter is processed as described in our
+            <a href={path('privacy', lang)} class="link-plain text-paper">privacy policy</a>. Two
+            different things: that one covers the data you send us, this one covers the files left in
+            your browser.
+          </p>
+        </div>
+
+        <!-- 3 -->
+        <div class="hairline mt-12 pt-12">
+          <h2 class="font-display text-h3 font-medium" data-reveal>
+            Why there is no consent banner
+          </h2>
+          <p class="mt-6 text-mist">
+            A banner is required when a site installs tools that need your prior consent. For
+            strictly necessary technical cookies, Article 122 of the Italian Privacy Code
+            (Legislative Decree 196/2003) and the Garante’s cookie guidelines require information,
+            not consent — and information is exactly what this page provides.
+          </p>
+          <p class="mt-5 text-mist">
+            Showing you a banner you don’t need would be theatre. For a firm that works in
+            compliance, it would also be an odd way to demonstrate competence.
+          </p>
+        </div>
+
+        <!-- 4 -->
+        <div class="hairline mt-12 pt-12">
+          <h2 class="font-display text-h3 font-medium" data-reveal>
+            Managing cookies in your browser
+          </h2>
+          <p class="mt-6 text-mist">
+            Banner or no banner, control stays with you. Every browser lets you inspect stored
+            cookies, block them in whole or in part, and delete them: the instructions live in the
+            privacy and security settings of Chrome, Safari, Firefox and Edge. Private browsing
+            windows clear everything on close.
+          </p>
+          <p class="mt-5 text-mist">
+            One caveat: blocking technical cookies indiscriminately can stop some functions — form
+            submission, for instance — from completing. On this site, the content itself stays
+            readable either way.
+          </p>
+        </div>
+
+        <!-- 5 -->
+        <div class="hairline mt-12 pt-12">
+          <h2 class="font-display text-h3 font-medium" data-reveal>If anything changes</h2>
+          <p class="mt-6 text-mist">
+            This page describes a situation, not a permanent promise. If we ever add measurement or
+            marketing tools, this page gets updated before they go live, not afterwards.
+          </p>
+          <p class="mt-5 text-mist">
+            [PLACEHOLDER: update this page if analytics, pixels or marketing tools are added, and
+            activate a compliant consent banner — scripts blocked until a choice is made, granular
+            consent per purpose, refusing as easy as accepting, and the ability to change your mind
+            at any time.]
+          </p>
+          <p class="mt-8 text-[0.9375rem] text-mist">
+            Questions about this page or our
+            <a href={path('privacy', lang)} class="link-plain text-paper">privacy policy</a>?
+            <a href={path('contact', lang)} class="link-plain text-paper">Write to us</a> — a person
+            answers, within 24 business hours.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

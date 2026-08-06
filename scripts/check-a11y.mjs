@@ -169,10 +169,17 @@ const browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromi
 /* ------------- 6. Landmark, lingua, label dei form su più pagine --------- */
 {
   const page = await browser.newPage();
-  for (const p of ['/it/', '/en/', '/it/servizi/']) {
+  // Percorre ogni rotta della sitemap, non un campione
+  const sitemap = await (await fetch(`${BASE}/sitemap-0.xml`)).text();
+  const routes = [...sitemap.matchAll(/<loc>([^<]*)<\/loc>/g)].map((m) =>
+    new URL(m[1]).pathname
+  );
+  console.log(`Audit landmark/label su ${routes.length} rotte…`);
+  const pageIssues = [];
+  for (const p of routes) {
     const res = await page.goto(BASE + p, { waitUntil: 'domcontentloaded' });
     if (!res?.ok()) {
-      errors.push(`${p}: HTTP ${res?.status()}`);
+      pageIssues.push(`${p}: HTTP ${res?.status()}`);
       continue;
     }
     const audit = await page.evaluate(() => {
@@ -186,6 +193,17 @@ const browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromi
       const navsNoLabel = [...document.querySelectorAll('nav')].filter(
         (n) => !n.getAttribute('aria-label') && !n.getAttribute('aria-labelledby')
       ).length;
+      // Un aria-labelledby deve puntare a un id che esiste davvero
+      const danglingLabelledby = [...document.querySelectorAll('[aria-labelledby]')].filter(
+        (el) =>
+          !el
+            .getAttribute('aria-labelledby')
+            .split(/\s+/)
+            .every((id) => document.getElementById(id))
+      ).length;
+      const emptyLinks = [...document.querySelectorAll('a[href]')].filter(
+        (a) => !a.textContent.trim() && !a.getAttribute('aria-label') && !a.querySelector('img[alt]')
+      ).length;
       return {
         main: document.querySelectorAll('main').length,
         header: document.querySelectorAll('header').length,
@@ -193,14 +211,24 @@ const browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromi
         lang: document.documentElement.lang,
         unlabeled,
         navsNoLabel,
+        danglingLabelledby,
+        emptyLinks,
       };
     });
-    check(audit.main === 1, `${p}: un solo <main> (${audit.main})`);
-    check(audit.header === 1 && audit.footer === 1, `${p}: header e footer unici`);
-    check(!!audit.lang, `${p}: lang="${audit.lang}"`);
-    check(audit.unlabeled === 0, `${p}: ${audit.unlabeled} campi form senza label`);
-    check(audit.navsNoLabel === 0, `${p}: ${audit.navsNoLabel} <nav> senza aria-label`);
+    if (audit.main !== 1) pageIssues.push(`${p}: ${audit.main} <main>`);
+    if (audit.header !== 1 || audit.footer !== 1) pageIssues.push(`${p}: header/footer non unici`);
+    if (!audit.lang) pageIssues.push(`${p}: manca lang`);
+    if (audit.unlabeled) pageIssues.push(`${p}: ${audit.unlabeled} campi senza label`);
+    if (audit.navsNoLabel) pageIssues.push(`${p}: ${audit.navsNoLabel} <nav> senza aria-label`);
+    if (audit.danglingLabelledby)
+      pageIssues.push(`${p}: ${audit.danglingLabelledby} aria-labelledby verso id inesistenti`);
+    if (audit.emptyLinks) pageIssues.push(`${p}: ${audit.emptyLinks} link senza nome accessibile`);
   }
+  check(
+    pageIssues.length === 0,
+    `${routes.length} rotte: landmark, lang, label e nomi accessibili corretti`
+  );
+  pageIssues.forEach((i) => errors.push(i));
   await page.close();
 }
 
