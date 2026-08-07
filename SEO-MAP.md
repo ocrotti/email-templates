@@ -68,6 +68,30 @@ Pagine di servizio non indicizzanti keyword: `/it/privacy/`, `/it/cookie-policy/
 - [x] sitemap.xml con alternates hreflang su tutte le 34 URL (coppie esplicite da src/lib/routes.ts in astro.config.mjs — l'opzione i18n del plugin copriva solo gli slug identici); robots.txt con Sitemap
 - [x] Font self-hosted `font-display: swap` + preload; immagini AVIF/WebP; CLS 0; GSAP non render-blocking
 
+## Ricognizione SERP — cosa manca ancora (agosto 2026)
+
+Ricognizione fatta sugli **snippet** dei risultati di ricerca: in questo ambiente il proxy blocca l'accesso diretto ai siti concorrenti (403 per policy) e non è collegato nessun tool di keyword research, quindi **non ci sono volumi né posizioni reali su google.it**. Quello sotto è panorama competitivo, non ranking.
+
+**Già applicato:** riscritto l'attacco della pagina compliance, che archiviava il GDPR ("quella stagione è finita") mentre la sua keyword primaria è "consulenza GDPR"; aggiunta la filiera lato GDPR (nomina dei responsabili esterni); aggiunta la gestione delle richieste degli interessati; sulla pagina web/EAA aggiunti il metodo di verifica e la posizione sugli overlay di accessibilità.
+
+**Richiede una decisione del committente:**
+
+| Gap | Pagina | Perché serve una decisione |
+|---|---|---|
+| Servizio **DPO esterno** | compliance | È un intent con domini interamente dedicati e oggi non lo presidiamo. Ma offrire il ruolo va validato con lo studio legale partner: indipendenza, conflitto di interessi, e coerenza con la nota "non siamo uno studio legale" già in pagina |
+| **Piattaforme CRM nominate** | crm-martech | La pagina non nomina nessuna piattaforma: perde tutte le query "consulenza + [piattaforma]". Servono i nomi di quelle su cui lavorate davvero — non inventabili |
+| **Struttura di costo** CRM e AI | crm-martech, guida AI | "Quanto costa" è una SERP intera. Il brief dice prezzi pubblici solo per i prodotti d'ingresso: serve decidere se pubblicare almeno le fasce o la logica di costo |
+| **Incentivi e agevolazioni** | guida AI | Argomento assente da tutto il sito. La ricerca di mercato avverte che le risorse 2025 sono esaurite: va verificato cosa è ancora attivo prima di scriverne |
+
+**Richiede fonti verificate** (non aggiungibili finora: l'ambiente non raggiunge ACN, Garante, EUR-Lex):
+
+- Guida NIS2: tempi di notifica degli incidenti, definizione di "incidente significativo", timeline delle scadenze future, esempio di clausola contrattuale di filiera
+- Guida AI: costi tipici di progetto, tassonomia dei fornitori
+- Pagina compliance: FAQ sul registro dei trattamenti (chi è obbligato, modello semplificato del Garante)
+- Pagina web/EAA: vigilanza, reclami e finestre temporali; contenuto formale della dichiarazione di accessibilità
+
+**Contenuto nuovo suggerito:** una guida pillar GDPR nelle risorse, a specchio di quella NIS2 — oggi il cluster compliance ha una sola guida e punta tutta su NIS2, mentre la keyword primaria della pagina servizio è "consulenza GDPR".
+
 ## Interlinking previsto
 
 - Ogni pagina servizio → prodotto d'ingresso collegato (`/it/prodotti/`) + 2 verticali affini + 1 risorsa del cluster + CTA contatti
