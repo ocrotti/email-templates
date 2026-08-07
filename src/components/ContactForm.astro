@@ -83,7 +83,10 @@ const FORM_ENDPOINT = '#'; /* [PLACEHOLDER: endpoint form — es. https://formsp
 
   <div class="md:col-span-2">
     <label for="cf-topic" class="field-label">{f.topic} *</label>
+    {/* Nessuna preselezione: il copy attorno dice "se non lo sai, va bene lo
+        stesso" — un default già scelto lo contraddirebbe e sporcherebbe i lead. */}
     <select id="cf-topic" name="topic" class="field-input" required>
+      <option value="" disabled selected>{lang === 'it' ? 'Seleziona…' : 'Select…'}</option>
       <option value="audit">{f.topicOptions.audit}</option>
       <option value="ai">{f.topicOptions.ai}</option>
       <option value="crm">{f.topicOptions.crm}</option>

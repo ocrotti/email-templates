@@ -26,7 +26,7 @@ export function organizationSchema(lang: Lang) {
         '@id': `${SITE.url}/#organization`,
         name: SITE.name,
         url: `${SITE.url}/`,
-        logo: `${SITE.url}/og/default-it.png`,
+        logo: `${SITE.url}/logo.png`,
         description,
         parentOrganization: { '@type': 'Organization', name: SITE.parent },
       },

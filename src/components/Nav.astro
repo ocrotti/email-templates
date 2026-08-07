@@ -20,7 +20,10 @@ const isActive = (href: string) =>
 ---
 
 <header class="site-header fixed inset-x-0 top-0 z-50" data-header>
-  <div class="wrap header-bar flex items-center justify-between py-5">
+  {/* z-70: la barra (wordmark + toggle) deve restare SOPRA l'overlay del menu
+      (z-60), altrimenti la X di chiusura viene dipinta sotto il pannello e su
+      touch — dove non esiste Esc — il menu non si può più chiudere. */}
+  <div class="wrap header-bar relative z-70 flex items-center justify-between py-5">
     <a
       href={path('home', lang)}
       class="text-[1.25rem] leading-none"

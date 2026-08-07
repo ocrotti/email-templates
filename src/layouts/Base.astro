@@ -53,7 +53,8 @@ const switchHref = alt ? alt[lang === 'it' ? 'en' : 'it'] : undefined;
     <title>{title}</title>
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
-    <link rel="canonical" href={canonical} />
+    {/* Un canonical su una pagina noindex (la 404) sarebbe un segnale contraddittorio */}
+    {!noindex && <link rel="canonical" href={canonical} />}
     {
       alt && (
         <>

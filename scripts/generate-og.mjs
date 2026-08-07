@@ -78,3 +78,17 @@ for (const [key, titles] of Object.entries(pages)) {
   }
 }
 console.log('done');
+
+/* Logo quadrato per Organization.logo (schema.org raccomanda un logo,
+   non una card OG 1200×630). */
+{
+  const svg = `<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" rx="96" fill="${INK}"/>
+  <text x="92" y="316" font-family="ParkinsansOG" font-size="200" fill="${PAPER}">e</text>
+  <circle cx="368" cy="296" r="44" fill="${ACCENT}"/>
+</svg>`;
+  await sharp(Buffer.from(svg)).png({ compressionLevel: 9 }).toFile(
+    new URL('../public/logo.png', import.meta.url).pathname
+  );
+  console.log('og: logo.png (512×512)');
+}

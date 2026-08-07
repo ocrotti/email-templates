@@ -206,7 +206,8 @@ const schema = [
       <div class="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 lg:grid-cols-2" data-reveal-group>
         {
           products.map((p) => (
-            <div data-reveal>
+            <div class="flex flex-col" data-reveal>
+              <div class="grow">
               <ProductCard
                 title={p.title}
                 price={p.price}
@@ -217,6 +218,7 @@ const schema = [
                 href={path('contact', lang)}
                 ctaLabel="Parti da qui"
               />
+              </div>
               <p class="mt-5">
                 <ArrowLink href={path(p.verticalKey, lang)} class="text-paper">
                   {p.verticalLabel}

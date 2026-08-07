@@ -75,6 +75,11 @@
 html {
   scroll-behavior: smooth;
 }
+/* Gli anchor (indici delle guide) non devono finire sotto la nav fissa */
+:target,
+[id] {
+  scroll-margin-top: 6rem;
+}
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -295,10 +300,31 @@ body {
 .card-lift .card-arrow {
   transition: transform 0.45s var(--ease-out-quart);
 }
-@media (hover: hover) {
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
   .card-lift:hover .card-arrow,
   .card-lift:focus-within .card-arrow {
     transform: translate(4px, -4px);
+  }
+}
+/* Con reduced-motion il cambio di COLORE resta (è uno stato, non un'animazione):
+   commuta istantaneo, senza il layer che sale né la freccia che scatta. */
+@media (hover: hover) and (prefers-reduced-motion: reduce) {
+  .card-lift::before {
+    transition: none;
+  }
+  .card-lift:hover::before,
+  .card-lift:focus-within::before {
+    transform: translateY(0);
+  }
+  .card-lift,
+  .card-lift .card-swap {
+    transition: none;
+  }
+  .card-lift:hover,
+  .card-lift:focus-within,
+  .card-lift:hover .card-swap,
+  .card-lift:focus-within .card-swap {
+    color: #fff !important;
   }
 }
 /* Testo che resta leggibile quando il layer accent sale (testo bianco su blu) */

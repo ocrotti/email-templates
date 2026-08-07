@@ -93,10 +93,20 @@ scripts/generate-og.mjs   generatore immagini OG (sharp)
 - Il dominio di produzione è configurato in `astro.config.mjs` (`site`) e in `src/lib/seo.ts` (`SITE.url`); aggiornarlo in entrambi i punti (e in `public/robots.txt` + `public/_redirects` se serve) se cambia, poi rigenerare `npm run og`.
 - Il redirect `/` → `/it/` è server-side via `public/_redirects`; per altri host statici c'è il fallback meta-refresh in `src/pages/index.astro`.
 
-## Cose da completare prima del lancio
+## Cosa serve per il lancio
 
-1. **Placeholder nel copy**: cercare `[PREZZO]`, `[BIO SENIOR]`, `[PLACEHOLDER:` e sostituire (prezzi prodotti, bio senior, contatti, P.IVA, endpoint form, link calendario/WhatsApp).
-2. **Endpoint form**: `src/components/ContactForm.astro` → `FORM_ENDPOINT` (Formspree o webhook n8n).
-3. **Immagini OG**: dopo aver cambiato claim o dominio, rigenerare con `npm run og`. Lo script richiede i font installati a livello di sistema come istanze statiche (`ParkinsansOG`/`InterOG`, generabili con fonttools da `public/fonts/*.woff2`); le PNG generate sono committate, quindi il deploy non ne dipende.
-4. **Casi studio**: aggiungere i casi reali autorizzati in `src/data/case-studies.ts` (le pagine dettaglio si generano da sole).
-5. **Verifica SEO**: volumi keyword con SEOZoom/Keyword Planner (i volumi in SEO-MAP.md sono stime), test schema con validator.schema.org, invio sitemap in Search Console.
+**Decisioni e materiali che solo il committente può fornire** (critical path — senza questi il sito non può andare live):
+
+1. **Prezzi dei 4 prodotti d'ingresso** → sostituire i `[PREZZO]` (home, prodotti, verticali, guide).
+2. **Nomi, ruoli, foto e bio dei senior** → `[PLACEHOLDER: NOME]`, `[BIO SENIOR]` in home, chi-siamo e verticali. Il posizionamento "named partner" non regge senza.
+3. **Dati societari e contatti**: ragione sociale/P.IVA (footer), email, link calendario (Cal.com/Calendly), numero WhatsApp → pagina contatti. I due CTA calendario/WhatsApp sono volutamente disattivati finché non esistono gli URL.
+4. **Endpoint del form** (Formspree o webhook n8n) → `FORM_ENDPOINT` in `src/components/ContactForm.astro`. Con l'endpoint, configurare anche il **redirect post-invio** a una pagina di ringraziamento: oggi l'invio non ha uno stato di successo progettato.
+5. **Validazione legale** di privacy e cookie policy.
+
+**Lavoro meccanico, dopo i punti sopra:**
+
+6. Rimuovere il residuo `[PLACEHOLDER:` con `grep -r` per verifica finale; `npm run check:build` fallisce se un placeholder finisce in un href.
+7. Riattivare lo schema `Person` in chi-siamo quando le bio sono reali (helper `personSchema` già pronto in `src/lib/seo.ts`).
+8. Se cambiano claim o dominio: rigenerare le immagini OG con `npm run og` (richiede i font `ParkinsansOG`/`InterOG` installati a sistema, generabili con fonttools da `public/fonts/*.woff2`; le PNG sono committate, il deploy non dipende dallo script).
+9. Casi studio reali autorizzati → `src/data/case-studies.ts` (le pagine dettaglio si generano da sole).
+10. Verifica SEO post-lancio: volumi keyword con SEOZoom/Keyword Planner (quelli in SEO-MAP.md sono stime), invio sitemap in Search Console.

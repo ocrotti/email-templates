@@ -61,10 +61,11 @@ Pagine di servizio non indicizzanti keyword: `/it/privacy/`, `/it/cookie-policy/
 - [x] Title/description unici; canonical assoluto per pagina
 - [x] `hreflang` it/en + `x-default` (→ IT) su ogni pagina, coppie definite in `src/lib/routes.ts`
 - [x] Open Graph + Twitter card, immagini OG dedicate 1200×630 generate (`scripts/generate-og.mjs` → `public/og/`)
-- [x] JSON-LD: `Organization` + `ProfessionalService` sitewide; `Service` su pagine servizio; `FAQPage` dove ci sono FAQ; `Article` su risorse; `BreadcrumbList` su pagine interne; `Person` su chi-siamo
+- [x] JSON-LD: `Organization` + `ProfessionalService` sitewide; `Service` su pagine servizio; `FAQPage` dove ci sono FAQ; `Article` su risorse; `BreadcrumbList` su pagine interne
+- [ ] `Person` su chi-siamo — **rimandato finché le bio sono placeholder**; riattivare al lancio con l'helper `personSchema` già pronto in `src/lib/seo.ts` (voce 7 della checklist di lancio nel README)
 - [x] Un solo H1 per pagina; gerarchia heading pulita
 - [x] Internal linking deliberato: verticali ↔ prodotti ↔ risorse ("il sistema, non i silos")
-- [x] sitemap.xml con alternates hreflang (@astrojs/sitemap i18n); robots.txt con Sitemap
+- [x] sitemap.xml con alternates hreflang su tutte le 34 URL (coppie esplicite da src/lib/routes.ts in astro.config.mjs — l'opzione i18n del plugin copriva solo gli slug identici); robots.txt con Sitemap
 - [x] Font self-hosted `font-display: swap` + preload; immagini AVIF/WebP; CLS 0; GSAP non render-blocking
 
 ## Interlinking previsto
