@@ -26,7 +26,7 @@ const pages = {
   howWeWork: { it: 'Come lavoriamo:\nil modello senior.', en: 'How we work:\nthe senior model.' },
   services: { it: 'Quattro verticali.\nUn sistema.', en: 'Four verticals.\nOne system.' },
   serviceCompliance: { it: 'Compliance & governance:\nGDPR, NIS2, EAA, AI Act.', en: 'Compliance & governance:\nGDPR, NIS2, EAA, AI Act.' },
-  serviceData: { it: 'Dati & AI:\nAI-native per PMI.', en: 'Data & AI:\nAI-native for SMEs.' },
+  serviceData: { it: 'Dati & AI:\nl’AI dove rende davvero.', en: 'Data & AI:\nAI where it pays back.' },
   serviceCrm: { it: 'CRM & martech:\nmetti a valore i clienti.', en: 'CRM & martech:\nturn customers into value.' },
   serviceWeb: { it: 'Web & e-commerce:\nconverte ed è conforme.', en: 'Web & e-commerce:\nconverts and complies.' },
   products: { it: 'Inizia con un passo\na prezzo fisso.', en: 'Start with a\nfixed-price step.' },

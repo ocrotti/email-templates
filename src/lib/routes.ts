@@ -37,6 +37,8 @@ export const routes = {
     en: '/en/resources/ai-for-smes-guide/',
   },
   contact: { it: '/it/contatti/', en: '/en/contact/' },
+  /** Stato di successo del form: noindex, fuori dalla sitemap. */
+  thankYou: { it: '/it/grazie/', en: '/en/thank-you/' },
   privacy: { it: '/it/privacy/', en: '/en/privacy/' },
   cookies: { it: '/it/cookie-policy/', en: '/en/cookie-policy/' },
   accessibility: { it: '/it/accessibilita/', en: '/en/accessibility/' },

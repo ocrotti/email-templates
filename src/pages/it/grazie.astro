@@ -1,0 +1,104 @@
+---
+import Base from '../../layouts/Base.astro';
+import Button from '../../components/Button.astro';
+import ArrowLink from '../../components/ArrowLink.astro';
+import { path } from '../../lib/routes';
+
+const lang = 'it' as const;
+
+/*
+ * Stato di successo dell'invio del form. Ci si arriva solo dopo un invio
+ * riuscito (campo _next del form), quindi è noindex e fuori dalla sitemap.
+ */
+const steps = [
+  {
+    title: 'Entro 24 ore lavorative ti risponde una persona',
+    text: 'Non un autoresponder, non un “abbiamo ricevuto la tua richiesta”. Una risposta scritta, con domande vere sul tuo contesto.',
+  },
+  {
+    title: 'Se serve, mezz’ora con il senior del tuo tema',
+    text: 'Nessuna presentazione aziendale, nessun commerciale in copia. Serve a capire se possiamo essere utili.',
+  },
+  {
+    title: 'Poi ti diciamo cosa ha senso — o che non ne ha',
+    text: 'Se ha senso, ti proponiamo il prodotto d’ingresso giusto con prezzo e durata dichiarati. Se non ne ha, te lo diciamo e ti indichiamo a chi rivolgerti.',
+  },
+];
+---
+
+<Base
+  lang={lang}
+  routeKey="thankYou"
+  title="Richiesta inviata | enable.advisory"
+  description="Abbiamo ricevuto la tua richiesta. Ti risponde una persona entro 24 ore lavorative."
+  ogImage="/og/contact-it.png"
+  noindex
+>
+  <section class="relative overflow-hidden">
+    <div
+      class="pointer-events-none absolute inset-0"
+      aria-hidden="true"
+      style="background: radial-gradient(50rem 34rem at 85% -20%, rgb(43 92 255 / 0.13), transparent 60%);"
+    >
+    </div>
+    <div class="wrap relative pt-40 pb-20 md:pt-48 md:pb-28">
+      <p class="label-caps text-accent-soft" data-reveal>Richiesta inviata</p>
+      <h1 class="font-display text-display mt-6 max-w-4xl font-medium" data-reveal>
+        Ricevuta. Ora tocca a noi.
+      </h1>
+      <p class="mt-8 max-w-xl text-lead text-mist" data-reveal>
+        Ti risponde una persona entro 24 ore lavorative — uno dei senior, non un commerciale.
+        Se nel frattempo ti viene in mente qualcosa, rispondi pure alla mail che ricevi.
+      </p>
+    </div>
+  </section>
+
+  <section class="hairline">
+    <div class="wrap grid grid-cols-12 gap-x-6 py-20 md:py-28">
+      <div class="col-span-12 lg:col-span-4">
+        <h2 class="font-display text-h2 font-medium" data-reveal>Cosa succede adesso.</h2>
+      </div>
+      <ol class="col-span-12 mt-10 lg:col-span-7 lg:col-start-6 lg:mt-0" data-reveal-group>
+        {
+          steps.map((s, i) => (
+            <li class="hairline py-7 first:border-t-0 first:pt-0" data-reveal>
+              <div class="flex gap-6">
+                <span
+                  class="font-display shrink-0 text-[1.0625rem] font-semibold text-mist"
+                  aria-hidden="true"
+                >
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <div>
+                  <h3 class="font-display text-[1.25rem] leading-snug font-medium">{s.title}</h3>
+                  <p class="mt-2 text-[0.9375rem] text-mist">{s.text}</p>
+                </div>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="hairline">
+    <div class="wrap py-20 md:py-28">
+      <p class="label-caps text-mist" data-reveal>Nel frattempo</p>
+      <h2 class="font-display text-h2 mt-4 max-w-3xl font-medium" data-reveal>
+        Due letture che valgono il tempo dell’attesa.
+      </h2>
+      <div class="mt-10 flex flex-wrap gap-x-10 gap-y-4" data-reveal>
+        <ArrowLink href={path('resourceNis2', lang)} class="text-paper">
+          NIS2 per PMI: chi rientra, cosa chiedono i clienti
+        </ArrowLink>
+        <ArrowLink href={path('resourceAi', lang)} class="text-paper">
+          AI per le PMI: dove rende davvero
+        </ArrowLink>
+      </div>
+      <div class="mt-12 flex flex-wrap gap-4" data-reveal>
+        <Button href={path('home', lang)} variant="ghost">Torna alla home</Button>
+        <Button href={path('products', lang)}>Guarda i prodotti a prezzo fisso</Button>
+      </div>
+    </div>
+  </section>
+</Base>

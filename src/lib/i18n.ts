@@ -57,6 +57,9 @@ export const ui = {
         'Dimensione azienda, settore, cosa non sta funzionando, scadenze normative…',
       privacy: 'Ho letto l’informativa privacy e acconsento al trattamento dei dati.',
       submit: 'Invia la richiesta',
+      pendingTitle: 'Il form non è ancora collegato.',
+      pendingText:
+        'Stiamo completando la configurazione. Nel frattempo scrivici qui: leggiamo tutto e rispondiamo entro 24 ore lavorative.',
       note: 'Rispondiamo entro 24 ore lavorative. Sempre una persona, mai un autoresponder.',
     },
     notFound: {
@@ -120,6 +123,9 @@ export const ui = {
         'Company size, sector, what is not working, regulatory deadlines…',
       privacy: 'I have read the privacy policy and consent to data processing.',
       submit: 'Send request',
+      pendingTitle: 'The form isn’t connected yet.',
+      pendingText:
+        'We’re finishing the setup. In the meantime write to us here: we read everything and reply within one business day.',
       note: 'We reply within one business day. Always a person, never an autoresponder.',
     },
     notFound: {

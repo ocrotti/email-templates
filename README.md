@@ -100,7 +100,7 @@ scripts/generate-og.mjs   generatore immagini OG (sharp)
 1. **Prezzi dei 4 prodotti d'ingresso** → sostituire i `[PREZZO]` (home, prodotti, verticali, guide).
 2. **Nomi, ruoli, foto e bio dei senior** → `[PLACEHOLDER: NOME]`, `[BIO SENIOR]` in home, chi-siamo e verticali. Il posizionamento "named partner" non regge senza.
 3. **Dati societari e contatti**: ragione sociale/P.IVA (footer), email, link calendario (Cal.com/Calendly), numero WhatsApp → pagina contatti. I due CTA calendario/WhatsApp sono volutamente disattivati finché non esistono gli URL.
-4. **Endpoint del form** (Formspree o webhook n8n) → `FORM_ENDPOINT` in `src/components/ContactForm.astro`. Con l'endpoint, configurare anche il **redirect post-invio** a una pagina di ringraziamento: oggi l'invio non ha uno stato di successo progettato.
+4. **Endpoint del form** (Formspree o webhook n8n) → unica riga da toccare: `FORM_ENDPOINT` in `src/components/ContactForm.astro`. Tutto il resto è già collegato: a invio riuscito il campo `_next` porta a `/it/grazie/` o `/en/thank-you/` (pagine già scritte, noindex, fuori sitemap), e `_subject`/`_language` arrivano compilati. Finché l'endpoint è vuoto il bottone di invio è sostituito dalla mail diretta, così non esiste un submit che porta a un errore.
 5. **Validazione legale** di privacy e cookie policy.
 
 **Lavoro meccanico, dopo i punti sopra:**

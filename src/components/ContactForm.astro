@@ -1,12 +1,20 @@
 ---
 /**
  * Form contatti: markup pronto con action configurabile + honeypot antispam.
- * Endpoint: sostituire FORM_ENDPOINT con Formspree ("https://formspree.io/f/XXXX")
- * o con un webhook n8n. La validazione usa l'HTML nativo (accessibile di default).
+ * La validazione usa l'HTML nativo (accessibile di default).
+ *
+ * PER ATTIVARLO: incollare l'endpoint in FORM_ENDPOINT (Formspree
+ * "https://formspree.io/f/XXXX" o webhook n8n). Tutto il resto è già collegato:
+ * a invio riuscito il campo `_next` porta alla pagina di ringraziamento
+ * localizzata, `_subject` e `_language` arrivano già compilati.
+ *
+ * Finché l'endpoint manca, il submit è disabilitato e al suo posto compare la
+ * mail diretta: meglio un canale che funziona di un bottone che porta a un 404.
  */
 import type { Lang } from '../lib/routes';
 import { path } from '../lib/routes';
 import { t } from '../lib/i18n';
+import { absoluteUrl } from '../lib/seo';
 
 interface Props {
   lang: Lang;
@@ -14,15 +22,28 @@ interface Props {
 const { lang } = Astro.props;
 const f = t(lang).form;
 
-const FORM_ENDPOINT = '#'; /* [PLACEHOLDER: endpoint form — es. https://formspree.io/f/XXXX o webhook n8n] */
+/* [PLACEHOLDER: endpoint form — es. https://formspree.io/f/XXXX o webhook n8n] */
+const FORM_ENDPOINT = '';
+const isLive = FORM_ENDPOINT.length > 0;
+const thankYouUrl = absoluteUrl(path('thankYou', lang));
 ---
 
 <form
-  action={FORM_ENDPOINT}
+  action={isLive ? FORM_ENDPOINT : undefined}
   method="POST"
   class="grid grid-cols-1 gap-6 md:grid-cols-2"
   accept-charset="UTF-8"
 >
+  {/* Redirect post-invio e metadati per il destinatario (convenzione Formspree) */}
+  <input type="hidden" name="_next" value={thankYouUrl} />
+  <input
+    type="hidden"
+    name="_subject"
+    value={lang === 'it'
+      ? 'Nuova richiesta dal sito enable.advisory'
+      : 'New enquiry from the enable.advisory site'}
+  />
+  <input type="hidden" name="_language" value={lang} />
   <p class="hp-field" aria-hidden="true">
     <label for="cf-website">Website</label>
     <input
@@ -123,25 +144,37 @@ const FORM_ENDPOINT = '#'; /* [PLACEHOLDER: endpoint form — es. https://formsp
   </div>
 
   <div class="md:col-span-2">
-    <button type="submit" class="btn btn-primary" data-magnetic>
-      {f.submit}
-      <svg
-        class="btn-arrow"
-        width="15"
-        height="15"
-        viewBox="0 0 16 16"
-        fill="none"
-        aria-hidden="true"
-      >
-        <path
-          d="M1 8h13M9 3l5 5-5 5"
-          stroke="currentColor"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-      </svg>
-    </button>
+    {
+      isLive ? (
+        <button type="submit" class="btn btn-primary" data-magnetic>
+          {f.submit}
+          <svg
+            class="btn-arrow"
+            width="15"
+            height="15"
+            viewBox="0 0 16 16"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M1 8h13M9 3l5 5-5 5"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+      ) : (
+        <div class="rounded-xs border border-white/15 bg-ink-raise p-6">
+          <p class="text-[0.9375rem] text-paper">{f.pendingTitle}</p>
+          <p class="mt-2 text-[0.9375rem] text-mist">{f.pendingText}</p>
+          <p class="mt-4 font-display text-[1.125rem] font-medium text-accent-soft">
+            [PLACEHOLDER: email]
+          </p>
+        </div>
+      )
+    }
     <p class="mt-4 text-[0.875rem] text-mist">{f.note}</p>
   </div>
 </form>

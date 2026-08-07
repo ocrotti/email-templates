@@ -12,8 +12,17 @@ const SITE = 'https://enableadvisory.com';
  * coincide nelle due lingue: con gli slug localizzati (/it/servizi/ vs
  * /en/services/) copriva 6 URL su 34. Qui le coppie sono esplicite.
  */
+/** Rotte fuori dall'indice: stato di successo del form, raggiungibile solo post-invio. */
+const NOINDEX_KEYS = new Set(['thankYou']);
+const noindexUrls = new Set(
+  Object.entries(routes)
+    .filter(([key]) => NOINDEX_KEYS.has(key))
+    .flatMap(([, pair]) => [SITE + pair.it, SITE + pair.en])
+);
+
 const alternatesByUrl = new Map();
-for (const pair of Object.values(routes)) {
+for (const [key, pair] of Object.entries(routes)) {
+  if (NOINDEX_KEYS.has(key)) continue;
   const links = [
     { lang: 'it-IT', url: SITE + pair.it },
     { lang: 'en', url: SITE + pair.en },
@@ -36,7 +45,8 @@ export default defineConfig({
   },
   integrations: [
     sitemap({
-      filter: (page) => page !== `${SITE}/` && !page.includes('/404'),
+      filter: (page) =>
+        page !== `${SITE}/` && !page.includes('/404') && !noindexUrls.has(page),
       serialize(item) {
         const links = alternatesByUrl.get(item.url);
         if (links) item.links = links;

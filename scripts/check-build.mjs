@@ -37,12 +37,16 @@ const routes = new Set(
   })
 );
 
+/** Pagine noindex: escluse dalla sitemap di proposito (vedi astro.config.mjs). */
+const noindexPages = new Set();
+
 for (const file of files) {
   const name = relative(DIST, file);
   const html = readFileSync(file, 'utf8');
   const isRedirect = name === 'index.html';
   const is404 = name === '404.html';
   const noindex = /<meta name="robots" content="noindex/.test(html);
+  if (noindex) noindexPages.add(name);
 
   // --- title / description
   const title = html.match(/<title>([^<]*)<\/title>/)?.[1];
@@ -78,8 +82,9 @@ for (const file of files) {
   const lang = html.match(/<html lang="([^"]*)"/)?.[1];
   if (!lang) err(name, 'manca lang su <html>');
 
-  // --- canonical + hreflang
-  if (!isRedirect && !is404) {
+  // --- canonical + hreflang (le pagine noindex non devono averli: sarebbero
+  // segnali contraddittori verso URL che non vogliamo far indicizzare)
+  if (!isRedirect && !is404 && !noindex) {
     const canonical = html.match(/<link rel="canonical" href="([^"]*)"/)?.[1];
     if (!canonical) err(name, 'manca canonical');
     else {
@@ -160,12 +165,24 @@ else {
   const sm = readFileSync(join(DIST, 'sitemap-0.xml'), 'utf8');
   const urls = [...sm.matchAll(/<loc>([^<]*)<\/loc>/g)].map((m) => m[1]);
   const pages = files
-    .filter((f) => !['index.html', '404.html'].includes(relative(DIST, f)))
+    .filter((f) => {
+      const rel = relative(DIST, f);
+      return !['index.html', '404.html'].includes(rel) && !noindexPages.has(rel);
+    })
     .map((f) => SITE + '/' + relative(DIST, f).replace(/index\.html$/, ''));
   for (const p of pages) {
     if (!urls.includes(p)) err('sitemap', `pagina assente dalla sitemap: ${p}`);
   }
-  if (!sm.includes('xhtml:link')) err('sitemap', 'sitemap senza alternates hreflang');
+  // Una pagina noindex nella sitemap è un segnale contraddittorio
+  for (const rel of noindexPages) {
+    const url = SITE + '/' + rel.replace(/index\.html$/, '');
+    if (urls.includes(url)) err('sitemap', `pagina noindex presente in sitemap: ${url}`);
+  }
+  // Ogni URL deve portare i suoi alternates, non solo qualcuno
+  const withAlt = (sm.match(/<url>/g) ?? []).length;
+  const altBlocks = (sm.match(/hreflang="x-default"/g) ?? []).length;
+  if (altBlocks < withAlt)
+    err('sitemap', `alternates hreflang su ${altBlocks}/${withAlt} URL (attesi tutti)`);
 }
 if (!existsSync(join(DIST, 'robots.txt'))) err('dist', 'manca robots.txt');
 
