@@ -86,11 +86,22 @@ export default async function InsightIndexPage({
                       }}
                       className="group grid gap-4 py-10 transition-colors md:grid-cols-[minmax(0,200px)_1fr_auto] md:gap-10"
                     >
-                      <div className="eyebrow flex flex-row gap-4 text-ink-soft md:flex-col md:gap-2">
-                        <time dateTime={article.date}>
-                          {formatDate(article.date, locale)}
-                        </time>
-                        <span>{t.readingTime(article.readingMinutes)}</span>
+                      <div>
+                        {/* Outlined numeral: ties the index to the same
+                            signature system as the 01–08 home sections. */}
+                        <p
+                          aria-hidden="true"
+                          className="section-number"
+                          style={{ fontSize: "2.75rem" }}
+                        >
+                          {String(i + 1).padStart(2, "0")}
+                        </p>
+                        <div className="eyebrow mt-3 flex flex-row gap-4 text-ink-soft md:flex-col md:gap-2">
+                          <time dateTime={article.date}>
+                            {formatDate(article.date, locale)}
+                          </time>
+                          <span>{t.readingTime(article.readingMinutes)}</span>
+                        </div>
                       </div>
                       <div className="min-w-0">
                         <h2 className="font-display-soft text-2xl transition-colors group-hover:text-accent-deep md:text-3xl">
@@ -98,6 +109,11 @@ export default async function InsightIndexPage({
                         </h2>
                         <p className="prose-copy mt-3 text-ink-soft">
                           {lang.excerpt}
+                        </p>
+                        <p className="eyebrow mt-4 flex flex-wrap gap-x-4 gap-y-1 text-ink-soft">
+                          {article.keywords[locale].slice(0, 3).map((k) => (
+                            <span key={k}>{k}</span>
+                          ))}
                         </p>
                       </div>
                       <span

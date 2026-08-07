@@ -17,13 +17,21 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const meta = privacy[locale].meta;
+  // noindex + rel=canonical send contradictory signals (Google's own
+  // guidance): while the page stays noindex, it ships no canonical and
+  // no hreflang. If legal validation later clears it for indexing, drop
+  // the robots override and the alternates come back automatically.
+  const { alternates: _alternates, ...base } = pageMetadata({
+    locale,
+    pathname: "/privacy",
+    title: meta.title,
+    description: meta.description,
+  });
   return {
-    ...pageMetadata({
-      locale,
-      pathname: "/privacy",
-      title: meta.title,
-      description: meta.description,
-    }),
+    ...base,
+    // Explicit null: omitting the key would inherit the locale layout's
+    // alternates (the home canonical) instead of shipping none.
+    alternates: null,
     robots: { index: false },
   };
 }

@@ -8,7 +8,9 @@ interface PrivacyContent {
 }
 
 // NOTE: placeholder legal text — have counsel review and complete before
-// go-live (controller identity, DPO if any, retention terms).
+// go-live (controller identity incl. legal name/VAT/address, DPO if any,
+// retention terms). Keep every go-live TODO here in comments or in the
+// README checklist: never in the published copy.
 export const privacy: Dict<PrivacyContent> = {
   it: {
     meta: {
@@ -17,18 +19,18 @@ export const privacy: Dict<PrivacyContent> = {
         "Informativa sul trattamento dei dati personali e sull'uso dei cookie del sito Enable Pharma.",
     },
     title: "Privacy & cookie",
-    updated: "Ultimo aggiornamento: agosto 2026 — bozza da validare con il legale.",
+    updated: "Ultimo aggiornamento: agosto 2026.",
     sections: [
       {
         heading: "Titolare del trattamento",
         body: [
-          "Enable Pharma (dati societari completi in corso di definizione) è il titolare del trattamento dei dati personali raccolti tramite questo sito. Per ogni richiesta: info@enablepharma.it.",
+          "Enable Pharma è il titolare del trattamento dei dati personali raccolti tramite questo sito. Per ogni richiesta: info@enablepharma.it.",
         ],
       },
       {
         heading: "Quali dati trattiamo e perché",
         body: [
-          "Dati del form di contatto (nome, azienda, funzione, area terapeutica, messaggio): li usiamo esclusivamente per rispondere alla richiesta. Base giuridica: consenso esplicito espresso al momento dell'invio. Conservazione: il tempo necessario a gestire la richiesta e le interlocuzioni che ne derivano.",
+          "Dati del form di contatto (nome, email, azienda, funzione, area terapeutica, messaggio): li usiamo esclusivamente per rispondere alla richiesta. Base giuridica: consenso esplicito espresso al momento dell'invio. Conservazione: il tempo necessario a gestire la richiesta e le interlocuzioni che ne derivano.",
           "Questo sito non raccoglie dati relativi alla salute e non è destinato ai pazienti: è un sito B2B rivolto ad aziende.",
         ],
       },
@@ -39,9 +41,9 @@ export const privacy: Dict<PrivacyContent> = {
         ],
       },
       {
-        heading: "I tuoi diritti",
+        heading: "I vostri diritti",
         body: [
-          "Puoi esercitare in qualsiasi momento i diritti previsti dagli artt. 15–22 del GDPR (accesso, rettifica, cancellazione, limitazione, opposizione, portabilità) scrivendo a info@enablepharma.it. Hai inoltre il diritto di proporre reclamo al Garante per la protezione dei dati personali.",
+          "È possibile esercitare in qualsiasi momento i diritti previsti dagli artt. 15–22 del GDPR (accesso, rettifica, cancellazione, limitazione, opposizione, portabilità) scrivendo a info@enablepharma.it. Resta inoltre fermo il diritto di proporre reclamo al Garante per la protezione dei dati personali.",
         ],
       },
     ],
@@ -53,18 +55,18 @@ export const privacy: Dict<PrivacyContent> = {
         "Privacy notice on the processing of personal data and the use of cookies on the Enable Pharma website.",
     },
     title: "Privacy & cookies",
-    updated: "Last updated: August 2026 — draft pending legal validation.",
+    updated: "Last updated: August 2026.",
     sections: [
       {
         heading: "Data controller",
         body: [
-          "Enable Pharma (full company details being finalised) is the controller of personal data collected through this site. For any request: info@enablepharma.it.",
+          "Enable Pharma is the controller of personal data collected through this site. For any request: info@enablepharma.it.",
         ],
       },
       {
         heading: "What data we process and why",
         body: [
-          "Contact form data (name, company, function, therapeutic area, message): used exclusively to answer your request. Legal basis: explicit consent given at submission. Retention: as long as needed to handle the request and the conversations arising from it.",
+          "Contact form data (name, email, company, function, therapeutic area, message): used exclusively to answer your request. Legal basis: explicit consent given at submission. Retention: as long as needed to handle the request and the conversations arising from it.",
           "This site does not collect health data and is not intended for patients: it is a B2B site addressed to companies.",
         ],
       },

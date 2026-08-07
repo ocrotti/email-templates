@@ -46,7 +46,7 @@ interface CaseStudyContent {
 export const caseStudy: Dict<CaseStudyContent> = {
   it: {
     meta: {
-      title: "Progetto tipo: piattaforma awareness malattie rare",
+      title: "Progetto tipo: awareness malattie rare | Enable Pharma",
       description:
         "Case study anonimizzato: piattaforma di disease awareness unbranded per le malattie rare della coagulazione, con programma DOL, podcast e farmacovigilanza.",
     },
@@ -154,7 +154,7 @@ export const caseStudy: Dict<CaseStudyContent> = {
       tiers: [
         {
           name: "Core panel",
-          body: "Medici-creator con audience consolidata: producono i contenuti pilastro della piattaforma.",
+          body: "Medici-creator con audience consolidata, indicativamente tra 100 e 500 mila follower: producono i contenuti pilastro della piattaforma.",
         },
         {
           name: "Amplificatori",
@@ -178,7 +178,7 @@ export const caseStudy: Dict<CaseStudyContent> = {
         { value: 3, label: "associazioni pazienti coinvolte con disclosure" },
         { value: 14, unit: "mesi", label: "di presidio continuativo al primo rinnovo" },
       ],
-      note: "Reach segmentata per pubblico (pazienti/caregiver vs operatori sanitari), sentiment e SLA completano il quadro nel reporting trimestrale.",
+      note: "Ascolti e download della serie, reach segmentata per pubblico (pazienti/caregiver vs operatori sanitari), sentiment e SLA completano il quadro nel reporting trimestrale.",
     },
     closing: {
       title: "Ogni progetto parte dallo stesso punto",
@@ -188,7 +188,7 @@ export const caseStudy: Dict<CaseStudyContent> = {
   },
   en: {
     meta: {
-      title: "Example project: rare disease awareness platform",
+      title: "Example project: rare disease awareness | Enable Pharma",
       description:
         "Anonymised case study: an unbranded disease awareness platform for rare coagulation disorders, with a DOL programme, podcast and pharmacovigilance.",
     },
@@ -232,7 +232,7 @@ export const caseStudy: Dict<CaseStudyContent> = {
       {
         index: "B",
         title: "Digital Opinion Leader programme",
-        body: "Physician-creators selected with a proprietary three-axis scoring matrix and organised into a three-tier panel, bringing scientific rigour where the public already gets informed.",
+        body: "Physician-creators selected with a proprietary three-axis scoring matrix and organised into a three-tier panel, bringing scientific rigour where the public already looks for information.",
         items: [
           "Documented scouting and scoring of every profile",
           "Conflict-of-interest checks before engagement",
@@ -259,7 +259,7 @@ export const caseStudy: Dict<CaseStudyContent> = {
           "Monthly editorial plan under medical review",
           "Documented moderation with approved templates",
           "Social listening with escalation to qualified PV personnel",
-          "Report-handling SLAs monitored and accounted for",
+          "Report-handling SLAs monitored and reported quarterly",
         ],
       },
       {
@@ -296,7 +296,7 @@ export const caseStudy: Dict<CaseStudyContent> = {
       tiers: [
         {
           name: "Core panel",
-          body: "Physician-creators with an established audience: they produce the platform's pillar content.",
+          body: "Physician-creators with an established audience, indicatively between 100k and 500k followers: they produce the platform's pillar content.",
         },
         {
           name: "Amplifiers",
@@ -320,7 +320,7 @@ export const caseStudy: Dict<CaseStudyContent> = {
         { value: 3, label: "patient associations engaged with disclosure" },
         { value: 14, unit: "months", label: "of continuous presence at first renewal" },
       ],
-      note: "Reach segmented by audience (patients/caregivers vs healthcare professionals), sentiment and SLAs complete the picture in quarterly reporting.",
+      note: "Series listens and downloads, reach segmented by audience (patients/caregivers vs healthcare professionals), sentiment and SLAs complete the picture in quarterly reporting.",
     },
     closing: {
       title: "Every project starts from the same point",

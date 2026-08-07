@@ -33,7 +33,10 @@ export default function SplitReveal({
             className="split-line block will-change-transform"
             style={{ animationDelay: `${delay + i * stagger}ms` }}
           >
-            {line}
+            {/* Trailing space is invisible at block layout but keeps the
+                raw textContent readable ("Community di disease…", not
+                "Community didisease…") for non-rendering parsers. */}
+            {i < lines.length - 1 ? `${line} ` : line}
           </span>
         </span>
       ))}

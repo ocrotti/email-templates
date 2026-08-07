@@ -10,6 +10,15 @@ export const siteConfig = {
   linkedin: "https://www.linkedin.com/company/enable-pharma",
   locales: ["it", "en"] as const,
   defaultLocale: "it" as const,
+  // Legal identity — showing the VAT number on the site is a legal
+  // requirement for Italian businesses (art. 35 DPR 633/72). The footer
+  // renders these automatically once filled in. TODO: complete before
+  // go-live (blocker — see README checklist).
+  legal: {
+    companyName: "", // e.g. "Enable Pharma S.r.l."
+    vatId: "", // e.g. "P.IVA IT01234567890"
+    address: "", // registered office, e.g. "Via — 20100 Milano"
+  },
 };
 
 // Pricing placeholders — confirmed as "visible pricing" by the client,

@@ -260,7 +260,7 @@ export default async function HomePage({
           ))}
         </div>
         <Reveal className="mt-10">
-          <p className="eyebrow max-w-3xl leading-relaxed text-accent-deep">
+          <p className="prose-copy max-w-3xl border-l-2 border-accent pl-6 text-ink-soft">
             {t.areas.rationale}
           </p>
         </Reveal>
@@ -294,7 +294,7 @@ export default async function HomePage({
             <Reveal
               key={tier.name}
               delay={i * 0.08}
-              className={`card-sweep p-8 md:p-10 ${
+              className={`card-sweep flex flex-col p-8 md:p-10 ${
                 tier.highlighted
                   ? "on-dark bg-ink text-paper"
                   : "border border-line"
@@ -338,6 +338,16 @@ export default async function HomePage({
                   </li>
                 ))}
               </ul>
+              {/* Conversion CTA at the moment of highest intent: a price
+                  card without a next step strands the reader mid-funnel. */}
+              <div className="mt-8 pt-2">
+                <ButtonLink
+                  href="/contatti"
+                  variant={tier.highlighted ? "primaryOnDark" : "primary"}
+                >
+                  {tier.cta}
+                </ButtonLink>
+              </div>
             </Reveal>
           ))}
         </div>
@@ -377,6 +387,9 @@ export default async function HomePage({
               </li>
             ))}
           </ul>
+          <div className="mt-8">
+            <ArrowLink href="/contatti">{t.why.cta}</ArrowLink>
+          </div>
         </Reveal>
       </SectionShell>
 
@@ -389,6 +402,9 @@ export default async function HomePage({
         id="faq"
       >
         <FAQAccordion items={t.faq.items} />
+        <Reveal className="mt-12">
+          <ArrowLink href="/insight">{t.faq.insightLink}</ArrowLink>
+        </Reveal>
       </SectionShell>
     </>
   );

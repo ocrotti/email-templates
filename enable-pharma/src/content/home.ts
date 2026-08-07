@@ -72,6 +72,8 @@ interface HomeContent {
       body: string;
       features: string[];
       highlighted: boolean;
+      /** Per-card conversion CTA — links to the contact page */
+      cta: string;
     }[];
     transparencyNote: string;
   };
@@ -82,12 +84,16 @@ interface HomeContent {
     differentiators: { title: string; body: string }[];
     trustTitle: string;
     trustSignals: string[];
+    /** Light closing CTA — links to the contact page */
+    cta: string;
   };
   faq: {
     number: string;
     label: string;
     title: string;
     items: FaqItem[];
+    /** Contextual link from the home body to the insight index */
+    insightLink: string;
   };
 }
 
@@ -96,7 +102,7 @@ export const home: Dict<HomeContent> = {
     meta: {
       title: "Enable Pharma — Disease awareness compliant as-a-service",
       description:
-        "Piattaforme di disease awareness unbranded per aziende pharma: strategia, contenuti, community e farmacovigilanza in un servizio ricorrente compliant.",
+        "Più di un'agenzia di comunicazione pharma: piattaforme di disease awareness unbranded, community e farmacovigilanza in un servizio ricorrente.",
     },
     hero: {
       kicker: "Disease awareness as-a-service — Italia · EU",
@@ -165,7 +171,7 @@ export const home: Dict<HomeContent> = {
         },
         {
           title: "Rigore medico-scientifico",
-          body: "Contenuti sviluppati con revisione medica, fonti citate, data di revisione visibile, comitato scientifico nominato. La comunicazione medico scientifica arriva alla review MLR del cliente già predisposta, con audit trail completo.",
+          body: "Contenuti sviluppati con revisione medica, fonti citate, data di revisione visibile, comitato scientifico nominato per il progetto. I contenuti di comunicazione medico-scientifica arrivano alla review MLR del cliente già predisposti, con audit trail completo.",
         },
         {
           title: "Gestione end-to-end",
@@ -322,7 +328,7 @@ export const home: Dict<HomeContent> = {
         },
       ],
       rationale:
-        "Il criterio è sempre lo stesso: ritardo diagnostico elevato + bisogno informativo non presidiato = razionale forte per un asset di awareness continuativo. È il motivo per cui la comunicazione malattie rare è il nostro punto di partenza.",
+        "Il criterio è sempre lo stesso: ritardo diagnostico elevato + bisogno informativo non presidiato = razionale forte per un asset di awareness continuativo. È il motivo per cui la comunicazione sulle malattie rare è il nostro punto di partenza.",
     },
     investment: {
       number: "06",
@@ -361,6 +367,7 @@ export const home: Dict<HomeContent> = {
             "Roadmap con stima del retainer",
           ],
           highlighted: false,
+          cta: "Richiedi l'audit",
         },
         {
           name: "Piattaforma as-a-service",
@@ -374,6 +381,7 @@ export const home: Dict<HomeContent> = {
             "Reporting trimestrale con comitato di indirizzo",
           ],
           highlighted: true,
+          cta: "Parti dall'audit",
         },
       ],
       transparencyNote:
@@ -394,17 +402,18 @@ export const home: Dict<HomeContent> = {
         },
         {
           title: "Modello ricorrente, KPI nel tempo",
-          body: "Non vendiamo picchi di reach: costruiamo asset misurati su engagement, qualità delle conversazioni e continuità del presidio, trimestre dopo trimestre.",
+          body: "Non siamo un'agenzia di comunicazione pharma che fattura campagna per campagna: costruiamo asset misurati su engagement, qualità delle conversazioni e continuità del presidio, trimestre dopo trimestre.",
         },
       ],
       trustTitle: "Segnali che contano per chi firma",
       trustSignals: [
-        "Comitato medico-scientifico nominato, con ruoli pubblici",
+        "Comitato medico-scientifico nominato per ogni progetto, con ruoli e CV resi pubblici sulla piattaforma",
         "Ogni contenuto con fonti citate e data di revisione",
         "Processi predisposti per la review MLR del cliente",
         "Riferimenti normativi puntuali, mai generici",
         "Accessibilità WCAG 2.2 AA / European Accessibility Act",
       ],
+      cta: "Verificatelo con un audit",
     },
     faq: {
       number: "08",
@@ -419,7 +428,7 @@ export const home: Dict<HomeContent> = {
         {
           question: "Chi firma la revisione medico-scientifica?",
           answer:
-            "Ogni contenuto è sviluppato con revisione medica, fonti citate e data di revisione visibile, sotto un comitato scientifico nominato. I contenuti arrivano al vostro processo MLR già predisposti: referenze agganciate, claim tracciabili, audit trail completo. La responsabilità approvativa finale resta dove deve stare: nel vostro processo interno.",
+            "Ogni contenuto è sviluppato con revisione medica, fonti citate e data di revisione visibile, sotto il comitato scientifico nominato per il progetto. Al vostro processo MLR non arrivano bozze: arrivano fascicoli, con ogni claim agganciato alla sua fonte e ogni versione archiviata. La responsabilità approvativa finale resta dove deve stare: nel vostro processo interno.",
         },
         {
           question: "Come gestite un evento avverso segnalato nei commenti?",
@@ -452,19 +461,20 @@ export const home: Dict<HomeContent> = {
             "Il presidio principale è l'Italia, con progettazione pronta per estensioni EU: il principio unbranded è comune ai mercati europei e la piattaforma nasce multilingua, con governance locale dove serve.",
         },
       ],
+      insightLink: "Il quadro normativo, in dettaglio, negli Insight",
     },
   },
   en: {
     meta: {
       title: "Enable Pharma — Compliant disease awareness as a service",
       description:
-        "Unbranded disease awareness platforms for pharma: strategy, medically reviewed content, community and pharmacovigilance in one compliant recurring service.",
+        "Unbranded disease awareness platforms and compliant patient engagement for pharma: strategy, content, community and pharmacovigilance in one service.",
     },
     hero: {
       kicker: "Disease awareness as a service — Italy · EU",
       titleLines: ["Disease awareness", "communities,", "compliant by design."],
       subtitle:
-        "We build and run institutional, unbranded awareness platforms for health companies. A recurring service, not a campaign. Compliance is not a disclaimer at the bottom of the page: it is engineered into the product.",
+        "We build and run institutional, unbranded awareness platforms for healthcare companies. A recurring service, not a campaign. Compliance is not a disclaimer at the bottom of the page: it is engineered into the product.",
       proofPoints: [
         {
           title: "Compliance by design",
@@ -519,7 +529,7 @@ export const home: Dict<HomeContent> = {
       label: "The solution",
       title: "A platform you switch on. And never want to switch off.",
       intro:
-        "A patient community as a service is a continuous asset, not a campaign: a condition hub, medically reviewed content, a podcast series, a moderated community. The company switches it on once; we keep it running, growing and compliant, month after month.",
+        "The awareness platform as a service is a continuous asset — a patient community as a service, not a campaign: a condition hub, medically reviewed content, a podcast series, a moderated community. The company switches it on once; we keep it running, growing and compliant, month after month.",
       pillars: [
         {
           title: "Compliance inside the product",
@@ -527,7 +537,7 @@ export const home: Dict<HomeContent> = {
         },
         {
           title: "Medical-scientific rigour",
-          body: "Content developed under medical review, with cited sources, visible review dates and a named scientific committee. Everything is prepared for the client's MLR review, with a full audit trail.",
+          body: "Content developed under medical review, with cited sources, visible review dates and a scientific committee named for the project. Everything is prepared for the client's MLR review, with a full audit trail.",
         },
         {
           title: "End-to-end management",
@@ -611,7 +621,7 @@ export const home: Dict<HomeContent> = {
           title: "Design & Build",
           weeks: "Weeks 7–12",
           owner: "Design + Engineering + Medical",
-          body: "We build the platform and its foundational content: hub, editorial series, podcast formats. Every piece is born with sources, a review date and an MLR-ready workflow.",
+          body: "We build the platform and its foundational content: hub, editorial series, podcast formats. Every piece is created with sources, a review date and an MLR-ready workflow.",
           deliverables: [
             "Accessible platform (WCAG 2.2 AA)",
             "Foundational content under medical review",
@@ -662,7 +672,7 @@ export const home: Dict<HomeContent> = {
     areas: {
       number: "05",
       label: "Therapeutic areas",
-      title: "Where awareness is worth a diagnosis.",
+      title: "Where awareness shortens the road to diagnosis.",
       intro:
         "We don't work everywhere. We choose areas where diagnostic delay is measured in years and a continuous community changes trajectories: earlier clinical suspicion, earlier referral, earlier care.",
       list: [
@@ -723,6 +733,7 @@ export const home: Dict<HomeContent> = {
             "Roadmap with retainer estimate",
           ],
           highlighted: false,
+          cta: "Request the audit",
         },
         {
           name: "Platform as a service",
@@ -736,6 +747,7 @@ export const home: Dict<HomeContent> = {
             "Quarterly reporting with steering committee",
           ],
           highlighted: true,
+          cta: "Start with the audit",
         },
       ],
       transparencyNote:
@@ -756,17 +768,18 @@ export const home: Dict<HomeContent> = {
         },
         {
           title: "Recurring model, KPIs over time",
-          body: "We are not a pharma content agency billing campaign by campaign: we build assets measured on engagement, conversation quality and continuity of presence, quarter after quarter.",
+          body: "We are not a pharma content agency billing campaign by campaign. Think of us as a patient engagement agency with a recurring mandate: assets measured on engagement, conversation quality and continuity of presence, quarter after quarter.",
         },
       ],
       trustTitle: "Signals that matter to whoever signs",
       trustSignals: [
-        "Named medical-scientific committee with public roles",
+        "A medical-scientific committee named for each project, roles and CVs published on the platform",
         "Every piece of content with cited sources and review date",
         "Processes prepared for the client's MLR review",
-        "Precise normative references, never generic",
+        "Precise regulatory references, never generic",
         "WCAG 2.2 AA / European Accessibility Act accessibility",
       ],
+      cta: "Put it to the test with an audit",
     },
     faq: {
       number: "08",
@@ -781,7 +794,7 @@ export const home: Dict<HomeContent> = {
         {
           question: "Who signs off the medical-scientific review?",
           answer:
-            "Every piece of content is developed under medical review, with cited sources and a visible review date, overseen by a named scientific committee. Content reaches your MLR process already prepared: references attached, claims traceable, full audit trail. Final approval authority stays where it belongs: in your internal process.",
+            "Every piece of content is developed under medical review, with cited sources and a visible review date, overseen by the scientific committee named for the project. Your MLR process never receives drafts: it receives dossiers, each claim attached to its source, each version archived. Final approval authority stays where it belongs: in your internal process.",
         },
         {
           question: "How do you handle an adverse event mentioned in the comments?",
@@ -806,14 +819,15 @@ export const home: Dict<HomeContent> = {
         {
           question: "How long does it take to start?",
           answer:
-            "The audit takes 4–6 weeks. If the project continues, the platform goes live indicatively within 90 days of kickoff, with continuous management active from the first day of publication.",
+            "The audit takes 4–6 weeks. If the project continues, the platform typically goes live within 90 days of kickoff, with continuous management active from the first day of publication.",
         },
         {
           question: "Do you only work in Italy?",
           answer:
-            "Italy is the main base, with design ready for EU extensions: the unbranded principle is common across European markets and the platform is born multilingual, with local governance where needed.",
+            "Italy is the main base, with design ready for EU extensions: the unbranded principle is common across European markets and the platform is built multilingual from the start, with local governance where needed.",
         },
       ],
+      insightLink: "The regulatory picture, in depth, in our Insights",
     },
   },
 };

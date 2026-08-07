@@ -51,7 +51,7 @@ export const site: Dict<SiteChrome> = {
     localeSwitch: { label: "EN", target: "en" },
     skipToContent: "Vai al contenuto",
     footer: {
-      claim: "Community di disease awareness, compliant by design.",
+      claim: "Disease awareness as-a-service, compliant by design.",
       formTitle: "Parliamone",
       formIntro:
         "Due righe sul contesto: patologia, funzione, obiettivo. Rispondiamo entro 24 ore lavorative.",
@@ -90,11 +90,11 @@ export const site: Dict<SiteChrome> = {
     localeSwitch: { label: "IT", target: "it" },
     skipToContent: "Skip to content",
     footer: {
-      claim: "Disease awareness communities, compliant by design.",
+      claim: "Disease awareness as a service, compliant by design.",
       formTitle: "Let's talk",
       formIntro:
-        "Two lines of context: condition, function, goal. We reply within 24 business hours.",
-      responseNote: "Reply within 24 business hours",
+        "Two lines of context: condition, function, goal. We reply within one business day.",
+      responseNote: "Reply within one business day",
       navTitle: "Site",
       contactTitle: "Contact",
       legalNote:
@@ -112,7 +112,7 @@ export const site: Dict<SiteChrome> = {
     meta: {
       title: "Enable Pharma — Compliant disease awareness communities",
       description:
-        "We build and run unbranded disease awareness platforms for health companies in Italy. Compliance by design: unbranded rules, GVP VI, GDPR art. 9.",
+        "We build and run unbranded disease awareness platforms for healthcare companies in Italy. Compliance by design: unbranded rules, GVP VI, GDPR art. 9.",
     },
   },
 };

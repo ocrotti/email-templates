@@ -23,9 +23,8 @@ function entries(
   params?: Record<string, Record<Locale, string>>,
   lastModified?: string,
 ): MetadataRoute.Sitemap {
-  const urlFor = (locale: Locale) =>
-    siteConfig.url +
-    getPathname({
+  const urlFor = (locale: Locale) => {
+    const path = getPathname({
       locale,
       href: params
         ? ({
@@ -36,6 +35,12 @@ function entries(
           } as never)
         : (pathname as never),
     });
+    // Root must serialize identically here and in the canonical tag or
+    // crawler validators flag a mismatch on the home. Next's metadata
+    // pipeline normalizes the canonical to the bare origin (no trailing
+    // slash), so the sitemap emits the same form.
+    return path === "/" || path === "" ? siteConfig.url : siteConfig.url + path;
+  };
 
   const languages: Record<string, string> = Object.fromEntries(
     routing.locales.map((locale) => [locale, urlFor(locale)]),

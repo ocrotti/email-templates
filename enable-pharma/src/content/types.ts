@@ -36,6 +36,7 @@ export interface ProcessPhase {
 
 export interface ArticleSection {
   heading: string;
+  /** Paragraphs support minimal inline links: [testo](/percorso) */
   paragraphs: string[];
   list?: string[];
 }
@@ -46,13 +47,15 @@ export interface ArticleLang {
   metaDescription: string;
   excerpt: string;
   sections: ArticleSection[];
-  sources?: { label: string; note?: string }[];
+  /** url only for stable institutional permalinks (Normattiva, EUR-Lex…) */
+  sources?: { label: string; note?: string; url?: string }[];
 }
 
 export interface Article {
   slug: Dict<string>;
   date: string;
-  keywords: string[];
+  /** Per-locale: the EN article must not ship Italian keywords */
+  keywords: Dict<string[]>;
   readingMinutes: number;
   content: Dict<ArticleLang>;
 }

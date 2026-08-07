@@ -11,6 +11,7 @@ interface InsightIndexContent {
   readingTime: (min: number) => string;
   backLabel: string;
   sourcesTitle: string;
+  relatedTitle: string;
   articleCtaTitle: string;
   articleCtaBody: string;
   articleCta: string;
@@ -19,7 +20,7 @@ interface InsightIndexContent {
 export const insight: Dict<InsightIndexContent> = {
   it: {
     meta: {
-      title: "Insight — Awareness, compliance e patient engagement",
+      title: "Insight — Awareness, compliance, engagement | Enable Pharma",
       description:
         "Analisi operative su disease awareness, farmacovigilanza social, patient engagement e norme del pharma marketing in Italia. Senza gergo, con le fonti.",
     },
@@ -33,6 +34,7 @@ export const insight: Dict<InsightIndexContent> = {
     readingTime: (min) => `${min} min di lettura`,
     backLabel: "Tutti gli insight",
     sourcesTitle: "Riferimenti",
+    relatedTitle: "Articoli correlati",
     articleCtaTitle: "Applichiamo questo impianto alla vostra patologia",
     articleCtaBody:
       "L'Awareness & Compliance Audit definisce perimetro normativo, stakeholder e roadmap in 4–6 settimane, a prezzo fisso.",
@@ -40,7 +42,7 @@ export const insight: Dict<InsightIndexContent> = {
   },
   en: {
     meta: {
-      title: "Insights — Awareness, compliance and patient engagement",
+      title: "Insights — Awareness, compliance, engagement | Enable Pharma",
       description:
         "Operational analysis on disease awareness, social media pharmacovigilance, patient engagement and pharma marketing rules in Italy. No jargon, with sources.",
     },
@@ -54,6 +56,7 @@ export const insight: Dict<InsightIndexContent> = {
     readingTime: (min) => `${min} min read`,
     backLabel: "All insights",
     sourcesTitle: "References",
+    relatedTitle: "Related articles",
     articleCtaTitle: "Let's apply this framework to your condition",
     articleCtaBody:
       "The Awareness & Compliance Audit defines the regulatory perimeter, stakeholders and roadmap in 4–6 weeks, at a fixed price.",

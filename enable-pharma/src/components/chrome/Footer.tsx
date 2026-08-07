@@ -4,6 +4,7 @@ import { site } from "@/content/site";
 import { contact } from "@/content/contact";
 import { siteConfig } from "@/lib/site-config";
 import ContactForm from "@/components/forms/ContactForm";
+import FooterFormGate from "./FooterFormGate";
 
 export default function Footer({ locale }: { locale: Locale }) {
   const t = site[locale];
@@ -69,26 +70,42 @@ export default function Footer({ locale }: { locale: Locale }) {
                       LinkedIn
                     </a>
                   </li>
-                  <li className="eyebrow mt-4 text-accent-ondark">
-                    {t.footer.responseNote}
-                  </li>
                 </ul>
               </div>
             </div>
           </div>
 
-          <div>
-            <h2 className="font-display-soft text-2xl">{t.footer.formTitle}</h2>
-            <p className="prose-copy mt-3 mb-8 text-paper/70">
-              {t.footer.formIntro}
-            </p>
-            <ContactForm
-              labels={formLabels}
-              locale={locale}
-              compact
-              onDark
-            />
-          </div>
+          <FooterFormGate
+            fallback={
+              <div>
+                <h2 className="font-display-soft text-2xl">
+                  {t.footer.formTitle}
+                </h2>
+                <p className="prose-copy mt-3 text-paper/70">
+                  {contact[locale].aside.emailLabel}
+                </p>
+                <a
+                  href={`mailto:${siteConfig.email}`}
+                  className="font-display-soft mt-4 inline-block text-xl text-accent-ondark underline-offset-4 transition-colors hover:text-paper hover:underline"
+                >
+                  {siteConfig.email}
+                </a>
+                <p className="eyebrow mt-6 text-paper/50">
+                  {t.footer.responseNote}
+                </p>
+              </div>
+            }
+          >
+            <div>
+              <h2 className="font-display-soft text-2xl">
+                {t.footer.formTitle}
+              </h2>
+              <p className="prose-copy mt-3 mb-8 text-paper/70">
+                {t.footer.formIntro}
+              </p>
+              <ContactForm labels={formLabels} locale={locale} compact onDark />
+            </div>
+          </FooterFormGate>
         </div>
 
         <div className="mt-20 border-t border-line-dark pt-8">
@@ -97,7 +114,16 @@ export default function Footer({ locale }: { locale: Locale }) {
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-between gap-4 text-xs text-paper/50">
             <p>
-              © {new Date().getFullYear()} {siteConfig.name}. {t.footer.rights}
+              © {new Date().getFullYear()}{" "}
+              {siteConfig.legal.companyName || siteConfig.name}.{" "}
+              {t.footer.rights}
+              {/* Legal identity (art. 35 DPR 633/72) — renders once the
+                  fields in site-config.ts are filled in. */}
+              {[siteConfig.legal.vatId, siteConfig.legal.address]
+                .filter(Boolean)
+                .map((part) => (
+                  <span key={part}> · {part}</span>
+                ))}
             </p>
             <p>{t.footer.accessibilityNote}</p>
           </div>

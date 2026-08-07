@@ -18,7 +18,7 @@ export function organizationSchema(locale: Locale) {
     description:
       locale === "it"
         ? "Enable Pharma costruisce e gestisce piattaforme di disease awareness istituzionali (unbranded) come servizio ricorrente per le aziende della salute."
-        : "Enable Pharma builds and runs institutional (unbranded) disease awareness platforms as a recurring service for health companies.",
+        : "Enable Pharma builds and runs institutional (unbranded) disease awareness platforms as a recurring service for healthcare companies.",
   };
 }
 
@@ -89,7 +89,7 @@ export function articleSchema(article: Article, locale: Locale, url: string) {
     dateModified: article.date,
     inLanguage: locale,
     mainEntityOfPage: url,
-    keywords: article.keywords.join(", "),
+    keywords: article.keywords[locale].join(", "),
     author: { "@id": `${siteConfig.url}/#organization` },
     publisher: { "@id": `${siteConfig.url}/#organization` },
   };

@@ -139,14 +139,22 @@ export default function MotionRoot({ children }: { children: ReactNode }) {
             });
 
             // ------------------------- scrubbed section numerals
+            // Below lg the numeral sits in flow right above the eyebrow:
+            // the desktop ±80px drift makes it transit visibly across
+            // the heading while the section enters, so the range shrinks
+            // to stay inside the gap between numeral and label.
+            const numeralDrift = window.matchMedia("(min-width: 1024px)")
+              .matches
+              ? { from: 80, to: -40 }
+              : { from: 16, to: -8 };
             gsap.utils
               .toArray<HTMLElement>("[data-section-number]")
               .forEach((el) => {
                 gsap.fromTo(
                   el,
-                  { y: 80 },
+                  { y: numeralDrift.from },
                   {
-                    y: -40,
+                    y: numeralDrift.to,
                     ease: "none",
                     scrollTrigger: {
                       trigger: el,

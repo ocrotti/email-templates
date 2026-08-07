@@ -42,7 +42,7 @@ export const contact: Dict<ContactContent> = {
     meta: {
       title: "Contatti — Richiedi l'audit | Enable Pharma",
       description:
-        "Richiedi l'Awareness & Compliance Audit: 4–6 settimane per definire perimetro normativo, stakeholder e roadmap della awareness sulla vostra patologia.",
+        "Richiedi l'Awareness & Compliance Audit: 4–6 settimane per definire perimetro normativo, stakeholder e roadmap sulla vostra patologia.",
     },
     hero: {
       kicker: "Contatti",
@@ -67,7 +67,7 @@ export const contact: Dict<ContactContent> = {
       emailPlaceholder: "nome.cognome@azienda.it",
       company: "Azienda",
       role: "Funzione",
-      rolePlaceholder: "Seleziona la tua funzione",
+      rolePlaceholder: "Seleziona una funzione",
       roles: [
         "Medical Affairs",
         "Corporate / Public Affairs",
@@ -86,9 +86,8 @@ export const contact: Dict<ContactContent> = {
       sending: "Invio in corso…",
       success:
         "Richiesta ricevuta. Vi rispondiamo entro 24 ore lavorative.",
-      error:
-        "Qualcosa non ha funzionato. Riprovate, o scriveteci direttamente via email.",
-      requiredNote: "Tutti i campi sono richiesti, tranne l'area terapeutica.",
+      error: "Qualcosa non ha funzionato. Riprovate, o scrivete a",
+      requiredNote: "Tutti i campi sono obbligatori, tranne l'area terapeutica.",
     },
   },
   en: {
@@ -101,7 +100,7 @@ export const contact: Dict<ContactContent> = {
       kicker: "Contact",
       title: "Let's start from the perimeter.",
       subtitle:
-        "Tell us about the condition, your function and your goal. We reply within 24 business hours with a proposal for a first conversation — no 60-slide pitch.",
+        "Tell us about the condition, your function and your goal. We reply within one business day with a proposal for a first conversation — no 60-slide pitch.",
     },
     aside: {
       title: "How the first contact works",
@@ -111,7 +110,7 @@ export const contact: Dict<ContactContent> = {
         "An audit proposal with scope and fixed price",
         "A 4–6 week audit with an approvable roadmap",
       ],
-      responseNote: "Reply within 24 business hours.",
+      responseNote: "Reply within one business day.",
       emailLabel: "Or write to us directly:",
     },
     form: {
@@ -137,9 +136,8 @@ export const contact: Dict<ContactContent> = {
         "I have read the privacy notice and consent to the processing of my data to answer this request.",
       submit: "Send the request",
       sending: "Sending…",
-      success: "Request received. We reply within 24 business hours.",
-      error:
-        "Something went wrong. Please try again, or email us directly.",
+      success: "Request received. We reply within one business day.",
+      error: "Something went wrong. Please try again, or write to",
       requiredNote: "All fields are required except the therapeutic area.",
     },
   },

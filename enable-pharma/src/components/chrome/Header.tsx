@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, usePathname } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 import { site } from "@/content/site";
@@ -16,6 +16,7 @@ export default function Header({ locale }: { locale: Locale }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const menuButtonRef = useRef<HTMLButtonElement | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -35,6 +36,33 @@ export default function Header({ locale }: { locale: Locale }) {
     };
   }, [open]);
 
+  // With the overlay open, the page underneath must leave the tab order
+  // (inert) or keyboard focus disappears behind an opaque layer; Escape
+  // closes and hands focus back to the toggle button. The skip link is
+  // included: its #main target is inert too, and on focus it paints
+  // right over the logo.
+  useEffect(() => {
+    const page = document.querySelectorAll<HTMLElement>(
+      'main, footer, a[href="#main"]',
+    );
+    page.forEach((el) => {
+      if (open) el.setAttribute("inert", "");
+      else el.removeAttribute("inert");
+    });
+    if (!open) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setOpen(false);
+        menuButtonRef.current?.focus();
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+      page.forEach((el) => el.removeAttribute("inert"));
+    };
+  }, [open]);
+
   const otherLocale = t.localeSwitch.target;
 
   return (
@@ -46,9 +74,11 @@ export default function Header({ locale }: { locale: Locale }) {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-gutter py-4">
+        {/* z-50 keeps logo and mobile controls above the z-40 overlay,
+            so home and language stay reachable while the menu is open. */}
         <Link
           href="/"
-          className="font-display -my-2 inline-block py-2 text-lg tracking-tight"
+          className="font-display relative z-50 -my-2 inline-block py-2 text-lg tracking-tight"
           aria-label="Enable Pharma — home"
         >
           Enable&nbsp;Pharma<span className="text-accent">.</span>
@@ -80,12 +110,21 @@ export default function Header({ locale }: { locale: Locale }) {
           </MagneticButton>
         </nav>
 
-        <div className="flex items-center gap-3 lg:hidden">
+        <div className="relative z-50 flex items-center gap-3 lg:hidden">
           <LocaleSwitcher
             target={otherLocale}
             label={t.localeSwitch.label}
           />
+          {/* Persistent conversion entry on mobile: the hero CTA scrolls
+              away and the desktop pill is lg-only. */}
+          <Link
+            href="/contatti"
+            className="inline-flex items-center rounded-full bg-accent px-4 py-2.5 text-sm font-medium text-paper transition-colors hover:bg-accent-deep"
+          >
+            {t.ctaShort}
+          </Link>
           <button
+            ref={menuButtonRef}
             type="button"
             className="relative z-50 grid h-11 w-11 place-items-center rounded-full border border-line"
             aria-expanded={open}

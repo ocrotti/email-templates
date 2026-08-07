@@ -152,8 +152,11 @@ body {
   user-select: none;
 }
 
+/* On ink the line-dark stroke lands at ~1.5:1 and the numeral all but
+   vanishes exactly where the layout changes register; a whispered paper
+   stroke keeps it decorative but present. */
 .on-dark .section-number {
-  -webkit-text-stroke: 1px var(--color-line-dark);
+  -webkit-text-stroke: 1px rgb(244 240 230 / 0.28);
   opacity: 0.9;
 }
 

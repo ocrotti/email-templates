@@ -67,9 +67,9 @@ export const compliance: Dict<ComplianceContent> = {
       {
         ref: "Review MLR · Comitato scientifico",
         title: "Rigore medico-scientifico tracciabile",
-        body: "Ogni contenuto nasce con fonti citate, revisione medica e data di revisione visibile, sotto un comitato scientifico nominato. Arriva al processo MLR del cliente già predisposto: claim tracciabili, referenze agganciate, versioni archiviate. L'approvazione finale resta al cliente; noi rendiamo il processo veloce e difendibile.",
+        body: "Ogni contenuto nasce con fonti citate, revisione medica e data di revisione visibile, sotto il comitato scientifico nominato per il progetto. Arriva al processo MLR del cliente già predisposto: claim tracciabili, referenze agganciate, versioni archiviate. L'approvazione finale resta al cliente; noi rendiamo il processo veloce e difendibile.",
         practices: [
-          "Comitato medico-scientifico nominato, con ruoli e CV pubblici",
+          "Comitato medico-scientifico nominato per ogni progetto, con ruoli e CV resi pubblici sulla piattaforma",
           "Ogni claim collegato a una fonte primaria verificabile",
           "Data di revisione e firma visibili su ogni contenuto",
           "Fascicolo MLR-ready per ogni lotto di contenuti",
@@ -137,11 +137,11 @@ export const compliance: Dict<ComplianceContent> = {
     forBuyer: {
       title: "Cosa significa per ogni funzione",
       intro:
-        "Un progetto di awareness attraversa quattro scrivanie. A ciascuna rispondiamo con processi, non con rassicurazioni.",
+        "Un progetto di awareness attraversa cinque scrivanie. A ciascuna rispondiamo con processi, non con rassicurazioni.",
       items: [
         {
           role: "Medical Affairs",
-          body: "Contenuti a prova di review: fonti primarie, claim tracciabili, comitato scientifico nominato, fascicoli MLR-ready. Il rigore non rallenta la produzione: la struttura.",
+          body: "Contenuti a prova di review: fonti primarie, claim tracciabili, comitato scientifico nominato, fascicoli MLR-ready. Il rigore non rallenta la produzione: è la struttura ad accelerarla.",
         },
         {
           role: "Legal & Compliance",
@@ -152,8 +152,12 @@ export const compliance: Dict<ComplianceContent> = {
           body: "Comunicazione istituzionale che costruisce reputazione nel tempo: presidio continuativo, storytelling di patologia, trasparenza verso gli stakeholder.",
         },
         {
-          role: "Patient Advocacy & Market Access",
-          body: "Rapporti con le associazioni gestiti secondo Codice, disclosure pronta, e KPI non promozionali che dimostrano l'impatto del presidio trimestre dopo trimestre.",
+          role: "Patient Advocacy",
+          body: "Rapporti con le associazioni gestiti secondo Codice: contratti scritti, indipendenza editoriale rispettata, disclosure annuale pronta senza rincorse.",
+        },
+        {
+          role: "Market Access / Brand",
+          body: "KPI non promozionali che dimostrano l'impatto del presidio trimestre dopo trimestre: engagement qualificato, copertura territoriale, reputazione misurata.",
         },
       ],
     },
@@ -173,7 +177,7 @@ export const compliance: Dict<ComplianceContent> = {
       kicker: "How we work",
       title: "Compliance is not declared. It is designed.",
       subtitle:
-        "Every Enable Pharma platform is born inside the Italian and European regulatory perimeter: we don't work around it, we use it as the design specification. This page shows the framework, regulation by regulation.",
+        "Every Enable Pharma platform starts inside the Italian and European regulatory perimeter: we don't work around it, we use it as the design specification. This page shows the framework, regulation by regulation.",
     },
     intro: {
       title: "Why we show you this",
@@ -198,9 +202,9 @@ export const compliance: Dict<ComplianceContent> = {
       {
         ref: "MLR review · Scientific committee",
         title: "Traceable medical-scientific rigour",
-        body: "Every piece of content is born with cited sources, medical review and a visible review date, overseen by a named scientific committee. It reaches the client's MLR process already prepared: traceable claims, attached references, archived versions. Final approval stays with the client; we make the process fast and defensible.",
+        body: "Every piece of content is created with cited sources, medical review and a visible review date, overseen by the scientific committee named for the project. It reaches the client's MLR process already prepared: traceable claims, attached references, archived versions. Final approval stays with the client; we make the process fast and defensible.",
         practices: [
-          "Named medical-scientific committee with public roles and CVs",
+          "A medical-scientific committee named for each project, roles and CVs published on the platform",
           "Every claim linked to a verifiable primary source",
           "Review date and sign-off visible on every piece of content",
           "MLR-ready dossier for every content batch",
@@ -245,7 +249,7 @@ export const compliance: Dict<ComplianceContent> = {
       {
         ref: "AGCOM 197/25/CONS",
         title: "Influencers and creators inside the rules",
-        body: "AGCOM resolution 197/25/CONS brought influencers into the regulated perimeter: a public register for relevant profiles, transparency obligations, reinforced responsibility for health-related content, sanctions up to €600,000. Our creator programmes are born compliant: documented selection, contracts, disclosure, scientific review of content.",
+        body: "AGCOM resolution 197/25/CONS brought influencers into the regulated perimeter: a public register for relevant profiles, transparency obligations, reinforced responsibility for health-related content, sanctions up to €600,000. Our creator programmes are compliant from day one: documented selection, contracts, disclosure, scientific review of content.",
         practices: [
           "Documented scoring matrix for creator selection",
           "Conflict-of-interest checks before engagement",
@@ -268,7 +272,7 @@ export const compliance: Dict<ComplianceContent> = {
     forBuyer: {
       title: "What it means for each function",
       intro:
-        "An awareness project crosses four desks. We answer each one with processes, not reassurances.",
+        "An awareness project crosses five desks. We answer each one with processes, not reassurances.",
       items: [
         {
           role: "Medical Affairs",
@@ -283,8 +287,12 @@ export const compliance: Dict<ComplianceContent> = {
           body: "Institutional communication that builds reputation over time: continuous presence, condition storytelling, transparency towards stakeholders.",
         },
         {
-          role: "Patient Advocacy & Market Access",
-          body: "Association relationships managed under the Code, disclosure-ready, and non-promotional KPIs proving the value of the presence quarter after quarter.",
+          role: "Patient Advocacy",
+          body: "Association relationships managed under the Code: written contracts, editorial independence respected, annual disclosure ready without a scramble.",
+        },
+        {
+          role: "Market Access / Brand",
+          body: "Non-promotional KPIs proving the value of the presence quarter after quarter: qualified engagement, territorial coverage, measured reputation.",
         },
       ],
     },

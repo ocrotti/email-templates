@@ -7,6 +7,9 @@ import { JsonLd, breadcrumbSchema } from "@/lib/schema";
 import { getPathname } from "@/i18n/navigation";
 import { siteConfig } from "@/lib/site-config";
 import { home } from "@/content/home";
+import { insight } from "@/content/insight";
+import { sortedArticles } from "@/content/insights";
+import { Link } from "@/i18n/navigation";
 import Reveal from "@/components/motion/Reveal";
 import FadeUp from "@/components/motion/FadeUp";
 import Marquee from "@/components/motion/Marquee";
@@ -142,6 +145,38 @@ export default async function CompliancePage({
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Contextual bridge to the insight articles: the framework above
+          is argued in depth there, and authority should flow both ways. */}
+      <section className="px-gutter py-16 md:py-20">
+        <div className="mx-auto max-w-7xl">
+          <Reveal>
+            <h2 className="eyebrow text-accent-deep">
+              {insight[locale].relatedTitle}
+            </h2>
+            <ul className="mt-6 divide-y divide-line border-y border-line">
+              {sortedArticles.slice(0, 3).map((a) => (
+                <li key={a.slug[locale]}>
+                  <Link
+                    href={{
+                      pathname: "/insight/[slug]",
+                      params: { slug: a.slug[locale] },
+                    }}
+                    className="group flex flex-wrap items-baseline justify-between gap-x-8 gap-y-1 py-4"
+                  >
+                    <span className="font-medium transition-colors group-hover:text-accent-deep">
+                      {a.content[locale].title}
+                    </span>
+                    <span className="text-sm text-ink-soft">
+                      {insight[locale].readingTime(a.readingMinutes)}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
         </div>
       </section>
 

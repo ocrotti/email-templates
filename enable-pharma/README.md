@@ -121,7 +121,10 @@ oggetto con questa forma (entrambe le lingue obbligatorie):
 {
   "slug": { "it": "slug-italiano", "en": "english-slug" },
   "date": "2026-09-15",                    // ISO, guida l'ordinamento
-  "keywords": ["parola chiave", "..."],
+  "keywords": {                            // per lingua: l'Article EN non
+    "it": ["parola chiave", "..."],        // deve uscire con keyword IT
+    "en": ["keyword", "..."]
+  },
   "readingMinutes": 6,
   "content": {
     "it": {
@@ -132,11 +135,17 @@ oggetto con questa forma (entrambe le lingue obbligatorie):
       "sections": [
         {
           "heading": "Titolo di sezione",
-          "paragraphs": ["Primo paragrafo.", "Secondo paragrafo."],
+          "paragraphs": ["Con [link inline](/compliance) in stile markdown."],
           "list": ["voce opzionale", "altra voce"]
         }
       ],
-      "sources": [{ "label": "D.Lgs. 219/2006", "note": "art. 113" }]
+      "sources": [
+        {
+          "label": "D.Lgs. 219/2006",
+          "note": "art. 113",
+          "url": "https://www.normattiva.it/…"   // opzionale: solo permalink
+        }                                        // istituzionali stabili
+      ]
     },
     "en": { /* stessa forma */ }
   }
@@ -146,6 +155,10 @@ oggetto con questa forma (entrambe le lingue obbligatorie):
 Nessun altro passaggio: rotte statiche, sitemap, hreflang e JSON-LD `Article` si
 generano da qui. Quando una sezione ha sia `paragraphs` sia `list`, il rendering è
 _primo paragrafo → lista → paragrafi restanti_ (il primo paragrafo introduce la lista).
+Nei `paragraphs` e nelle `list` è supportato un markup minimo `[testo](url)` per i
+link contestuali: percorsi interni completi di locale (`/compliance`,
+`/en/insights/slug`) o URL `https:` esterni (che aprono in nuova scheda). Il blocco
+«Articoli correlati» in fondo a ogni articolo si genera da solo.
 
 **Vincoli editoriali** — valgono per ogni contenuto del sito, non solo per gli articoli:
 nessun nome di azienda farmaceutica, farmaco, principio attivo, campagna, agenzia o
@@ -298,8 +311,19 @@ Verificato inoltre con script ripetibili (in `scratchpad`, non committati):
 
 - [ ] Prezzi in `src/lib/site-config.ts` (oggi placeholder di benchmark)
 - [ ] Dominio di produzione in `NEXT_PUBLIC_SITE_URL`
-- [ ] Indirizzo email, URL LinkedIn e dati societari in `src/lib/site-config.ts`
-- [ ] `src/content/privacy.ts`: informativa in bozza, da far validare dal legale
-- [ ] Nomi e ruoli del comitato medico-scientifico (oggi citato come processo, non
-      ancora nominato con persone reali)
+- [ ] Indirizzo email e URL LinkedIn in `src/lib/site-config.ts`
+- [ ] **Blocker legale** — `siteConfig.legal` (ragione sociale, P.IVA, sede) in
+      `src/lib/site-config.ts`: l'indicazione della P.IVA sul sito è un obbligo
+      ex art. 35 DPR 633/72. Il footer li renderizza da solo appena compilati.
+- [ ] `src/content/privacy.ts`: informativa da far validare dal legale (il testo
+      pubblicato non lo dichiara più — il TODO vive solo qui e nei commenti)
+- [ ] Nomi e ruoli del comitato medico-scientifico del primo progetto (il claim
+      pubblico ora promette il comitato *per ogni progetto*, quindi è vero per
+      costruzione — ma il primo progetto dovrà mantenerlo)
 - [ ] Verifica del dominio mittente su Resend
+- [ ] Spot-check dei link esterni alle fonti normative negli articoli
+      (Normattiva/EUR-Lex: permalink stabili, ma la rete di build non
+      permette di verificarli — un `curl` per URL prima del lancio)
+- [ ] `RESEND_API_KEY` in produzione + test end-to-end del form (senza chiave
+      l'API risponde 500 e il lead vede l'errore con mailto di fallback)
+- [ ] Smoke test post-deploy: `curl` su sitemap.xml (nessun localhost), form → 200

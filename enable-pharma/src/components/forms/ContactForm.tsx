@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import type { ContactFormLabels } from "@/content/contact";
+import { siteConfig } from "@/lib/site-config";
 
 type Status = "idle" | "sending" | "success" | "error";
 
@@ -81,7 +82,13 @@ export default function ContactForm({
   }
 
   return (
-    <form onSubmit={onSubmit} noValidate={false}>
+    // color-scheme keeps native controls (checkbox, select popup) legible
+    // on the dark footer variant.
+    <form
+      onSubmit={onSubmit}
+      noValidate={false}
+      className={onDark ? "[color-scheme:dark]" : undefined}
+    >
       {/* Honeypot — hidden from real users, tempting for bots */}
       <div className="sr-only" aria-hidden="true">
         <label>
@@ -142,22 +149,42 @@ export default function ContactForm({
           <label htmlFor={`role-${compact}`} className={labelClass}>
             {labels.role}
           </label>
-          <select
-            id={`role-${compact}`}
-            name="role"
-            required
-            defaultValue=""
-            className={`${inputClass} cursor-pointer appearance-none`}
-          >
-            <option value="" disabled>
-              {labels.rolePlaceholder}
-            </option>
-            {labels.roles.map((r) => (
-              <option key={r} value={r} className="text-ink">
-                {r}
+          {/* The wrapper adds the chevron a native select loses with
+              appearance-none — without it the field reads as a text input. */}
+          <div className="relative">
+            <select
+              id={`role-${compact}`}
+              name="role"
+              required
+              defaultValue=""
+              className={`${inputClass} cursor-pointer appearance-none pr-8`}
+            >
+              <option value="" disabled>
+                {labels.rolePlaceholder}
               </option>
-            ))}
-          </select>
+              {labels.roles.map((r) => (
+                <option key={r} value={r} className="text-ink">
+                  {r}
+                </option>
+              ))}
+            </select>
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 16 16"
+              className={`pointer-events-none absolute top-1/2 right-1 h-4 w-4 -translate-y-1/2 ${
+                onDark ? "text-paper/60" : "text-ink-soft"
+              }`}
+            >
+              <path
+                d="M4 6l4 4 4-4"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </div>
         </div>
         <div>
           <label htmlFor={`area-${compact}`} className={labelClass}>
@@ -219,7 +246,17 @@ export default function ContactForm({
                 onDark ? "text-accent-ondark" : "text-accent-deep"
               }`}
             >
-              {labels.error}
+              {/* The moment a submission fails is the moment a lead is
+                  about to be lost: the fallback address must be one tap
+                  away, not somewhere else on the page. */}
+              {labels.error}{" "}
+              <a
+                href={`mailto:${siteConfig.email}`}
+                className="font-medium underline underline-offset-2"
+              >
+                {siteConfig.email}
+              </a>
+              .
             </p>
           ) : null}
           {!compact ? (

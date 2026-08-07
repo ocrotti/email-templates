@@ -12,6 +12,9 @@ interface PageMetaArgs {
   title: string;
   description: string;
   ogType?: "website" | "article";
+  /** ISO date — emitted as article:published_time when ogType=article */
+  publishedTime?: string;
+  modifiedTime?: string;
 }
 
 function absoluteUrl(
@@ -22,7 +25,11 @@ function absoluteUrl(
   const href = params
     ? ({ pathname, params } as never)
     : (pathname as never);
-  return siteConfig.url + getPathname({ locale, href });
+  const path = getPathname({ locale, href });
+  // Next's metadata pipeline serializes the root canonical as the bare
+  // origin regardless of a trailing slash here; the sitemap mirrors
+  // that form (see sitemap.ts) so the two always match.
+  return path === "/" || path === "" ? siteConfig.url : siteConfig.url + path;
 }
 
 /**
@@ -37,6 +44,8 @@ export function pageMetadata({
   title,
   description,
   ogType = "website",
+  publishedTime,
+  modifiedTime,
 }: PageMetaArgs): Metadata {
   const urlFor = (l: Locale) =>
     absoluteUrl(
@@ -61,7 +70,9 @@ export function pageMetadata({
     url: `${siteConfig.url}${ogPrefix}/opengraph-image`,
     width: 1200,
     height: 630,
-    alt: `${siteConfig.name} — ${title}`,
+    // The generated image shows the brand + claim; the page title often
+    // contains the brand too, so composing both duplicated it.
+    alt: "Enable Pharma — disease awareness, compliant by design",
   };
 
   return {
@@ -76,6 +87,11 @@ export function pageMetadata({
       locale: locale === "it" ? "it_IT" : "en_US",
       type: ogType,
       images: [ogImage],
+      // Next serializes these into article:published_time /
+      // article:modified_time only when type === "article".
+      ...(ogType === "article" && publishedTime
+        ? { publishedTime, modifiedTime: modifiedTime ?? publishedTime }
+        : {}),
     },
     twitter: {
       card: "summary_large_image",

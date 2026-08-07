@@ -3,7 +3,8 @@ import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { routing, type Locale } from "@/i18n/routing";
 import { insight } from "@/content/insight";
-import { articles, getArticleBySlug } from "@/content/insights";
+import { articles, getArticleBySlug, sortedArticles } from "@/content/insights";
+import { renderRichText } from "@/components/ui/RichText";
 import { pageMetadata } from "@/lib/seo";
 import {
   JsonLd,
@@ -46,6 +47,7 @@ export async function generateMetadata({
     title: lang.metaTitle,
     description: lang.metaDescription,
     ogType: "article",
+    publishedTime: article.date,
   });
 }
 
@@ -69,7 +71,7 @@ function SectionBody({ section }: { section: ArticleSection }) {
           <span aria-hidden="true" className="shrink-0 text-accent">
             —
           </span>
-          <span>{item}</span>
+          <span>{renderRichText(item)}</span>
         </li>
       ))}
     </ul>
@@ -77,11 +79,13 @@ function SectionBody({ section }: { section: ArticleSection }) {
 
   return (
     <>
-      {lead ? <p className="prose-copy mt-5 text-ink-2">{lead}</p> : null}
+      {lead ? (
+        <p className="prose-copy mt-5 text-ink-2">{renderRichText(lead)}</p>
+      ) : null}
       {list}
       {rest.map((p) => (
         <p key={p.slice(0, 32)} className="prose-copy mt-5 text-ink-2">
-          {p}
+          {renderRichText(p)}
         </p>
       ))}
     </>
@@ -153,7 +157,9 @@ export default async function ArticlePage({
           </header>
 
           <div className="mt-14 grid gap-16 lg:grid-cols-[1fr_minmax(0,320px)]">
-            <div className="min-w-0 max-w-3xl">
+            {/* 40rem ≈ 62 Archivo-ch: keeps dense regulatory long-form
+                inside the 45–75 chars-per-line comfort band. */}
+            <div className="min-w-0 max-w-[40rem]">
               {lang.sections.map((section) => (
                 <section key={section.heading} className="mt-12 first:mt-0">
                   <h2 className="font-display-soft text-2xl md:text-3xl">
@@ -171,15 +177,55 @@ export default async function ArticlePage({
                   <ul className="mt-4 space-y-2 text-sm leading-relaxed text-ink-soft">
                     {lang.sources.map((source) => (
                       <li key={source.label}>
-                        <span className="font-medium text-ink">
-                          {source.label}
-                        </span>
+                        {source.url ? (
+                          <a
+                            href={source.url}
+                            rel="noopener noreferrer"
+                            target="_blank"
+                            className="font-medium text-ink underline decoration-accent underline-offset-3 transition-colors hover:text-accent-deep"
+                          >
+                            {source.label}
+                          </a>
+                        ) : (
+                          <span className="font-medium text-ink">
+                            {source.label}
+                          </span>
+                        )}
                         {source.note ? ` — ${source.note}` : null}
                       </li>
                     ))}
                   </ul>
                 </aside>
               ) : null}
+
+              {/* Contextual internal linking: authority flows between
+                  articles instead of pooling in nav and footer. */}
+              <aside className="mt-12 border-t border-line pt-8">
+                <h2 className="eyebrow text-accent-deep">{t.relatedTitle}</h2>
+                <ul className="mt-4 space-y-3">
+                  {sortedArticles
+                    .filter((a) => a.slug[locale] !== slug)
+                    .slice(0, 3)
+                    .map((a) => (
+                      <li key={a.slug[locale]}>
+                        <Link
+                          href={{
+                            pathname: "/insight/[slug]",
+                            params: { slug: a.slug[locale] },
+                          }}
+                          className="group inline-block"
+                        >
+                          <span className="font-medium underline decoration-accent underline-offset-3 transition-colors group-hover:text-accent-deep">
+                            {a.content[locale].title}
+                          </span>
+                          <span className="ml-3 text-sm text-ink-soft">
+                            {formatDate(a.date, locale)}
+                          </span>
+                        </Link>
+                      </li>
+                    ))}
+                </ul>
+              </aside>
             </div>
 
             <aside className="h-fit lg:sticky lg:top-28">
