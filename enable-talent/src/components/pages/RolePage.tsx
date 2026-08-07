@@ -52,6 +52,14 @@ export function RolesIndexPage({ locale }: { locale: Locale }) {
           })}
         </div>
         <p className="mt-8 text-sm text-mist">{t.hint}</p>
+        <p className="mt-4 flex flex-wrap gap-x-8 gap-y-2 text-sm">
+          <Link href={localePath(locale, "/marketing-salaries")} className="link-underline text-blue-bright">
+            {locale === "en" ? "European salary benchmarks" : "Benchmark salariali europei"} →
+          </Link>
+          <Link href={localePath(locale, "/outsource-digital-marketing")} className="link-underline text-blue-bright">
+            {locale === "en" ? "The full outsourcing guide" : "La guida completa all'outsourcing"} →
+          </Link>
+        </p>
       </Section>
     </>
   );

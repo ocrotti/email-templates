@@ -60,6 +60,7 @@ export const shared: Record<Locale, SharedContent> = {
           title: "Product",
           links: [
             { label: "How it works", path: "/how-it-works" },
+            { label: "White-label delivery", path: "/white-label-marketing" },
             { label: "Pricing", path: "/pricing" },
             { label: "Guarantee", path: "/guarantee" },
             { label: "Case study", path: "/case-study" },
@@ -80,6 +81,8 @@ export const shared: Record<Locale, SharedContent> = {
           title: "Company",
           links: [
             { label: "Talent & Nairobi", path: "/talent" },
+            { label: "Outsourcing guide", path: "/outsource-digital-marketing" },
+            { label: "Salary benchmarks", path: "/marketing-salaries" },
             { label: "Blog", path: "/blog" },
             { label: "Enable Digital", path: "/enable-digital" },
             { label: "Contact", path: "/contact" },
@@ -143,6 +146,7 @@ export const shared: Record<Locale, SharedContent> = {
           title: "Prodotto",
           links: [
             { label: "Come funziona", path: "/how-it-works" },
+            { label: "Delivery white label", path: "/white-label-marketing" },
             { label: "Prezzi", path: "/pricing" },
             { label: "Garanzia", path: "/guarantee" },
             { label: "Caso studio", path: "/case-study" },
@@ -163,6 +167,8 @@ export const shared: Record<Locale, SharedContent> = {
           title: "Azienda",
           links: [
             { label: "Talento & Nairobi", path: "/talent" },
+            { label: "Guida all'outsourcing", path: "/outsource-digital-marketing" },
+            { label: "Benchmark salariali", path: "/marketing-salaries" },
             { label: "Blog", path: "/blog" },
             { label: "Enable Digital", path: "/enable-digital" },
             { label: "Contatti", path: "/contact" },

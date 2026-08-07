@@ -6,6 +6,7 @@ import Faq from "@/components/Faq";
 import MagneticButton from "@/components/MagneticButton";
 import Reveal from "@/components/Reveal";
 import Section from "@/components/Section";
+import Link from "next/link";
 
 export default function PricingPage({ locale }: { locale: Locale }) {
   const t = pricing[locale];
@@ -122,6 +123,16 @@ export default function PricingPage({ locale }: { locale: Locale }) {
               <p className="text-base leading-relaxed text-paper/80 md:text-lg">{p}</p>
             </Reveal>
           ))}
+          <Reveal>
+            <p className="text-sm text-mist">
+              <Link href={localePath(locale, "/marketing-salaries")} className="link-underline text-blue-bright">
+                {locale === "en"
+                  ? "Compare against European salary benchmarks"
+                  : "Confronta con i benchmark salariali europei"}{" "}
+                →
+              </Link>
+            </p>
+          </Reveal>
         </div>
       </Section>
 

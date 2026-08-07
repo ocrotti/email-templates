@@ -138,16 +138,30 @@ export default function HomePage({ locale }: { locale: Locale }) {
           disclaimer={t.calculator.disclaimer}
           locale={locale}
         />
+        <p className="mt-6 text-sm text-mist">
+          <Link href={localePath(locale, "/marketing-salaries")} className="link-underline text-blue-bright">
+            {locale === "en"
+              ? "Where these figures come from: European salary benchmarks"
+              : "Da dove vengono questi numeri: i benchmark salariali europei"}{" "}
+            →
+          </Link>
+        </p>
       </Section>
 
       {/* 05 — How it works teaser */}
       <Section number={t.how.number} title={t.how.title} intro={t.how.intro} theme="light">
         <Timeline steps={t.how.steps} theme="light" />
         <Reveal delay={0.15}>
-          <div className="mt-14">
+          <div className="mt-14 flex flex-wrap items-center gap-x-8 gap-y-4">
             <MagneticButton href={localePath(locale, "/how-it-works")} variant="paper">
               {t.how.cta} →
             </MagneticButton>
+            <Link
+              href={localePath(locale, "/white-label-marketing")}
+              className="link-underline text-sm font-medium text-blue"
+            >
+              {locale === "en" ? "How white-label delivery works" : "Come funziona la delivery white label"} →
+            </Link>
           </div>
         </Reveal>
       </Section>
