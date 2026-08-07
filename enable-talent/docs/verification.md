@@ -136,3 +136,46 @@ and have the guarantee/SLA wording and the founders' quote signed off before rea
 Post-fix Lighthouse (mobile, local prod server): **perf 95 / a11y 100 / bp 100 / seo 100,
 CLS 0, TBT 120ms**; simulated LCP 2.8s is Lantern's simulated-TTFB artifact (observed LCP
 locally ~0.13s) — re-measure on Vercel as already noted above.
+
+## 8. SEO expansion round (2026-08-07)
+
+Three pages were added to reach query clusters the site did not cover. Targets and SERP
+evidence are documented in [`seo-strategy.md`](seo-strategy.md); this section records the
+verification only.
+
+**No paid keyword tool was involved.** DataForSEO was not connected to the session and no
+credentials were present, so volumes in the strategy doc remain the market analysis's own
+estimates and the SERP composition was checked by searching the live web in August 2026.
+Re-measure with Search Console or a paid tool before committing budget.
+
+| Route (EN + IT) | Title chars | Description chars | JSON-LD | Body words (EN/IT) |
+|---|---|---|---|---|
+| `/white-label-marketing` | 58 / 57 | 152 / 150 | Service, FAQPage, BreadcrumbList | 881 / 901 |
+| `/outsource-digital-marketing` | 57 / 51 | 136 / 139 | Article, FAQPage, BreadcrumbList | 1,368 / 1,516 |
+| `/marketing-salaries` | 54 / 57 | 153 / 141 | Dataset, FAQPage, BreadcrumbList | 800 / 797 |
+
+Checked on the production build (`next start`, 54 static routes):
+
+- All six routes return 200; canonical and hreflang `en`/`it`/`x-default` present on each.
+- Every `ld+json` block parses; one `<h1>` per page.
+- `/marketing-salaries` publishes European employer cost only. Swept both locales for
+  Kenyan salary data and internal specialist cost — **none present**. The same sweep across
+  every content file found only the €400–700/day senior EU freelancer rate in the home
+  comparison table, which is European and intentional.
+- Salary table restacks into per-row cards below `md`; no horizontal overflow at 390px.
+
+Two defects found during verification and fixed:
+
+- **The white-label H1 carried two sentences** and set as four lines of display type ending
+  on an orphaned "pod." — the same ragged-rag problem the art-direction review raised about
+  the home hero. The punch line moved into a kicker above the headline; the H1 is now two
+  clean lines in both locales and contains only the target keyword.
+- **The outsourcing guide reintroduced a removed claim.** Its geography section cited a
+  mid-level Nairobi developer at roughly $14.7k/year — the same local-cost figure deleted
+  from the developer role page in §7. Publishing what a specialist costs locally lets a
+  reader compute our margin, which reduces the fair-pay policy to arithmetic. Removed; the
+  Johannesburg benchmark stays because it is a market rate, not our cost base.
+
+Sitemap now carries 56 URLs (28 paths × 2 locales) with `x-default` alternates and real
+`lastmod` dates — blog posts use their publication date, everything else a content-updated
+constant, replacing a build timestamp that claimed every page changed on every deploy.
