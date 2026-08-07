@@ -11,14 +11,21 @@ export default function Marquee({ items, label }: Props) {
       {label ? (
         <p className="mb-4 text-center text-xs uppercase tracking-[0.2em] text-mist">{label}</p>
       ) : null}
-      <div className="marquee-track relative overflow-hidden" aria-label={label}>
-        <div className="marquee-inner flex w-max animate-marquee gap-10 pr-10">
+      <div
+        className="marquee-track relative overflow-hidden"
+        aria-label={label}
+        style={{
+          maskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+          WebkitMaskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+        }}
+      >
+        <div className="marquee-inner flex w-max animate-marquee items-center gap-10 pr-10">
           {doubled.map((item, i) => (
             <span
               key={`${item}-${i}`}
               // Only the second pass is decorative duplication.
               aria-hidden={i >= items.length || undefined}
-              className="whitespace-nowrap font-display text-lg font-medium text-paper/55 transition-colors hover:text-paper"
+              className="whitespace-nowrap font-mono text-sm uppercase tracking-[0.14em] text-paper/55 transition-colors hover:text-paper"
             >
               {item}
             </span>

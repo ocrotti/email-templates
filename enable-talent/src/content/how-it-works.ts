@@ -37,7 +37,7 @@ export const howItWorks: Record<Locale, HowContent> = {
   en: {
     seoTitle: "How It Works: Pod Live in 10–14 Days | enable.talent",
     seoDescription:
-      "From scoping call to a working marketing pod in 10–14 days: matching, onboarding, senior European QA, ongoing management — and exactly what happens when something goes wrong.",
+      "From scoping call to a working marketing pod in 10–14 days: matching, onboarding, senior European QA — and what happens when something goes wrong.",
     title: "Sell first, staff after. Pod live in 10–14 days.",
     intro:
       "You don't carry bench cost while waiting for demand, and you don't turn work away while waiting for hires. Here is the full process — including the parts where things go wrong, because that's what you're really pricing.",
@@ -77,7 +77,7 @@ export const howItWorks: Record<Locale, HowContent> = {
       number: "02",
       title: "The European QA layer — what it actually does",
       body: [
-        "QA is the difference between offshore capacity and a delivery department. Our QA leads are senior marketers from Enable Digital, our Italian sister agency — people who run agency delivery for clients today, not checklists administrators.",
+        "QA is the difference between offshore capacity and a delivery department. Our QA leads are senior marketers from Enable Digital, our Italian sister agency — people who run agency delivery for clients today, not checklist administrators.",
         "Nothing ships to your clients without passing the QA gate. That's contractual, not aspirational.",
       ],
       points: [
@@ -130,14 +130,14 @@ export const howItWorks: Record<Locale, HowContent> = {
   it: {
     seoTitle: "Come Funziona: Pod Operativo in 10–14 Giorni | enable.talent",
     seoDescription:
-      "Dalla call di scoping a un pod marketing operativo in 10–14 giorni: matching, onboarding, QA senior europeo, gestione continua — e cosa succede esattamente quando qualcosa va storto.",
+      "Dalla call di scoping a un pod marketing operativo in 10–14 giorni: matching, onboarding, QA senior europeo — e cosa succede quando qualcosa va storto.",
     title: "Vendi prima, staffa dopo. Pod operativo in 10–14 giorni.",
     intro:
       "Non ti porti il costo della bench aspettando la domanda, e non rifiuti lavoro aspettando le assunzioni. Ecco il processo completo — incluse le parti in cui le cose vanno storte, perché è quello che stai davvero prezzando.",
     timeline: [
       { day: "Giorno 0", title: "Call di scoping", body: "45 minuti. Mappiamo ruoli, volumi, tool, lingue e le tue aspettative di QA. Se il pod non ha senso per il tuo caso, te lo diciamo in questa call — costa meno a tutti." },
       { day: "Giorni 1–3", title: "Proposta di pod", body: "Ricevi una proposta scritta: composizione del pod, prezzo mensile, bozza di SLA e piano di trial con deliverable concreti. Niente roulette di CV." },
-      { day: "Giorni 3–7", title: "Matching dalla bench", body: "Selezioniamo specialist già vettati dalla nostra bench di Nairobi per stack e settore. Conosci il pod e il QA lead senior europeo in un'unica call." },
+      { day: "Giorni 3–7", title: "Matching dalla bench", body: "Selezioniamo specialist già testati dalla nostra bench di Nairobi per stack e settore. Conosci il pod e il QA lead senior europeo in un'unica call." },
       { day: "Giorni 7–14", title: "Onboarding", body: "Accessi, tool, template, naming convention, voce del brand. Il QA lead converte i tuoi standard nelle checklist su cui il pod lavora." },
       { day: "Settimane 2–4", title: "Sprint di trial", body: "Due settimane di deliverable veri a rischio ridotto. Output quotidiano, review settimanale con te. Paghi solo dopo che il trial ti ha convinto." },
       { day: "Sempre", title: "Delivery gestita", body: "Il pod gira dentro il tuo workflow con report QA mensili, review di capacità e una linea diretta di escalation. Scali i posti su o giù con 30 giorni di preavviso." },
@@ -159,7 +159,7 @@ export const howItWorks: Record<Locale, HowContent> = {
     matching: {
       number: "03",
       title: "Come funziona il matching",
-      body: "Reclutiamo in continuo a Nairobi e vettiamo prima che tu veda un profilo — così il matching richiede giorni, non mesi.",
+      body: "Reclutiamo in continuo a Nairobi e testiamo ogni candidato prima che tu veda un profilo — così il matching richiede giorni, non mesi.",
       steps: [
         { title: "Sourcing", body: "Programmi universitari, bootcamp come Moringa e AkiraChix, e referral dai nostri stessi specialist — in un ecosistema dove reclutano Google, Microsoft e Safaricom." },
         { title: "Vetting", body: "Test su portfolio e campioni di lavoro per ruolo, valutazione dell'inglese scritto e parlato, certificazioni verificate, referenze." },

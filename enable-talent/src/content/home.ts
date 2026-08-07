@@ -114,8 +114,8 @@ export const home: Record<Locale, HomeContent> = {
   en: {
     hero: {
       eyebrow: "Managed marketing pods · Nairobi → Europe",
-      titleLines: ["Scale your agency", "with dedicated,", "managed marketing pods."],
-      sub: "Quality under European control. Sustainable costs. Zero hiring risk. Your invisible delivery department, live in 10–14 days.",
+      titleLines: ["Scale your agency with", "dedicated, managed", "marketing pods."],
+      sub: "Quality under European control. Costs 40–70% lower. Zero hiring risk. Your invisible delivery department, live in 10–14 days.",
       diff: ["Senior European QA on every deliverable", "White-label by default", "2-week trial — pay only after"],
       ctaPrimary: "Book a call",
       ctaSecondary: "Start a 2-week trial",
@@ -268,7 +268,7 @@ export const home: Record<Locale, HomeContent> = {
         { title: "2-week trial", body: "Real deliverables, reduced risk. If the pod doesn't convince you, you walk away." },
         { title: "Pay after the trial", body: "First invoice only after the trial period. No upfront commitment to find out." },
         { title: "Free replacement, 60–90 days", body: "A specialist underperforms? We replace them free, and the pod keeps delivering while we do." },
-        { title: "SLA + GDPR, black on white", body: "Response times, quality gates, DPA and Standard Contractual Clauses. Contract language, not landing-page language." },
+        { title: "SLA + GDPR, in black and white", body: "Response times, quality gates, DPA and Standard Contractual Clauses. Contract language, not landing-page language." },
       ],
       cta: "Read the full guarantee",
     },
@@ -314,7 +314,7 @@ export const home: Record<Locale, HomeContent> = {
     hero: {
       eyebrow: "Pod marketing gestiti · Nairobi → Europa",
       titleLines: ["Scala la tua agenzia", "con pod marketing", "dedicati e gestiti."],
-      sub: "Qualità sotto controllo europeo. Costi sostenibili. Zero rischio di assunzione. Il tuo reparto delivery invisibile, operativo in 10–14 giorni.",
+      sub: "Qualità sotto controllo europeo. Costi più bassi del 40–70%. Zero rischio di assunzione. Il tuo reparto delivery invisibile, operativo in 10–14 giorni.",
       diff: ["QA senior europeo su ogni deliverable", "White-label di default", "Trial di 2 settimane — paghi solo dopo"],
       ctaPrimary: "Prenota una call",
       ctaSecondary: "Inizia il trial di 2 settimane",
@@ -332,7 +332,7 @@ export const home: Record<Locale, HomeContent> = {
         },
         {
           title: "Gli specialist mid-level in Europa sono scarsi e costosi.",
-          body: "Un digital marketing specialist costa €2.400–2.700/mese in Italia, circa €4.300 in Germania per il paid media. Quando lo trovi, il ramp-up richiede mesi e può dimettersi in uno.",
+          body: "Un digital marketing specialist costa €2.400–2.700/mese in Italia, circa €4.300 in Germania per il paid media. Quando lo trovi, il ramp-up richiede mesi — e la persona può dimettersi in uno.",
         },
         {
           title: "Le agenzie già offshorano — in silenzio e male.",
@@ -439,7 +439,7 @@ export const home: Record<Locale, HomeContent> = {
       intro: "Niente teatrino del recruiting lungo mesi. Quattro step, poi si consegna.",
       steps: [
         { title: "Call di scoping", body: "Mappiamo il tuo gap di delivery: ruoli, volumi, tool, tono. Ricevi una proposta di pod, non una pila di CV.", duration: "Giorno 0" },
-        { title: "Composizione del pod", body: "Selezioniamo specialist già vettati dalla nostra bench di Nairobi e assegniamo il tuo QA lead senior europeo.", duration: "Giorni 1–7" },
+        { title: "Composizione del pod", body: "Selezioniamo specialist già testati dalla nostra bench di Nairobi e assegniamo il tuo QA lead senior europeo.", duration: "Giorni 1–7" },
         { title: "Onboarding", body: "I tuoi processi, i tuoi tool, i tuoi template. Il QA lead traduce i tuoi standard in checklist operative.", duration: "Giorni 7–14" },
         { title: "Sprint di trial", body: "Due settimane di deliverable veri a rischio ridotto. Paghi solo dopo che il trial ti ha convinto.", duration: "Settimane 2–4" },
       ],

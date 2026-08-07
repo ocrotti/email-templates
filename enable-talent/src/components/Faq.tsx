@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { useState } from "react";
 
 interface Props {
@@ -40,21 +40,19 @@ export default function Faq({ items, theme = "dark" }: Props) {
                 +
               </motion.span>
             </button>
-            <AnimatePresence initial={false}>
-              {isOpen ? (
-                <motion.div
-                  initial={reduced ? false : { height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={reduced ? undefined : { height: 0, opacity: 0 }}
-                  transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                  className="overflow-hidden"
-                >
-                  <p className={`px-6 pb-6 text-sm leading-relaxed md:px-8 md:text-base ${dark ? "text-mist" : "text-ink/65"}`}>
-                    {item.a}
-                  </p>
-                </motion.div>
-              ) : null}
-            </AnimatePresence>
+            {/* Answers stay mounted (height-animated, not conditionally rendered)
+                so every Q&A is present in the server-rendered HTML for SEO. */}
+            <motion.div
+              initial={false}
+              animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
+              transition={{ duration: reduced ? 0 : 0.35, ease: [0.22, 1, 0.36, 1] }}
+              className="overflow-hidden"
+              aria-hidden={!isOpen}
+            >
+              <p className={`px-6 pb-6 text-sm leading-relaxed md:px-8 md:text-base ${dark ? "text-mist" : "text-ink/65"}`}>
+                {item.a}
+              </p>
+            </motion.div>
           </div>
         );
       })}

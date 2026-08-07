@@ -46,7 +46,7 @@ export default function RoleCard({ href, name, tagline, band, index }: Props) {
         <p className="mt-3 text-sm leading-relaxed text-mist">{tagline}</p>
       </div>
       <div className="mt-8 flex items-center justify-between gap-3">
-        <span className="rounded-full border border-amber/40 px-3 py-1 text-xs text-amber">{band}</span>
+        <span className="rounded-full border border-ink-line px-3 py-1 text-xs text-mist">{band}</span>
         <span className="text-lg text-paper/50 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-blue-bright">
           →
         </span>

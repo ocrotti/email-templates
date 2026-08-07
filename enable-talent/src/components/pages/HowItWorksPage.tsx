@@ -40,6 +40,8 @@ export default function HowItWorksPage({ locale }: { locale: Locale }) {
       </section>
 
       <Section number="01" theme="dark">
+        {/* sr-only heading keeps the outline h1→h2→h3 (the steps render as h3). */}
+        <h2 className="sr-only">{locale === "en" ? "The 14-day timeline" : "La timeline di 14 giorni"}</h2>
         <Timeline steps={t.timeline} theme="dark" />
       </Section>
 

@@ -24,7 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SmoothScroll />
         <Cursor />
         <Header locale="en" />
-        <main>{children}</main>
+        <main id="main">{children}</main>
         <Footer locale="en" />
       </body>
     </html>

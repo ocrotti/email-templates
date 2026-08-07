@@ -25,10 +25,20 @@ export default function Cursor() {
     let ry = -100;
     let rafId = 0;
     let hovering = false;
+    let seen = false;
 
     const onMove = (e: MouseEvent) => {
       x = e.clientX;
       y = e.clientY;
+      // Keep the cursor hidden until the pointer actually moves, so the ring
+      // doesn't sit ghosted at (0,0) on load.
+      if (!seen) {
+        seen = true;
+        rx = x;
+        ry = y;
+        dot.style.visibility = "visible";
+        ring.style.visibility = "visible";
+      }
       const target = e.target as HTMLElement;
       hovering = !!target.closest("a, button, [role=button], input, select, textarea, label");
     };
@@ -54,10 +64,10 @@ export default function Cursor() {
 
   return (
     <div aria-hidden className="pointer-events-none fixed inset-0 z-[100] hidden md:block">
-      <div ref={dotRef} className="fixed left-0 top-0 h-1.5 w-1.5 rounded-full bg-blue-bright" />
+      <div ref={dotRef} className="invisible fixed left-0 top-0 h-1.5 w-1.5 rounded-full bg-blue-bright" />
       <div
         ref={ringRef}
-        className="fixed left-0 top-0 h-8 w-8 rounded-full border border-blue-bright/70 transition-opacity duration-200"
+        className="invisible fixed left-0 top-0 h-8 w-8 rounded-full border border-blue-bright/70 transition-opacity duration-200"
       />
     </div>
   );

@@ -62,13 +62,18 @@ export default function Footer({ locale }: { locale: Locale }) {
 
         <div className="mt-16 flex flex-col gap-3 border-t border-ink-line/60 pt-6 text-xs text-mist md:flex-row md:items-center md:justify-between">
           <p>{t.footer.legal}</p>
-          <Link
-            href={locale === "en" ? "/it" : "/"}
-            hrefLang={locale === "en" ? "it" : "en"}
-            className="link-underline w-fit py-1"
-          >
-            {t.footer.langSwitch}
-          </Link>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+            <Link href={localePath(locale, "/privacy")} className="link-underline w-fit py-1">
+              {t.footer.privacyLabel}
+            </Link>
+            <Link
+              href={locale === "en" ? "/it" : "/"}
+              hrefLang={locale === "en" ? "it" : "en"}
+              className="link-underline w-fit py-1"
+            >
+              {t.footer.langSwitch}
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

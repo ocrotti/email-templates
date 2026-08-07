@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 interface Props {
   tiles: string[];
@@ -9,10 +10,26 @@ interface Props {
 
 /**
  * The pod concept, visualised: role modules assemble into one team grid,
- * then the QA layer snaps on top and connects to every module.
+ * then the QA layer snaps on top and connects to every module. After the
+ * entrance, an idle loop keeps the diagram "operating": every few seconds
+ * one module lights up and hands work to the review gate.
  */
 export default function PodVisual({ tiles, qaLabel }: Props) {
   const reduced = useReducedMotion();
+  const [active, setActive] = useState(-1);
+
+  // Idle loop: start after the entrance settles, then cycle through tiles.
+  useEffect(() => {
+    if (reduced) return;
+    const start = setTimeout(() => setActive(0), 2600);
+    return () => clearTimeout(start);
+  }, [reduced]);
+
+  useEffect(() => {
+    if (reduced || active < 0) return;
+    const next = setTimeout(() => setActive((a) => (a + 1) % tiles.length), 2600);
+    return () => clearTimeout(next);
+  }, [active, reduced, tiles.length]);
 
   return (
     <div className="relative mx-auto w-full max-w-md" aria-hidden>
@@ -33,37 +50,50 @@ export default function PodVisual({ tiles, qaLabel }: Props) {
         </span>
       </motion.div>
 
-      {/* connector lines */}
+      {/* connector line — pulses toward the gate whenever a module is handing off */}
       <motion.div
         initial={reduced ? false : { scaleY: 0 }}
         animate={{ scaleY: 1 }}
         transition={{ duration: 0.4, delay: 1.6 }}
-        className="mx-auto mb-3 h-4 w-px origin-top bg-gradient-to-b from-amber/70 to-blue/60"
+        className={`mx-auto mb-3 h-4 w-px origin-top bg-gradient-to-b from-amber/70 to-blue/60 transition-opacity duration-500 ${
+          active >= 0 ? "opacity-100" : "opacity-70"
+        }`}
       />
 
       {/* role tiles */}
       <div className="grid grid-cols-3 gap-3">
-        {tiles.map((tile, i) => (
-          <motion.div
-            key={tile}
-            initial={
-              reduced
-                ? false
-                : {
-                    opacity: 0,
-                    x: (i % 3 - 1) * 60,
-                    y: 40 + (i % 2) * 30,
-                    rotate: (i % 2 === 0 ? 1 : -1) * 6,
-                  }
-            }
-            animate={{ opacity: 1, x: 0, y: 0, rotate: 0 }}
-            transition={{ duration: 0.75, delay: 0.5 + i * 0.12, ease: [0.22, 1, 0.36, 1] }}
-            className="group flex aspect-[4/3] flex-col justify-between rounded-xl border border-ink-line bg-ink-soft/90 p-3 transition-colors duration-300 hover:border-blue/60"
-          >
-            <span className="h-1.5 w-6 rounded-full bg-blue/70 transition-all duration-300 group-hover:w-9 group-hover:bg-blue-bright" />
-            <span className="font-display text-[13px] font-medium leading-tight text-paper/85">{tile}</span>
-          </motion.div>
-        ))}
+        {tiles.map((tile, i) => {
+          const isActive = i === active;
+          return (
+            <motion.div
+              key={tile}
+              initial={
+                reduced
+                  ? false
+                  : {
+                      opacity: 0,
+                      x: (i % 3 - 1) * 60,
+                      y: 40 + (i % 2) * 30,
+                      rotate: (i % 2 === 0 ? 1 : -1) * 6,
+                    }
+              }
+              animate={{ opacity: 1, x: 0, y: 0, rotate: 0 }}
+              transition={{ duration: 0.75, delay: 0.5 + i * 0.12, ease: [0.22, 1, 0.36, 1] }}
+              className={`group flex aspect-[4/3] flex-col justify-between rounded-xl border p-3 transition-all duration-500 hover:border-blue/60 ${
+                isActive
+                  ? "border-blue/60 bg-ink-soft shadow-glow-blue"
+                  : "border-paper/15 bg-ink-soft/90"
+              }`}
+            >
+              <span
+                className={`h-1.5 rounded-full transition-all duration-500 group-hover:w-9 group-hover:bg-blue-bright ${
+                  isActive ? "w-9 bg-blue-bright" : "w-6 bg-blue/70"
+                }`}
+              />
+              <span className="font-display text-[13px] font-medium leading-tight text-paper/85">{tile}</span>
+            </motion.div>
+          );
+        })}
       </div>
 
       {/* base glow */}

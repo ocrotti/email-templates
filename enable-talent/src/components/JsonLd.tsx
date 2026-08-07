@@ -17,6 +17,7 @@ export function OrganizationJsonLd() {
         "@type": "Organization",
         name: SITE_NAME,
         url: SITE_URL,
+        logo: absoluteUrl("/icon.svg"),
         email: CONTACT_EMAIL,
         description:
           "Managed marketing delivery pods from Nairobi for European digital agencies, with senior European QA, white-label workflow and a strong guarantee.",
@@ -73,12 +74,14 @@ export function ArticleJsonLd({
   description,
   path,
   datePublished,
+  dateModified,
   author,
 }: {
   title: string;
   description: string;
   path: string;
   datePublished: string;
+  dateModified?: string;
   author: string;
 }) {
   return (
@@ -88,9 +91,11 @@ export function ArticleJsonLd({
         "@type": "Article",
         headline: title,
         description,
+        image: absoluteUrl(`/og?title=${encodeURIComponent(title)}`),
         datePublished,
-        author: { "@type": "Person", name: author },
-        publisher: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+        dateModified: dateModified ?? datePublished,
+        author: { "@type": "Organization", name: author, url: SITE_URL },
+        publisher: { "@type": "Organization", name: SITE_NAME, url: SITE_URL, logo: { "@type": "ImageObject", url: absoluteUrl("/icon.svg") } },
         mainEntityOfPage: absoluteUrl(path),
       }}
     />

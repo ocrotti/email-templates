@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 import type { Locale } from "@/lib/site";
 import { localePath } from "@/lib/site";
 import { blogIndex, blogPosts, type BlogPost } from "@/content/blog";
@@ -7,6 +8,48 @@ import MagneticButton from "@/components/MagneticButton";
 import Reveal from "@/components/Reveal";
 import Section from "@/components/Section";
 import { shared } from "@/content/shared";
+
+/**
+ * Renders markdown-style inline links `[text](href)` inside a content string.
+ * Internal hrefs are locale-aware by construction: content strings are
+ * per-locale, so IT strings carry their own `/it/...` paths.
+ */
+function renderInline(text: string): ReactNode {
+  if (!text.includes("](")) return text;
+  const nodes: ReactNode[] = [];
+  const linkRe = /\[([^\]]+)\]\(([^()\s]+)\)/g;
+  let last = 0;
+  let match: RegExpExecArray | null;
+  while ((match = linkRe.exec(text)) !== null) {
+    if (match.index > last) nodes.push(text.slice(last, match.index));
+    const [, label, href] = match;
+    const className = "link-underline font-medium text-blue-bright";
+    nodes.push(
+      /^https?:\/\//.test(href) ? (
+        <a key={`${href}-${match.index}`} href={href} className={className} target="_blank" rel="noopener noreferrer">
+          {label}
+        </a>
+      ) : (
+        <Link key={`${href}-${match.index}`} href={href} className={className}>
+          {label}
+        </Link>
+      ),
+    );
+    last = match.index + match[0].length;
+  }
+  if (last < text.length) nodes.push(text.slice(last));
+  return nodes;
+}
+
+/** Formats an ISO date (yyyy-mm-dd) per locale, e.g. "14 Jul 2026" / "14 lug 2026". */
+function formatDate(iso: string, locale: Locale): string {
+  return new Date(`${iso}T00:00:00Z`).toLocaleDateString(locale === "it" ? "it-IT" : "en-GB", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+    timeZone: "UTC",
+  });
+}
 
 export function BlogIndexPage({ locale }: { locale: Locale }) {
   const t = blogIndex[locale];
@@ -41,7 +84,7 @@ export function BlogIndexPage({ locale }: { locale: Locale }) {
                 <div>
                   <div className="flex items-center gap-3 text-xs text-mist">
                     <span className="rounded-full border border-amber/40 px-3 py-1 text-amber">{post.tag}</span>
-                    <time dateTime={post.date}>{post.date}</time>
+                    <time dateTime={post.date}>{formatDate(post.date, locale)}</time>
                     <span>·</span>
                     <span>{post.readingTime}</span>
                   </div>
@@ -100,7 +143,7 @@ export function BlogPostPage({ locale, post }: { locale: Locale; post: BlogPost 
               <span className="rounded-full border border-amber/40 px-3 py-1 text-xs text-amber">{post.tag}</span>
               <span>{post.author}</span>
               <span>·</span>
-              <time dateTime={post.date}>{post.date}</time>
+              <time dateTime={post.date}>{formatDate(post.date, locale)}</time>
               <span>·</span>
               <span>{post.readingTime}</span>
             </div>
@@ -139,7 +182,7 @@ export function BlogPostPage({ locale, post }: { locale: Locale; post: BlogPost 
                   ) : null}
                   {section.paragraphs.map((p) => (
                     <p key={p.slice(0, 32)} className="mb-4 text-base leading-relaxed text-paper/80">
-                      {p}
+                      {renderInline(p)}
                     </p>
                   ))}
                   {section.list ? (
@@ -147,7 +190,7 @@ export function BlogPostPage({ locale, post }: { locale: Locale; post: BlogPost 
                       {section.list.map((item) => (
                         <li key={item.slice(0, 32)} className="flex gap-3 text-base leading-relaxed text-paper/80">
                           <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-bright" aria-hidden />
-                          {item}
+                          <span>{renderInline(item)}</span>
                         </li>
                       ))}
                     </ul>

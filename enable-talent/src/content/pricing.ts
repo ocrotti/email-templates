@@ -28,9 +28,9 @@ interface PricingContent {
 
 export const pricing: Record<Locale, PricingContent> = {
   en: {
-    seoTitle: "Pricing: Managed Marketing Pods from €2,000/month | enable.talent",
+    seoTitle: "Managed Marketing Pods from €2,000/month | enable.talent",
     seoDescription:
-      "Starter pods from €2,000/month, full pods from €6,000 on quote. Management, senior European QA, replacement guarantee and GDPR paperwork included. Pay only after the 2-week trial.",
+      "Starter pods from €2,000/month, full pods from €6,000. Management, senior European QA, replacement guarantee and GDPR paperwork included. Pay after trial.",
     title: "Honest bands, not a rigid price list.",
     intro:
       "Two formats. Both include management, senior European QA, the replacement guarantee and the GDPR paperwork. Exact pricing depends on roles and seniority — we quote after the scoping call, and the first invoice comes only after the trial.",
@@ -55,7 +55,7 @@ export const pricing: Record<Locale, PricingContent> = {
       {
         name: "Full pod",
         price: "from €6,000",
-        priceNote: "/month · on quote",
+        priceNote: "/month · custom quote",
         description: "A multi-role delivery unit — typically 3–5 specialists — built around your service lines, with a dedicated QA lead.",
         features: [
           "3–5 dedicated specialists, mixed roles",
@@ -101,7 +101,7 @@ export const pricing: Record<Locale, PricingContent> = {
   it: {
     seoTitle: "Prezzi: Pod Marketing Gestiti da €2.000/mese | enable.talent",
     seoDescription:
-      "Pod starter da €2.000/mese, pod full da €6.000 su preventivo. Gestione, QA senior europeo, garanzia di replacement e burocrazia GDPR inclusi. Paghi solo dopo il trial di 2 settimane.",
+      "Pod starter da €2.000/mese, pod full da €6.000. Gestione, QA senior europeo, garanzia di replacement e GDPR inclusi. Paghi solo dopo il trial.",
     title: "Fasce oneste, non un listino rigido.",
     intro:
       "Due formati. Entrambi includono gestione, QA senior europeo, garanzia di replacement e la parte GDPR. Il prezzo esatto dipende da ruoli e seniority — quotiamo dopo la call di scoping, e la prima fattura arriva solo dopo il trial.",
@@ -118,7 +118,7 @@ export const pricing: Record<Locale, PricingContent> = {
           "Trial di 2 settimane · paghi solo dopo",
           "Replacement gratuito, 60–90 giorni",
           "SLA + DPA/SCC inclusi",
-          "Scali su o giù con 30 giorni di preavviso",
+          "Aumenti o riduci i posti con 30 giorni di preavviso",
         ],
         cta: "Parti dalla call di scoping",
         highlighted: true,

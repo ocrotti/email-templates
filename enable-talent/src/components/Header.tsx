@@ -24,6 +24,21 @@ export default function Header({ locale }: { locale: Locale }) {
 
   useEffect(() => setOpen(false), [pathname]);
 
+  // Mobile menu: close on Escape and lock body scroll while open.
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [open]);
+
   // Language switch keeps the current page: strip/add the /it prefix.
   const basePath = locale === "it" ? pathname.replace(/^\/it/, "") || "/" : pathname;
   const switchHref = locale === "en" ? localePath("it", basePath) : basePath;
@@ -34,6 +49,12 @@ export default function Header({ locale }: { locale: Locale }) {
         scrolled ? "border-b border-ink-line/70 bg-ink/85 backdrop-blur-md" : "bg-transparent"
       }`}
     >
+      <a
+        href="#main"
+        className="sr-only z-[60] rounded-lg bg-blue px-4 py-2 text-sm font-semibold text-white focus:not-sr-only focus:absolute focus:left-4 focus:top-4"
+      >
+        {locale === "en" ? "Skip to content" : "Vai al contenuto"}
+      </a>
       <div className="mx-auto flex h-16 w-full max-w-wrap items-center justify-between px-5 md:h-20 md:px-10">
         <Link href={localePath(locale, "/")} className="py-2 font-display text-lg font-bold tracking-tight text-paper">
           enable<span className="text-blue-bright">.talent</span>

@@ -29,9 +29,9 @@ interface EnableDigitalContent {
 
 export const enableDigital: Record<Locale, EnableDigitalContent> = {
   en: {
-    seoTitle: "Looking for Italian Senior PMs? Talk to Enable Digital | enable.talent",
+    seoTitle: "Italian Senior PMs? Talk to Enable Digital | enable.talent",
     seoDescription:
-      "enable.talent sells managed offshore delivery pods. If you need Italian project management or senior in-market specialists, our sister agency Enable Digital is the right door — here's how to tell which one you need.",
+      "Pods cover managed offshore delivery. Need Italian project management or senior in-market specialists? Enable Digital, our sister agency, is the door.",
     eyebrow: "Sister company",
     title: "Sometimes we're the wrong door. Here's the right one.",
     intro:
@@ -90,9 +90,9 @@ export const enableDigital: Record<Locale, EnableDigitalContent> = {
     },
   },
   it: {
-    seoTitle: "Cerchi PM Senior Italiani? Parla con Enable Digital | enable.talent",
+    seoTitle: "PM Senior Italiani? Parla con Enable Digital | enable.talent",
     seoDescription:
-      "enable.talent vende pod di delivery offshore gestiti. Se ti serve project management italiano o personale senior in-market, la porta giusta è la nostra agenzia sorella Enable Digital — ecco come capire quale ti serve.",
+      "I pod coprono la delivery offshore gestita. Ti serve PM italiano o specialist senior in-market? La porta giusta è la nostra sorella Enable Digital.",
     eyebrow: "Società sorella",
     title: "A volte siamo la porta sbagliata. Questa è quella giusta.",
     intro:

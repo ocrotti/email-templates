@@ -19,6 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     path: `/blog/${slug}`,
     title: post.seoTitle,
     description: post.description,
+    ogType: "article",
   });
 }
 

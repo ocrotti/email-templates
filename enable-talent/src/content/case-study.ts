@@ -39,7 +39,7 @@ export const caseStudy: Record<Locale, CaseStudyContent> = {
   en: {
     seoTitle: "Case Study: Enable Digital, Client Zero | enable.talent",
     seoDescription:
-      "How Enable Digital, our Italian sister agency, runs its delivery on a Nairobi pod with senior European QA — the internal proof behind the model we sell, documented honestly.",
+      "How Enable Digital, our Italian sister agency, runs delivery on a Nairobi pod with senior European QA — the proof behind the model we sell.",
     eyebrow: "Case study · Client zero",
     title: "Enable Digital: the pod we run on ourselves.",
     intro:
@@ -94,7 +94,7 @@ export const caseStudy: Record<Locale, CaseStudyContent> = {
   it: {
     seoTitle: "Caso Studio: Enable Digital, Cliente Zero | enable.talent",
     seoDescription:
-      "Come Enable Digital, la nostra agenzia sorella italiana, fa girare la sua delivery su un pod di Nairobi con QA senior europeo — la prova interna dietro il modello che vendiamo, documentata onestamente.",
+      "Come Enable Digital, la nostra agenzia sorella italiana, gestisce la delivery con un pod di Nairobi e QA senior europeo — la prova dietro il modello.",
     eyebrow: "Caso studio · Cliente zero",
     title: "Enable Digital: il pod che usiamo su noi stessi.",
     intro:

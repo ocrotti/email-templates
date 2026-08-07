@@ -89,3 +89,50 @@ own container rather than the page body.
 - Wire the lead form to a real provider endpoint (`src/components/LeadForm.tsx`, marked TODO).
 - Replace the anonymised bench profiles with real photos and names once the team consents —
   the brief calls out real faces as a trust asset.
+
+## 7. Final seven-expert review round (2026-08-07)
+
+The site was reviewed through seven expert lenses (UI design, UX, copywriting, art direction,
+technical SEO, content SEO, product management), each against the live production build.
+Everything actionable was fixed in one batch:
+
+**Claim discipline (copywriting)** — removed the local dev pay figure and the youth-unemployment
+percentage (kept "1M+ entering the labour market"); tightened the content & social savings band
+to 40–60%; rounded the SEO salary median; fixed EN grammar slips and Italian calques
+("vettati" → "testati", "festa-o-carestia", "cotti dentro", subject of "può dimettersi").
+
+**Mobile persuasion (UI)** — the comparison and pricing tables restack into per-row cards below
+`md`, so the pod column (the argument) is visible on phones; role-card cost pills neutralised
+to reserve amber for the Nairobi/talent narrative; hero display size recalibrated so the H1
+sets in three deliberate lines in both locales.
+
+**Conversion & robustness (UX)** — hero trial CTA now lands on the contact form; localized
+inline form validation with required-field markers (replacing browser bubbles); form success
+message now promises proposed call slots; mobile menu closes on Escape and locks body scroll;
+skip-to-content link; reveals trigger 200px early so fast scrolling never shows empty sections;
+savings counter animates in 0.5s (no lingering "0%").
+
+**Motion & identity (art direction)** — pod visual gained an idle loop (a module lights up and
+hands work to the review gate every 2.6s); marquee got gradient edge masks and the mono
+eyebrow style; custom cursor no longer ghosts at (0,0); calculator defaults to Germany so the
+first number shown (53%) sits inside the advertised 40–70% band.
+
+**Technical SEO** — all titles ≤60 and descriptions ≤155 chars; `Organization.logo`;
+`Article` JSON-LD gains `image` + `dateModified`, author as Organization, `og:type=article`;
+sitemap `x-default`; FAQ answers stay mounted in the server HTML; heading outlines fixed
+(`/how-it-works`, `/contact`, `/roles`).
+
+**Content SEO** — role pages expanded to 600–800 words per locale with keyword H1s
+("Hire an offshore …"); commercial home title; 16 contextual in-body internal links per locale
+across the four blog articles; the MarketerHire article gained a real per-category alternatives
+rundown (names and figures from the market analysis only); locale-formatted article dates.
+
+**Product management (conditional GO)** — added `/privacy` + `/it/privacy` (GDPR privacy
+policy with clearly-marked `[… to be completed before launch]` placeholders for the legal
+entity), footer legal link and a consent notice on the lead form. Remaining launch blockers
+that code cannot close: wire the form to a real endpoint, complete the legal-entity details,
+and have the guarantee/SLA wording and the founders' quote signed off before real traffic.
+
+Post-fix Lighthouse (mobile, local prod server): **perf 95 / a11y 100 / bp 100 / seo 100,
+CLS 0, TBT 120ms**; simulated LCP 2.8s is Lantern's simulated-TTFB artifact (observed LCP
+locally ~0.13s) — re-measure on Vercel as already noted above.

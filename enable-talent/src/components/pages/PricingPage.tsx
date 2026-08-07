@@ -45,10 +45,14 @@ export default function PricingPage({ locale }: { locale: Locale }) {
               >
                 <h2 className="font-display text-xl font-semibold text-paper">{tier.name}</h2>
                 <p className="mt-4">
-                  <span className={`font-display text-5xl font-bold ${tier.highlighted ? "text-blue-bright" : "text-paper"}`}>
+                  <span
+                    className={`whitespace-nowrap font-display text-4xl font-bold md:text-5xl ${
+                      tier.highlighted ? "text-blue-bright" : "text-paper"
+                    }`}
+                  >
                     {tier.price}
                   </span>
-                  <span className="ml-2 text-sm text-mist">{tier.priceNote}</span>
+                  <span className="mt-1 block text-sm text-mist sm:ml-2 sm:mt-0 sm:inline-block">{tier.priceNote}</span>
                 </p>
                 <p className="mt-5 text-sm leading-relaxed text-mist md:text-base">{tier.description}</p>
                 <ul className="mt-7 flex-1 space-y-3">
@@ -71,7 +75,25 @@ export default function PricingPage({ locale }: { locale: Locale }) {
       </Section>
 
       <Section title={t.included.title} intro={t.included.intro} theme="light" compact>
-        <div className="overflow-x-auto">
+        {/* Below md the table restacks into cards so no value gets clipped on phones. */}
+        <div className="space-y-4 md:hidden">
+          {t.included.rows.map((row) => (
+            <div key={row.label} className="rounded-2xl border border-paper-line bg-white/60 p-5">
+              <p className="font-display text-base font-semibold text-ink">{row.label}</p>
+              <dl className="mt-3 grid grid-cols-2 gap-4 text-sm">
+                <div>
+                  <dt className="text-xs uppercase tracking-[0.14em] text-blue">Starter</dt>
+                  <dd className="mt-1 text-ink/70">{row.starter}</dd>
+                </div>
+                <div>
+                  <dt className="text-xs uppercase tracking-[0.14em] text-ink/60">Full</dt>
+                  <dd className="mt-1 text-ink/70">{row.full}</dd>
+                </div>
+              </dl>
+            </div>
+          ))}
+        </div>
+        <div className="hidden overflow-x-auto md:block">
           <table className="w-full min-w-[640px] border-separate border-spacing-0 text-left text-sm">
             <thead>
               <tr>

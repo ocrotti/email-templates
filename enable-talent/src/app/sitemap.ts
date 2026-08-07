@@ -15,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/blog",
     "/enable-digital",
     "/contact",
+    "/privacy",
   ];
 
   const rolePaths = roleSlugs.map((slug) => `/roles/${slug}`);
@@ -31,6 +32,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         languages: {
           en: absoluteUrl(localePath("en", path)),
           it: absoluteUrl(localePath("it", path)),
+          "x-default": absoluteUrl(localePath("en", path)),
         },
       },
     }))

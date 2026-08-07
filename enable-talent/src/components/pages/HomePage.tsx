@@ -62,7 +62,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
             <Reveal delay={0.62} y={20}>
               <div className="mt-10 flex flex-wrap gap-4">
                 <MagneticButton href={localePath(locale, "/contact")}>{t.hero.ctaPrimary} →</MagneticButton>
-                <MagneticButton href={localePath(locale, "/how-it-works")} variant="ghost">
+                <MagneticButton href="#contact" variant="ghost">
                   {t.hero.ctaSecondary}
                 </MagneticButton>
               </div>

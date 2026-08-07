@@ -15,6 +15,7 @@ interface SharedContent {
     columns: { title: string; links: NavItem[] }[];
     bridge: { title: string; body: string; cta: string };
     legal: string;
+    privacyLabel: string;
     langSwitch: string;
   };
   form: {
@@ -30,7 +31,11 @@ interface SharedContent {
     message: string;
     submit: string;
     privacy: string;
+    consent: string;
+    consentLink: string;
     success: string;
+    errorRequired: string;
+    errorEmail: string;
   };
 }
 
@@ -87,6 +92,7 @@ export const shared: Record<Locale, SharedContent> = {
         cta: "Visit enabledigital.it",
       },
       legal: "© enable.talent. All claims on this site come from our market analysis or documented client work.",
+      privacyLabel: "Privacy Policy",
       langSwitch: "Italiano",
     },
     form: {
@@ -110,7 +116,11 @@ export const shared: Record<Locale, SharedContent> = {
       message: "What does your delivery bottleneck look like?",
       submit: "Book my call",
       privacy: "We reply within one business day. No newsletter, no drip sequence.",
-      success: "Got it. We'll get back to you within one business day.",
+      consent: "By submitting, you agree to our processing of your data to respond to your enquiry. See the",
+      consentLink: "Privacy Policy",
+      success: "Got it. We'll reply within one business day with two or three proposed slots for your call.",
+      errorRequired: "This field is required.",
+      errorEmail: "Please enter a valid email address.",
     },
   },
   it: {
@@ -165,6 +175,7 @@ export const shared: Record<Locale, SharedContent> = {
         cta: "Vai su enabledigital.it",
       },
       legal: "© enable.talent. Ogni claim su questo sito viene dalla nostra ricerca di mercato o da lavoro documentato con i clienti.",
+      privacyLabel: "Privacy Policy",
       langSwitch: "English",
     },
     form: {
@@ -188,7 +199,11 @@ export const shared: Record<Locale, SharedContent> = {
       message: "Com'è fatto il tuo collo di bottiglia in delivery?",
       submit: "Prenota la call",
       privacy: "Rispondiamo entro un giorno lavorativo. Niente newsletter, niente sequenze automatiche.",
-      success: "Ricevuto. Ti rispondiamo entro un giorno lavorativo.",
+      consent: "Inviando il modulo, accetti che trattiamo i tuoi dati per rispondere alla tua richiesta. Vedi la",
+      consentLink: "Privacy Policy",
+      success: "Ricevuto. Ti rispondiamo entro un giorno lavorativo con due o tre orari proposti per la call.",
+      errorRequired: "Questo campo è obbligatorio.",
+      errorEmail: "Inserisci un indirizzo email valido.",
     },
   },
 };

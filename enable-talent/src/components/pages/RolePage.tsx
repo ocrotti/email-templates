@@ -33,6 +33,8 @@ export function RolesIndexPage({ locale }: { locale: Locale }) {
         </div>
       </section>
       <Section theme="dark">
+        {/* Keeps the heading outline h1 → h2 → h3 (RoleCard renders h3s) without changing the visual design. */}
+        <h2 className="sr-only">{locale === "en" ? "Pod roles" : "Ruoli dei pod"}</h2>
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {roleSlugs.map((slug, i) => {
             const role = roleData[slug];
@@ -83,7 +85,7 @@ export function RolePage({ locale, slug }: { locale: Locale; slug: string }) {
             </p>
           </Reveal>
           <Reveal delay={0.05}>
-            <h1 className="text-display-lg max-w-4xl font-display font-bold">{t.name}</h1>
+            <h1 className="text-display-lg max-w-4xl font-display font-bold">{t.h1}</h1>
           </Reveal>
           <Reveal delay={0.12}>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mist">{t.tagline}</p>

@@ -32,7 +32,7 @@ export const guarantee: Record<Locale, GuaranteeContent> = {
   en: {
     seoTitle: "Guarantee & How We Work Together | enable.talent",
     seoDescription:
-      "2-week trial, pay only after, free replacement in 60–90 days, contractual SLAs and full GDPR paperwork (DPA + SCC). The market standard is 30–120 days — a new brand has to beat it, so we do.",
+      "2-week trial, pay only after, free replacement in 60–90 days, contractual SLAs and full GDPR paperwork (DPA + SCC). Built to beat the market standard.",
     title: "A new brand has to out-guarantee the incumbents. Fine.",
     intro:
       "Somewhere offers a 6-month hire guarantee. MarketerHire runs 2-week trials. The market standard for replacement is 30–120 days. We don't have a decade of logos yet — so the terms below are deliberately more generous than the standard, and they live in the contract, not just on this page.",
@@ -108,7 +108,7 @@ export const guarantee: Record<Locale, GuaranteeContent> = {
   it: {
     seoTitle: "Garanzia e Come Lavoriamo Insieme | enable.talent",
     seoDescription:
-      "Trial di 2 settimane, paghi solo dopo, replacement gratuito in 60–90 giorni, SLA contrattuali e burocrazia GDPR completa (DPA + SCC). Lo standard di mercato è 30–120 giorni — un brand nuovo deve batterlo, e lo facciamo.",
+      "Trial di 2 settimane, paghi solo dopo, replacement gratuito in 60–90 giorni, SLA contrattuali e GDPR completo (DPA + SCC), per battere lo standard.",
     title: "Un brand nuovo deve garantire più degli incumbent. Va bene.",
     intro:
       "Somewhere offre una garanzia di 6 mesi sull'hire. MarketerHire fa trial di 2 settimane. Lo standard di mercato per il replacement è 30–120 giorni. Noi non abbiamo ancora dieci anni di loghi — quindi i termini qui sotto sono deliberatamente più generosi dello standard, e vivono nel contratto, non solo in questa pagina.",

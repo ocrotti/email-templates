@@ -35,7 +35,7 @@ export const talent: Record<Locale, TalentContent> = {
   en: {
     seoTitle: "Nairobi Talent, Fair Pay, Real Vetting | enable.talent",
     seoDescription:
-      "Why Nairobi: strong English, UTC+3 timezone, the Silicon Savannah tech ecosystem — and our explicit fair-pay policy: specialists earn 2–4x the local market rate, with career paths.",
+      "Why Nairobi: strong English, UTC+3, the Silicon Savannah tech ecosystem — and an explicit fair-pay policy: specialists earn 2–4x the local market rate.",
     title: "Great talent is everywhere. Opportunity isn't.",
     intro:
       "This page exists for two reasons: to answer the quality objection with facts, and to put our fair-pay policy in writing where clients and specialists can both hold us to it.",
@@ -44,7 +44,7 @@ export const talent: Record<Locale, TalentContent> = {
       title: "Why Nairobi",
       body: [
         "Nairobi is called the Silicon Savannah for boring, verifiable reasons: English is an official language and the working language of business and education. The timezone is UTC+3 — one to two hours ahead of Central Europe, so pods work your day, not your night. And the tech ecosystem is real: Google, Microsoft and Safaricom operate there; iHub and Nairobi Garage anchor the startup scene; Moringa School and AkiraChix produce serious digital talent; the University of Nairobi, Strathmore and JKUAT feed the pipeline.",
-        "The honest caveat from our own market analysis: Kenya's youth unemployment is severe — around 67% for ages 15–34, with over a million young people entering the labour market every year — and skill depth varies enormously. A big pool is not the same as a deep one. That's precisely why vetting and fair pay aren't nice-to-haves in this model: the best people already work remotely for international clients, and you don't get them by paying local minimums.",
+        "The honest caveat from our own market analysis: youth unemployment in Kenya is high — more than a million young people enter the labour market every year — and skill depth varies enormously. A big pool is not the same as a deep one. That's precisely why vetting and fair pay aren't nice-to-haves in this model: the best people already work remotely for international clients, and you don't get them by paying local minimums.",
       ],
       facts: [
         { value: "UTC+3", label: "Nairobi timezone — 1–2h ahead of CET" },
@@ -98,7 +98,7 @@ export const talent: Record<Locale, TalentContent> = {
   it: {
     seoTitle: "Talento di Nairobi, Fair Pay, Vetting Vero | enable.talent",
     seoDescription:
-      "Perché Nairobi: inglese forte, fuso UTC+3, l'ecosistema tech della Silicon Savannah — e la nostra policy di fair pay esplicita: gli specialist guadagnano 2–4x il mercato locale, con percorsi di carriera.",
+      "Perché Nairobi: inglese forte, fuso UTC+3, l'ecosistema Silicon Savannah — e una policy di fair pay esplicita: gli specialist guadagnano 2–4x il mercato locale.",
     title: "Il talento è ovunque. Le opportunità no.",
     intro:
       "Questa pagina esiste per due motivi: rispondere all'obiezione qualità con i fatti, e mettere per iscritto la nostra policy di fair pay, dove clienti e specialist possono entrambi chiedercene conto.",
@@ -107,7 +107,7 @@ export const talent: Record<Locale, TalentContent> = {
       title: "Perché Nairobi",
       body: [
         "Nairobi è chiamata Silicon Savannah per ragioni noiose e verificabili: l'inglese è lingua ufficiale e lingua di lavoro di business e istruzione. Il fuso è UTC+3 — una o due ore avanti sull'Europa centrale, quindi i pod lavorano nel tuo giorno, non nella tua notte. E l'ecosistema tech è reale: Google, Microsoft e Safaricom operano lì; iHub e Nairobi Garage ancorano la scena startup; Moringa School e AkiraChix producono talento digitale serio; University of Nairobi, Strathmore e JKUAT alimentano la pipeline.",
-        "Il caveat onesto dalla nostra stessa analisi di mercato: la disoccupazione giovanile in Kenya è severa — circa 67% nella fascia 15–34 anni, con oltre un milione di giovani che entrano nel mercato del lavoro ogni anno — e la profondità delle skill varia enormemente. Un pool grande non è un pool profondo. Ed è esattamente per questo che vetting e fair pay non sono nice-to-have in questo modello: i migliori lavorano già da remoto per clienti internazionali, e non li prendi pagando i minimi locali.",
+        "Il caveat onesto dalla nostra stessa analisi di mercato: la disoccupazione giovanile in Kenya è alta — oltre un milione di giovani entrano nel mercato del lavoro ogni anno — e la profondità delle skill varia enormemente. Un pool grande non è un pool profondo. Ed è esattamente per questo che vetting e fair pay non sono nice-to-have in questo modello: i migliori lavorano già da remoto per clienti internazionali, e non li prendi pagando i minimi locali.",
       ],
       facts: [
         { value: "UTC+3", label: "fuso di Nairobi — 1–2h avanti sul CET" },
@@ -145,7 +145,7 @@ export const talent: Record<Locale, TalentContent> = {
     },
     reputation: {
       number: "04",
-      title: "Sulla reputazione dell''outsourcing low-cost'",
+      title: "Sulla reputazione dell'“outsourcing low-cost”",
       body: [
         "Sappiamo cosa immaginano le agenzie quando sentono 'offshore': brief persi in traduzione, roulette della qualità, un partner che sparisce alla prima escalation. Quella reputazione è stata guadagnata — da un modello che tratta le persone come intercambiabili e la qualità come un problema del cliente.",
         "La nostra risposta non è un manifesto, è struttura: fair pay pubblicato in questa pagina, un vetting che presentiamo a qualsiasi cliente, marketer senior europei che firmano ogni deliverable, e garanzie che mettono il rischio su di noi. Se una sezione di questo sito dovesse mai suonare come una scusa invece che come un meccanismo, chiedicene conto.",

@@ -26,9 +26,9 @@ interface BlogIndexContent {
 
 export const blogIndex: Record<Locale, BlogIndexContent> = {
   en: {
-    seoTitle: "Blog: Offshore Marketing Delivery for Agencies | enable.talent",
+    seoTitle: "Blog: Offshore Marketing Delivery | enable.talent",
     seoDescription:
-      "Guides and honest comparisons on offshore marketing teams, white-label delivery and scaling agency margins — written by the team running Nairobi pods for European agencies.",
+      "Guides and honest comparisons on offshore marketing teams and white-label delivery, from the team running Nairobi pods for European agencies.",
     title: "Notes from the delivery engine.",
     intro:
       "Guides and comparisons for agency founders weighing offshore delivery. We name competitors, publish numbers and say when we're not the right answer — the same register as the rest of the site.",
@@ -39,9 +39,9 @@ export const blogIndex: Record<Locale, BlogIndexContent> = {
     ctaBody: "A 15-minute scoping call answers more than another comparison table. Honest opinion included.",
   },
   it: {
-    seoTitle: "Blog: Delivery Marketing Offshore per Agenzie | enable.talent",
+    seoTitle: "Blog: Delivery Marketing Offshore | enable.talent",
     seoDescription:
-      "Guide e confronti onesti su team marketing offshore, delivery white-label e margini d'agenzia — scritti dal team che gestisce pod di Nairobi per agenzie europee.",
+      "Guide e confronti onesti su team marketing offshore e delivery white-label, dal team che gestisce pod di Nairobi per agenzie europee.",
     title: "Appunti dal motore di delivery.",
     intro:
       "Guide e confronti per founder di agenzie che valutano la delivery offshore. Nominiamo i competitor, pubblichiamo numeri e diciamo quando non siamo la risposta giusta — lo stesso registro del resto del sito.",
@@ -58,9 +58,9 @@ export const blogPosts: Record<Locale, BlogPost[]> = {
     {
       slug: "somewhere-alternatives",
       title: "Somewhere.com alternatives for European agencies (2026)",
-      seoTitle: "Somewhere.com Alternatives for European Agencies (2026) | enable.talent",
+      seoTitle: "Somewhere.com Alternatives for European Agencies (2026)",
       description:
-        "Somewhere is built for US SMBs hiring single offshore employees. If you're a European agency that needs managed delivery capacity, here are the real alternatives — including when Somewhere is still the right pick.",
+        "Somewhere is built for US SMBs hiring single offshore employees. The real alternatives for European agencies that need managed delivery capacity.",
       date: "2026-07-14",
       author: "enable.talent team",
       readingTime: "7 min",
@@ -88,24 +88,24 @@ export const blogPosts: Record<Locale, BlogPost[]> = {
             "Management stays with you. Every Somewhere hire is yours to brief, review, retain and — when it goes wrong — replace mid-retainer. Multiply by three hires and you've built a hidden management job.",
             "No QA layer. Nothing stands between the hire's output and your client. Your senior people become the review bottleneck, which is usually the problem you were trying to solve.",
             "US-centric setup. Contracts, compliance framing and time zones are built around American buyers. GDPR — DPA, Standard Contractual Clauses, controller liability — is your homework, and for an EU agency handling client data it's not optional homework.",
-            "Single hires, not teams. Agency workload is spiky and multi-role. One great hire doesn't absorb a campaign launch that needs paid media, design and automation in the same fortnight.",
+            "Single hires, not teams. Agency workload is spiky and multi-role. One great hire doesn't absorb a campaign launch that needs [paid media](/roles/paid-media), design and automation in the same fortnight.",
           ],
         },
         {
           heading: "The alternatives, honestly compared",
           paragraphs: [
             "Hire With Near sells nearshore LatAm talent at $2,000–4,500/month for a mid-level marketer, replacement guarantee included — strong for US agencies on US hours, less aligned with CET and with EU compliance needs.",
-            "MarketerHire is a freelance marketplace for premium Western marketers at $5,000–20,000+/month — excellent for a fractional expert, expensive as permanent delivery capacity (we compare it in depth in a separate article).",
+            "MarketerHire is a freelance marketplace for premium Western marketers at $5,000–20,000+/month — excellent for a fractional expert, expensive as permanent delivery capacity (we compare it in depth in [a dedicated MarketerHire comparison](/blog/marketerhire-alternatives)).",
             "JobRack recruits from Eastern Europe and South Africa (EAs from $2,000/month, senior devs from $5,500) — same model as Somewhere, closer time zones, still recruiting rather than managed delivery.",
             "Toptal and Turing sell global tech talent at $100–200/hour — built for engineering, not marketing delivery.",
-            "enable.talent (us) sells managed marketing pods from Nairobi: dedicated specialists plus senior European QA plus management, from €2,000/month, 2-week trial, pay after, replacement in 60–90 days, DPA and SCCs standard. We're the newest entrant in this list and the only one built specifically for European agencies.",
+            "enable.talent (us) sells managed marketing pods from Nairobi: dedicated specialists plus senior European QA plus management, from [€2,000/month](/pricing), 2-week trial, pay after, replacement in 60–90 days, DPA and SCCs standard. We're the newest entrant in this list and the only one built specifically for European agencies.",
           ],
         },
         {
           heading: "When Somewhere is still the right call",
           paragraphs: [
             "If you're hiring one back-office role you're happy to manage yourself — an assistant, a support rep, a bookkeeper — Somewhere's scale, pool and six-month guarantee are hard to argue with. Their model is proven at a volume we can't claim.",
-            "If what's actually squeezing you is delivery capacity across marketing roles, with your client's brand on every deliverable and EU data protection in scope, then a recruited individual isn't the unit you need — a managed team is. That's the gap the pod model exists to fill.",
+            "If what's actually squeezing you is delivery capacity across marketing roles, with your client's brand on every deliverable and EU data protection in scope, then a recruited individual isn't the unit you need — a managed team is. That's the gap [the pod model](/how-it-works) exists to fill.",
           ],
         },
       ],
@@ -113,12 +113,12 @@ export const blogPosts: Record<Locale, BlogPost[]> = {
     {
       slug: "marketerhire-alternatives",
       title: "MarketerHire alternatives: managed pods vs freelance marketplaces",
-      seoTitle: "MarketerHire Alternatives: Pods vs Freelance Marketplaces | enable.talent",
+      seoTitle: "MarketerHire Alternatives: Pods vs Freelance Marketplaces",
       description:
-        "MarketerHire matches you with top Western freelance marketers at $5,000–20,000+/month. Great for fractional expertise — expensive as delivery capacity. The honest comparison, with numbers.",
+        "MarketerHire matches you with top Western freelancers at $5,000–20,000+/month. Great for fractional expertise — expensive as delivery capacity.",
       date: "2026-07-02",
       author: "enable.talent team",
-      readingTime: "6 min",
+      readingTime: "8 min",
       tag: "Alternatives",
       sections: [
         {
@@ -147,10 +147,26 @@ export const blogPosts: Record<Locale, BlogPost[]> = {
 
         },
         {
+          heading: "The rest of the field, category by category",
+          paragraphs: [
+            "MarketerHire isn't the only door. The market splits into a few categories, each right for a different job.",
+          ],
+          list: [
+            "Growth Collective — a curated marketing marketplace, engaged by project or by the hour, Western talent, transparent pricing. A good fit for scoped project work where you want to pick the individual yourself.",
+            "Mayple — a performance-vetted marketplace (1% acceptance against 141 criteria, with vetting run on real ad-account data), plans from $2,565/month and a 30-day guarantee. Built mainly for eCommerce and DTC brands buying vetted execution.",
+            "Right Side Up — a premium collective of Western marketers at $100–200/hour, no lock-in, and explicitly relaxed about you hiring their people away. Right for brands that want in-house-calibre talent without agency overhead.",
+            "Toptal — the 'top 3%' global marketplace at $100–200/hour with a 2-week trial. Strongest for engineering and technical roles; marketing is not its centre of gravity.",
+            "Upwork — the open marketplace, with no curation layer: all vetting and management sit with you. Sensible for one-off tasks where a miss is cheap.",
+            "Somewhere and Hire With Near — recruiting rather than marketplaces: they source offshore or nearshore candidates (Philippines, Latin America, South Africa, Egypt; Near sells LatAm mid-level marketers at $2,000–4,500/month), you employ and manage. Right when you want a permanent hire and have the management capacity — see [our full Somewhere comparison for European agencies](/blog/somewhere-alternatives).",
+            "White-label agencies — productised SEO and PPC shops, a mature category. Right when you want a defined service delivered under your brand and can live with their process — we unpack the model in [our white-label delivery guide](/blog/white-label-delivery).",
+          ],
+        },
+        {
           heading: "The managed-pod alternative",
           paragraphs: [
-            "A managed pod inverts the shape: instead of renting senior individuals, you get a dedicated delivery unit — specialists in Nairobi working only for your agency, a senior European marketer QA-ing every deliverable, and management (briefing discipline, capacity, replacement, retention) included in the price.",
-            "The economics work because the cost-of-living gap between Nairobi and Western Europe is real: a starter pod runs from €2,000/month all-in, 40–70% below Western employer cost, while the specialists earn 2–4x their local market rate — a fair-pay policy we publish because it's the mechanism that keeps retention high.",
+            "None of the categories above is a wrong answer — they price different risks. The job they don't cover is ongoing white-label delivery capacity with management included, and that's the specific job the managed pod exists for.",
+            "A managed pod inverts the shape: instead of renting senior individuals, you get a dedicated delivery unit — [specialists in Nairobi](/talent) working only for your agency, a senior European marketer QA-ing every deliverable, and management (briefing discipline, capacity, replacement, retention) included in the price.",
+            "The economics work because the cost-of-living gap between Nairobi and Western Europe is real: a starter pod runs from [€2,000/month all-in](/pricing), 40–70% below Western employer cost, while the specialists earn 2–4x their local market rate — a fair-pay policy we publish because it's the mechanism that keeps retention high.",
             "The trade-off to be honest about: a pod is delivery capacity, not fractional strategic leadership. If you need someone to own strategy in front of your client, hire that person — through MarketerHire, locally, or via our sister agency Enable Digital for the Italian market. Pods make your delivery scale; they don't replace your senior brain.",
           ],
         },
@@ -165,9 +181,9 @@ export const blogPosts: Record<Locale, BlogPost[]> = {
     {
       slug: "hire-offshore-marketing-team",
       title: "How to hire an offshore marketing team without wrecking quality",
-      seoTitle: "How to Hire an Offshore Marketing Team (Agency Guide 2026) | enable.talent",
+      seoTitle: "How to Hire an Offshore Marketing Team (Agency Guide 2026)",
       description:
-        "A practical guide for agency founders: models compared (recruiting, marketplaces, managed pods), real cost bands, the GDPR checklist, and the five failure modes that kill offshore delivery.",
+        "A practical guide for agency founders: models compared, real cost bands, the GDPR checklist and the failure modes that kill offshore delivery.",
       date: "2026-06-18",
       author: "enable.talent team",
       readingTime: "9 min",
@@ -182,7 +198,7 @@ export const blogPosts: Record<Locale, BlogPost[]> = {
         {
           heading: "Step 1: Pick the model, not the country",
           paragraphs: [
-            "Three models dominate, and they fail differently.",
+            "Three models dominate, and they fail differently. We've compared the leading names in depth — [Somewhere, for European agencies](/blog/somewhere-alternatives) and [MarketerHire vs managed pods](/blog/marketerhire-alternatives) — but the shape of the model matters more than the brand.",
           ],
           list: [
             "Recruiting services (Somewhere, JobRack): they find, you manage. Cheapest per head, all delivery risk stays with you. Right when you have management capacity to spare.",
@@ -193,7 +209,7 @@ export const blogPosts: Record<Locale, BlogPost[]> = {
         {
           heading: "Step 2: Use real cost bands, not vibes",
           paragraphs: [
-            "Employer-cost benchmarks from our 2025 market analysis (directional — samples are small): a digital marketing specialist runs €2,400–2,700/month in Italy, ~€4,300 in Germany for paid media, ~£5,740 in the UK for social. LatAm nearshore providers sell mid-level marketers to US buyers at $2,000–4,500/month. A managed Nairobi pod starts at €2,000/month including QA and management, with specialists paid 2–4x their local market.",
+            "Employer-cost benchmarks from our 2025 market analysis (directional — samples are small): a digital marketing specialist runs €2,400–2,700/month in Italy, ~€4,300 in Germany for paid media, ~£5,740 in the UK for social. LatAm nearshore providers sell mid-level marketers to US buyers at $2,000–4,500/month. A managed Nairobi pod starts at [€2,000/month including QA and management](/pricing), with specialists paid 2–4x their local market.",
             "The comparison that matters isn't offshore-vs-local salary — it's offshore-with-structure vs offshore-without. The salary delta is easy; the quality delta is where the money actually is.",
           ],
         },
@@ -225,7 +241,7 @@ export const blogPosts: Record<Locale, BlogPost[]> = {
         {
           heading: "Step 5: Run a real trial",
           paragraphs: [
-            "Whatever model you pick, demand a paid-only-if-satisfied trial with defined deliverables and evaluation criteria you write down in advance. The market standard exists: 2-week trials, replacement guarantees of 30–120 days, pay-after mechanics. A provider that won't structure a trial this way is telling you something — listen.",
+            "Whatever model you pick, demand a paid-only-if-satisfied trial with defined deliverables and evaluation criteria you write down in advance. The market standard exists: 2-week trials, replacement guarantees of 30–120 days, pay-after mechanics — [ours are published in plain language](/guarantee). A provider that won't structure a trial this way is telling you something — listen.",
           ],
         },
       ],
@@ -235,7 +251,7 @@ export const blogPosts: Record<Locale, BlogPost[]> = {
       title: "White-label delivery: how agencies scale without hiring",
       seoTitle: "White-Label Marketing Delivery for Agencies | enable.talent",
       description:
-        "White-label delivery lets agencies sell more than they can staff — if the invisible partner is actually reliable. How the model works, where it breaks, and the contractual details that keep it invisible.",
+        "How white-label delivery works, where it breaks, and the contract terms that keep the partner invisible — a guide for agencies scaling without hiring.",
       date: "2026-06-05",
       author: "enable.talent team",
       readingTime: "6 min",
@@ -243,14 +259,14 @@ export const blogPosts: Record<Locale, BlogPost[]> = {
       sections: [
         {
           paragraphs: [
-            "Every agency hits the same wall: the pipeline grows faster than the team can. Hiring is slow and risky; declining work kills momentum; burning out the existing team kills quality. White-label delivery — an external team producing under your brand — is the standard escape hatch, and it has a standard set of ways to go wrong.",
+            "Every agency hits the same wall: the pipeline grows faster than the team can. Hiring is slow and risky; declining work kills momentum; burning out the existing team kills quality. White-label delivery — an external team producing under your brand — is the standard escape hatch, and it has a standard set of ways to go wrong. If you're still weighing offshore models more broadly, start with our [guide to hiring an offshore marketing team](/blog/hire-offshore-marketing-team); this article covers the white-label layer specifically.",
           ],
         },
         {
           heading: "What white-label actually requires",
           paragraphs: [
             "The promise is simple: your client sees your brand, your account team and your quality bar — the production happens elsewhere. For that to hold, four things must be true simultaneously: the output must match your standards without your review becoming the bottleneck; the partner must be invisible contractually and operationally; continuity must survive any individual leaving; and the economics must leave margin after the coordination cost.",
-            "Most white-label failures are a violation of exactly one of these — usually discovered by a client, which is the expensive way.",
+            "Most white-label failures are a violation of exactly one of these — usually discovered by a client, which is the expensive way. It's why we ran the model on ourselves first: [Enable Digital, our client zero](/case-study), is the documented version.",
           ],
         },
         {
@@ -259,14 +275,14 @@ export const blogPosts: Record<Locale, BlogPost[]> = {
           list: [
             "White-label agencies (established category: white-label SEO and PPC shops): productised, reliable, but you adapt to their process and their margins are baked into your price.",
             "Freelancer benches: flexible and cheap to start, but invisible-partner discipline (NDAs, branding, availability) depends on each individual — fragile at portfolio scale.",
-            "Managed pods: a dedicated offshore team under your workflow with a QA layer on top. Newer as a category; the one built to make 'your invisible delivery department' literal.",
+            "Managed pods: [a dedicated offshore team under your workflow](/how-it-works) with a QA layer on top. Newer as a category; the one built to make 'your invisible delivery department' literal.",
           ],
         },
         {
           heading: "The contractual fine print that keeps you invisible",
           paragraphs: [
             "White-label lives or dies in the contract, not the pitch deck. The clauses that matter: NDAs covering your client list, positioning and pricing, surviving the engagement; IP assignment from every individual who touches the work; defined SLAs with remedies (a missed deadline you absorb in front of your client needs to cost your partner something); replacement guarantees with continuity commitments; and a clean-exit clause — assets and documentation handed over within a defined window.",
-            "Our version of these terms is on the guarantee page, in plain language. Whoever you pick as an invisible partner, hold them to that standard in writing.",
+            "Our version of these terms is on [the guarantee page](/guarantee), in plain language. Whoever you pick as an invisible partner, hold them to that standard in writing.",
           ],
         },
         {
@@ -282,9 +298,9 @@ export const blogPosts: Record<Locale, BlogPost[]> = {
     {
       slug: "somewhere-alternatives",
       title: "Alternative a Somewhere.com per agenzie europee (2026)",
-      seoTitle: "Alternative a Somewhere.com per Agenzie Europee (2026) | enable.talent",
+      seoTitle: "Alternative a Somewhere.com per Agenzie Europee (2026)",
       description:
-        "Somewhere è costruito per PMI USA che assumono singoli dipendenti offshore. Se sei un'agenzia europea che cerca capacità di delivery gestita, ecco le alternative vere — incluso quando Somewhere resta la scelta giusta.",
+        "Somewhere è costruito per PMI USA che assumono singoli dipendenti offshore. Le alternative vere per agenzie europee che cercano delivery gestita.",
       date: "2026-07-14",
       author: "team enable.talent",
       readingTime: "7 min",
@@ -310,24 +326,24 @@ export const blogPosts: Record<Locale, BlogPost[]> = {
             "La gestione resta a te. Ogni hire Somewhere è tuo da briffare, rivedere, trattenere e — quando va male — sostituire a metà retainer. Moltiplica per tre hire e hai costruito un lavoro di management nascosto.",
             "Nessun layer di QA. Niente si frappone tra l'output dell'hire e il tuo cliente. I tuoi senior diventano il collo di bottiglia delle review — che di solito era il problema che volevi risolvere.",
             "Setup USA-centrico. Contratti, compliance e fusi orari costruiti intorno al buyer americano. Il GDPR — DPA, Standard Contractual Clauses, responsabilità del controller — è compito tuo, e per un'agenzia UE che tratta dati clienti non è un compito opzionale.",
-            "Hire singoli, non team. Il carico d'agenzia è a picchi e multi-ruolo. Un ottimo hire non assorbe un lancio che richiede paid media, design e automation nella stessa quindicina.",
+            "Hire singoli, non team. Il carico d'agenzia è a picchi e multi-ruolo. Un ottimo hire non assorbe un lancio che richiede [paid media](/it/roles/paid-media), design e automation nella stessa quindicina.",
           ],
         },
         {
           heading: "Le alternative, confrontate onestamente",
           paragraphs: [
             "Hire With Near vende talento nearshore LatAm a $2.000–4.500/mese per un marketer mid-level, garanzia di replacement inclusa — forte per agenzie USA su orari USA, meno allineato al CET e ai bisogni di compliance UE.",
-            "MarketerHire è un marketplace freelance di marketer occidentali premium a $5.000–20.000+/mese — eccellente per un esperto fractional, costoso come capacità di delivery permanente (lo confrontiamo in dettaglio in un articolo dedicato).",
+            "MarketerHire è un marketplace freelance di marketer occidentali premium a $5.000–20.000+/mese — eccellente per un esperto fractional, costoso come capacità di delivery permanente (lo confrontiamo in dettaglio in [un confronto dedicato a MarketerHire](/it/blog/marketerhire-alternatives)).",
             "JobRack recluta da Est Europa e Sudafrica (EA da $2.000/mese, dev senior da $5.500) — stesso modello di Somewhere, fusi più vicini, ma sempre recruiting, non delivery gestita.",
             "Toptal e Turing vendono talento tech globale a $100–200/ora — costruiti per l'engineering, non per la delivery marketing.",
-            "enable.talent (noi) vende pod marketing gestiti da Nairobi: specialist dedicati più QA senior europeo più gestione, da €2.000/mese, trial di 2 settimane, pagamento dopo, replacement in 60–90 giorni, DPA e SCC standard. Siamo l'entrante più nuovo di questa lista e l'unico costruito specificamente per le agenzie europee.",
+            "enable.talent (noi) vende pod marketing gestiti da Nairobi: specialist dedicati più QA senior europeo più gestione, da [€2.000/mese](/it/pricing), trial di 2 settimane, pagamento dopo, replacement in 60–90 giorni, DPA e SCC standard. Siamo l'entrante più nuovo di questa lista e l'unico costruito specificamente per le agenzie europee.",
           ],
         },
         {
           heading: "Quando Somewhere resta la scelta giusta",
           paragraphs: [
             "Se stai assumendo un singolo ruolo di back-office che sei felice di gestire in autonomia — un'assistant, un support, un bookkeeper — la scala di Somewhere, il pool e la garanzia di sei mesi sono difficili da battere. Il loro modello è provato a un volume che noi non possiamo rivendicare.",
-            "Se ciò che ti stringe davvero è la capacità di delivery su ruoli marketing, con il brand del tuo cliente su ogni deliverable e la protezione dei dati UE in scope, allora l'unità che ti serve non è un individuo reclutato — è un team gestito. È il gap che il modello pod esiste per riempire.",
+            "Se ciò che ti stringe davvero è la capacità di delivery su ruoli marketing, con il brand del tuo cliente su ogni deliverable e la protezione dei dati UE in scope, allora l'unità che ti serve non è un individuo reclutato — è un team gestito. È il gap che [il modello pod](/it/how-it-works) esiste per riempire.",
           ],
         },
       ],
@@ -335,12 +351,12 @@ export const blogPosts: Record<Locale, BlogPost[]> = {
     {
       slug: "marketerhire-alternatives",
       title: "Alternative a MarketerHire: pod gestiti vs marketplace freelance",
-      seoTitle: "Alternative a MarketerHire: Pod vs Marketplace Freelance | enable.talent",
+      seoTitle: "Alternative a MarketerHire: Pod vs Marketplace Freelance",
       description:
-        "MarketerHire ti abbina a marketer freelance occidentali di alto livello a $5.000–20.000+/mese. Ottimo per expertise fractional — costoso come capacità di delivery. Il confronto onesto, con i numeri.",
+        "MarketerHire ti abbina a marketer freelance occidentali a $5.000–20.000+/mese. Ottimo per expertise fractional — costoso come capacità di delivery.",
       date: "2026-07-02",
       author: "team enable.talent",
-      readingTime: "6 min",
+      readingTime: "8 min",
       tag: "Alternative",
       sections: [
         {
@@ -366,10 +382,26 @@ export const blogPosts: Record<Locale, BlogPost[]> = {
           ],
         },
         {
+          heading: "Il resto del mercato, categoria per categoria",
+          paragraphs: [
+            "MarketerHire non è l'unica porta. Il mercato si divide in poche categorie, ognuna giusta per un lavoro diverso.",
+          ],
+          list: [
+            "Growth Collective — marketplace marketing curato, ingaggio a progetto o a ore, talento occidentale, prezzi trasparenti. Adatto a lavori a progetto ben perimetrati dove vuoi scegliere tu la persona.",
+            "Mayple — marketplace con vetting sulle performance (1% di accettazione su 141 criteri, con verifica su dati reali degli ad account), piani da $2.565/mese e garanzia di 30 giorni. Pensato soprattutto per brand eCommerce e DTC che comprano esecuzione vettata.",
+            "Right Side Up — collettivo premium di marketer occidentali a $100–200/ora, nessun lock-in, e dichiaratamente rilassato se assumi le sue persone. Giusto per brand che vogliono talento di calibro in-house senza overhead d'agenzia.",
+            "Toptal — il marketplace globale del 'top 3%' a $100–200/ora con trial di 2 settimane. Più forte su engineering e ruoli tecnici; il marketing non è il suo baricentro.",
+            "Upwork — il marketplace aperto, senza layer di curation: vetting e gestione restano interamente a te. Sensato per task una tantum dove un errore costa poco.",
+            "Somewhere e Hire With Near — recruiting, non marketplace: trovano candidati offshore o nearshore (Filippine, America Latina, Sudafrica, Egitto; Near vende marketer mid-level LatAm a $2.000–4.500/mese), tu assumi e gestisci. Giusti quando vuoi un hire permanente e hai la capacità di management — vedi [il nostro confronto completo su Somewhere per agenzie europee](/it/blog/somewhere-alternatives).",
+            "Agenzie white-label — shop SEO e PPC produttizzati, una categoria matura. Giuste quando vuoi un servizio definito consegnato sotto il tuo brand e puoi adattarti al loro processo — analizziamo il modello nella [nostra guida alla delivery white-label](/it/blog/white-label-delivery).",
+          ],
+        },
+        {
           heading: "L'alternativa del pod gestito",
           paragraphs: [
-            "Un pod gestito inverte la forma: invece di affittare individui senior, hai un'unità di delivery dedicata — specialist a Nairobi che lavorano solo per la tua agenzia, un marketer senior europeo che fa QA su ogni deliverable, e la gestione (disciplina dei brief, capacità, replacement, retention) inclusa nel prezzo.",
-            "L'economia funziona perché il gap di costo della vita tra Nairobi e l'Europa occidentale è reale: un pod starter parte da €2.000/mese tutto incluso, 40–70% sotto il costo datoriale occidentale, mentre gli specialist guadagnano 2–4x il loro mercato locale — una policy di fair pay che pubblichiamo perché è il meccanismo che tiene alta la retention.",
+            "Nessuna delle categorie sopra è una risposta sbagliata — prezzano rischi diversi. Il lavoro che non coprono è la capacità di delivery white-label continuativa con la gestione inclusa, ed è esattamente il lavoro per cui esiste il pod gestito.",
+            "Un pod gestito inverte la forma: invece di affittare individui senior, hai un'unità di delivery dedicata — [specialist a Nairobi](/it/talent) che lavorano solo per la tua agenzia, un marketer senior europeo che fa QA su ogni deliverable, e la gestione (disciplina dei brief, capacità, replacement, retention) inclusa nel prezzo.",
+            "L'economia funziona perché il gap di costo della vita tra Nairobi e l'Europa occidentale è reale: un pod starter parte da [€2.000/mese tutto incluso](/it/pricing), 40–70% sotto il costo datoriale occidentale, mentre gli specialist guadagnano 2–4x il loro mercato locale — una policy di fair pay che pubblichiamo perché è il meccanismo che tiene alta la retention.",
             "Il trade-off da dichiarare: un pod è capacità di delivery, non leadership strategica fractional. Se ti serve qualcuno che possieda la strategia davanti al tuo cliente, assumi quella persona — via MarketerHire, in locale, o tramite la nostra agenzia sorella Enable Digital per il mercato italiano. I pod scalano la tua delivery; non sostituiscono il tuo cervello senior.",
           ],
         },
@@ -384,9 +416,9 @@ export const blogPosts: Record<Locale, BlogPost[]> = {
     {
       slug: "hire-offshore-marketing-team",
       title: "Come assumere un team marketing offshore senza distruggere la qualità",
-      seoTitle: "Come Assumere un Team Marketing Offshore (Guida 2026) | enable.talent",
+      seoTitle: "Come Assumere un Team Marketing Offshore (Guida 2026)",
       description:
-        "Guida pratica per founder di agenzie: modelli a confronto (recruiting, marketplace, pod gestiti), fasce di costo reali, la checklist GDPR e le cinque modalità di fallimento che uccidono la delivery offshore.",
+        "Guida pratica per founder di agenzie: modelli a confronto, fasce di costo reali, checklist GDPR e le modalità di fallimento della delivery offshore.",
       date: "2026-06-18",
       author: "team enable.talent",
       readingTime: "9 min",
@@ -400,7 +432,9 @@ export const blogPosts: Record<Locale, BlogPost[]> = {
         },
         {
           heading: "Step 1: Scegli il modello, non il paese",
-          paragraphs: ["Tre modelli dominano, e falliscono in modo diverso."],
+          paragraphs: [
+            "Tre modelli dominano, e falliscono in modo diverso. Abbiamo confrontato in dettaglio i nomi principali — [Somewhere, per le agenzie europee](/it/blog/somewhere-alternatives) e [MarketerHire vs pod gestiti](/it/blog/marketerhire-alternatives) — ma la forma del modello conta più del brand.",
+          ],
           list: [
             "Servizi di recruiting (Somewhere, JobRack): loro trovano, tu gestisci. Il più economico per testa, tutto il rischio di delivery resta a te. Giusto quando hai capacità di management in eccesso.",
             "Marketplace freelance (MarketerHire, Toptal, Growth Collective): accesso rapido a individui senior, tariffe premium, attenzione condivisa. Giusto per expertise fractional, sbagliato per il throughput di massa.",
@@ -410,7 +444,7 @@ export const blogPosts: Record<Locale, BlogPost[]> = {
         {
           heading: "Step 2: Usa fasce di costo reali, non sensazioni",
           paragraphs: [
-            "Benchmark di costo datoriale dalla nostra analisi 2025 (direzionali — i campioni sono piccoli): un digital marketing specialist costa €2.400–2.700/mese in Italia, ~€4.300 in Germania per il paid media, ~£5.740 nel Regno Unito per il social. I provider nearshore LatAm vendono marketer mid-level ai buyer USA a $2.000–4.500/mese. Un pod gestito di Nairobi parte da €2.000/mese inclusi QA e gestione, con specialist pagati 2–4x il loro mercato locale.",
+            "Benchmark di costo datoriale dalla nostra analisi 2025 (direzionali — i campioni sono piccoli): un digital marketing specialist costa €2.400–2.700/mese in Italia, ~€4.300 in Germania per il paid media, ~£5.740 nel Regno Unito per il social. I provider nearshore LatAm vendono marketer mid-level ai buyer USA a $2.000–4.500/mese. Un pod gestito di Nairobi parte da [€2.000/mese inclusi QA e gestione](/it/pricing), con specialist pagati 2–4x il loro mercato locale.",
             "Il confronto che conta non è offshore-vs-stipendio-locale — è offshore-con-struttura vs offshore-senza. Il delta salariale è facile; il delta di qualità è dove stanno davvero i soldi.",
           ],
         },
@@ -431,7 +465,7 @@ export const blogPosts: Record<Locale, BlogPost[]> = {
           paragraphs: ["La delivery offshore raramente fallisce in modo rumoroso. Decade attraverso meccanismi prevedibili:"],
           list: [
             "Nessun gate di QA — il primo deliverable sotto standard arriva al tuo cliente con il tuo logo sopra, e la fiducia non recupera mai del tutto.",
-            "Entropia dei brief — la qualità segue la disciplina dei brief quasi uno-a-uno; senza template, l'output deriva.",
+            "Entropia dei brief — la qualità segue la disciplina dei brief quasi uno-a-uno; senza template, l'output va alla deriva.",
             "Turnover — gli specialist sottopagati se ne vanno al prossimo gig in dollari, portandosi via tre mesi di contesto. Il fair pay è infrastruttura di retention, non teatro etico.",
             "Attrito di fuso — un offset di 6–10 ore trasforma ogni revisione in un ciclo di 24 ore. Nairobi a CET+1/2 elimina questa variabile per i buyer europei.",
             "Debito di gestione invisibile — 'abbiamo risparmiato il 60% sugli stipendi' diventa in silenzio 'la nostra PM passa metà settimana a coordinare il lavoro offshore'. Conta quel costo prima, non dopo.",
@@ -440,7 +474,7 @@ export const blogPosts: Record<Locale, BlogPost[]> = {
         {
           heading: "Step 5: Fai un trial vero",
           paragraphs: [
-            "Qualunque modello tu scelga, pretendi un trial paghi-solo-se-soddisfatto con deliverable definiti e criteri di valutazione scritti in anticipo. Lo standard di mercato esiste: trial di 2 settimane, garanzie di replacement di 30–120 giorni, meccaniche pay-after. Un provider che non struttura il trial così ti sta dicendo qualcosa — ascoltalo.",
+            "Qualunque modello tu scelga, pretendi un trial paghi-solo-se-soddisfatto con deliverable definiti e criteri di valutazione scritti in anticipo. Lo standard di mercato esiste: trial di 2 settimane, garanzie di replacement di 30–120 giorni, meccaniche pay-after — [i nostri termini sono pubblicati in linguaggio semplice](/it/guarantee). Un provider che non struttura il trial così ti sta dicendo qualcosa — ascoltalo.",
           ],
         },
       ],
@@ -450,7 +484,7 @@ export const blogPosts: Record<Locale, BlogPost[]> = {
       title: "Delivery white-label: come le agenzie scalano senza assumere",
       seoTitle: "Delivery Marketing White-Label per Agenzie | enable.talent",
       description:
-        "La delivery white-label permette alle agenzie di vendere più di quanto possano staffare — se il partner invisibile è davvero affidabile. Come funziona il modello, dove si rompe, e i dettagli contrattuali che lo tengono invisibile.",
+        "Come funziona la delivery white-label, dove si rompe e le clausole contrattuali che tengono invisibile il partner — guida per agenzie che scalano.",
       date: "2026-06-05",
       author: "team enable.talent",
       readingTime: "6 min",
@@ -458,30 +492,30 @@ export const blogPosts: Record<Locale, BlogPost[]> = {
       sections: [
         {
           paragraphs: [
-            "Ogni agenzia sbatte contro lo stesso muro: la pipeline cresce più in fretta del team. Assumere è lento e rischioso; rifiutare lavoro uccide lo slancio; bruciare il team esistente uccide la qualità. La delivery white-label — un team esterno che produce sotto il tuo brand — è la via d'uscita standard, e ha un set standard di modi per andare male.",
+            "Ogni agenzia sbatte contro lo stesso muro: la pipeline cresce più in fretta del team. Assumere è lento e rischioso; rifiutare lavoro uccide lo slancio; bruciare il team esistente uccide la qualità. La delivery white-label — un team esterno che produce sotto il tuo brand — è la via d'uscita standard, e ha un set standard di modi per andare male. Se stai ancora valutando i modelli offshore in generale, parti dalla nostra [guida per assumere un team marketing offshore](/it/blog/hire-offshore-marketing-team); questo articolo copre nello specifico il layer white-label.",
           ],
         },
         {
           heading: "Cosa richiede davvero il white-label",
           paragraphs: [
             "La promessa è semplice: il tuo cliente vede il tuo brand, il tuo account team e la tua asticella di qualità — la produzione avviene altrove. Perché regga, quattro cose devono essere vere insieme: l'output deve rispettare i tuoi standard senza che la tua review diventi il collo di bottiglia; il partner deve essere invisibile contrattualmente e operativamente; la continuità deve sopravvivere all'uscita di qualsiasi individuo; e l'economia deve lasciare margine dopo il costo di coordinamento.",
-            "La maggior parte dei fallimenti white-label è la violazione di esattamente una di queste — di solito scoperta da un cliente, che è il modo costoso.",
+            "La maggior parte dei fallimenti white-label è la violazione di esattamente una di queste — di solito scoperta da un cliente, che è il modo costoso. È il motivo per cui abbiamo fatto girare il modello prima su noi stessi: [Enable Digital, il nostro cliente zero](/it/case-study), è la versione documentata.",
           ],
         },
         {
           heading: "I tre formati sul mercato",
           paragraphs: [],
           list: [
-            "Agenzie white-label (categoria matura: shop white-label SEO e PPC): prodotto standardizzato, affidabile, ma ti adatti al loro processo e i loro margini sono cotti dentro il tuo prezzo.",
+            "Agenzie white-label (categoria matura: shop white-label SEO e PPC): prodotto standardizzato, affidabile, ma ti adatti al loro processo e i loro margini sono incorporati nel tuo prezzo.",
             "Bench di freelance: flessibile ed economica all'inizio, ma la disciplina da partner invisibile (NDA, branding, disponibilità) dipende da ogni individuo — fragile a scala di portafoglio.",
-            "Pod gestiti: un team offshore dedicato dentro il tuo workflow con un layer di QA sopra. Categoria più giovane; quella costruita per rendere letterale 'il tuo reparto delivery invisibile'.",
+            "Pod gestiti: [un team offshore dedicato dentro il tuo workflow](/it/how-it-works) con un layer di QA sopra. Categoria più giovane; quella costruita per rendere letterale 'il tuo reparto delivery invisibile'.",
           ],
         },
         {
           heading: "Le clausole che ti tengono invisibile",
           paragraphs: [
             "Il white-label vive o muore nel contratto, non nel pitch deck. Le clausole che contano: NDA su lista clienti, posizionamento e prezzi, che sopravvivono all'ingaggio; cessione IP da ogni individuo che tocca il lavoro; SLA definiti con rimedi (una deadline mancata che assorbi tu davanti al cliente deve costare qualcosa al partner); garanzie di replacement con impegni di continuità; e una clausola di uscita pulita — asset e documentazione consegnati entro una finestra definita.",
-            "La nostra versione di questi termini è nella pagina garanzia, in linguaggio semplice. Chiunque tu scelga come partner invisibile, tienilo a quello standard per iscritto.",
+            "La nostra versione di questi termini è nella [pagina garanzia](/it/guarantee), in linguaggio semplice. Chiunque tu scelga come partner invisibile, tienilo a quello standard per iscritto.",
           ],
         },
         {

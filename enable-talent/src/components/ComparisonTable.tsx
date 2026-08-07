@@ -18,7 +18,36 @@ export default function ComparisonTable({ columns, rows, note }: Props) {
 
   return (
     <div>
-      <div className="overflow-x-auto pb-2">
+      {/* Below md the table restacks into per-row cards so the pod column stays visible on phones. */}
+      <div className="space-y-4 md:hidden">
+        {rows.map((row, ri) => (
+          <motion.div
+            key={row.label}
+            initial={reduced ? false : { opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.55, delay: Math.min(ri, 3) * 0.06, ease: [0.22, 1, 0.36, 1] }}
+            className="rounded-2xl border border-ink-line bg-ink-soft/40 p-5"
+          >
+            <p className="font-display text-base font-semibold text-paper">{row.label}</p>
+            <dl className="mt-4 space-y-3 text-sm">
+              <div>
+                <dt className="text-xs uppercase tracking-[0.14em] text-mist/80">{columns[1]}</dt>
+                <dd className="mt-1 text-mist">{row.inHouse}</dd>
+              </div>
+              <div>
+                <dt className="text-xs uppercase tracking-[0.14em] text-mist/80">{columns[2]}</dt>
+                <dd className="mt-1 text-mist">{row.freelance}</dd>
+              </div>
+              <div className="rounded-xl bg-blue/10 p-3">
+                <dt className="text-xs uppercase tracking-[0.14em] text-blue-bright">{columns[3]}</dt>
+                <dd className="mt-1 font-medium text-paper">{row.pod}</dd>
+              </div>
+            </dl>
+          </motion.div>
+        ))}
+      </div>
+      <div className="hidden overflow-x-auto pb-2 md:block">
         <table className="w-full min-w-[760px] border-separate border-spacing-0 text-left text-sm">
           <thead>
             <tr>

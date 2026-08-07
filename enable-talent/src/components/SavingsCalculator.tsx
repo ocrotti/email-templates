@@ -25,7 +25,9 @@ interface Props {
  */
 export default function SavingsCalculator(props: Props) {
   const [roleKey, setRoleKey] = useState(props.roles[0].key);
-  const [market, setMarket] = useState<"it" | "de" | "uk">("it");
+  // Default to Germany: a spread inside the advertised 40–70% band, so the
+  // first number a visitor sees doesn't argue with the claims beside it.
+  const [market, setMarket] = useState<"it" | "de" | "uk">("de");
   const reduced = useReducedMotion();
 
   const role = useMemo(() => props.roles.find((r) => r.key === roleKey)!, [props.roles, roleKey]);
@@ -72,7 +74,7 @@ export default function SavingsCalculator(props: Props) {
           <div className="mb-2 flex items-end justify-between gap-4">
             <span className="text-sm text-mist">{props.localLabel}</span>
             <span className="font-display text-2xl font-semibold text-paper md:text-3xl">
-              <Counter key={`local-${roleKey}-${market}`} value={local} prefix="€" locale={props.locale} />
+              <Counter key={`local-${roleKey}-${market}`} value={local} prefix="€" duration={0.8} locale={props.locale} />
               <span className="text-sm font-normal text-mist">{props.perMonth}</span>
             </span>
           </div>
@@ -93,7 +95,7 @@ export default function SavingsCalculator(props: Props) {
           <div className="mb-2 flex items-end justify-between gap-4">
             <span className="text-sm text-paper">{props.podLabel}</span>
             <span className="font-display text-2xl font-semibold text-blue-bright md:text-3xl">
-              <Counter key={`pod-${roleKey}-${market}`} value={pod} prefix="€" locale={props.locale} />
+              <Counter key={`pod-${roleKey}-${market}`} value={pod} prefix="€" duration={0.8} locale={props.locale} />
               <span className="text-sm font-normal text-mist">{props.perMonth}</span>
             </span>
           </div>
@@ -113,7 +115,8 @@ export default function SavingsCalculator(props: Props) {
         <div className="flex items-baseline justify-between gap-4 rounded-2xl border border-blue/30 bg-blue/10 px-6 py-5">
           <span className="text-sm font-medium text-paper/90">{props.savingsLabel}</span>
           <span className="font-display text-4xl font-bold text-blue-bright md:text-5xl">
-            <Counter key={`sav-${roleKey}-${market}`} value={savings} suffix="%" locale={props.locale} />
+            {/* Short count-up: a skimming visitor must never linger on "0%". */}
+            <Counter key={`sav-${roleKey}-${market}`} value={savings} suffix="%" duration={0.5} locale={props.locale} />
           </span>
         </div>
       </div>
