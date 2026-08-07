@@ -1,0 +1,42 @@
+---
+/** Banda CTA di chiusura, riusata su tutte le pagine. */
+import type { Lang } from '../lib/routes';
+import { path } from '../lib/routes';
+import { t } from '../lib/i18n';
+import Button from './Button.astro';
+
+interface Props {
+  lang: Lang;
+  title?: string;
+  text?: string;
+}
+const { lang } = Astro.props;
+const defaults =
+  lang === 'it'
+    ? {
+        title: 'Parla con un senior, non con un commerciale.',
+        text: 'Raccontaci dove sei: rispondiamo entro 24 ore lavorative con un parere onesto — anche quando la risposta è “non vi serve”.',
+      }
+    : {
+        title: 'Talk to a senior, not a salesperson.',
+        text:
+          'Tell us where you stand: we reply within one business day with an honest opinion — even when the answer is “you don’t need us”.',
+      };
+const { title = defaults.title, text = defaults.text } = Astro.props;
+const strings = t(lang);
+---
+
+<section class="hairline">
+  <div class="wrap grid grid-cols-12 gap-x-6 py-24 md:py-36">
+    <div class="col-span-12 md:col-span-8">
+      <h2 class="font-display text-h2 font-medium" data-reveal>{title}</h2>
+      <p class="mt-6 max-w-xl text-lead text-mist" data-reveal>{text}</p>
+      <div class="mt-10 flex flex-wrap gap-4" data-reveal>
+        <Button href={path('contact', lang)}>{strings.cta.bookAudit}</Button>
+        <Button href={path('products', lang)} variant="ghost">
+          {strings.cta.startFixed}
+        </Button>
+      </div>
+    </div>
+  </div>
+</section>

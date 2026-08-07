@@ -1,0 +1,293 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Pill from '../../components/Pill.astro';
+import Button from '../../components/Button.astro';
+import ArrowLink from '../../components/ArrowLink.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import Steps from '../../components/Steps.astro';
+import CtaSection from '../../components/CtaSection.astro';
+import { path } from '../../lib/routes';
+
+const lang = 'en' as const;
+
+const method = [
+  {
+    title: 'Context',
+    text: 'Where the company started: sector, size, the real problem and the deadline that made it urgent. A number without its starting point proves nothing.',
+  },
+  {
+    title: 'What we did',
+    text: 'What we did and how long it took: scope of the engagement, which seniors worked on it, and what stayed in-house the day we closed.',
+  },
+  {
+    title: 'Result',
+    text: 'The measured numbers, with baseline, time frame and calculation method stated. One or two that matter — not a grid of percentages.',
+  },
+];
+---
+
+<Base
+  lang={lang}
+  routeKey="caseStudies"
+  title="Case studies | enable.advisory"
+  description="Case studies for SMEs: context, intervention and results — verifiable numbers, cleared by the client before we publish them. First ones landing shortly."
+  ogImage="/og/caseStudies-en.png"
+>
+  <Breadcrumbs lang={lang} items={[{ name: 'Case studies', path: path('caseStudies', lang) }]} />
+
+  <!-- ============================== HERO ============================== -->
+  <section class="relative overflow-hidden">
+    <div
+      class="pointer-events-none absolute inset-0"
+      aria-hidden="true"
+      style="background: radial-gradient(50rem 34rem at 90% -20%, rgb(43 92 255 / 0.11), transparent 60%);"
+    >
+    </div>
+    <div class="wrap relative pt-12 pb-20 md:pt-16 md:pb-28">
+      <p class="label-caps text-mist" data-reveal>Case studies</p>
+      <h1 class="font-display text-display mt-6 max-w-6xl font-medium" data-reveal>
+        Case studies: context, intervention, measured result.
+      </h1>
+      <p class="mt-8 max-w-xl text-lead text-mist" data-reveal>
+        The first case studies are being published together with the clients who authorised them.
+        Until they land, this page stays empty: a blank space is more useful than an invented
+        metric.
+      </p>
+      <div class="mt-10 flex flex-wrap items-center gap-4" data-reveal>
+        <Button href={path('contact', lang)}>Talk to a senior</Button>
+        <Button href={path('products', lang)} variant="ghost">
+          Start with a fixed-price step
+        </Button>
+      </div>
+      <ul class="mt-12 flex flex-wrap gap-3" data-reveal-group>
+        <li data-reveal><Pill>Verifiable numbers</Pill></li>
+        <li data-reveal><Pill>Cleared by the client</Pill></li>
+        <li data-reveal><Pill>No logo without permission</Pill></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ==================== 01 HOW WE DOCUMENT A CASE ==================== -->
+  <section class="section-light">
+    <div class="py-24 md:py-36">
+      <Steps
+        num="01"
+        label="How we document a case"
+        title="Three blocks, always the same, always in this order."
+        intro="Context, intervention, result. If one of the three is missing — usually the first or the last — the case does not go out. It is our no-nonsense standard, and the same accountability we put into the projects themselves."
+        steps={method}
+        light
+      />
+      <div class="wrap mt-16" data-reveal>
+        <ArrowLink href={path('howWeWork', lang)} class="text-accent-deep">
+          How we work, in detail
+        </ArrowLink>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 02 WHY THIS PAGE LOOKS EMPTY ================= -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="02"
+        label="The standard"
+        title="Why there are no logos, no headline percentages, no testimonials."
+      >
+        <p class="mt-6 max-w-2xl text-lead text-mist" data-reveal>
+          Being accountable for the outcome also means standing behind the numbers we publish, not
+          only the ones we promise. Three rules — including when they cost us a thinner page.
+        </p>
+      </SectionHeading>
+      <div class="mt-16 grid grid-cols-12 gap-x-6 gap-y-12" data-reveal-group>
+        <div class="col-span-12 md:col-span-4" data-reveal>
+          <p class="font-display text-[1.375rem] font-semibold text-accent-soft" aria-hidden="true">
+            1
+          </p>
+          <h3 class="font-display mt-3 text-[1.25rem] font-medium">
+            No logo without written permission
+          </h3>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            A wall of client logos is the easiest thing to put on a page and the hardest to defend.
+            Plenty of companies, for internal policy or because the project is confidential, do not
+            want to appear: respecting that is part of the job. When the permission arrives, the
+            name goes up. Not before.
+          </p>
+        </div>
+        <div class="col-span-12 md:col-span-4" data-reveal>
+          <p class="font-display text-[1.375rem] font-semibold text-accent-soft" aria-hidden="true">
+            2
+          </p>
+          <h3 class="font-display mt-3 text-[1.25rem] font-medium">
+            No metric we cannot show our working for
+          </h3>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            “+300% leads” with no baseline, no time frame and no calculation method is a marketing
+            number, not a result. We publish only figures the client has seen, reviewed and
+            approved — and we state where they started from. If a number cannot survive one more
+            question, it does not go out.
+          </p>
+        </div>
+        <div class="col-span-12 md:col-span-4" data-reveal>
+          <p class="font-display text-[1.375rem] font-semibold text-accent-soft" aria-hidden="true">
+            3
+          </p>
+          <h3 class="font-display mt-3 text-[1.25rem] font-medium">
+            If the client stays anonymous, we say so
+          </h3>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            Some cases will run without a name: sector and size instead of the brand. When that
+            happens we state it plainly, rather than dropping hints about who it is. The numbers and
+            the sign-off stay exactly the same — only the cover changes.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-16 rounded-xs border border-white/15 bg-ink-raise p-8 md:p-10" data-reveal>
+        <p class="label-caps text-mist">The rule, in one line</p>
+        <p class="mt-4 max-w-3xl text-[0.9375rem] text-mist">
+          A case study exists so you can judge whether we can do your kind of work — not so we can
+          look good. So we would rather publish few of them, verifiable, with the permission of the
+          people who lived through them, and say clearly when we do not have any yet.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 03 THE STRUCTURE, MEANWHILE ==================== -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="03"
+        label="The structure"
+        title="What every case will look like once the first ones are out."
+      >
+        <p class="mt-6 max-w-2xl text-lead text-mist" data-reveal>
+          The two cards below show the structure only: they are not real cases, they contain no
+          data, and they are not clickable. They stay here until there is something true to put in
+          them.
+        </p>
+      </SectionHeading>
+
+      <div class="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2" data-reveal-group>
+        <div
+          class="rounded-xs border border-dashed border-white/20 bg-ink-raise p-8 md:p-9"
+          data-reveal
+        >
+          <p class="label-caps text-accent-soft">[PLACEHOLDER: case study being published]</p>
+          <h3 class="font-display mt-5 text-[1.375rem] leading-tight font-medium">
+            [PLACEHOLDER: case title — the outcome, not the project name]
+          </h3>
+          <p class="mt-2 text-[0.875rem] text-mist">
+            Vertical: compliance &amp; digital governance · [PLACEHOLDER: sector and size]
+          </p>
+          <dl class="mt-8 space-y-6">
+            <div class="border-t-2 border-accent pt-4">
+              <dt class="font-display text-[1.0625rem] font-medium">Context</dt>
+              <dd class="mt-2 text-[0.9375rem] text-mist">
+                [PLACEHOLDER: starting point, problem and the deadline that made it urgent]
+              </dd>
+            </div>
+            <div class="border-t-2 border-accent pt-4">
+              <dt class="font-display text-[1.0625rem] font-medium">Intervention</dt>
+              <dd class="mt-2 text-[0.9375rem] text-mist">
+                [PLACEHOLDER: scope, duration, seniors involved, what stays in-house]
+              </dd>
+            </div>
+            <div class="border-t-2 border-accent pt-4">
+              <dt class="font-display text-[1.0625rem] font-medium">Result</dt>
+              <dd class="mt-2 text-[0.9375rem] text-mist">
+                [PLACEHOLDER: one or two measured numbers, with baseline and time frame]
+              </dd>
+            </div>
+          </dl>
+        </div>
+
+        <div
+          class="rounded-xs border border-dashed border-white/20 bg-ink-raise p-8 md:p-9"
+          data-reveal
+        >
+          <p class="label-caps text-accent-soft">[PLACEHOLDER: case study being published]</p>
+          <h3 class="font-display mt-5 text-[1.375rem] leading-tight font-medium">
+            [PLACEHOLDER: case title — the outcome, not the project name]
+          </h3>
+          <p class="mt-2 text-[0.875rem] text-mist">
+            Vertical: data &amp; AI · [PLACEHOLDER: sector and size]
+          </p>
+          <dl class="mt-8 space-y-6">
+            <div class="border-t-2 border-accent pt-4">
+              <dt class="font-display text-[1.0625rem] font-medium">Context</dt>
+              <dd class="mt-2 text-[0.9375rem] text-mist">
+                [PLACEHOLDER: starting point, problem and the deadline that made it urgent]
+              </dd>
+            </div>
+            <div class="border-t-2 border-accent pt-4">
+              <dt class="font-display text-[1.0625rem] font-medium">Intervention</dt>
+              <dd class="mt-2 text-[0.9375rem] text-mist">
+                [PLACEHOLDER: scope, duration, seniors involved, what stays in-house]
+              </dd>
+            </div>
+            <div class="border-t-2 border-accent pt-4">
+              <dt class="font-display text-[1.0625rem] font-medium">Result</dt>
+              <dd class="mt-2 text-[0.9375rem] text-mist">
+                [PLACEHOLDER: one or two measured numbers, with baseline and time frame]
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="mt-14 flex flex-wrap gap-x-10 gap-y-4" data-reveal>
+        <ArrowLink href={path('services', lang)} class="text-paper">
+          The four verticals
+        </ArrowLink>
+        <ArrowLink href={path('products', lang)} class="text-paper">
+          Fixed-price products
+        </ArrowLink>
+        <ArrowLink href={path('resources', lang)} class="text-paper">
+          Guides and resources
+        </ArrowLink>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================== 04 EARLY CLIENTS ========================== -->
+  <section class="section-light">
+    <div class="wrap grid grid-cols-12 gap-x-6 py-24 md:py-36">
+      <div class="col-span-12 lg:col-span-6">
+        <span class="sec-num block text-accent-deep" aria-hidden="true" data-reveal>04</span>
+        <p class="label-caps mt-4 text-umber" data-reveal>Early clients</p>
+        <h2 class="font-display text-h2 mt-4 font-medium" data-reveal>
+          Want to be one of the first cases we publish?
+        </h2>
+        <p class="mt-6 max-w-md text-lead text-umber" data-reveal>
+          Early clients get dedicated terms. In exchange, you let us tell the story once the
+          results are there — with the real numbers, reviewed and approved by you before anything
+          goes live.
+        </p>
+      </div>
+      <div class="col-span-12 mt-12 lg:col-span-5 lg:col-start-8 lg:mt-0" data-reveal>
+        <div class="rounded-xs border border-ink/15 bg-white/40 p-8">
+          <p class="label-caps text-umber">Early terms</p>
+          <p class="mt-4 text-[0.9375rem] text-umber">
+            [PLACEHOLDER: terms reserved for early clients — discount, extended scope or priority
+            scheduling, to be defined]
+          </p>
+          <ul class="mt-6 space-y-2 text-[0.9375rem] text-umber">
+            <li>No obligation to appear by name: you can stay anonymous.</li>
+            <li>You approve the text line by line before it goes online.</li>
+            <li>If the results are not there, we publish nothing.</li>
+          </ul>
+          <p class="mt-8" data-reveal>
+            <ArrowLink href={path('contact', lang)} class="text-accent-deep">
+              Write to us: reply within one business day
+            </ArrowLink>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaSection lang={lang} />
+</Base>

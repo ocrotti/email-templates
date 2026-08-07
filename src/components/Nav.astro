@@ -1,0 +1,105 @@
+---
+import type { Lang } from '../lib/routes';
+import { path } from '../lib/routes';
+import { t, navItems } from '../lib/i18n';
+import Wordmark from './Wordmark.astro';
+
+interface Props {
+  lang: Lang;
+  /** Percorso della stessa pagina nell'altra lingua (se esiste). */
+  switchHref?: string;
+}
+const { lang, switchHref } = Astro.props;
+const strings = t(lang);
+const current = Astro.url.pathname;
+const otherLangCode = lang === 'it' ? 'en' : 'it';
+const switchTarget = switchHref ?? `/${otherLangCode}/`;
+
+const isActive = (href: string) =>
+  current === href || (href !== `/${lang}/` && current.startsWith(href));
+---
+
+<header class="site-header fixed inset-x-0 top-0 z-50" data-header>
+  {/* z-70: la barra (wordmark + toggle) deve restare SOPRA l'overlay del menu
+      (z-60), altrimenti la X di chiusura viene dipinta sotto il pannello e su
+      touch — dove non esiste Esc — il menu non si può più chiudere. */}
+  <div class="wrap header-bar relative z-70 flex items-center justify-between py-5">
+    <a
+      href={path('home', lang)}
+      class="text-[1.25rem] leading-none"
+      aria-label="enable.advisory — Home"
+    >
+      <Wordmark />
+    </a>
+
+    <nav aria-label={strings.navLabel} class="hidden items-center gap-7 lg:flex">
+      {
+        navItems.map((item) => (
+          <a
+            href={path(item.key, lang)}
+            class:list={[
+              'link-plain text-[0.9375rem]',
+              isActive(path(item.key, lang))
+                ? 'text-paper'
+                : 'text-mist hover:text-paper',
+            ]}
+            aria-current={isActive(path(item.key, lang)) ? 'page' : undefined}
+          >
+            {strings.nav[item.label]}
+          </a>
+        ))
+      }
+      <a
+        href={switchTarget}
+        class="link-plain text-[0.8125rem] tracking-[0.08em] text-mist uppercase hover:text-paper"
+        aria-label={strings.langSwitch}
+      >
+        {otherLangCode}
+      </a>
+      <a href={path('contact', lang)} class="btn btn-primary py-2.5! px-5!" data-magnetic>
+        {strings.nav.contact}
+      </a>
+    </nav>
+
+    <button
+      type="button"
+      class="flex h-10 w-10 flex-col items-center justify-center gap-1.5 lg:hidden"
+      data-menu-toggle
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      aria-label={strings.menuOpen}
+    >
+      <span class="menu-bar block h-px w-6 bg-paper transition-transform duration-300"
+      ></span>
+      <span class="menu-bar block h-px w-6 bg-paper transition-transform duration-300"
+      ></span>
+    </button>
+  </div>
+
+  <div class="mobile-menu lg:hidden" id="mobile-menu" data-menu>
+    <div class="wrap flex h-full flex-col justify-between pt-28 pb-10">
+      <nav aria-label={strings.navLabel} class="flex flex-col gap-1">
+        {
+          navItems.map((item) => (
+            <a
+              href={path(item.key, lang)}
+              class="menu-link font-display text-h3 py-2 font-medium text-paper"
+              aria-current={isActive(path(item.key, lang)) ? 'page' : undefined}
+            >
+              {strings.nav[item.label]}
+            </a>
+          ))
+        }
+        <a
+          href={path('contact', lang)}
+          class="menu-link font-display text-h3 py-2 font-medium text-accent-soft"
+        >
+          {strings.nav.contact}
+        </a>
+      </nav>
+      <div class="menu-link flex items-center justify-between">
+        <a href={switchTarget} class="link-plain text-mist">{strings.langSwitch}</a>
+      </div>
+    </div>
+  </div>
+</header>

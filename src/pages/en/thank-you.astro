@@ -1,0 +1,104 @@
+---
+import Base from '../../layouts/Base.astro';
+import Button from '../../components/Button.astro';
+import ArrowLink from '../../components/ArrowLink.astro';
+import { path } from '../../lib/routes';
+
+const lang = 'en' as const;
+
+/*
+ * Form success state. Reached only after a successful submission (the form's
+ * _next field), so it is noindex and stays out of the sitemap.
+ */
+const steps = [
+  {
+    title: 'A person replies within one business day',
+    text: 'Not an autoresponder, not a “we have received your request”. A written reply, with real questions about your situation.',
+  },
+  {
+    title: 'If it helps, half an hour with the senior for your topic',
+    text: 'No company deck, no salesperson on cc. It exists to work out whether we can be useful.',
+  },
+  {
+    title: 'Then we tell you what makes sense — or that it doesn’t',
+    text: 'If it makes sense, we propose the right entry product with price and duration stated up front. If it doesn’t, we say so and tell you who to call instead.',
+  },
+];
+---
+
+<Base
+  lang={lang}
+  routeKey="thankYou"
+  title="Request sent | enable.advisory"
+  description="We have your request. A person replies within one business day."
+  ogImage="/og/contact-en.png"
+  noindex
+>
+  <section class="relative overflow-hidden">
+    <div
+      class="pointer-events-none absolute inset-0"
+      aria-hidden="true"
+      style="background: radial-gradient(50rem 34rem at 85% -20%, rgb(43 92 255 / 0.13), transparent 60%);"
+    >
+    </div>
+    <div class="wrap relative pt-40 pb-20 md:pt-48 md:pb-28">
+      <p class="label-caps text-accent-soft" data-reveal>Request sent</p>
+      <h1 class="font-display text-display mt-6 max-w-4xl font-medium" data-reveal>
+        Got it. Our turn now.
+      </h1>
+      <p class="mt-8 max-w-xl text-lead text-mist" data-reveal>
+        A person replies within one business day — one of the seniors, not a salesperson. If
+        something else comes to mind meanwhile, just reply to the email you receive.
+      </p>
+    </div>
+  </section>
+
+  <section class="hairline">
+    <div class="wrap grid grid-cols-12 gap-x-6 py-20 md:py-28">
+      <div class="col-span-12 lg:col-span-4">
+        <h2 class="font-display text-h2 font-medium" data-reveal>What happens now.</h2>
+      </div>
+      <ol class="col-span-12 mt-10 lg:col-span-7 lg:col-start-6 lg:mt-0" data-reveal-group>
+        {
+          steps.map((s, i) => (
+            <li class="hairline py-7 first:border-t-0 first:pt-0" data-reveal>
+              <div class="flex gap-6">
+                <span
+                  class="font-display shrink-0 text-[1.0625rem] font-semibold text-mist"
+                  aria-hidden="true"
+                >
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <div>
+                  <h3 class="font-display text-[1.25rem] leading-snug font-medium">{s.title}</h3>
+                  <p class="mt-2 text-[0.9375rem] text-mist">{s.text}</p>
+                </div>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="hairline">
+    <div class="wrap py-20 md:py-28">
+      <p class="label-caps text-mist" data-reveal>In the meantime</p>
+      <h2 class="font-display text-h2 mt-4 max-w-3xl font-medium" data-reveal>
+        Two reads worth the wait.
+      </h2>
+      <div class="mt-10 flex flex-wrap gap-x-10 gap-y-4" data-reveal>
+        <ArrowLink href={path('resourceNis2', lang)} class="text-paper">
+          NIS2 for SMEs: who is in scope, what customers ask
+        </ArrowLink>
+        <ArrowLink href={path('resourceAi', lang)} class="text-paper">
+          AI for SMEs: where it actually pays back
+        </ArrowLink>
+      </div>
+      <div class="mt-12 flex flex-wrap gap-4" data-reveal>
+        <Button href={path('home', lang)} variant="ghost">Back to home</Button>
+        <Button href={path('products', lang)}>See the fixed-price products</Button>
+      </div>
+    </div>
+  </section>
+</Base>

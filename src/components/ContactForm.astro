@@ -1,0 +1,180 @@
+---
+/**
+ * Form contatti: markup pronto con action configurabile + honeypot antispam.
+ * La validazione usa l'HTML nativo (accessibile di default).
+ *
+ * PER ATTIVARLO: incollare l'endpoint in FORM_ENDPOINT (Formspree
+ * "https://formspree.io/f/XXXX" o webhook n8n). Tutto il resto è già collegato:
+ * a invio riuscito il campo `_next` porta alla pagina di ringraziamento
+ * localizzata, `_subject` e `_language` arrivano già compilati.
+ *
+ * Finché l'endpoint manca, il submit è disabilitato e al suo posto compare la
+ * mail diretta: meglio un canale che funziona di un bottone che porta a un 404.
+ */
+import type { Lang } from '../lib/routes';
+import { path } from '../lib/routes';
+import { t } from '../lib/i18n';
+import { absoluteUrl } from '../lib/seo';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const f = t(lang).form;
+
+/* [PLACEHOLDER: endpoint form — es. https://formspree.io/f/XXXX o webhook n8n] */
+const FORM_ENDPOINT = '';
+const isLive = FORM_ENDPOINT.length > 0;
+const thankYouUrl = absoluteUrl(path('thankYou', lang));
+---
+
+<form
+  action={isLive ? FORM_ENDPOINT : undefined}
+  method="POST"
+  class="grid grid-cols-1 gap-6 md:grid-cols-2"
+  accept-charset="UTF-8"
+>
+  {/* Redirect post-invio e metadati per il destinatario (convenzione Formspree) */}
+  <input type="hidden" name="_next" value={thankYouUrl} />
+  <input
+    type="hidden"
+    name="_subject"
+    value={lang === 'it'
+      ? 'Nuova richiesta dal sito enable.advisory'
+      : 'New enquiry from the enable.advisory site'}
+  />
+  <input type="hidden" name="_language" value={lang} />
+  <p class="hp-field" aria-hidden="true">
+    <label for="cf-website">Website</label>
+    <input
+      type="text"
+      id="cf-website"
+      name="website"
+      tabindex="-1"
+      autocomplete="off"
+    />
+  </p>
+
+  <div>
+    <label for="cf-name" class="field-label">{f.name} *</label>
+    <input
+      type="text"
+      id="cf-name"
+      name="name"
+      class="field-input"
+      required
+      autocomplete="name"
+    />
+  </div>
+
+  <div>
+    <label for="cf-company" class="field-label">{f.company} *</label>
+    <input
+      type="text"
+      id="cf-company"
+      name="company"
+      class="field-input"
+      required
+      autocomplete="organization"
+    />
+  </div>
+
+  <div>
+    <label for="cf-email" class="field-label">{f.email} *</label>
+    <input
+      type="email"
+      id="cf-email"
+      name="email"
+      class="field-input"
+      required
+      autocomplete="email"
+    />
+  </div>
+
+  <div>
+    <label for="cf-phone" class="field-label">{f.phone}</label>
+    <input
+      type="tel"
+      id="cf-phone"
+      name="phone"
+      class="field-input"
+      autocomplete="tel"
+    />
+  </div>
+
+  <div class="md:col-span-2">
+    <label for="cf-topic" class="field-label">{f.topic} *</label>
+    {/* Nessuna preselezione: il copy attorno dice "se non lo sai, va bene lo
+        stesso" — un default già scelto lo contraddirebbe e sporcherebbe i lead. */}
+    <select id="cf-topic" name="topic" class="field-input" required>
+      <option value="" disabled selected>{lang === 'it' ? 'Seleziona…' : 'Select…'}</option>
+      <option value="audit">{f.topicOptions.audit}</option>
+      <option value="ai">{f.topicOptions.ai}</option>
+      <option value="crm">{f.topicOptions.crm}</option>
+      <option value="eaa">{f.topicOptions.eaa}</option>
+      <option value="retainer">{f.topicOptions.retainer}</option>
+      <option value="other">{f.topicOptions.other}</option>
+    </select>
+  </div>
+
+  <div class="md:col-span-2">
+    <label for="cf-message" class="field-label">{f.message} *</label>
+    <textarea
+      id="cf-message"
+      name="message"
+      class="field-input min-h-36"
+      required
+      placeholder={f.messagePlaceholder}></textarea>
+  </div>
+
+  <div class="md:col-span-2">
+    <div class="flex items-start gap-3">
+      <input
+        type="checkbox"
+        id="cf-privacy"
+        name="privacy"
+        required
+        class="mt-1.5 h-4 w-4 accent-(--color-accent)"
+      />
+      <label for="cf-privacy" class="text-[0.875rem] text-mist">
+        {f.privacy}
+        <a href={path('privacy', lang)} class="link-plain text-paper">Privacy policy</a> *
+      </label>
+    </div>
+  </div>
+
+  <div class="md:col-span-2">
+    {
+      isLive ? (
+        <button type="submit" class="btn btn-primary" data-magnetic>
+          {f.submit}
+          <svg
+            class="btn-arrow"
+            width="15"
+            height="15"
+            viewBox="0 0 16 16"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M1 8h13M9 3l5 5-5 5"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+      ) : (
+        <div class="rounded-xs border border-white/15 bg-ink-raise p-6">
+          <p class="text-[0.9375rem] text-paper">{f.pendingTitle}</p>
+          <p class="mt-2 text-[0.9375rem] text-mist">{f.pendingText}</p>
+          <p class="mt-4 font-display text-[1.125rem] font-medium text-accent-soft">
+            [PLACEHOLDER: email]
+          </p>
+        </div>
+      )
+    }
+    <p class="mt-4 text-[0.875rem] text-mist">{f.note}</p>
+  </div>
+</form>

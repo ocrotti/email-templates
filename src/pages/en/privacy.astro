@@ -1,0 +1,339 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { path } from '../../lib/routes';
+
+const lang = 'en' as const;
+const updated = '6 August 2026';
+
+const rights = [
+  {
+    art: 'Art. 15 — Access',
+    text: 'Find out whether we hold data about you and get a copy of it, together with the purposes, the recipients and how long we keep it.',
+  },
+  {
+    art: 'Art. 16 — Rectification',
+    text: 'Have inaccurate data corrected or incomplete data completed. You don’t owe us an explanation.',
+  },
+  {
+    art: 'Art. 17 — Erasure',
+    text: 'Have your data deleted when it is no longer needed for the purpose we collected it for, when you withdraw consent, or when you validly object to the processing.',
+  },
+  {
+    art: 'Art. 18 — Restriction',
+    text: 'Ask us to keep the data but stop using it — for example while we check a point you have disputed about its accuracy.',
+  },
+  {
+    art: 'Art. 20 — Portability',
+    text: 'Receive the data you gave us in a structured, machine-readable format, or ask us to send it to another controller.',
+  },
+  {
+    art: 'Art. 21 — Objection',
+    text: 'Object to processing based on our legitimate interest. If you object to marketing messages, the objection always takes effect, with no exceptions.',
+  },
+  {
+    art: 'Art. 22 — Automated decisions',
+    text: 'Not be subject to decisions based solely on automated processing. In our case the point is moot: we don’t profile you and no automated system decides anything about you.',
+  },
+  {
+    art: 'Art. 7(3) — Withdrawing consent',
+    text: 'Withdraw consent at any time, as easily as you gave it. Withdrawal doesn’t affect the lawfulness of what we processed before.',
+  },
+];
+---
+
+<Base
+  lang={lang}
+  routeKey="privacy"
+  title="Privacy policy | enable.advisory"
+  description="enable.advisory privacy policy: what data we collect through the contact form, on what legal basis, how long we keep it and how to exercise your GDPR rights."
+  ogImage="/og/privacy-en.png"
+>
+  <Breadcrumbs lang={lang} items={[{ name: 'Privacy', path: path('privacy', lang) }]} />
+
+  <!-- ================================ HEADER ================================ -->
+  <section>
+    <div class="wrap pt-12 pb-14 md:pt-16 md:pb-20">
+      <div class="max-w-3xl">
+        <p class="label-caps text-mist" data-reveal>Legal</p>
+        <h1 class="font-display text-h2 mt-6 font-medium" data-reveal>Privacy policy</h1>
+        <p class="mt-8 text-lead text-mist">
+          This page explains what personal data we collect through this website, why we process it,
+          how long we keep it and how you stay in control of it. It is written to be read: if
+          anything is unclear, write to us and we will explain it in plain words.
+        </p>
+        <p class="mt-8 text-[0.8125rem] text-mist">Last updated: {updated}</p>
+
+        <div class="mt-10 rounded-xs border border-accent-soft/40 bg-ink-raise p-6 md:p-8">
+          <p class="text-[0.9375rem] font-medium text-paper">
+            [PLACEHOLDER: text to be validated by legal counsel before publication]
+          </p>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            The structure is correct and complete against the GDPR, but the controller’s
+            identification details, the appointed processors and the retention periods have to be
+            confirmed before going live. Every open point is marked as a placeholder in the text.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================= BODY ================================= -->
+  <section class="hairline">
+    <div class="wrap py-16 md:py-24">
+      <div class="max-w-3xl">
+        <!-- 1 -->
+        <div>
+          <h2 class="font-display text-h3 font-medium" data-reveal>1. Who is the data controller</h2>
+          <p class="mt-6 text-mist">
+            The data controller is [PLACEHOLDER: legal name], registered at [PLACEHOLDER: full
+            address], VAT no. [PLACEHOLDER: VAT number]. For anything concerning your personal data
+            you can write to [PLACEHOLDER: privacy requests email address].
+          </p>
+          <p class="mt-5 text-mist">
+            We have not appointed a Data Protection Officer, as none of the cases set out in Article
+            37 of the GDPR apply to us. [PLACEHOLDER: to be confirmed with legal counsel; if a DPO is
+            appointed, add name and contact details here.]
+          </p>
+        </div>
+
+        <!-- 2 -->
+        <div class="hairline mt-12 pt-12">
+          <h2 class="font-display text-h3 font-medium" data-reveal>2. What data we process</h2>
+          <p class="mt-6 text-mist">
+            We collect very little, and only what we need to reply to you:
+          </p>
+          <ul class="mt-6 space-y-5 text-mist">
+            <li>
+              <span class="text-paper">Data you give us through the contact form.</span> Full name,
+              company, work email, phone number (optional), the topic you select and the text of your
+              message. Optional fields are labelled as such: leaving them empty changes nothing about
+              the answer you get.
+            </li>
+            <li>
+              <span class="text-paper">Data you send us another way.</span> If you email us or reach
+              out on another channel, we process the content of your message and the contact details
+              you choose to share.
+            </li>
+            <li>
+              <span class="text-paper">Technical data collected automatically.</span> IP address,
+              date and time of the request, browser and operating system, referring page: information
+              recorded in the logs of the provider hosting the site, for security and diagnostics.
+              [PLACEHOLDER: hosting provider and log retention period.]
+            </li>
+          </ul>
+          <p class="mt-6 text-mist">
+            We do not ask for special categories of data (Article 9 GDPR: health, beliefs,
+            memberships) and we do not need them. If you include them in your message anyway, we use
+            them only to reply and delete them as soon as they are no longer needed.
+          </p>
+          <p class="mt-5 text-mist">
+            We use no profiling cookies and no analytics tools — the details are in our
+            <a href={path('cookies', lang)} class="link-plain text-paper">Cookie policy</a>.
+          </p>
+        </div>
+
+        <!-- 3 -->
+        <div class="hairline mt-12 pt-12">
+          <h2 class="font-display text-h3 font-medium" data-reveal>
+            3. Why we process it, and on what legal basis
+          </h2>
+          <ul class="mt-6 space-y-5 text-mist">
+            <li>
+              <span class="text-paper">To answer your enquiry and prepare a proposal.</span> Legal
+              basis: steps taken at your request prior to entering into a contract (Article 6(1)(b)
+              GDPR). The checkbox in the form is there to confirm you have read this policy.
+            </li>
+            <li>
+              <span class="text-paper">To run the engagement, if we become your supplier.</span>
+              Legal basis: performance of the contract (Article 6(1)(b)) and compliance with
+              accounting and tax obligations (Article 6(1)(c)).
+            </li>
+            <li>
+              <span class="text-paper">To keep the site secure and stop abuse.</span> Technical logs
+              and anti-spam filters protect the infrastructure and block automated submissions. Legal
+              basis: our legitimate interest in security (Article 6(1)(f)).
+            </li>
+            <li>
+              <span class="text-paper">To send you marketing messages or periodic content.</span>
+              Only if you give specific consent, freely and revocably (Article 6(1)(a)). [PLACEHOLDER:
+              remove this point if no newsletter or marketing communication is activated.]
+            </li>
+          </ul>
+          <p class="mt-6 text-mist">
+            We do not profile you and we take no automated decisions producing effects on you
+            (Article 22 GDPR). A person reads what you write, and a person answers.
+          </p>
+        </div>
+
+        <!-- 4 -->
+        <div class="hairline mt-12 pt-12">
+          <h2 class="font-display text-h3 font-medium" data-reveal>4. How long we keep it</h2>
+          <ul class="mt-6 space-y-5 text-mist">
+            <li>
+              <span class="text-paper">Enquiries that don’t turn into a project.</span> [PLACEHOLDER:
+              period — 24 months as an indication] from the last meaningful contact, then deletion.
+            </li>
+            <li>
+              <span class="text-paper">Clients.</span> For the duration of the engagement and, for
+              contractual, accounting and tax records, for the ten years required by Italian law.
+            </li>
+            <li>
+              <span class="text-paper">Technical logs.</span> [PLACEHOLDER: retention period set by
+              the hosting provider.]
+            </li>
+            <li>
+              <span class="text-paper">Marketing consents.</span> Until withdrawal or [PLACEHOLDER:
+              maximum period], with periodic checks that the interest is still there.
+            </li>
+          </ul>
+          <p class="mt-6 text-mist">
+            Once those periods expire, data is deleted or irreversibly anonymised. We don’t keep
+            archives “just in case”.
+          </p>
+        </div>
+
+        <!-- 5 -->
+        <div class="hairline mt-12 pt-12">
+          <h2 class="font-display text-h3 font-medium" data-reveal>
+            5. Who else handles your data
+          </h2>
+          <p class="mt-6 text-mist">
+            Inside our organisation, only authorised and trained people can access the data.
+            Outside it, we rely on suppliers appointed as data processors under Article 28 GDPR and
+            contractually bound to process data only on our instructions:
+          </p>
+          <ul class="mt-6 space-y-3 text-mist">
+            <li>[PLACEHOLDER: provider that receives and delivers contact form submissions.]</li>
+            <li>[PLACEHOLDER: hosting and CDN provider serving the website.]</li>
+            <li>[PLACEHOLDER: email provider we use to reply.]</li>
+            <li>[PLACEHOLDER: CRM or contact management tool, if any.]</li>
+          </ul>
+          <p class="mt-6 text-mist">
+            Data may also be handled by the professionals who assist us (accountant, legal counsel),
+            each in their own role, and by public authorities where the law requires it. The current
+            list of processors is available on request at [PLACEHOLDER: privacy requests email
+            address].
+          </p>
+          <p class="mt-5 text-mist">
+            We do not sell, rent or otherwise share your data with third parties for marketing
+            purposes. Not ever, and not in aggregate form for commercial gain either.
+          </p>
+        </div>
+
+        <!-- 6 -->
+        <div class="hairline mt-12 pt-12">
+          <h2 class="font-display text-h3 font-medium" data-reveal>
+            6. Transfers outside the European Union
+          </h2>
+          <p class="mt-6 text-mist">
+            Some technology providers may process data outside the European Economic Area. Where
+            that happens, the transfer only takes place to countries covered by a European
+            Commission adequacy decision, or on the basis of the Standard Contractual Clauses under
+            Article 46 GDPR, with any supplementary measures needed to guarantee an equivalent level
+            of protection.
+          </p>
+          <p class="mt-5 text-mist">
+            [PLACEHOLDER: list the providers processing data outside the EU, the destination country
+            and the safeguard applied to each.] You can ask us for a copy of the safeguards in place
+            at the address given in section 9.
+          </p>
+        </div>
+
+        <!-- 7 -->
+        <div class="hairline mt-12 pt-12">
+          <h2 class="font-display text-h3 font-medium" data-reveal>7. How we protect your data</h2>
+          <p class="mt-6 text-mist">
+            We apply technical and organisational measures proportionate to the risk: encrypted
+            connections (HTTPS) across every page, access limited to the people who actually need
+            it, least-privilege by default. [PLACEHOLDER: list the measures actually in place — for
+            example multi-factor authentication, encrypted backups, access and account management.]
+          </p>
+          <p class="mt-5 text-mist">
+            No measure brings the risk to zero. If a breach occurred that posed a risk to your
+            rights, we would tell you and notify the supervisory authority in the terms set out in
+            Articles 33 and 34 of the GDPR.
+          </p>
+        </div>
+
+        <!-- 8 -->
+        <div class="hairline mt-12 pt-12">
+          <h2 class="font-display text-h3 font-medium" data-reveal>
+            8. Your rights (Articles 15–22 GDPR)
+          </h2>
+          <p class="mt-6 text-mist">
+            The regulation gives you specific rights. Here they are, in plain English:
+          </p>
+          <dl class="mt-8 space-y-6">
+            {
+              rights.map((r) => (
+                <div class="grid grid-cols-12 gap-x-6 gap-y-2">
+                  <dt class="col-span-12 font-medium text-paper md:col-span-4">{r.art}</dt>
+                  <dd class="col-span-12 text-[0.9375rem] text-mist md:col-span-8">{r.text}</dd>
+                </div>
+              ))
+            }
+          </dl>
+        </div>
+
+        <!-- 9 -->
+        <div class="hairline mt-12 pt-12">
+          <h2 class="font-display text-h3 font-medium" data-reveal>
+            9. How to exercise your rights
+          </h2>
+          <p class="mt-6 text-mist">
+            Write to [PLACEHOLDER: privacy requests email address] and tell us which right you want
+            to exercise. No forms, no set wording: a clear request is enough.
+          </p>
+          <p class="mt-5 text-mist">
+            We reply without undue delay and in any case within one month. If the request is complex
+            we may extend that by a further two months, telling you why within the first month.
+            Exercising your rights is free, unless a request is manifestly unfounded or excessive.
+            We may ask for one extra detail, but only to be reasonably sure it is really you.
+          </p>
+        </div>
+
+        <!-- 10 -->
+        <div class="hairline mt-12 pt-12">
+          <h2 class="font-display text-h3 font-medium" data-reveal>
+            10. Complaining to a supervisory authority
+          </h2>
+          <p class="mt-6 text-mist">
+            If you believe the processing of your data breaches the GDPR, you have the right to
+            lodge a complaint with the Italian data protection authority — the Garante per la
+            protezione dei dati personali (garanteprivacy.it) — or with the supervisory authority of
+            your country of residence, and to seek a judicial remedy. You can do that without
+            contacting us first. Though if two emails would fix it, we would rather fix it.
+          </p>
+        </div>
+
+        <!-- 11 -->
+        <div class="hairline mt-12 pt-12">
+          <h2 class="font-display text-h3 font-medium" data-reveal>
+            11. Cookies and measurement tools
+          </h2>
+          <p class="mt-6 text-mist">
+            This website uses no profiling cookies, no advertising pixels and no analytics tools.
+            What there is — and there isn’t much — is set out in the
+            <a href={path('cookies', lang)} class="link-plain text-paper">Cookie policy</a>.
+          </p>
+        </div>
+
+        <!-- 12 -->
+        <div class="hairline mt-12 pt-12">
+          <h2 class="font-display text-h3 font-medium" data-reveal>12. Changes to this policy</h2>
+          <p class="mt-6 text-mist">
+            If our tools, suppliers or purposes change, we update this page and the date at the top.
+            When a change is substantial we say so clearly, rather than leaving you to notice.
+            Previous versions are available on request.
+          </p>
+          <p class="mt-8 text-[0.9375rem] text-mist">
+            Questions about this policy?
+            <a href={path('contact', lang)} class="link-plain text-paper">Write to us</a> — a person
+            answers, within one business day.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

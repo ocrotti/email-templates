@@ -1,0 +1,505 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Pill from '../../../components/Pill.astro';
+import Button from '../../../components/Button.astro';
+import ArrowLink from '../../../components/ArrowLink.astro';
+import SectionHeading from '../../../components/SectionHeading.astro';
+import ProductCard from '../../../components/ProductCard.astro';
+import Accordion from '../../../components/Accordion.astro';
+import Counter from '../../../components/Counter.astro';
+import CtaSection from '../../../components/CtaSection.astro';
+import { path } from '../../../lib/routes';
+import { articleSchema } from '../../../lib/seo';
+
+const lang = 'en' as const;
+
+const dimensions = [
+  {
+    t: 'Processes',
+    d: 'A process can only be automated if someone can describe it. Repetitive, frequent, with recognisable rules and a checkable output: those are the candidates. A process that changes every time because “it depends” isn’t ready for AI — it’s ready to be written down.',
+  },
+  {
+    t: 'Data',
+    d: 'AI works on what you already have: ERP, CRM, email, documents, spreadsheets. You don’t need a perfect data warehouse. You need to know which data is reliable, where it sits and who can reach it. Data scattered across twenty folders doesn’t kill the project — it defines its realistic scope.',
+  },
+  {
+    t: 'Skills',
+    d: 'You don’t need data scientists. You need the people using the tool to know when to trust an output and when not to. That’s judgement, not code, and it’s built with short training on the company’s own cases — not with a forty-hour course.',
+  },
+  {
+    t: 'Governance',
+    d: 'Who decides what data can be fed to a model? Who checks a result before it reaches a customer? Who keeps the register of tools in use? Without answers, AI walks in anyway — through the back door, on people’s own devices, outside any control.',
+  },
+];
+
+const useCases = [
+  {
+    t: 'Finance and back office',
+    d: 'Invoices, delivery notes, expense reports, contracts: documents that arrive in different formats and get read, classified and retyped into the system by hand. Automated extraction removes the typing; the check stays with a person. The gain isn’t on any single invoice — it’s on the month-end queue.',
+  },
+  {
+    t: 'Sales',
+    d: 'Selling time is lost outside the deal: repetitive quotes, CRM updates, follow-ups to write, account history to reconstruct before a call. All of it has structured input and a checkable output. Freeing it gives hours back to the part that can’t be automated: the relationship.',
+  },
+  {
+    t: 'Operations and production',
+    d: 'Planning, demand forecasting, visual quality control, scheduled maintenance. Here AI doesn’t replace the plant manager: it hands him a hypothesis early, built on data nobody would have time to look at all at once. The value is deciding sooner, not deciding in his place.',
+  },
+  {
+    t: 'Customer service',
+    d: 'Recurring requests — order status, documentation, procedures — already have answers written down somewhere in the company. An assistant grounded in your own documents handles those and passes the rest to a human, with the context already gathered. The condition is a knowledge base that is kept current: without it, the assistant invents.',
+  },
+];
+
+const mistakes = [
+  {
+    n: 'Mistake 01',
+    t: 'The tool before the process',
+    d: 'You buy the licence, then look for somewhere to use it. That’s the wrong order: every tool carries a way of working with it, and the company ends up bending to that. Process first, always.',
+  },
+  {
+    n: 'Mistake 02',
+    t: 'Dirty data treated as clean',
+    d: 'Duplicate records, free-text fields filled in at random, incomplete history. A model doesn’t correct: it amplifies. If the project rests on data nobody ever verified, the first wrong output burns everyone’s trust — and trust doesn’t come back.',
+  },
+  {
+    n: 'Mistake 03',
+    t: 'The eternal pilot',
+    d: 'A pilot with no end date and no success criterion is an elegant way of not deciding. Agree up front what has to happen, and by when, for it to go into production. Otherwise it stays “in testing” until the budget runs out.',
+  },
+  {
+    n: 'Mistake 04',
+    t: 'No internal owner',
+    d: 'If nobody inside the company answers for adoption — not for the project: for adoption — the tool stays switched on and unused. You need a name, with time allocated and a mandate. A supplier can do everything else; not this.',
+  },
+];
+
+const checklist = [
+  'List the activities your company repeats every week, with estimated hours and people involved. Two columns on a spreadsheet is enough.',
+  'Take the top two processes and write down, for each, the number that has to move.',
+  'Check where the data those two processes need actually sits, and who answers for it.',
+  'Take an inventory of the AI tools already in use — including the ones nobody told you about.',
+  'Write a one-page usage policy: what can be uploaded, what can’t, who checks the outputs.',
+  'Appoint an internal owner with time allocated, not one more task at the end of the day.',
+  'Budget a few hours of training for the people who will use the tool: without it, adoption never lands.',
+  'Set a 90-day review, with the criteria agreed now rather than once the results are in.',
+];
+
+const faq = [
+  {
+    q: 'We’re twenty-five people. Is it too early for AI?',
+    a: 'The opposite: being small is an advantage, because your processes are still readable and decisions get made in one room. What’s usually missing isn’t technology, it’s the time to stop and look at where the hours go. If there are repetitive tasks someone does by hand every week, you have a starting scope. If there aren’t, the honest answer is that AI isn’t your priority — and we will say so.',
+  },
+  {
+    q: 'Do we have to hand over our data to train a model?',
+    a: 'Almost never. In the vast majority of SME use cases you work with existing models and supply your own documents as context at the moment of the question: the data stays where it is and never enters any training run. Training a proprietary model makes sense only in specific situations, at volumes and budgets an SME rarely justifies. The real question to ask a supplier is where the data is processed and how long it is kept.',
+  },
+  {
+    q: 'How long before we see a result?',
+    a: 'For a well-chosen first use case you think in weeks, not quarters. The rule of thumb: if a project produces no measurable signal within three months, the problem is the process you picked, not the technology. So start with two cases that each have a clear number to move, measure them, then widen the scope. An eighteen-month AI plan in an SME is a plan nobody will ever check.',
+  },
+  {
+    q: 'Who handles the AI Act if we have no legal department?',
+    a: 'The part that applies to companies adopting tools is mostly organisational: inventory the systems in use, classify them by risk, inform people where required, keep real human oversight on the decisions that matter. That is process and documentation work, and we do it together with our compliance vertical. For matters reserved to lawyers we work with a specialist law firm — you still deal with one person.',
+  },
+];
+
+const schema = [
+  articleSchema({
+    headline: 'AI for SMEs: a practical guide',
+    description:
+      'Pillar guide to AI for small and mid-sized businesses: the real state of adoption, the four dimensions of AI readiness, use cases by function, how to judge return, the AI Act and a start-up checklist.',
+    path: path('resourceAi', lang),
+    lang,
+    datePublished: '2026-08-06',
+  }),
+];
+---
+
+<Base
+  lang={lang}
+  routeKey="resourceAi"
+  title="AI for SMEs: practical guide | enable.advisory"
+  description="AI for business: a practical guide for SMEs. Where AI actually pays off, what the AI Act requires and a checklist to start from the right process."
+  ogImage="/og/resourceAi-en.png"
+  ogType="article"
+  schema={schema}
+>
+  <Breadcrumbs
+    lang={lang}
+    items={[
+      { name: 'Resources', path: path('resources', lang) },
+      { name: 'AI for SMEs: practical guide', path: path('resourceAi', lang) },
+    ]}
+  />
+
+  <!-- ============================== HERO ============================== -->
+  <section class="relative overflow-hidden">
+    <div
+      class="pointer-events-none absolute inset-0"
+      aria-hidden="true"
+      style="background: radial-gradient(50rem 34rem at 90% -20%, rgb(43 92 255 / 0.11), transparent 60%);"
+    >
+    </div>
+    <div class="wrap relative pt-12 pb-20 md:pt-16 md:pb-28">
+      <p class="label-caps text-mist" data-reveal>Guide — Data &amp; AI</p>
+      <h1 class="font-display text-display mt-6 max-w-6xl font-medium" data-reveal>
+        AI for business: the practical guide for SMEs.
+      </h1>
+      <p class="mt-8 max-w-xl text-lead text-mist" data-reveal>
+        15.7% of Italian SMEs now use artificial intelligence; large enterprises are 37 points
+        ahead. If you’re reading this because you haven’t started, the news is good: you’re early,
+        not late. Here’s how to find where AI pays off, what the AI Act asks of you, and where to
+        begin.
+      </p>
+      <div class="mt-10 flex flex-wrap items-center gap-4" data-reveal>
+        <Button href={path('contact', lang)}>Talk to a senior</Button>
+        <Button href={path('serviceData', lang)} variant="ghost">The Data &amp; AI vertical</Button>
+      </div>
+      <ul class="mt-12 flex flex-wrap gap-3" data-reveal-group>
+        <li data-reveal><Pill>Updated August 2026</Pill></li>
+        <li data-reveal><Pill>AI readiness</Pill></li>
+        <li data-reveal><Pill>Use cases by function</Pill></li>
+        <li data-reveal><Pill>AI Act</Pill></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========================= 01 STATE OF ADOPTION ========================= -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="01"
+        label="The real picture"
+        title="Starting now means early, not late."
+      />
+      <div class="mt-14 max-w-3xl space-y-6 text-mist" data-reveal-group>
+        <p data-reveal>
+          The numbers say two things at once. First: AI adoption among Italian SMEs doubled in a
+          year, from 7.7% to 15.7% (ISTAT, “Imprese e ICT” 2025). Second: the gap with large
+          enterprises is still 37 points. Italy’s AI market is worth €1.8 billion and grew 50% on
+          2024, yet only 8% of SMEs have projects under way, against 71% of large companies
+          (Politecnico di Milano, Artificial Intelligence Observatory).
+        </p>
+        <p data-reveal>
+          Read honestly, that means this. Eight SMEs in a hundred have something running: in your
+          sector, in your region, the competitors with a structural advantage are very few. A
+          company starting today with one serious use case doesn’t finish last — it finishes among
+          the first in its segment.
+        </p>
+        <p data-reveal>
+          There is a flip side. Market growth is driven by supply, not by results: plenty of
+          companies buy licences before deciding which process they want to change. A late start is
+          recovered in months; the wrong platform choice is paid for over years.
+        </p>
+      </div>
+
+      <div class="hairline mt-20 pt-14">
+        <p class="label-caps text-mist" data-reveal>The context, in real numbers</p>
+        <div class="mt-10 grid grid-cols-2 gap-x-6 gap-y-12 lg:grid-cols-4" data-reveal-group>
+          <Counter
+            value="15.7"
+            to={15.7}
+            decimals={1}
+            suffix="%"
+            label="of Italian SMEs use AI — a year ago it was 7.7%"
+            source="Source: ISTAT, 2025"
+            lang={lang}
+          />
+          <Counter
+            value="37"
+            to={37}
+            suffix=" points"
+            label="of adoption gap between SMEs and large enterprises"
+            source="Source: ISTAT, 2025"
+            lang={lang}
+          />
+          <Counter
+            value="8"
+            to={8}
+            suffix="%"
+            label="of SMEs have AI projects under way, against 71% of large companies"
+            source="Source: AI Observatory, Politecnico di Milano"
+            lang={lang}
+          />
+          <Counter
+            value="1.8"
+            to={1.8}
+            decimals={1}
+            suffix=" bn €"
+            label="the Italian AI market, up 50% on 2024"
+            source="Source: AI Observatory, Politecnico di Milano"
+            lang={lang}
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================== 02 AI READINESS ========================== -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="02"
+        label="AI readiness"
+        title="Not a conference word: four things you can actually measure."
+      >
+        <p class="mt-6 max-w-2xl text-lead text-mist" data-reveal>
+          Before asking which tool to adopt, ask whether the company can carry one. If a single one
+          of these four dimensions is at zero, the project stops there — usually after the money has
+          gone.
+        </p>
+      </SectionHeading>
+      <dl class="mt-14 max-w-3xl" data-reveal-group>
+        {
+          dimensions.map((d) => (
+            <div class="hairline py-8" data-reveal>
+              <dt class="font-display text-[1.25rem] font-medium">{d.t}</dt>
+              <dd class="mt-3 text-mist">{d.d}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </section>
+
+  <!-- ======================== 03 WHERE AI PAYS OFF ======================== -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="03"
+        label="Where it pays off"
+        title="Four functions with a concrete return — and the mechanism behind it."
+      >
+        <p class="mt-6 max-w-2xl text-lead text-mist" data-reveal>
+          You won’t find savings percentages here: they depend far too much on the starting point,
+          and whoever publishes them usually lifted them from a US case study. You’ll find the
+          mechanism: how, exactly, AI takes hours or errors out of a process.
+        </p>
+      </SectionHeading>
+      <div class="mt-14 max-w-3xl" data-reveal-group>
+        {
+          useCases.map((c) => (
+            <div class="hairline py-8" data-reveal>
+              <h3 class="font-display text-[1.25rem] font-medium">{c.t}</h3>
+              <p class="mt-3 text-mist">{c.d}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================== 04 JUDGING RETURN ========================== -->
+  <section class="section-light">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="04"
+        label="How to judge the return"
+        title="Start from the process that costs you hours, not from the tool everyone is talking about."
+        light
+      />
+      <div class="mt-14 max-w-3xl space-y-6 text-umber" data-reveal-group>
+        <p data-reveal>
+          The method that works is dull, which is why nobody sells it. Take the list of activities
+          the company repeats every week. For each one, estimate three numbers: how many hours it
+          eats, how many people it involves, what an error costs. Then sort the list.
+        </p>
+        <p data-reveal>
+          At the top there is almost always something unglamorous: reconciling two files, keying in
+          data that already exists elsewhere, hunting for a document. Those are the right
+          candidates, because the return is measurable without argument and because failure, if it
+          comes, is small and fast.
+        </p>
+        <p data-reveal>
+          The question to put to a supplier isn’t “what can this tool do”. It’s: “which process
+          changes, by how many hours, and how do we measure it in three months”. If the answer is a
+          demo, the conversation is over.
+        </p>
+        <p data-reveal>
+          One last rule: two or three use cases, not ten. A project that touches the whole company
+          at once isn’t ambitious, it’s unmanageable — and the first thing to break is the
+          measurement.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== 05 AI ACT ============================== -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="05"
+        label="AI Act"
+        title="What changes, briefly, for companies adopting AI."
+      />
+      <div class="mt-14 max-w-3xl space-y-6 text-mist" data-reveal-group>
+        <p data-reveal>
+          The European regulation on artificial intelligence is already in force and applies in
+          stages: first obligations from February 2025, rules on general-purpose AI (GPAI) models
+          from August 2025, systems classified as high-risk from August 2026.
+        </p>
+        <p data-reveal>
+          For an SME that adopts tools rather than building them, the practical point is this: your
+          role is almost always that of a deployer, not a provider. The obligations change; they
+          don’t disappear. What remains is an inventory of the systems in use, classification by use
+          case and by risk, informing people when they interact with an AI system or when AI affects
+          them, and genuine human oversight over the decisions that matter.
+        </p>
+        <p data-reveal>
+          Doing this later costs more than doing it now, for a practical reason: rebuilding the
+          inventory once tools have spread means chasing every team. Done at the start, it’s half a
+          day’s work and one tidy spreadsheet.
+        </p>
+        <p data-reveal>
+          <ArrowLink href={path('serviceCompliance', lang)} class="text-paper">
+            Compliance &amp; digital governance: how we put GDPR, NIS2 and the AI Act in order
+          </ArrowLink>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ 06 MISTAKES ============================ -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="06"
+        label="Typical mistakes"
+        title="Four reliable ways to burn the budget."
+      />
+      <div class="mt-14 max-w-3xl" data-reveal-group>
+        {
+          mistakes.map((m) => (
+            <div class="hairline py-8" data-reveal>
+              <p class="label-caps text-accent-soft">{m.n}</p>
+              <h3 class="font-display mt-3 text-[1.25rem] font-medium">{m.t}</h3>
+              <p class="mt-3 text-mist">{m.d}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ 07 CHECKLIST ============================ -->
+  <section class="section-light">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="07"
+        label="Starting checklist"
+        title="Eight moves before you sign anything."
+        light
+      >
+        <p class="mt-6 max-w-2xl text-lead text-umber" data-reveal>
+          None of them needs a supplier. Do all eight and then decide to adopt nothing, and you
+          still walk away with a map of your own processes you didn’t have before.
+        </p>
+      </SectionHeading>
+      <ol class="mt-14 max-w-3xl" data-reveal-group>
+        {
+          checklist.map((item, i) => (
+            <li class="hairline flex gap-6 py-6" data-reveal>
+              <span
+                class="font-display shrink-0 text-[1.125rem] font-semibold text-accent-deep"
+                style="font-variant-numeric: tabular-nums;"
+                aria-hidden="true"
+              >
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <span class="text-umber">{item}</span>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <!-- =========================== 08 HOW WE HELP =========================== -->
+  <section class="section-light hairline hairline-dark">
+    <div class="wrap grid grid-cols-12 gap-x-6 py-24 md:py-36">
+      <div class="col-span-12 lg:col-span-5">
+        <span class="sec-num block text-accent-deep" aria-hidden="true" data-reveal>08</span>
+        <p class="label-caps mt-4 text-umber" data-reveal>How we help</p>
+        <h2 class="font-display text-h2 mt-4 font-medium" data-reveal>
+          If the checklist left you with more questions than answers.
+        </h2>
+        <p class="mt-6 max-w-md text-lead text-umber" data-reveal>
+          The AI Readiness Assessment does this work for you in two weeks: processes, data, skills
+          and governance measured, and use cases ranked by expected return. Fixed price, the
+          deliverable is yours, no obligation to continue.
+        </p>
+        <p class="mt-8" data-reveal>
+          <ArrowLink href={path('serviceData', lang)} class="text-accent-deep">
+            The Data &amp; AI vertical
+          </ArrowLink>
+        </p>
+      </div>
+      <div class="col-span-12 mt-14 lg:col-span-6 lg:col-start-7 lg:mt-0" data-reveal>
+        <ProductCard
+          light
+          title="AI Readiness Assessment"
+          price="[PREZZO]"
+          duration="2 weeks · fixed price"
+          description="Where AI actually pays off in your company — processes, data, skills, governance — and where it is just hype. With use cases ranked by return."
+          deliverables={[
+            'Map of automatable processes',
+            'Assessment of data quality and accessibility',
+            'Priority use cases with impact estimates',
+            'Inventory of AI systems in use and an AI Act note',
+          ]}
+          deliverablesLabel="What you take away"
+          href={path('products', lang)}
+          ctaLabel="Product details"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== 09 FAQ =============================== -->
+  <section class="hairline">
+    <div class="wrap grid grid-cols-12 gap-x-6 py-24 md:py-36">
+      <div class="col-span-12 lg:col-span-4">
+        <div class="lg:sticky lg:top-32">
+          <span class="sec-num block text-accent" aria-hidden="true" data-reveal>09</span>
+          <p class="label-caps mt-4 text-mist" data-reveal>FAQ</p>
+          <h2 class="font-display text-h2 mt-4 font-medium" data-reveal>
+            The questions that always come up.
+          </h2>
+          <p class="mt-6 max-w-sm text-[0.9375rem] text-mist" data-reveal>
+            The ones business owners ask us on the first AI call — answered without hedging.
+          </p>
+        </div>
+      </div>
+      <div class="col-span-12 mt-12 lg:col-span-7 lg:col-start-6 lg:mt-0" data-reveal>
+        <Accordion items={faq} idPrefix="faq-ai-guide" withSchema />
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================== NOTE AND SOURCES =========================== -->
+  <section class="hairline">
+    <div class="wrap py-16 md:py-20">
+      <div class="max-w-3xl rounded-xs border border-white/15 bg-ink-raise p-8 md:p-10" data-reveal>
+        <p class="label-caps text-mist">Note</p>
+        <p class="mt-4 text-[0.9375rem] text-mist">
+          Informational guide, updated August 2026. It does not replace legal or technical advice on
+          your specific case: regulation and market move fast, and the references cited should be
+          checked as of the date you read them.
+        </p>
+        <p class="mt-4 text-[0.9375rem] text-mist">
+          Sources for the figures cited: ISTAT, “Imprese e ICT” 2025; Artificial Intelligence
+          Observatory, Politecnico di Milano; Regulation (EU) 2024/1689 (AI Act).
+        </p>
+        <p class="mt-6">
+          <ArrowLink href={path('resourceNis2', lang)} class="text-paper">
+            Read next: NIS2 for SMEs, the guide
+          </ArrowLink>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CtaSection lang={lang} />
+</Base>

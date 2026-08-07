@@ -1,0 +1,195 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Pill from '../../components/Pill.astro';
+import ArrowLink from '../../components/ArrowLink.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import CtaSection from '../../components/CtaSection.astro';
+import { path } from '../../lib/routes';
+
+const lang = 'it' as const;
+
+const guides = [
+  {
+    key: 'resourceNis2',
+    label: 'Compliance · NIS2',
+    title: 'NIS2 per PMI: guida completa 2026',
+    excerpt:
+      'Chi rientra davvero nel perimetro, quali sono gli obblighi, quanto pesano le sanzioni — e perché l’effetto filiera coinvolge migliaia di PMI fornitrici che non compaiono in nessun elenco. Con la checklist operativa per partire lunedì mattina.',
+    meta: 'Aggiornata ad agosto 2026 · 9 minuti di lettura',
+    cta: 'Leggi la guida NIS2',
+  },
+  {
+    key: 'resourceAi',
+    label: 'Dati & AI',
+    title: 'AI per aziende: la guida pratica per le PMI',
+    excerpt:
+      'Dove l’intelligenza artificiale rende davvero in una PMI e dove è solo moda. Come si misura la prontezza dei dati, come si sceglie il primo caso d’uso, cosa chiede l’AI Act a chi la usa e non la costruisce.',
+    meta: 'Aggiornata ad agosto 2026 · 10 minuti di lettura',
+    cta: 'Leggi la guida AI',
+  },
+] as const;
+---
+
+<Base
+  lang={lang}
+  routeKey="resources"
+  title="Risorse e guide | enable.advisory"
+  description="Guide operative sulla digitalizzazione delle PMI: NIS2, AI, compliance. Scritte da chi le applica sul campo, aggiornate e con le fonti dichiarate."
+  ogImage="/og/resources-it.png"
+>
+  <Breadcrumbs lang={lang} items={[{ name: 'Risorse', path: path('resources', lang) }]} />
+
+  <!-- ============================== HERO ============================== -->
+  <section class="relative overflow-hidden">
+    <div
+      class="pointer-events-none absolute inset-0"
+      aria-hidden="true"
+      style="background: radial-gradient(50rem 34rem at 88% -20%, rgb(43 92 255 / 0.11), transparent 60%);"
+    >
+    </div>
+    <div class="wrap relative pt-12 pb-20 md:pt-16 md:pb-28">
+      <p class="label-caps text-mist" data-reveal>Risorse</p>
+      <h1 class="font-display text-display mt-6 max-w-5xl font-medium" data-reveal>
+        Guide operative per la digitalizzazione delle PMI.
+      </h1>
+      <p class="mt-8 max-w-xl text-lead text-mist" data-reveal>
+        Pubblichiamo guide, non content marketing. Scriviamo solo di ciò che applichiamo davvero
+        nei progetti — normative, dati, sistemi — perché è il modo più onesto che conosciamo di
+        dimostrare competenza. Se una guida ti basta per fare da solo, va bene così.
+      </p>
+      <ul class="mt-12 flex flex-wrap gap-3" data-reveal-group>
+        <li data-reveal><Pill>Numeri con fonte</Pill></li>
+        <li data-reveal><Pill>Zero form per leggere</Pill></li>
+        <li data-reveal><Pill>Data di aggiornamento in chiaro</Pill></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================ 01 LE GUIDE ============================ -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading num="01" label="Le guide" title="Due guide lunghe, con la data di aggiornamento in chiaro.">
+        <p class="mt-6 max-w-2xl text-lead text-mist" data-reveal>
+          Sono i due temi su cui riceviamo più domande dalle PMI: l’obbligo che arriva dai clienti
+          e la tecnologia che tutti dicono di dover adottare. Nessuna delle due si risolve con un
+          post da 600 parole.
+        </p>
+      </SectionHeading>
+
+      <div class="mt-16 grid grid-cols-1 gap-5 lg:grid-cols-2" data-reveal-group>
+        {
+          guides.map((g) => (
+            <article
+              class="flex h-full flex-col justify-between rounded-xs border border-white/15 bg-ink-raise p-8 md:p-10"
+              data-reveal
+            >
+              <div>
+                <p class="label-caps text-accent-soft">{g.label}</p>
+                <h3 class="font-display text-h3 mt-5 font-medium">{g.title}</h3>
+                <p class="mt-5 text-[0.9375rem] text-mist">{g.excerpt}</p>
+              </div>
+              <div class="mt-10">
+                <p class="text-[0.8125rem] text-mist">{g.meta}</p>
+                <p class="mt-4">
+                  <ArrowLink href={path(g.key, lang)} class="text-paper">
+                    {g.cta}
+                  </ArrowLink>
+                </p>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================== 02 COME SCRIVIAMO ========================== -->
+  <section class="section-light">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="02"
+        label="Come scriviamo"
+        title="Tre regole, per non farti perdere tempo."
+        light
+      >
+        <p class="mt-6 max-w-2xl text-lead text-umber" data-reveal>
+          Il web è pieno di articoli che spiegano una normativa senza mai dire cosa devi fare
+          domani. Queste guide nascono dall’altra parte: dai lavori veri, e dalle domande che ci
+          arrivano in call.
+        </p>
+      </SectionHeading>
+      <div class="mt-16 grid grid-cols-12 gap-x-6 gap-y-12" data-reveal-group>
+        <div class="col-span-12 border-t-2 border-accent-deep pt-6 md:col-span-4" data-reveal>
+          <h3 class="font-display text-[1.25rem] font-medium">Numeri con fonte, o niente numeri</h3>
+          <p class="mt-3 text-[0.9375rem] text-umber">
+            Ogni cifra citata ha una fonte dichiarata — ACN, ISTAT, Gazzetta Ufficiale. Dove il
+            dato non esiste, lo scriviamo invece di stimarlo a occhio.
+          </p>
+        </div>
+        <div class="col-span-12 border-t-2 border-accent-deep pt-6 md:col-span-4" data-reveal>
+          <h3 class="font-display text-[1.25rem] font-medium">Sempre una parte operativa</h3>
+          <p class="mt-3 text-[0.9375rem] text-umber">
+            Ogni guida finisce con una checklist o una sequenza di passi. Se dopo la lettura non
+            sai cosa fare per primo, la guida è scritta male.
+          </p>
+        </div>
+        <div class="col-span-12 border-t-2 border-accent-deep pt-6 md:col-span-4" data-reveal>
+          <h3 class="font-display text-[1.25rem] font-medium">Datate, e aggiornate quando serve</h3>
+          <p class="mt-3 text-[0.9375rem] text-umber">
+            Le normative si muovono. Ogni guida porta la data di aggiornamento in evidenza: se è
+            vecchia, lo vedi prima di fidarti.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= 03 PROSSIME GUIDE ========================= -->
+  <section class="section-light hairline hairline-dark">
+    <div class="wrap grid grid-cols-12 gap-x-6 py-24 md:py-36">
+      <div class="col-span-12 lg:col-span-5">
+        <span class="sec-num block text-accent-deep" aria-hidden="true" data-reveal>03</span>
+        <p class="label-caps mt-4 text-umber" data-reveal>Prossime guide</p>
+        <h2 class="font-display text-h2 mt-4 font-medium" data-reveal>Cosa stiamo scrivendo.</h2>
+        <p class="mt-6 max-w-md text-lead text-umber" data-reveal>
+          In ordine di scrittura. Escono quando sono utili, non quando tocca “fare contenuti” —
+          e senza newsletter da sottoscrivere per leggerle.
+        </p>
+      </div>
+      <div class="col-span-12 mt-14 lg:col-span-6 lg:col-start-7 lg:mt-0" data-reveal-group>
+        <ul class="space-y-8">
+          <li class="border-t border-ink/14 pt-6" data-reveal>
+            <h3 class="font-display text-[1.25rem] font-medium">
+              EAA e accessibilità: cosa deve fare un sito dopo il 28 giugno 2025
+            </h3>
+            <p class="mt-3 text-[0.9375rem] text-umber">
+              Chi è obbligato, cosa chiede lo standard WCAG 2.1 AA, come si scrive una
+              dichiarazione di accessibilità che regge.
+            </p>
+          </li>
+          <li class="border-t border-ink/14 pt-6" data-reveal>
+            <h3 class="font-display text-[1.25rem] font-medium">
+              GDPR operativo: il registro che si aggiorna da solo
+            </h3>
+            <p class="mt-3 text-[0.9375rem] text-umber">
+              Come tenere in vita registro dei trattamenti, informative e procedure per i data
+              breach senza rifare tutto a ogni verifica.
+            </p>
+          </li>
+          <li class="border-t border-ink/14 pt-6" data-reveal>
+            <h3 class="font-display text-[1.25rem] font-medium">
+              CRM per PMI: come scegliere e come non buttare i soldi
+            </h3>
+            <p class="mt-3 text-[0.9375rem] text-umber">
+              Cosa serve davvero a un’azienda da 10–250 persone, quando il CRM resta una rubrica e
+              come si misura il ritorno.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <CtaSection lang={lang} />
+</Base>

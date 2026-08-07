@@ -1,0 +1,10 @@
+---
+interface Props {
+  class?: string;
+}
+const { class: className = '' } = Astro.props;
+---
+
+<span class:list={['font-display font-semibold tracking-tight', className]}
+  >enable<span class="text-accent-soft">.advisory</span></span
+>

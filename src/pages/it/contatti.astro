@@ -1,0 +1,248 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Pill from '../../components/Pill.astro';
+import Button from '../../components/Button.astro';
+import ArrowLink from '../../components/ArrowLink.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import Steps from '../../components/Steps.astro';
+import ContactForm from '../../components/ContactForm.astro';
+import { path } from '../../lib/routes';
+
+const lang = 'it' as const;
+
+const nextSteps = [
+  {
+    title: 'Ti rispondiamo entro 24 ore lavorative',
+    text: 'Una risposta scritta da una persona, con domande vere sul tuo contesto. Non un template, non “grazie, ti ricontatteremo”.',
+  },
+  {
+    title: 'Trenta minuti con un senior',
+    text: 'Una call con lo specialista del tuo tema, per capire se possiamo esserti utili. Nessuna presentazione aziendale, nessun commerciale in copia.',
+  },
+  {
+    title: 'Ti diciamo cosa ha senso — o che non ne ha',
+    text: 'Se ha senso, ti proponiamo il prodotto d’ingresso giusto, con prezzo e durata dichiarati. Se non ha senso, te lo diciamo — e ti diciamo a chi rivolgerti.',
+  },
+];
+
+const products = [
+  {
+    title: 'Digital & Compliance Audit',
+    note: 'Maturità digitale e gap normativi, in due settimane.',
+  },
+  {
+    title: 'AI Readiness Assessment',
+    note: 'Dove l’AI rende davvero, e dove è solo moda.',
+  },
+  {
+    title: 'CRM/Martech Sprint',
+    note: 'Il CRM smette di essere una rubrica.',
+  },
+  {
+    title: 'Accessibility (EAA) Sprint',
+    note: 'Sito o e-commerce conforme, con dichiarazione pubblicabile.',
+  },
+] as const;
+
+const verticals = [
+  {
+    key: 'serviceCompliance',
+    title: 'Compliance & governance digitale',
+    note: 'GDPR, NIS2, EAA, AI Act.',
+  },
+  { key: 'serviceData', title: 'Dati & AI', note: 'L’AI dove rende davvero.' },
+  { key: 'serviceCrm', title: 'CRM & martech', note: 'Metti a valore i tuoi clienti.' },
+  {
+    key: 'serviceWeb',
+    title: 'Web, tech & e-commerce',
+    note: 'Presenza digitale che converte ed è conforme.',
+  },
+] as const;
+---
+
+<Base
+  lang={lang}
+  routeKey="contact"
+  title="Contatti: prenota l’audit | enable.advisory"
+  description="Parla con un senior di enable.advisory: rispondiamo entro 24 ore lavorative, sempre una persona. Prenota l’audit, una call di 30 minuti o scrivici."
+  ogImage="/og/contact-it.png"
+>
+  <Breadcrumbs lang={lang} items={[{ name: 'Contatti', path: path('contact', lang) }]} />
+
+  <!-- ============================== HERO ============================== -->
+  <section class="relative overflow-hidden">
+    <div
+      class="pointer-events-none absolute inset-0"
+      aria-hidden="true"
+      style="background: radial-gradient(50rem 34rem at 90% -20%, rgb(43 92 255 / 0.11), transparent 60%);"
+    >
+    </div>
+    <div class="wrap relative pt-12 pb-20 md:pt-16 md:pb-28">
+      <p class="label-caps text-mist" data-reveal>Contatti</p>
+      <h1 class="font-display text-display mt-6 max-w-5xl font-medium" data-reveal>
+        Parla con un senior
+      </h1>
+      <p class="mt-8 max-w-xl text-lead text-mist" data-reveal>
+        Scrivi qui e rispondiamo entro 24 ore lavorative. Risponde una persona — uno dei senior,
+        non un commerciale e non un autoresponder. Anche quando la risposta è “non vi serve”.
+      </p>
+      <ul class="mt-12 flex flex-wrap gap-3" data-reveal-group>
+        <li data-reveal><Pill>Risposta entro 24 ore lavorative</Pill></li>
+        <li data-reveal><Pill>Sempre un senior</Pill></li>
+        <li data-reveal><Pill>Mai un autoresponder</Pill></li>
+        <li data-reveal><Pill>Anche un no, se è un no</Pill></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ======================= FORM + ALTRI CANALI ======================= -->
+  <section class="hairline">
+    <div class="wrap grid grid-cols-12 gap-x-6 gap-y-16 py-24 md:py-36">
+      <!-- Colonna sinistra: il form -->
+      <div class="col-span-12 lg:col-span-7">
+        <p class="label-caps text-mist" data-reveal>Scrivici</p>
+        <h2 class="font-display text-h2 mt-4 font-medium" data-reveal>Raccontaci dove sei.</h2>
+        <p class="mt-6 max-w-xl text-[0.9375rem] text-mist" data-reveal>
+          Più contesto ci dai, più la prima risposta è utile: dimensione dell’azienda, settore,
+          cosa non sta funzionando, scadenze normative che ti stanno addosso. Se hai già un’idea
+          di cosa ti serve, dillo; se non ce l’hai, va bene lo stesso.
+        </p>
+        <div class="mt-12" data-reveal>
+          <ContactForm lang={lang} />
+        </div>
+      </div>
+
+      <!-- Colonna destra: canali diretti -->
+      <div class="col-span-12 lg:col-span-4 lg:col-start-9">
+        <div class="rounded-xs border border-white/15 bg-ink-raise p-8 md:p-10">
+          <p class="label-caps text-mist" data-reveal>Altri canali</p>
+          <h2 class="font-display mt-4 text-[1.75rem] leading-tight font-medium" data-reveal>
+            Preferisci la voce?
+          </h2>
+          <p class="mt-4 text-[0.9375rem] text-mist" data-reveal>
+            Il form non è l’unica porta. Tre modi per arrivare direttamente a una persona.
+          </p>
+
+          <div class="hairline mt-8 pt-8" data-reveal>
+            <h3 class="font-display text-[1.125rem] font-medium">Call di 30 minuti</h3>
+            <p class="mt-2 text-[0.9375rem] text-mist">
+              Scegli tu lo slot sul calendario. Mezz’ora con il senior del tuo tema: ne esci con un
+              parere, non con un preventivo.
+            </p>
+            {/* Non è un link finché l'URL non esiste: un href segnaposto
+                porterebbe a un 404. Al lancio ripristinare
+                <Button href="…" variant="ghost">Apri il calendario</Button>. */}
+            <div class="mt-5">
+              <span class="btn btn-ghost cursor-not-allowed opacity-60" aria-disabled="true">
+                Apri il calendario
+              </span>
+            </div>
+            <p class="mt-3 text-[0.8125rem] text-mist">
+              [PLACEHOLDER: URL calendario — Cal.com/Calendly]
+            </p>
+          </div>
+
+          <div class="hairline mt-8 pt-8" data-reveal>
+            <h3 class="font-display text-[1.125rem] font-medium">WhatsApp</h3>
+            <p class="mt-2 text-[0.9375rem] text-mist">
+              Per le domande corte, quando aprire il client di posta è già troppo.
+            </p>
+            {/* Idem: al lancio tornare a <a href="https://wa.me/…">. */}
+            <p class="mt-4">
+              <span class="text-paper opacity-60">Scrivici su WhatsApp</span>
+            </p>
+            <p class="mt-3 text-[0.8125rem] text-mist">[PLACEHOLDER: link wa.me]</p>
+          </div>
+
+          <div class="hairline mt-8 pt-8" data-reveal>
+            <h3 class="font-display text-[1.125rem] font-medium">Email diretta</h3>
+            <p class="mt-2 text-[0.9375rem] text-mist">
+              Se preferisci i tuoi allegati e la tua casella di posta.
+            </p>
+            <p class="mt-4 text-[0.9375rem] text-paper">[PLACEHOLDER: email]</p>
+          </div>
+
+          <p class="hairline mt-8 pt-8 text-[0.8125rem] text-mist" data-reveal>
+            Calendario, numero e indirizzo definitivi sono in pubblicazione, e anche il form è in
+            fase di collegamento: i recapiti qui sopra sono segnaposto. Appena sono attivi,
+            rispondiamo entro 24 ore lavorative.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= COSA SUCCEDE DOPO ======================== -->
+  <section class="section-light">
+    <div class="py-24 md:py-36">
+      <Steps
+        num="01"
+        label="Cosa succede dopo"
+        title="Tre passaggi, nessuna sorpresa."
+        intro="Quello che succede dopo che hai premuto invio, senza formule di cortesia."
+        steps={nextSteps}
+        light
+      />
+    </div>
+  </section>
+
+  <!-- ======================= DA DOVE PARTIRE ============================ -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="02"
+        label="Orientarsi"
+        title="Non sei sicuro da dove partire?"
+      >
+        <p class="mt-6 max-w-2xl text-lead text-mist" data-reveal>
+          Va benissimo: la maggior parte delle conversazioni comincia così. Se vuoi farti un’idea
+          prima di scrivere, questi sono i due posti giusti da cui guardare.
+        </p>
+      </SectionHeading>
+
+      <div class="mt-16 grid grid-cols-12 gap-x-6 gap-y-14">
+        <div class="col-span-12 md:col-span-5">
+          <p class="label-caps text-mist" data-reveal>I quattro prodotti d’ingresso</p>
+          <ul class="mt-8 space-y-6" data-reveal-group>
+            {
+              products.map((p) => (
+                <li data-reveal>
+                  <ArrowLink href={path('products', lang)} class="text-paper">
+                    {p.title}
+                  </ArrowLink>
+                  <p class="mt-1.5 text-[0.9375rem] text-mist">{p.note}</p>
+                </li>
+              ))
+            }
+          </ul>
+          <p class="mt-8 text-[0.875rem] text-mist" data-reveal>
+            Prezzo fisso, durata dichiarata, deliverable che resta tuo anche se ci fermiamo lì.
+          </p>
+        </div>
+
+        <div class="col-span-12 md:col-span-6 md:col-start-7">
+          <p class="label-caps text-mist" data-reveal>I quattro verticali</p>
+          <ul class="mt-8 space-y-6" data-reveal-group>
+            {
+              verticals.map((v) => (
+                <li data-reveal>
+                  <ArrowLink href={path(v.key, lang)} class="text-paper">
+                    {v.title}
+                  </ArrowLink>
+                  <p class="mt-1.5 text-[0.9375rem] text-mist">{v.note}</p>
+                </li>
+              ))
+            }
+          </ul>
+          <p class="mt-8 text-[0.875rem] text-mist" data-reveal>
+            Quasi mai serve un verticale solo: <a
+              href={path('services', lang)}
+              class="link-plain text-paper">i quattro lavorano come un sistema</a
+            >, orchestrati da un unico referente.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

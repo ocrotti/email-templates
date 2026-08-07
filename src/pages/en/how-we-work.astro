@@ -1,0 +1,386 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Pill from '../../components/Pill.astro';
+import Button from '../../components/Button.astro';
+import ArrowLink from '../../components/ArrowLink.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import Steps from '../../components/Steps.astro';
+import Accordion from '../../components/Accordion.astro';
+import CtaSection from '../../components/CtaSection.astro';
+import { path } from '../../lib/routes';
+
+const lang = 'en' as const;
+
+const steps = [
+  {
+    title: 'First conversation with a senior',
+    text: 'Thirty minutes with the specialist for your topic, not a salesperson. You leave with an honest opinion — sometimes it’s “you don’t need us”.',
+  },
+  {
+    title: 'Audit: the honest snapshot',
+    text: 'Two weeks, fixed price. Digital maturity and regulatory gaps in a document you can understand and keep — even if we stop here.',
+  },
+  {
+    title: 'A plan ordered by business priority',
+    text: 'Ranked by risk and return: what the law requires, what pays back, what can wait. With indicative budgets, before you sign anything.',
+  },
+  {
+    title: 'Activate the verticals you need',
+    text: 'Only the areas that matter, in the order that matters. Each vertical has its own senior; one partner orchestrates them all.',
+  },
+  {
+    title: 'AI-augmented execution',
+    text: 'Agents and automations handle the repetitive work; seniors review, decide and sign off. The hours you pay for are hours of judgement.',
+  },
+  {
+    title: 'Monthly review on agreed metrics',
+    text: 'Every month: work completed, the numbers we committed to, decisions to make. A report in business language, no filler slides.',
+  },
+  {
+    title: 'The method stays with you',
+    text: 'Processes, accounts and documentation are yours from day one. We work hard at not making ourselves indispensable.',
+  },
+];
+
+const faq = [
+  {
+    q: 'If you only work with seniors, who actually does the work?',
+    a: 'The repetitive part — document analysis, first drafts, configuration, reporting — is done by AI agents and automations we build and control. A senior reviews, corrects and signs off every output. There is no junior hidden backstage: there is software, with a named, accountable person on top of it.',
+  },
+  {
+    q: 'Doesn’t a single point of contact become a bottleneck?',
+    a: 'The partner doesn’t execute everything: they orchestrate. The four verticals run in parallel, each led by its own senior; the partner keeps priorities and coherence, and answers for the overall outcome. The real bottleneck is the alternative: four vendors who never talk to each other, coordinated by you after hours.',
+  },
+  {
+    q: 'What does “accountable for the outcome” mean in practice?',
+    a: 'Before we start, we agree on the metrics we commit to. Every month we review them together, with a report written in business language. If something isn’t paying back, we tell you first. And if your partner changes, the contract gives you the right to walk away.',
+  },
+  {
+    q: 'Why a fractional consultant instead of hiring in-house?',
+    a: 'An in-house executive covers one competence; this work needs four — compliance, data and AI, CRM, web — hard to find in one person and expensive to hire separately. The fractional model gives you the specialists when you need them. And when bringing it in-house makes sense, we say so: the method and documentation stay yours precisely for that reason.',
+  },
+];
+---
+
+<Base
+  lang={lang}
+  routeKey="howWeWork"
+  title="How we work: senior model | enable.advisory"
+  description="A fractional digital consultant for SMEs: one accountable senior partner, a specialist per vertical, and AI that multiplies senior hours — not junior ones."
+  ogImage="/og/howWeWork-en.png"
+>
+  <Breadcrumbs
+    lang={lang}
+    items={[{ name: 'How we work', path: path('howWeWork', lang) }]}
+  />
+
+  <!-- ============================== HERO ============================== -->
+  <section class="relative overflow-hidden">
+    <div
+      class="pointer-events-none absolute inset-0"
+      aria-hidden="true"
+      style="background: radial-gradient(50rem 34rem at 90% -20%, rgb(43 92 255 / 0.11), transparent 60%);"
+    >
+    </div>
+    <div class="wrap relative pt-12 pb-20 md:pt-16 md:pb-28">
+      <p class="label-caps text-mist" data-reveal>The operating model</p>
+      <h1 class="font-display text-display mt-6 max-w-6xl font-medium" data-reveal>
+        A fractional digital consultant who doesn’t hand your work to juniors.
+      </h1>
+      <p class="mt-8 max-w-xl text-lead text-mist" data-reveal>
+        The standard consulting model sells you seniors and staffs your project with juniors. Ours
+        is built the other way round: a few deep specialists, AI that multiplies their hours, and
+        one partner who answers for the outcome. Here it is, step by step.
+      </p>
+      <div class="mt-10 flex flex-wrap items-center gap-4" data-reveal>
+        <Button href={path('contact', lang)}>Book your audit</Button>
+        <Button href={path('products', lang)} variant="ghost">
+          Start with a fixed-price step
+        </Button>
+      </div>
+      <ul class="mt-12 flex flex-wrap gap-3" data-reveal-group>
+        <li data-reveal><Pill>Seniors only, by design</Pill></li>
+        <li data-reveal><Pill>AI-augmented execution</Pill></li>
+        <li data-reveal><Pill>One accountable partner</Pill></li>
+        <li data-reveal><Pill>Walk away if your partner changes</Pill></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ======================== 01 THE AGENCY MODEL ======================== -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="01"
+        label="The agency model"
+        title="Why the model you know keeps disappointing you — by design."
+      >
+        <p class="mt-6 max-w-2xl text-lead text-mist" data-reveal>
+          It isn’t bad faith. It’s arithmetic: an agency scales by selling cheap hours at a
+          margin. You already know how that ends.
+        </p>
+      </SectionHeading>
+      <div class="mt-16 grid grid-cols-12 gap-x-6 gap-y-12" data-reveal-group>
+        <div class="col-span-12 md:col-span-4" data-reveal>
+          <p class="font-display text-[1.375rem] font-semibold text-accent-soft" aria-hidden="true">
+            1
+          </p>
+          <h3 class="font-display mt-3 text-[1.25rem] font-medium">The junior army</h3>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            The agency model is a pyramid: a few seniors who sell, many juniors who execute. The
+            margin lives at the bottom — and the bottom learns the trade on client projects.
+            Including yours.
+          </p>
+        </div>
+        <div class="col-span-12 md:col-span-4" data-reveal>
+          <p class="font-display text-[1.375rem] font-semibold text-accent-soft" aria-hidden="true">
+            2
+          </p>
+          <h3 class="font-display mt-3 text-[1.25rem] font-medium">
+            The partner’s pitch, the intern’s work
+          </h3>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            In the meeting room you talk to the most experienced person in the firm. Then the
+            project goes “to the team”: an account manager, a junior, a keen intern. The person
+            who won you over reappears at renewal time.
+          </p>
+        </div>
+        <div class="col-span-12 md:col-span-4" data-reveal>
+          <p class="font-display text-[1.375rem] font-semibold text-accent-soft" aria-hidden="true">
+            3
+          </p>
+          <h3 class="font-display mt-3 text-[1.25rem] font-medium">
+            The big firms don’t come down here
+          </h3>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            The Big Four have the senior talent — at rates and structures built for enterprise.
+            For a 10–250 employee SME the numbers don’t add up. So the market leaves you choosing
+            between affordable juniors and seniors you can’t afford.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================== 02 OUR MODEL ============================ -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="02"
+        label="Our model"
+        title="Three structural choices, not three slogans."
+      />
+      <div class="mt-16 space-y-16 md:space-y-20">
+        <div class="grid grid-cols-12 gap-x-6 gap-y-6" data-reveal-group>
+          <div class="col-span-12 md:col-span-4" data-reveal>
+            <h3 class="font-display text-[1.375rem] font-medium md:text-[1.5rem]">
+              One senior per vertical
+            </h3>
+          </div>
+          <div class="col-span-12 space-y-4 text-[0.9375rem] text-mist md:col-span-7 md:col-start-6">
+            <p data-reveal>
+              Compliance and governance, data &amp; AI, CRM and martech, web and e-commerce: four
+              verticals, four specialists. No jack-of-all-trades “digital consultant” doing GDPR
+              today and ad campaigns tomorrow: whoever advises you on a topic has practised that
+              trade for years — and you can tell from the first call.
+            </p>
+            <p data-reveal>
+              Business owners spot the difference immediately between someone who read the
+              regulation last night and someone who has already applied it in companies like
+              theirs. That difference is where trust is built.
+            </p>
+            <p data-reveal>
+              <ArrowLink href={path('services', lang)} class="text-paper">
+                Explore the four verticals
+              </ArrowLink>
+            </p>
+          </div>
+        </div>
+
+        <div class="hairline grid grid-cols-12 gap-x-6 gap-y-6 pt-16 md:pt-20" data-reveal-group>
+          <div class="col-span-12 md:col-span-4" data-reveal>
+            <h3 class="font-display text-[1.375rem] font-medium md:text-[1.5rem]">
+              AI multiplies senior hours
+            </h3>
+          </div>
+          <div class="col-span-12 space-y-4 text-[0.9375rem] text-mist md:col-span-7 md:col-start-6">
+            <p data-reveal>
+              The repetitive work — document analysis, first drafts, configuration, reporting —
+              is done by agents and automations we build ourselves. The senior reviews, corrects,
+              decides and signs off. That way one specialist hour yields far more than one hour.
+            </p>
+            <p data-reveal>
+              This is what makes a seniors-only model affordable for an SME: you pay for
+              judgement and experience, not manual labour. The alternative — juniors learning on
+              your project — costs less per hour and more in the end.
+            </p>
+          </div>
+        </div>
+
+        <div class="hairline grid grid-cols-12 gap-x-6 gap-y-6 pt-16 md:pt-20" data-reveal-group>
+          <div class="col-span-12 md:col-span-4" data-reveal>
+            <h3 class="font-display text-[1.375rem] font-medium md:text-[1.5rem]">
+              One accountable partner
+            </h3>
+          </div>
+          <div class="col-span-12 space-y-4 text-[0.9375rem] text-mist md:col-span-7 md:col-start-6">
+            <p data-reveal>
+              Four specialists without a conductor are four silos. That’s why you have a single
+              partner: they orchestrate the verticals, keep the overall picture and answer for
+              the overall outcome — with metrics agreed together and a monthly review.
+            </p>
+            <p data-reveal>
+              One number to call, one person who can never say “that’s not my part”. And if your
+              partner changes, you have the right to walk away: it’s written into the contract.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ 03 THE METHOD ========================== -->
+  <section class="section-light">
+    <div class="py-24 md:py-36">
+      <Steps
+        num="03"
+        label="The method"
+        title="Step by step, from the first conversation on."
+        intro="No mystery phases, no blind commitments: every step produces something that stays yours. And at every step, you can stop."
+        steps={steps}
+        light
+      />
+      <div class="wrap mt-16">
+        <ArrowLink href={path('products', lang)} class="text-accent-deep">
+          The first step, at a fixed price
+        </ArrowLink>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 04 WHEN WE'RE NOT THE CHOICE =================== -->
+  <section class="section-light hairline hairline-dark">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="04"
+        label="Honest positioning"
+        title="When we’re not the right choice."
+        light
+      >
+        <p class="mt-6 max-w-2xl text-lead text-umber" data-reveal>
+          A positioning is only honest if it excludes someone. Here are three cases where you’re
+          better off not calling us.
+        </p>
+      </SectionHeading>
+      <div class="mt-16 grid grid-cols-12 gap-x-6 gap-y-12" data-reveal-group>
+        <div class="col-span-12 border-t-2 border-accent-deep pt-6 md:col-span-4" data-reveal>
+          <h3 class="font-display text-[1.375rem] font-medium">You just need a website</h3>
+          <p class="mt-3 text-[0.9375rem] text-umber">
+            For a brochure site or a restyling, a good web agency is cheaper and faster. Italy
+            has plenty of them, and many do good work. Come back when the website becomes
+            part of a system: compliance, data, customers.
+          </p>
+        </div>
+        <div class="col-span-12 border-t-2 border-accent-deep pt-6 md:col-span-4" data-reveal>
+          <h3 class="font-display text-[1.375rem] font-medium">You’re an enterprise group</h3>
+          <p class="mt-3 text-[0.9375rem] text-umber">
+            Above a certain complexity — multiple countries, hundreds of users, structured
+            procurement — you need a large consulting firm, with the structure that comes with
+            it. That’s a different trade. We work with SMEs of 10 to 250 employees.
+          </p>
+        </div>
+        <div class="col-span-12 border-t-2 border-accent-deep pt-6 md:col-span-4" data-reveal>
+          <h3 class="font-display text-[1.375rem] font-medium">You’re shopping for the lowest rate</h3>
+          <p class="mt-3 text-[0.9375rem] text-umber">
+            The senior model doesn’t win races to the bottom. If your criterion is the lowest
+            hourly rate, we’ll almost always be the wrong choice — on the quote. On the total
+            cost of the outcome, the maths is done at the end.
+          </p>
+        </div>
+      </div>
+      <p class="mt-14 max-w-2xl text-[0.9375rem] text-umber" data-reveal>
+        Telling you upfront costs us little and is worth a lot to you: trust is also built out of
+        the noes.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===================== 05 CONTRACTUAL COMMITMENTS ==================== -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="05"
+        label="Contractual commitments"
+        title="Guarantees written where they count: in the contract."
+      />
+      <div class="mt-16 grid grid-cols-1 gap-5 md:grid-cols-3" data-reveal-group>
+        <div class="rounded-xs border border-white/15 bg-ink-raise p-8 md:p-10" data-reveal>
+          <p class="font-display text-[1.75rem] font-semibold text-accent-soft" aria-hidden="true">
+            A
+          </p>
+          <h3 class="font-display mt-4 text-[1.25rem] font-medium">
+            The senior you meet is the one who works
+          </h3>
+          <p class="mt-4 text-[0.9375rem] text-mist">
+            The partner you meet before signing is the one who answers throughout the engagement.
+            If they change, you have the right to walk away.
+          </p>
+        </div>
+        <div class="rounded-xs border border-white/15 bg-ink-raise p-8 md:p-10" data-reveal>
+          <p class="font-display text-[1.75rem] font-semibold text-accent-soft" aria-hidden="true">
+            B
+          </p>
+          <h3 class="font-display mt-4 text-[1.25rem] font-medium">
+            Metrics and costs, in writing
+          </h3>
+          <p class="mt-4 text-[0.9375rem] text-mist">
+            Measurable goals agreed before we start, a monthly review, every cost item written
+            down and justified. If something isn’t worth doing, we tell you first.
+          </p>
+        </div>
+        <div class="rounded-xs border border-white/15 bg-ink-raise p-8 md:p-10" data-reveal>
+          <p class="font-display text-[1.75rem] font-semibold text-accent-soft" aria-hidden="true">
+            C
+          </p>
+          <h3 class="font-display mt-4 text-[1.25rem] font-medium">
+            Everything remains your property
+          </h3>
+          <p class="mt-4 text-[0.9375rem] text-mist">
+            Accounts, processes and documentation are in your name from day one. No lock-in: you
+            can leave without losing the work done.
+          </p>
+        </div>
+      </div>
+      <div class="mt-12" data-reveal>
+        <ArrowLink href={path('about', lang)} class="text-paper">
+          Meet the seniors, by name
+        </ArrowLink>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== 06 FAQ =============================== -->
+  <section class="hairline">
+    <div class="wrap grid grid-cols-12 gap-x-6 py-24 md:py-36">
+      <div class="col-span-12 lg:col-span-4">
+        <div class="lg:sticky lg:top-32">
+          <span class="sec-num block text-accent" aria-hidden="true" data-reveal>06</span>
+          <p class="label-caps mt-4 text-mist" data-reveal>FAQ</p>
+          <h2 class="font-display text-h2 mt-4 font-medium" data-reveal>
+            Questions about the model.
+          </h2>
+          <p class="mt-6 max-w-sm text-[0.9375rem] text-mist" data-reveal>
+            The objections we hear most often in a first meeting. Answered here, so it doesn’t
+            take two calls.
+          </p>
+        </div>
+      </div>
+      <div class="col-span-12 mt-12 lg:col-span-7 lg:col-start-6 lg:mt-0" data-reveal>
+        <Accordion items={faq} idPrefix="faq-model" withSchema />
+      </div>
+    </div>
+  </section>
+
+  <CtaSection lang={lang} />
+</Base>

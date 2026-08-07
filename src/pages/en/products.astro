@@ -1,0 +1,367 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Pill from '../../components/Pill.astro';
+import Button from '../../components/Button.astro';
+import ArrowLink from '../../components/ArrowLink.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import Steps from '../../components/Steps.astro';
+import Accordion from '../../components/Accordion.astro';
+import CtaSection from '../../components/CtaSection.astro';
+import { path } from '../../lib/routes';
+import type { RouteKey } from '../../lib/routes';
+import { serviceSchema } from '../../lib/seo';
+
+const lang = 'en' as const;
+
+const products: {
+  title: string;
+  price: string;
+  duration: string;
+  description: string;
+  deliverables: string[];
+  verticalKey: RouteKey;
+  verticalLabel: string;
+}[] = [
+  {
+    title: 'Digital & Compliance Audit',
+    price: '[PREZZO]',
+    duration: '2 weeks · fixed price',
+    description:
+      'An honest picture of where you stand: digital maturity and regulatory gaps — GDPR, NIS2, EAA, AI Act — in a single document, with priorities ranked by risk and return.',
+    deliverables: [
+      'Digital maturity and compliance report',
+      'Regulatory gap analysis, ranked by exposure',
+      'Map of the systems, data and digital suppliers in use',
+      '12-month roadmap with indicative budgets',
+      'Two-page summary for the owners or the board',
+      'Debrief call with the senior who did the work',
+    ],
+    verticalKey: 'serviceCompliance',
+    verticalLabel: 'The vertical: compliance & digital governance',
+  },
+  {
+    title: 'AI Readiness Assessment',
+    price: '[PREZZO]',
+    duration: '2 weeks · fixed price',
+    description:
+      'Where AI actually pays inside your company — processes, data, skills — and where it is just fashion. With use cases ranked by return, not by demo value.',
+    deliverables: [
+      'Map of automatable processes, ranked by hours freed',
+      'Assessment of data quality, accessibility and ownership',
+      'Three to five priority use cases with impact and cost estimates',
+      'Inventory of AI systems already in use and their risk level (AI Act)',
+      '90-day adoption plan: who does what, with which tools',
+    ],
+    verticalKey: 'serviceData',
+    verticalLabel: 'The vertical: data & AI',
+  },
+  {
+    title: 'CRM/Martech Sprint',
+    price: '[PREZZO]',
+    duration: '2–6 weeks · fixed price',
+    description:
+      'Your CRM stops being an address book: clean customer data, the essential automations live, and a sales process you can finally measure.',
+    deliverables: [
+      'CRM set up or rebuilt around a real sales process',
+      'Customer data cleaned and deduplicated',
+      'Two or three essential automations live (leads, follow-up, post-sale)',
+      'Dashboard with the commercial metrics that matter',
+      'Hands-on training for the team and written process documentation',
+    ],
+    verticalKey: 'serviceCrm',
+    verticalLabel: 'The vertical: CRM & martech',
+  },
+  {
+    title: 'Accessibility (EAA) Sprint',
+    price: '[PREZZO]',
+    duration: '2–6 weeks · fixed price',
+    description:
+      'A site or store aligned with the European Accessibility Act, in force since 28 June 2025: WCAG 2.1 AA audit, fixes on the critical journeys, publishable statement.',
+    deliverables: [
+      'WCAG 2.1 AA audit of critical journeys (checkout, contact, account area)',
+      'List of non-conformities with priorities and remediation estimates',
+      'Priority technical fixes implemented and verified',
+      'Publishable accessibility statement and feedback mechanism',
+      'Editorial and development guidelines, so it does not regress',
+    ],
+    verticalKey: 'serviceWeb',
+    verticalLabel: 'The vertical: web, tech & e-commerce',
+  },
+];
+
+const steps = [
+  {
+    title: 'Pick the product — or let us tell you',
+    text: 'A 30-minute call to work out where it makes sense to start. If it turns out none of the four is what you need, we say so. It has happened, and it will happen again.',
+  },
+  {
+    title: 'Kick-off with the senior for that vertical',
+    text: 'Ninety minutes to fix the scope, the access we need, the people to interview and the delivery date. All of it written down before we start: that is the contract.',
+  },
+  {
+    title: 'Two to six weeks of work, with very few meetings',
+    text: 'Targeted interviews, technical checks, analysis of your data and systems. You need one point of contact internally — the rest of the load is ours.',
+  },
+  {
+    title: 'A checkpoint halfway through',
+    text: 'A short call on the first findings. It exists to kill the end-of-project surprise: if something is emerging, you hear it while it happens, not on delivery day.',
+  },
+  {
+    title: 'Delivery of the deliverable',
+    text: 'The document arrives in business language, not consultant jargon, and we walk you through it on a debrief call. It is yours: use it, circulate it, have anyone execute it.',
+  },
+  {
+    title: 'Decide with the numbers in front of you',
+    text: 'Continue on a retainer, execute with your own suppliers, or stop here. If you continue, the plan and the retainer are quoted individually, with agreed metrics and a monthly review.',
+  },
+];
+
+const faq = [
+  {
+    q: 'What does the price include?',
+    a: 'Everything written on the product card: the kick-off call, the weeks of work stated, the deliverable and the debrief call. Nothing is metered, and no line item appears once the work is done. If the kick-off reveals a wider scope than expected — more sites, more systems, more languages, a group structure — we tell you before we start and quote it separately. If we did not flag it beforehand, it is included.',
+  },
+  {
+    q: 'What if we do not continue?',
+    a: 'That is fine, and it is planned for. The deliverable is yours and stays yours: it is written to be usable without us, including the case where you hand it to another supplier or execute it with your internal team. There are no automatic renewals, no exit penalties, no clauses that turn an audit into a yearly commitment. The only thing we ask, if you stop, is that you tell us why — that is worth more to us than to you.',
+  },
+  {
+    q: 'Who works on my audit?',
+    a: 'The senior who owns that vertical, with a name and a face: the person you meet at kick-off is the one who signs the document and walks you through it. There is no junior learning on your case and no account manager in between. We use AI for the mechanical part — extracting, sorting, comparing documents and configurations — because that is where it saves real time. The judgement calls and the priorities stay human work, done by someone who has seen the same situations elsewhere.',
+  },
+  {
+    q: 'How do you get from an audit to a real plan?',
+    a: 'The audit ends where a decision begins: priorities ranked by risk and return, indicative budgets, a suggested sequence for the next twelve months. From there you have three routes. A closed scope — EAA remediation or a CRM rebuild, say — quoted individually, with a start and an end. An ongoing retainer, if you need cover across several verticals, with agreed metrics and a monthly review. Or execution in-house or with your current suppliers: the document is written so that anyone can pick it up. We do not make the call — you do, with the numbers in front of you.',
+  },
+];
+
+const schema = [
+  serviceSchema({
+    name: 'Fixed-price digital audits and assessments for SMEs',
+    description:
+      'Fixed-price entry products for SMEs operating in Italy: Digital & Compliance Audit, AI Readiness Assessment, CRM/Martech Sprint and Accessibility (EAA) Sprint. Scope, duration and deliverables stated before we start.',
+    path: path('products', lang),
+    lang,
+  }),
+];
+---
+
+<Base
+  lang={lang}
+  routeKey="products"
+  title="Fixed-price audits & sprints | enable.advisory"
+  description="Fixed-price digital audit for SMEs in Italy: compliance, AI readiness, CRM/martech and EAA accessibility. Scope, duration and deliverables stated upfront."
+  ogImage="/og/products-en.png"
+  schema={schema}
+>
+  <Breadcrumbs lang={lang} items={[{ name: 'Products', path: path('products', lang) }]} />
+
+  <!-- ============================== HERO ============================== -->
+  <section class="relative overflow-hidden">
+    <div
+      class="pointer-events-none absolute inset-0"
+      aria-hidden="true"
+      style="background: radial-gradient(50rem 34rem at 90% -20%, rgb(43 92 255 / 0.11), transparent 60%);"
+    >
+    </div>
+    <div class="wrap relative pt-12 pb-20 md:pt-16 md:pb-28">
+      <p class="label-caps text-mist" data-reveal>Entry products</p>
+      <h1 class="font-display text-display mt-6 max-w-6xl font-medium" data-reveal>
+        Digital audit at a fixed price: stated scope, stated date, deliverable that stays yours.
+      </h1>
+      <p class="mt-8 max-w-xl text-lead text-mist" data-reveal>
+        The first step is not a signature in the dark: price, duration and deliverable are stated
+        before we start. At the end you decide whether to continue — with the numbers in front of
+        you, not a promise.
+      </p>
+      <div class="mt-10 flex flex-wrap items-center gap-4" data-reveal>
+        <Button href={path('contact', lang)}>Start here</Button>
+        <Button href={path('howWeWork', lang)} variant="ghost">How we work</Button>
+      </div>
+      <ul class="mt-12 flex flex-wrap gap-3" data-reveal-group>
+        <li data-reveal><Pill>Fixed price</Pill></li>
+        <li data-reveal><Pill>2–6 weeks</Pill></li>
+        <li data-reveal><Pill>The deliverable stays yours</Pill></li>
+        <li data-reveal><Pill>No obligation to continue</Pill></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================ 01 THE PRODUCTS ============================ -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="01"
+        label="The products"
+        title="Four ways in. One for each vertical."
+      >
+        <p class="mt-6 max-w-2xl text-lead text-mist" data-reveal>
+          Each product is a closed scope: you know what goes in, how long it takes and what comes
+          out. If you are not sure which one fits, we work it out on the first call — often it is
+          the audit, but not always.
+        </p>
+      </SectionHeading>
+
+      <div class="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 lg:grid-cols-2" data-reveal-group>
+        {
+          products.map((p) => (
+            <div class="flex flex-col" data-reveal>
+              <div class="grow">
+              <ProductCard
+                title={p.title}
+                price={p.price}
+                duration={p.duration}
+                description={p.description}
+                deliverables={p.deliverables}
+                deliverablesLabel="What you walk away with"
+                href={path('contact', lang)}
+                ctaLabel="Start here"
+              />
+              </div>
+              <p class="mt-5">
+                <ArrowLink href={path(p.verticalKey, lang)} class="text-paper">
+                  {p.verticalLabel}
+                </ArrowLink>
+              </p>
+            </div>
+          ))
+        }
+      </div>
+
+      <p class="mt-12 max-w-2xl text-[0.875rem] text-mist" data-reveal>
+        Final prices are being published: they will appear here, in writing, as soon as the price
+        list is closed. Until then we tell you the figure on the first call, before any document.
+        Ongoing retainers stay individually quoted, and are priced after the audit — not before.
+      </p>
+    </div>
+  </section>
+
+  <!-- =========================== 02 HOW IT WORKS =========================== -->
+  <section class="section-light">
+    <div class="py-24 md:py-36">
+      <Steps
+        num="02"
+        label="How it works"
+        title="From first contact to a document in your hands."
+        intro="Six steps, none of which asks you to take our word for it. The dates are set at kick-off, and we keep them."
+        steps={steps}
+        light
+      />
+      <div class="wrap mt-16">
+        <ArrowLink href={path('howWeWork', lang)} class="text-accent-deep">
+          The operating model in detail
+        </ArrowLink>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= 03 WHY A FIXED PRICE ======================= -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="03"
+        label="Why a fixed price"
+        title="The best way to judge us is to buy us at minimum risk."
+      >
+        <p class="mt-6 max-w-2xl text-lead text-mist" data-reveal>
+          The first yes is always the hardest: you do not know us, you do not know how we work, and
+          everybody has references. The only honest way to solve that is to make the first
+          commitment small and reversible.
+        </p>
+      </SectionHeading>
+
+      <div class="mt-16 grid grid-cols-1 gap-5 md:grid-cols-2" data-reveal-group>
+        <div class="rounded-xs border border-white/15 bg-ink-raise p-8 md:p-10" data-reveal>
+          <p class="font-display text-[1.75rem] font-semibold text-accent-soft" aria-hidden="true">
+            A
+          </p>
+          <h3 class="font-display mt-4 text-[1.375rem] font-medium">
+            Risk little, learn a lot
+          </h3>
+          <p class="mt-4 text-[0.9375rem] text-mist">
+            In two to six weeks you see how we think, how we write, how we handle deadlines and
+            what we say when the answer is not the one you wanted. No pitch deck gives you that
+            information.
+          </p>
+        </div>
+        <div class="rounded-xs border border-white/15 bg-ink-raise p-8 md:p-10" data-reveal>
+          <p class="font-display text-[1.75rem] font-semibold text-accent-soft" aria-hidden="true">
+            B
+          </p>
+          <h3 class="font-display mt-4 text-[1.375rem] font-medium">
+            The deliverable stays yours either way
+          </h3>
+          <p class="mt-4 text-[0.9375rem] text-mist">
+            Documents, analysis, configurations and access are yours from day one. If you stop, or
+            hand the plan to someone else, nothing holds you back: no files held hostage, no
+            dependency engineered on purpose.
+          </p>
+        </div>
+        <div class="rounded-xs border border-white/15 bg-ink-raise p-8 md:p-10" data-reveal>
+          <p class="font-display text-[1.75rem] font-semibold text-accent-soft" aria-hidden="true">
+            C
+          </p>
+          <h3 class="font-display mt-4 text-[1.375rem] font-medium">
+            No annual contract in the dark
+          </h3>
+          <p class="mt-4 text-[0.9375rem] text-mist">
+            The retainer comes later, if it makes sense, and on a plan you have read. Signing
+            twelve months before knowing what needs doing suits the supplier, not you — and we live
+            off long relationships, not automatic renewals.
+          </p>
+        </div>
+        <div class="rounded-xs border border-white/15 bg-ink-raise p-8 md:p-10" data-reveal>
+          <p class="font-display text-[1.75rem] font-semibold text-accent-soft" aria-hidden="true">
+            D
+          </p>
+          <h3 class="font-display mt-4 text-[1.375rem] font-medium">
+            A fixed price disciplines us too
+          </h3>
+          <p class="mt-4 text-[0.9375rem] text-mist">
+            By the hour, dragging things out pays whoever sends the invoice. At a fixed price,
+            overrunning is our cost: it forces a clear scope, few meetings and a document that is
+            actually good enough to decide on.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-14 rounded-xs border border-white/15 bg-ink-raise p-8 md:p-10" data-reveal>
+        <p class="label-caps text-mist">A straight note on pricing</p>
+        <p class="mt-4 max-w-3xl text-[0.9375rem] text-mist">
+          We would rather show a stated <span class="text-paper">[PREZZO]</span> than a "price on
+          request" that only exists to qualify you. The price list for the four products is being
+          finalised and will be published here; until then you get the figure on the first call,
+          with no negotiation ritual in between. Ongoing retainers we deliberately do not publish,
+          for an honest reason: they depend on scope, on which verticals are active and on how much
+          cover you need — so they are priced after the audit, when there is a plan to put a serious
+          number against.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================== 04 FAQ ================================ -->
+  <section class="hairline">
+    <div class="wrap grid grid-cols-12 gap-x-6 py-24 md:py-36">
+      <div class="col-span-12 lg:col-span-4">
+        <div class="lg:sticky lg:top-32">
+          <span class="sec-num block text-accent" aria-hidden="true" data-reveal>04</span>
+          <p class="label-caps mt-4 text-mist" data-reveal>FAQ</p>
+          <h2 class="font-display text-h2 mt-4 font-medium" data-reveal>
+            The questions people ask before signing.
+          </h2>
+          <p class="mt-6 max-w-sm text-[0.9375rem] text-mist" data-reveal>
+            The ones that come up on every first call, answered exactly as we answer them out loud.
+          </p>
+        </div>
+      </div>
+      <div class="col-span-12 mt-12 lg:col-span-7 lg:col-start-6 lg:mt-0" data-reveal>
+        <Accordion items={faq} idPrefix="faq-products" withSchema />
+      </div>
+    </div>
+  </section>
+
+  <CtaSection lang={lang} />
+</Base>

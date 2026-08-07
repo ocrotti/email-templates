@@ -1,0 +1,195 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Pill from '../../components/Pill.astro';
+import ArrowLink from '../../components/ArrowLink.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import CtaSection from '../../components/CtaSection.astro';
+import { path } from '../../lib/routes';
+
+const lang = 'en' as const;
+
+const guides = [
+  {
+    key: 'resourceNis2',
+    label: 'Compliance · NIS2',
+    title: 'NIS2 for SMEs: the complete guide',
+    excerpt:
+      'Who is actually in scope, what the obligations are, how hard the fines bite — and why the supply-chain effect pulls in thousands of small suppliers who appear on no official list. With an operational checklist to start on Monday morning.',
+    meta: 'Updated August 2026 · 9 min read',
+    cta: 'Read the NIS2 guide',
+  },
+  {
+    key: 'resourceAi',
+    label: 'Data & AI',
+    title: 'AI for SMEs: a practical guide',
+    excerpt:
+      'Where artificial intelligence actually pays off in a smaller company and where it is just fashion. How to assess whether your data is ready, how to pick the first use case, and what the AI Act asks of companies that use AI rather than build it.',
+    meta: 'Updated August 2026 · 10 min read',
+    cta: 'Read the AI guide',
+  },
+] as const;
+---
+
+<Base
+  lang={lang}
+  routeKey="resources"
+  title="Resources & guides | enable.advisory"
+  description="Practical guides on digital transformation for Italian SMEs: NIS2, AI, compliance. Written by the people who apply them in the field, dated and sourced."
+  ogImage="/og/resources-en.png"
+>
+  <Breadcrumbs lang={lang} items={[{ name: 'Resources', path: path('resources', lang) }]} />
+
+  <!-- ============================== HERO ============================== -->
+  <section class="relative overflow-hidden">
+    <div
+      class="pointer-events-none absolute inset-0"
+      aria-hidden="true"
+      style="background: radial-gradient(50rem 34rem at 88% -20%, rgb(43 92 255 / 0.11), transparent 60%);"
+    >
+    </div>
+    <div class="wrap relative pt-12 pb-20 md:pt-16 md:pb-28">
+      <p class="label-caps text-mist" data-reveal>Resources</p>
+      <h1 class="font-display text-display mt-6 max-w-5xl font-medium" data-reveal>
+        Working guides for SMEs going digital.
+      </h1>
+      <p class="mt-8 max-w-xl text-lead text-mist" data-reveal>
+        We publish guides, not content marketing. We only write about what we actually do in
+        projects — regulation, data, systems — because it is the most honest way we know to prove
+        competence. If a guide is enough for you to handle it yourself, good.
+      </p>
+      <ul class="mt-12 flex flex-wrap gap-3" data-reveal-group>
+        <li data-reveal><Pill>Sourced numbers</Pill></li>
+        <li data-reveal><Pill>No form to read them</Pill></li>
+        <li data-reveal><Pill>Update date in plain sight</Pill></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================ 01 THE GUIDES ============================ -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading num="01" label="The guides" title="Two long guides, dated and maintained.">
+        <p class="mt-6 max-w-2xl text-lead text-mist" data-reveal>
+          These are the two subjects smaller companies ask us about most: the obligation that
+          arrives from their customers, and the technology everyone says they should be adopting.
+          Neither is settled by a 600-word post.
+        </p>
+      </SectionHeading>
+
+      <div class="mt-16 grid grid-cols-1 gap-5 lg:grid-cols-2" data-reveal-group>
+        {
+          guides.map((g) => (
+            <article
+              class="flex h-full flex-col justify-between rounded-xs border border-white/15 bg-ink-raise p-8 md:p-10"
+              data-reveal
+            >
+              <div>
+                <p class="label-caps text-accent-soft">{g.label}</p>
+                <h3 class="font-display text-h3 mt-5 font-medium">{g.title}</h3>
+                <p class="mt-5 text-[0.9375rem] text-mist">{g.excerpt}</p>
+              </div>
+              <div class="mt-10">
+                <p class="text-[0.8125rem] text-mist">{g.meta}</p>
+                <p class="mt-4">
+                  <ArrowLink href={path(g.key, lang)} class="text-paper">
+                    {g.cta}
+                  </ArrowLink>
+                </p>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================== 02 HOW WE WRITE ========================== -->
+  <section class="section-light">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="02"
+        label="How we write"
+        title="Three rules, so we don’t waste your time."
+        light
+      >
+        <p class="mt-6 max-w-2xl text-lead text-umber" data-reveal>
+          The web is full of articles that explain a regulation without ever saying what to do
+          tomorrow. These guides come from the other side: from real engagements, and from the
+          questions we get on calls.
+        </p>
+      </SectionHeading>
+      <div class="mt-16 grid grid-cols-12 gap-x-6 gap-y-12" data-reveal-group>
+        <div class="col-span-12 border-t-2 border-accent-deep pt-6 md:col-span-4" data-reveal>
+          <h3 class="font-display text-[1.25rem] font-medium">Sourced numbers, or no numbers</h3>
+          <p class="mt-3 text-[0.9375rem] text-umber">
+            Every figure we quote names its source — ACN, ISTAT, the Italian Official Gazette.
+            Where the data doesn’t exist, we say so instead of estimating it.
+          </p>
+        </div>
+        <div class="col-span-12 border-t-2 border-accent-deep pt-6 md:col-span-4" data-reveal>
+          <h3 class="font-display text-[1.25rem] font-medium">Always an operational part</h3>
+          <p class="mt-3 text-[0.9375rem] text-umber">
+            Every guide ends with a checklist or a sequence of steps. If you finish it without
+            knowing what to do first, the guide is badly written.
+          </p>
+        </div>
+        <div class="col-span-12 border-t-2 border-accent-deep pt-6 md:col-span-4" data-reveal>
+          <h3 class="font-display text-[1.25rem] font-medium">Dated, and updated when it matters</h3>
+          <p class="mt-3 text-[0.9375rem] text-umber">
+            Regulation moves. Each guide carries its update date up front: if it has gone stale,
+            you can see it before you trust it.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= 03 COMING NEXT ========================= -->
+  <section class="section-light hairline hairline-dark">
+    <div class="wrap grid grid-cols-12 gap-x-6 py-24 md:py-36">
+      <div class="col-span-12 lg:col-span-5">
+        <span class="sec-num block text-accent-deep" aria-hidden="true" data-reveal>03</span>
+        <p class="label-caps mt-4 text-umber" data-reveal>Coming next</p>
+        <h2 class="font-display text-h2 mt-4 font-medium" data-reveal>What we’re writing now.</h2>
+        <p class="mt-6 max-w-md text-lead text-umber" data-reveal>
+          In writing order. They ship when they are useful, not when it’s time to "do content" —
+          and with no newsletter to subscribe to before you can read them.
+        </p>
+      </div>
+      <div class="col-span-12 mt-14 lg:col-span-6 lg:col-start-7 lg:mt-0" data-reveal-group>
+        <ul class="space-y-8">
+          <li class="border-t border-ink/14 pt-6" data-reveal>
+            <h3 class="font-display text-[1.25rem] font-medium">
+              The EAA and accessibility: what a website must do after 28 June 2025
+            </h3>
+            <p class="mt-3 text-[0.9375rem] text-umber">
+              Who is covered, what WCAG 2.1 AA actually requires, and how to write an
+              accessibility statement that holds up.
+            </p>
+          </li>
+          <li class="border-t border-ink/14 pt-6" data-reveal>
+            <h3 class="font-display text-[1.25rem] font-medium">
+              Operational GDPR: the register that keeps itself alive
+            </h3>
+            <p class="mt-3 text-[0.9375rem] text-umber">
+              How to keep processing registers, privacy notices and breach procedures current
+              without rebuilding them at every inspection.
+            </p>
+          </li>
+          <li class="border-t border-ink/14 pt-6" data-reveal>
+            <h3 class="font-display text-[1.25rem] font-medium">
+              CRM for SMEs: how to choose, and how not to waste the budget
+            </h3>
+            <p class="mt-3 text-[0.9375rem] text-umber">
+              What a 10–250 person company genuinely needs, why the CRM often stays an address
+              book, and how to measure the return.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <CtaSection lang={lang} />
+</Base>

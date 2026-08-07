@@ -1,0 +1,44 @@
+---
+/** Breadcrumb visibile + schema BreadcrumbList. */
+import type { Lang } from '../lib/routes';
+import { t } from '../lib/i18n';
+import { breadcrumbSchema } from '../lib/seo';
+
+interface Props {
+  lang: Lang;
+  /** Elementi dopo la home, l'ultimo è la pagina corrente. */
+  items: { name: string; path: string }[];
+  light?: boolean;
+}
+const { lang, items, light = false } = Astro.props;
+const strings = t(lang);
+const all = [{ name: strings.breadcrumbHome, path: `/${lang}/` }, ...items];
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema(all))} />
+
+<nav aria-label={strings.breadcrumbLabel} class="wrap pt-28 md:pt-32">
+  <ol
+    class:list={[
+      'flex flex-wrap items-center gap-2 text-[0.8125rem]',
+      light ? 'text-umber' : 'text-mist',
+    ]}
+  >
+    {
+      all.map((item, i) => (
+        <li class="flex items-center gap-2">
+          {i > 0 && <span aria-hidden="true">/</span>}
+          {i < all.length - 1 ? (
+            <a href={item.path} class="link-plain">
+              {item.name}
+            </a>
+          ) : (
+            <span aria-current="page" class:list={[light ? 'text-ink' : 'text-paper']}>
+              {item.name}
+            </span>
+          )}
+        </li>
+      ))
+    }
+  </ol>
+</nav>

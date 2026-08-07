@@ -1,0 +1,348 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Pill from '../../components/Pill.astro';
+import Button from '../../components/Button.astro';
+import ArrowLink from '../../components/ArrowLink.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import VerticalCard from '../../components/VerticalCard.astro';
+import CtaSection from '../../components/CtaSection.astro';
+import { path } from '../../lib/routes';
+import { serviceSchema } from '../../lib/seo';
+
+const lang = 'en' as const;
+
+const verticals = [
+  {
+    key: 'serviceCompliance',
+    num: '01',
+    title: 'Compliance & digital governance',
+    claim: 'From compliance to growth.',
+    items: ['GDPR', 'NIS2', 'EAA', 'AI Act'],
+  },
+  {
+    key: 'serviceData',
+    num: '02',
+    title: 'Data & AI',
+    claim: 'AI where it actually pays back.',
+    items: ['AI readiness', 'Automation', 'Data value'],
+  },
+  {
+    key: 'serviceCrm',
+    num: '03',
+    title: 'CRM & martech',
+    claim: 'Turn your customer base into value.',
+    items: ['CRM', 'Marketing automation', 'Integration'],
+  },
+  {
+    key: 'serviceWeb',
+    num: '04',
+    title: 'Web, tech & e-commerce',
+    claim: 'A digital presence that converts — and complies.',
+    items: ['EAA-compliant websites', 'E-commerce', 'Development'],
+  },
+] as const;
+
+const products = [
+  {
+    title: 'Digital & Compliance Audit',
+    duration: '2 weeks · fixed price',
+    text: 'The snapshot: digital maturity and regulatory gaps, ranked by risk and return.',
+  },
+  {
+    title: 'AI Readiness Assessment',
+    duration: '2 weeks · fixed price',
+    text: 'Where AI actually pays in your business — and where it’s just fashion. Use cases ranked by impact.',
+  },
+  {
+    title: 'CRM/Martech Sprint',
+    duration: '2–6 weeks · fixed price',
+    text: 'Clean customer data, the essential automations live, a sales process you can measure.',
+  },
+  {
+    title: 'Accessibility (EAA) Sprint',
+    duration: '2–6 weeks · fixed price',
+    text: 'A website or e-commerce compliant with the EAA, with a publishable accessibility statement.',
+  },
+];
+
+const schema = [
+  serviceSchema({
+    name: 'Digital consulting services for SMEs',
+    description:
+      'Four digital consulting verticals for SMEs operating in Italy: compliance & digital governance (GDPR, NIS2, EAA, AI Act), data & AI, CRM & martech, web & e-commerce. One accountable senior lead.',
+    path: path('services', lang),
+    lang,
+  }),
+];
+---
+
+<Base
+  lang={lang}
+  routeKey="services"
+  title="Digital consulting services | enable.advisory"
+  description="Digital consulting services for SMEs: compliance (GDPR, NIS2, EAA, AI Act), data & AI, CRM & martech, web & e-commerce. Four verticals, one system."
+  ogImage="/og/services-en.png"
+  schema={schema}
+>
+  <Breadcrumbs lang={lang} items={[{ name: 'Services', path: path('services', lang) }]} />
+
+  <!-- ============================== HERO ============================== -->
+  <section class="relative overflow-hidden">
+    <div
+      class="pointer-events-none absolute inset-0"
+      aria-hidden="true"
+      style="background: radial-gradient(50rem 34rem at 90% -20%, rgb(43 92 255 / 0.11), transparent 60%);"
+    >
+    </div>
+    <div class="wrap relative pt-12 pb-20 md:pt-16 md:pb-28">
+      <p class="label-caps text-mist" data-reveal>Services</p>
+      <h1 class="font-display text-display mt-6 max-w-6xl font-medium" data-reveal>
+        Digital consulting services in four verticals. A system, not a catalogue.
+      </h1>
+      <p class="mt-8 max-w-xl text-lead text-mist" data-reveal>
+        You won’t find twenty services here: you’ll find four, each run by a senior specialist and
+        orchestrated by one lead who answers for the result. Start from the business objective —
+        the system follows.
+      </p>
+      <div class="mt-10 flex flex-wrap items-center gap-4" data-reveal>
+        <Button href={path('contact', lang)}>Book your audit</Button>
+        <Button href={path('products', lang)} variant="ghost">
+          Start with a fixed-price step
+        </Button>
+      </div>
+      <ul class="mt-12 flex flex-wrap gap-3" data-reveal-group>
+        <li data-reveal><Pill>A senior for every vertical</Pill></li>
+        <li data-reveal><Pill>One accountable lead</Pill></li>
+        <li data-reveal><Pill>Cross-vertical bundles</Pill></li>
+        <li data-reveal><Pill>Fixed-price entry products</Pill></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========================== 01 THE FOUR VERTICALS ========================== -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="01"
+        label="The four verticals"
+        title="Start from the objective, not the tool."
+      >
+        <p class="mt-6 max-w-2xl text-lead text-mist" data-reveal>
+          Each vertical answers a specific business objective. The tools — regulations, platforms,
+          technologies — sit underneath, where they belong.
+        </p>
+      </SectionHeading>
+      <div class="mt-16 grid grid-cols-1 gap-5 md:grid-cols-2" data-reveal-group>
+        {
+          verticals.map((v) => (
+            <div data-reveal>
+              <VerticalCard
+                href={path(v.key, lang)}
+                num={v.num}
+                title={v.title}
+                claim={v.claim}
+                items={[...v.items]}
+                linkLabel="Explore the vertical"
+              />
+            </div>
+          ))
+        }
+      </div>
+      <div class="mt-12" data-reveal>
+        <ArrowLink href={path('howWeWork', lang)} class="text-paper">
+          How we orchestrate the verticals — the operating model
+        </ArrowLink>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ 02 THE BUNDLES ============================ -->
+  <section class="section-light">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="02"
+        label="The bundles"
+        title="When verticals combine, the same budget pays twice."
+        light
+      >
+        <p class="mt-6 max-w-2xl text-lead text-umber" data-reveal>
+          Some objectives cut across verticals. For the two most requested paths we have a
+          ready-made format: one plan, one lead, no stitching left to you.
+        </p>
+      </SectionHeading>
+      <div class="mt-14 grid grid-cols-1 gap-5 lg:grid-cols-2" data-reveal-group>
+        <div class="rounded-xs border border-ink/15 bg-white/60 p-8 md:p-10" data-reveal>
+          <p class="label-caps text-umber">Compliance &amp; governance + data &amp; CRM</p>
+          <h3 class="font-display mt-4 text-[1.5rem] leading-tight font-medium md:text-[1.75rem]">
+            Compliance-to-Growth
+          </h3>
+          <p class="mt-2 text-[0.9375rem] font-medium text-accent-deep">
+            Mandatory budget, turned into growth.
+          </p>
+          <div class="mt-5 space-y-4 text-[0.9375rem] text-umber">
+            <p>
+              If you’re one of the 20,000+ organisations in scope for NIS2 — or your customers are
+              passing security obligations down the supply chain through contract clauses — you’ll
+              spend that budget anyway. This bundle pairs regulatory adaptation with data and CRM
+              activation: data mapping becomes a clean customer base, processes documented for the
+              audit become better processes.
+            </p>
+            <p>
+              Bare-minimum compliance costs almost the same and leaves nothing behind. Here the
+              same spend produces two results. To check whether you’re in scope, start with our
+              <a href={path('resourceNis2', lang)} class="link-plain text-ink">NIS2 guide for SMEs</a>.
+            </p>
+          </div>
+          <div class="mt-8">
+            <ArrowLink href={path('contact', lang)} class="text-accent-deep">
+              Let’s talk — 30 minutes with a senior
+            </ArrowLink>
+          </div>
+        </div>
+        <div class="rounded-xs border border-ink/15 bg-white/60 p-8 md:p-10" data-reveal>
+          <p class="label-caps text-umber">Data &amp; AI + compliance &amp; governance</p>
+          <h3 class="font-display mt-4 text-[1.5rem] leading-tight font-medium md:text-[1.75rem]">
+            AI-Ready SME
+          </h3>
+          <p class="mt-2 text-[0.9375rem] font-medium text-accent-deep">
+            AI in production, with governance already in place.
+          </p>
+          <div class="mt-5 space-y-4 text-[0.9375rem] text-umber">
+            <p>
+              AI adoption among Italian SMEs doubled in a year — from 7.7% to 15.7%, per ISTAT —
+              yet only 8% of SMEs have AI projects underway, against 71% of large companies (Politecnico di Milano, Artificial Intelligence Observatory). This bundle pairs AI Act governance
+              with process automation: you pick the use cases that pay, put them into production,
+              and arrive ready for the high-risk obligations that apply from August 2026.
+            </p>
+            <p>
+              Keeping the two apart means paying twice: first the pilot, then the clean-up to
+              comply. To get oriented, there’s our
+              <a href={path('resourceAi', lang)} class="link-plain text-ink">AI guide for SMEs</a>.
+            </p>
+          </div>
+          <div class="mt-8">
+            <ArrowLink href={path('contact', lang)} class="text-accent-deep">
+              Let’s talk — 30 minutes with a senior
+            </ArrowLink>
+          </div>
+        </div>
+      </div>
+      <p class="mt-8 text-[0.875rem] text-umber" data-reveal>
+        Bundles are scoped on quotation, after the audit. No blind packages: numbers first, then
+        the signature.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========================== 03 ENTRY PRODUCTS ========================== -->
+  <section class="section-light hairline hairline-dark">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="03"
+        label="Entry products"
+        title="The first step has a fixed price."
+        light
+      >
+        <p class="mt-6 max-w-2xl text-lead text-umber" data-reveal>
+          Four closed products — price, duration and deliverables stated upfront — one per
+          vertical. The simplest way to see us at work without signing a retainer.
+        </p>
+      </SectionHeading>
+      <div class="mt-16 grid grid-cols-12 gap-x-6 gap-y-12" data-reveal-group>
+        {
+          products.map((p) => (
+            <div
+              class="col-span-12 border-t-2 border-accent-deep pt-6 md:col-span-6 lg:col-span-3"
+              data-reveal
+            >
+              <p class="label-caps text-umber">{p.duration}</p>
+              <h3 class="font-display mt-3 text-[1.25rem] font-medium">{p.title}</h3>
+              <p class="mt-3 text-[0.9375rem] text-umber">{p.text}</p>
+            </div>
+          ))
+        }
+      </div>
+      <div class="mt-12" data-reveal>
+        <ArrowLink href={path('products', lang)} class="text-accent-deep">
+          Products, prices and deliverables
+        </ArrowLink>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================== 04 WHERE TO START =========================== -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading num="04" label="Where to start" title="Three typical starting points.">
+        <p class="mt-6 max-w-2xl text-lead text-mist" data-reveal>
+          If one of these sounds like you, you already know which vertical to open first.
+        </p>
+      </SectionHeading>
+      <div class="mt-16 grid grid-cols-12 gap-x-6 gap-y-12" data-reveal-group>
+        <div class="col-span-12 md:col-span-4" data-reveal>
+          <p class="font-display text-[1.375rem] font-semibold text-accent-soft" aria-hidden="true">
+            1
+          </p>
+          <h3 class="font-display mt-3 text-[1.25rem] font-medium">
+            “I have a regulatory deadline”
+          </h3>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            The EAA has applied since 28 June 2025, NIS2 is already law, the AI Act phases in
+            through August 2026. If a deadline concerns you, start from compliance — and use that
+            budget to put your data and processes in order too.
+          </p>
+          <p class="mt-5">
+            <ArrowLink href={path('serviceCompliance', lang)} class="text-paper">
+              Compliance &amp; digital governance
+            </ArrowLink>
+          </p>
+        </div>
+        <div class="col-span-12 md:col-span-4" data-reveal>
+          <p class="font-display text-[1.375rem] font-semibold text-accent-soft" aria-hidden="true">
+            2
+          </p>
+          <h3 class="font-display mt-3 text-[1.25rem] font-medium">
+            “I want to know if AI pays”
+          </h3>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            Before the tools come the processes and the data. The assessment separates the use
+            cases that pay from the fashionable ones, with an impact estimate — not with vendor
+            promises.
+          </p>
+          <p class="mt-5">
+            <ArrowLink href={path('serviceData', lang)} class="text-paper">
+              Data &amp; AI
+            </ArrowLink>
+          </p>
+        </div>
+        <div class="col-span-12 md:col-span-4" data-reveal>
+          <p class="font-display text-[1.375rem] font-semibold text-accent-soft" aria-hidden="true">
+            3
+          </p>
+          <h3 class="font-display mt-3 text-[1.25rem] font-medium">
+            “Our CRM is an address book”
+          </h3>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            If customer data lives in scattered spreadsheets and emails go out by hand, the problem
+            isn’t the software: it’s the process. Start from the CRM — and the customers you
+            already have start paying off.
+          </p>
+          <p class="mt-5">
+            <ArrowLink href={path('serviceCrm', lang)} class="text-paper">
+              CRM &amp; martech
+            </ArrowLink>
+          </p>
+        </div>
+      </div>
+      <p class="mt-14 max-w-2xl text-[0.9375rem] text-mist" data-reveal>
+        Fourth case, the website: if it converts poorly or wouldn’t pass an accessibility check,
+        start from
+        <a href={path('serviceWeb', lang)} class="link-plain text-paper">web, tech &amp; e-commerce</a>.
+        And if you don’t know where to start, that’s exactly what the audit is for.
+      </p>
+    </div>
+  </section>
+
+  <CtaSection lang={lang} />
+</Base>

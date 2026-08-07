@@ -1,0 +1,508 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Pill from '../../../components/Pill.astro';
+import Button from '../../../components/Button.astro';
+import ArrowLink from '../../../components/ArrowLink.astro';
+import SectionHeading from '../../../components/SectionHeading.astro';
+import VerticalCard from '../../../components/VerticalCard.astro';
+import ProductCard from '../../../components/ProductCard.astro';
+import Accordion from '../../../components/Accordion.astro';
+import Counter from '../../../components/Counter.astro';
+import CtaSection from '../../../components/CtaSection.astro';
+import { path } from '../../../lib/routes';
+import { serviceSchema } from '../../../lib/seo';
+
+const lang = 'it' as const;
+
+const faq = [
+  {
+    q: 'Serve un avvocato per il GDPR?',
+    a: 'Non per la maggior parte del lavoro. Registri dei trattamenti, DPIA, informative, procedure per i data breach: è lavoro organizzativo e tecnico, ed è quello che facciamo noi. Per le attività riservate per legge agli avvocati — pareri legali, contenzioso, assistenza davanti al Garante — lavoriamo in partnership con uno studio legale specializzato. Tu hai un solo referente; la divisione dei ruoli è dichiarata dal primo giorno.',
+  },
+  {
+    q: 'Siamo fornitori di un soggetto NIS2: ci riguarda?',
+    a: 'Quasi certamente sì. La NIS2 impone ai soggetti in perimetro — oltre 20.000 organizzazioni secondo l’elenco ACN — di presidiare la sicurezza della propria catena di fornitura. In pratica: i tuoi clienti ti trasferiscono obblighi via clausole contrattuali e questionari di verifica. Se non riesci a rispondere in modo documentato, il rischio non è la sanzione: è perdere il contratto. Prepararsi prima costa molto meno che improvvisare a questionario ricevuto.',
+  },
+  {
+    q: 'Quanto dura un adeguamento?',
+    a: 'Dipende da dove parti, e per questo si parte dall’audit: due settimane, prezzo fisso, e ne esce un piano con priorità e tempi realistici. Poi si lavora per ordine di esposizione: prima ciò che ti espone a sanzioni o blocca contratti, poi il resto. Non facciamo “progetti conformità” infiniti: ogni fase ha un perimetro chiuso e un deliverable che resta tuo.',
+  },
+  {
+    q: 'Cosa succede dopo l’audit?',
+    a: 'Decidi tu, con i numeri davanti. L’audit produce un documento utilizzabile anche senza di noi: gap, priorità, budget indicativi. Se vuoi proseguire, definiamo un piano di adeguamento o un retainer su preventivo — con metriche concordate e review mensile. Se preferisci fermarti o fare da solo, il metodo e la documentazione restano a te. Nessun obbligo di proseguire: è il senso di un primo passo a prezzo fisso.',
+  },
+];
+
+const schema = [
+  serviceSchema({
+    name: 'Compliance & governance digitale — consulenza GDPR, NIS2 e AI Act',
+    description:
+      'Consulenza GDPR, NIS2, EAA e AI Act per PMI italiane: adeguamenti operativi che reggono controlli e questionari di filiera e diventano dati ordinati e processi migliori.',
+    path: path('serviceCompliance', lang),
+    lang,
+  }),
+];
+---
+
+<Base
+  lang={lang}
+  routeKey="serviceCompliance"
+  title="Consulenza GDPR, NIS2 e AI Act | enable.advisory"
+  description="Consulenza GDPR, NIS2 e AI Act per PMI: adeguamenti che reggono un controllo e diventano dati ordinati e processi migliori. Dalla conformità alla crescita."
+  ogImage="/og/serviceCompliance-it.png"
+  schema={schema}
+>
+  <Breadcrumbs
+    lang={lang}
+    items={[
+      { name: 'Servizi', path: path('services', lang) },
+      { name: 'Compliance & governance digitale', path: path('serviceCompliance', lang) },
+    ]}
+  />
+
+  <!-- ============================== HERO ============================== -->
+  <section class="relative overflow-hidden">
+    <div
+      class="pointer-events-none absolute inset-0"
+      aria-hidden="true"
+      style="background: radial-gradient(50rem 34rem at 90% -20%, rgb(43 92 255 / 0.11), transparent 60%);"
+    >
+    </div>
+    <div class="wrap relative pt-12 pb-20 md:pt-16 md:pb-28">
+      <p class="label-caps text-mist" data-reveal>Verticale 01 — Compliance & governance digitale</p>
+      <h1 class="font-display text-display mt-6 max-w-6xl font-medium" data-reveal>
+        Consulenza GDPR, NIS2 e AI Act: dalla conformità alla crescita.
+      </h1>
+      <p class="mt-8 max-w-xl text-lead text-mist" data-reveal>
+        Le normative sono arrivate tutte insieme — e i clienti grandi le stanno girando ai
+        fornitori. Noi le mettiamo in ordine: prima ciò che ti espone, poi ciò che rende. Senza
+        fermare l’azienda.
+      </p>
+      <div class="mt-10 flex flex-wrap items-center gap-4" data-reveal>
+        <Button href={path('contact', lang)}>Prenota l’audit</Button>
+        <Button href={path('products', lang)} variant="ghost">
+          Inizia con un passo a prezzo fisso
+        </Button>
+      </div>
+      <ul class="mt-12 flex flex-wrap gap-3" data-reveal-group>
+        <li data-reveal><Pill>GDPR operativo</Pill></li>
+        <li data-reveal><Pill>NIS2 e filiera</Pill></li>
+        <li data-reveal><Pill>Accessibilità (EAA)</Pill></li>
+        <li data-reveal><Pill>Governance dell’AI</Pill></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================ 01 IL PROBLEMA ============================ -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="01"
+        label="Il problema"
+        title="La compliance ti raggiunge comunque. Meglio arrivarci per primi."
+      >
+        <p class="mt-6 max-w-2xl text-lead text-mist" data-reveal>
+          Il GDPR è ancora il pavimento su cui poggia tutto il resto: chi ha registri, ruoli e
+          procedure in ordine parte avvantaggiato su ogni norma arrivata dopo. Il problema è che
+          quasi nessuna PMI lo ha davvero in ordine — e nel frattempo gli obblighi sono
+          diventati tre.
+        </p>
+      </SectionHeading>
+      <div class="mt-16 grid grid-cols-12 gap-x-6 gap-y-12" data-reveal-group>
+        <div class="col-span-12 md:col-span-4" data-reveal>
+          <p class="font-display text-[1.375rem] font-semibold text-accent-soft" aria-hidden="true">
+            1
+          </p>
+          <h3 class="font-display mt-3 text-[1.25rem] font-medium">
+            Il GDPR adesso pesa il doppio
+          </h3>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            Registro dei trattamenti, informative, nomine dei fornitori, gestione delle richieste
+            degli interessati: gli stessi documenti che il GDPR chiede da anni sono diventati la
+            base su cui NIS2 (D.Lgs. 138/2024), accessibilità EAA e AI Act costruiscono i loro
+            obblighi. Un registro fatto male non è più un problema solo di privacy.
+          </p>
+        </div>
+        <div class="col-span-12 md:col-span-4" data-reveal>
+          <p class="font-display text-[1.375rem] font-semibold text-accent-soft" aria-hidden="true">
+            2
+          </p>
+          <h3 class="font-display mt-3 text-[1.25rem] font-medium">
+            L’effetto filiera ti riguarda anche se non sei in elenco
+          </h3>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            La NIS2 obbliga i soggetti in perimetro a presidiare i propri fornitori: gli obblighi
+            si trasferiscono via clausole contrattuali e questionari di verifica. Un questionario
+            a cui non sai rispondere non genera una multa — mette a rischio il contratto.
+          </p>
+        </div>
+        <div class="col-span-12 md:col-span-4" data-reveal>
+          <p class="font-display text-[1.375rem] font-semibold text-accent-soft" aria-hidden="true">
+            3
+          </p>
+          <h3 class="font-display mt-3 text-[1.25rem] font-medium">
+            Le sanzioni sono scritte per fare male
+          </h3>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            NIS2: fino a 10 milioni di euro o il 2% del fatturato per i soggetti essenziali, 7
+            milioni o l’1,4% per gli importanti. EAA: da 2.500 a 40.000 € per violazione. Non
+            sono cifre pensate per essere ignorate da una PMI.
+          </p>
+        </div>
+      </div>
+
+      <div class="hairline mt-20 pt-14">
+        <p class="label-caps text-mist" data-reveal>Il contesto, in numeri veri</p>
+        <div class="mt-10 grid grid-cols-2 gap-x-6 gap-y-12 lg:grid-cols-4" data-reveal-group>
+          <Counter
+            value="20.000"
+            to={20000}
+            suffix="+"
+            label="organizzazioni nell’elenco NIS2 dell’ACN"
+            source="Fonte: ACN, 2025"
+            lang={lang}
+          />
+          <Counter
+            value="5.000"
+            to={5000}
+            suffix="+"
+            label="soggetti essenziali, con gli obblighi più severi"
+            source="Fonte: ACN, 2025"
+            lang={lang}
+          />
+          <Counter
+            value="10"
+            to={10}
+            suffix=" M€"
+            label="o 2% del fatturato: sanzione massima NIS2 per i soggetti essenziali"
+            source="Fonte: D.Lgs. 138/2024"
+            lang={lang}
+          />
+          <Counter
+            value="40.000"
+            to={40000}
+            suffix=" €"
+            label="sanzione massima per violazione dell’accessibilità (EAA)"
+            source="Fonte: D.Lgs. 82/2022"
+            lang={lang}
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================== 02 COSA FACCIAMO ========================== -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="02"
+        label="Cosa facciamo"
+        title="Quattro obiettivi di business. Non un elenco di adempimenti."
+      >
+        <p class="mt-6 max-w-2xl text-lead text-mist" data-reveal>
+          La conformità non è il fine: è il mezzo. Ogni attività che facciamo risponde a un
+          obiettivo che un imprenditore riconosce.
+        </p>
+      </SectionHeading>
+
+      <div class="mt-16 space-y-16 md:space-y-20">
+        <div class="grid grid-cols-12 gap-x-6 gap-y-6" data-reveal-group>
+          <div class="col-span-12 md:col-span-4" data-reveal>
+            <h3 class="font-display text-[1.375rem] font-medium md:text-[1.5rem]">
+              Metterti in regola senza fermarti
+            </h3>
+          </div>
+          <div class="col-span-12 space-y-4 text-[0.9375rem] text-mist md:col-span-7 md:col-start-6">
+            <p data-reveal>
+              GDPR operativo, non teorico: registri dei trattamenti, DPIA, informative, nomine,
+              procedure per i data breach. Costruiti dentro i tuoi processi — non in un raccoglitore
+              che invecchia in un cassetto e si rifà da capo a ogni verifica.
+            </p>
+            <p data-reveal>
+              Ci mettiamo dentro anche la parte che quasi tutti rimandano: cosa succede quando un
+              cliente o un dipendente chiede di accedere ai propri dati, di correggerli o di
+              cancellarli. Se la risposta dipende da chi è in ufficio quel giorno, non è una
+              procedura — è fortuna.
+            </p>
+            <p data-reveal>
+              L’obiettivo è che l’azienda continui a vendere, assumere e lanciare progetti mentre
+              si adegua. La conformità che blocca il business è conformità fatta male.
+            </p>
+          </div>
+        </div>
+
+        <div class="hairline grid grid-cols-12 gap-x-6 gap-y-6 pt-16 md:pt-20" data-reveal-group>
+          <div class="col-span-12 md:col-span-4" data-reveal>
+            <h3 class="font-display text-[1.375rem] font-medium md:text-[1.5rem]">
+              Reggere un controllo o un questionario di filiera
+            </h3>
+          </div>
+          <div class="col-span-12 space-y-4 text-[0.9375rem] text-mist md:col-span-7 md:col-start-6">
+            <p data-reveal>
+              Se sei in perimetro NIS2, ti portiamo alle misure richieste: gestione del rischio,
+              degli incidenti e della continuità, con la documentazione che un’ispezione si
+              aspetta di trovare. Se sei fornitore di un soggetto NIS2, ti prepariamo a rispondere
+              ai questionari dei clienti capofila — prima che arrivino con una scadenza attaccata.
+            </p>
+            <p data-reveal>
+              La stessa domanda arriva anche dal lato GDPR, e prima: chi tratta dati per conto tuo
+              — gestionale, agenzia, cloud, consulente paghe — va nominato per iscritto, e di quel
+              rapporto rispondi tu. Mettiamo in ordine le nomine e i contratti con i fornitori
+              insieme al resto, perché è lo stesso elenco di soggetti che serve a entrambe le norme.
+            </p>
+            <p data-reveal>
+              In entrambi i casi il risultato è lo stesso: quando qualcuno chiede “dimostratemelo”,
+              hai qualcosa da mostrare.
+            </p>
+            <p data-reveal>
+              <ArrowLink href={path('resourceNis2', lang)} class="text-paper">
+                NIS2 per PMI: leggi la guida
+              </ArrowLink>
+            </p>
+          </div>
+        </div>
+
+        <div class="hairline grid grid-cols-12 gap-x-6 gap-y-6 pt-16 md:pt-20" data-reveal-group>
+          <div class="col-span-12 md:col-span-4" data-reveal>
+            <h3 class="font-display text-[1.375rem] font-medium md:text-[1.5rem]">
+              Governare l’AI prima che l’AI Act lo imponga
+            </h3>
+          </div>
+          <div class="col-span-12 space-y-4 text-[0.9375rem] text-mist md:col-span-7 md:col-start-6">
+            <p data-reveal>
+              L’AI Act è già in vigore, per gradi: obblighi progressivi da febbraio 2025, regole
+              sui modelli di uso generale da agosto 2025, sistemi ad alto rischio da agosto 2026.
+              Intanto, in molte aziende, l’AI è entrata dalla porta di servizio: strumenti usati
+              dai team senza policy, senza censimento, senza controllo su dove finiscono i dati.
+            </p>
+            <p data-reveal>
+              Facciamo il censimento dei sistemi in uso, classifichiamo il rischio, scriviamo
+              policy d’uso che le persone possono davvero seguire. Così l’adozione dell’AI
+              accelera invece di finire congelata dal primo incidente.
+            </p>
+          </div>
+        </div>
+
+        <div class="hairline grid grid-cols-12 gap-x-6 gap-y-6 pt-16 md:pt-20" data-reveal-group>
+          <div class="col-span-12 md:col-span-4" data-reveal>
+            <h3 class="font-display text-[1.375rem] font-medium md:text-[1.5rem]">
+              Trasformare la compliance in dati ordinati e processi migliori
+            </h3>
+          </div>
+          <div class="col-span-12 space-y-4 text-[0.9375rem] text-mist md:col-span-7 md:col-start-6">
+            <p data-reveal>
+              Il budget della conformità è un budget obbligato: tanto vale farlo rendere due
+              volte. Un registro dei trattamenti fatto bene è una mappa dei tuoi dati; una
+              procedura documentata è un processo che finalmente qualcuno ha scritto; un
+              censimento AI è il punto di partenza di una strategia sui dati.
+            </p>
+            <p data-reveal>
+              È la differenza tra adempiere e capitalizzare — ed è il motivo per cui questo
+              verticale lavora a stretto contatto con dati &amp; AI.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-16 rounded-xs border border-white/15 bg-ink-raise p-8 md:p-10" data-reveal>
+        <p class="label-caps text-mist">Nota trasparente</p>
+        <p class="mt-4 max-w-3xl text-[0.9375rem] text-mist">
+          Non siamo uno studio legale, e non fingiamo di esserlo. Per le attività riservate per
+          legge agli avvocati — pareri legali, contenzioso, assistenza davanti al Garante —
+          lavoriamo in partnership con uno studio legale specializzato,
+          [PLACEHOLDER: nome studio partner]. Noi presidiamo la parte operativa e tecnologica, e
+          teniamo la regia: tu continui ad avere un solo referente.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================== 03 IL PRIMO PASSO =========================== -->
+  <section class="section-light">
+    <div class="wrap grid grid-cols-12 gap-x-6 py-24 md:py-36">
+      <div class="col-span-12 lg:col-span-5">
+        <span class="sec-num block text-accent-deep" aria-hidden="true" data-reveal>03</span>
+        <p class="label-caps mt-4 text-umber" data-reveal>Il primo passo</p>
+        <h2 class="font-display text-h2 mt-4 font-medium" data-reveal>
+          Prima la fotografia, poi le decisioni.
+        </h2>
+        <p class="mt-6 max-w-md text-lead text-umber" data-reveal>
+          Non si parte firmando un adeguamento: si parte misurando dove sei. Due settimane, prezzo
+          fisso, un documento che resta tuo — anche se poi fai da solo.
+        </p>
+        <p class="mt-8" data-reveal>
+          <ArrowLink href={path('products', lang)} class="text-accent-deep">
+            Tutti i prodotti a prezzo fisso
+          </ArrowLink>
+        </p>
+      </div>
+      <div class="col-span-12 mt-14 lg:col-span-6 lg:col-start-7 lg:mt-0" data-reveal>
+        <ProductCard
+          light
+          title="Digital & Compliance Audit"
+          price="[PREZZO]"
+          duration="2 settimane · prezzo fisso"
+          description="La fotografia onesta della tua conformità — GDPR, NIS2, EAA, AI Act — e della tua maturità digitale, con le priorità ordinate per rischio e ritorno."
+          deliverables={[
+            'Report di maturità digitale e conformità',
+            'Gap analysis normativa con priorità',
+            'Roadmap 12 mesi con budget indicativi',
+          ]}
+          deliverablesLabel="Cosa ti porti a casa"
+          href={path('products', lang)}
+          ctaLabel="Dettagli del prodotto"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ 04 IL REFERENTE ============================ -->
+  <section class="section-light hairline hairline-dark">
+    <div class="wrap grid grid-cols-12 gap-x-6 py-24 md:py-36">
+      <div class="col-span-12 lg:col-span-6">
+        <SectionHeading
+          num="04"
+          label="Il referente"
+          title="Un senior con nome e cognome, non un team che ruota."
+          light
+          class="grid-cols-1!"
+        />
+        <div class="mt-8 space-y-4 text-[0.9375rem] text-umber" data-reveal>
+          <p>
+            Il verticale compliance è presidiato da un senior che ha applicato queste normative in
+            aziende come la tua — non da un junior che le ha studiate ieri sera. È la persona che
+            incontri alla prima call ed è la stessa che firma il lavoro.
+          </p>
+          <p>
+            Se il referente cambia durante l’ingaggio, hai diritto di recesso. È scritto nel
+            contratto, non nello slide deck.
+          </p>
+        </div>
+      </div>
+      <div class="col-span-12 mt-14 lg:col-span-5 lg:col-start-8 lg:mt-0" data-reveal>
+        <div class="rounded-xs border border-ink/15 bg-white/40 p-8">
+          <div
+            class="flex h-40 items-center justify-center rounded-xs bg-ink/5 text-[0.8125rem] text-umber"
+            role="img"
+            aria-label="Ritratto in arrivo"
+          >
+            [PLACEHOLDER: FOTO SENIOR]
+          </div>
+          <h3 class="font-display mt-6 text-[1.25rem] font-medium">[PLACEHOLDER: NOME]</h3>
+          <p class="mt-1 text-[0.875rem] text-accent-deep">
+            Senior referente — Compliance & governance digitale
+          </p>
+          <p class="mt-4 text-[0.9375rem] text-umber">[BIO SENIOR]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ 05 CASO STUDIO ============================ -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="05"
+        label="Caso studio"
+        title="Contesto, intervento, risultato — senza numeri inventati."
+      >
+        <p class="mt-6 max-w-2xl text-lead text-mist" data-reveal>
+          Il primo caso di questo verticale è in pubblicazione, con l’autorizzazione del cliente.
+          Su compliance il cliente ha diritto al riserbo prima ancora che a un caso studio.
+        </p>
+      </SectionHeading>
+      <div class="mt-14 rounded-xs border border-white/15 bg-ink-raise p-8 md:p-10" data-reveal>
+        <p class="label-caps text-mist">Primo caso in pubblicazione</p>
+        <div class="mt-8 grid grid-cols-12 gap-x-6 gap-y-10">
+          <div class="col-span-12 border-t-2 border-accent pt-5 md:col-span-4">
+            <h3 class="font-display text-[1.125rem] font-medium">Contesto</h3>
+            <p class="mt-3 text-[0.9375rem] text-mist">
+              [PLACEHOLDER: settore, dimensione e punto di partenza del cliente]
+            </p>
+          </div>
+          <div class="col-span-12 border-t-2 border-accent pt-5 md:col-span-4">
+            <h3 class="font-display text-[1.125rem] font-medium">Intervento</h3>
+            <p class="mt-3 text-[0.9375rem] text-mist">
+              [PLACEHOLDER: attività svolte, perimetro e durata dell’ingaggio]
+            </p>
+          </div>
+          <div class="col-span-12 border-t-2 border-accent pt-5 md:col-span-4">
+            <h3 class="font-display text-[1.125rem] font-medium">Risultato</h3>
+            <p class="mt-3 text-[0.9375rem] text-mist">
+              [PLACEHOLDER: risultati misurati e verificabili]
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="mt-10" data-reveal>
+        <ArrowLink href={path('caseStudies', lang)} class="text-paper">
+          Come documentiamo i casi studio
+        </ArrowLink>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== 06 FAQ =============================== -->
+  <section class="hairline">
+    <div class="wrap grid grid-cols-12 gap-x-6 py-24 md:py-36">
+      <div class="col-span-12 lg:col-span-4">
+        <div class="lg:sticky lg:top-32">
+          <span class="sec-num block text-accent" aria-hidden="true" data-reveal>06</span>
+          <p class="label-caps mt-4 text-mist" data-reveal>FAQ</p>
+          <h2 class="font-display text-h2 mt-4 font-medium" data-reveal>
+            Le domande giuste sulla compliance.
+          </h2>
+          <p class="mt-6 max-w-sm text-[0.9375rem] text-mist" data-reveal>
+            Quelle che ci fanno gli imprenditori alla prima call — con risposte senza giri di
+            parole.
+          </p>
+        </div>
+      </div>
+      <div class="col-span-12 mt-12 lg:col-span-7 lg:col-start-6 lg:mt-0" data-reveal>
+        <Accordion items={faq} idPrefix="faq-compliance" withSchema />
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== 07 IL SISTEMA, NON I SILOS ======================== -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="07"
+        label="Il sistema, non i silos"
+        title="La compliance rende di più quando alimenta gli altri verticali."
+      >
+        <p class="mt-6 max-w-2xl text-lead text-mist" data-reveal>
+          I dati mappati per il GDPR diventano la base dei progetti AI. I requisiti EAA diventano
+          un sito migliore per tutti. Per questo i verticali lavorano insieme, sotto un unico
+          referente.
+        </p>
+      </SectionHeading>
+      <div class="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2" data-reveal-group>
+        <div data-reveal>
+          <VerticalCard
+            href={path('serviceData', lang)}
+            num="02"
+            title="Dati & AI"
+            claim="L’AI dove rende davvero."
+            items={['AI readiness', 'Automazione', 'Valorizzazione dati']}
+            linkLabel="Esplora il verticale"
+          />
+        </div>
+        <div data-reveal>
+          <VerticalCard
+            href={path('serviceWeb', lang)}
+            num="04"
+            title="Web, tech & e-commerce"
+            claim="Presenza digitale che converte ed è conforme."
+            items={['Siti conformi EAA', 'E-commerce', 'Sviluppo']}
+            linkLabel="Esplora il verticale"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaSection lang={lang} />
+</Base>

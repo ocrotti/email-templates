@@ -1,0 +1,473 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Pill from '../../../components/Pill.astro';
+import Button from '../../../components/Button.astro';
+import ArrowLink from '../../../components/ArrowLink.astro';
+import SectionHeading from '../../../components/SectionHeading.astro';
+import VerticalCard from '../../../components/VerticalCard.astro';
+import ProductCard from '../../../components/ProductCard.astro';
+import Accordion from '../../../components/Accordion.astro';
+import Counter from '../../../components/Counter.astro';
+import CtaSection from '../../../components/CtaSection.astro';
+import { path } from '../../../lib/routes';
+import { serviceSchema } from '../../../lib/seo';
+
+const lang = 'it' as const;
+
+const faq = [
+  {
+    q: 'L’AI serve davvero a una PMI come la nostra?',
+    a: 'Non sempre, e non ovunque — chi ti dice il contrario sta vendendo un tool. Rende dove ci sono processi ripetitivi ad alto volume e dati utilizzabili: lì i ritorni sono concreti e misurabili. L’assessment esiste esattamente per questo: dirti dove l’AI rende nella tua azienda e dove no, con una stima d’impatto per ogni caso d’uso. Se la risposta onesta è “non ancora”, te la diamo — insieme a cosa sistemare prima.',
+  },
+  {
+    q: 'Da dove si comincia?',
+    a: 'Non dal tool. Si comincia dai processi: quali sono ripetitivi, dove si perde tempo, quali dati li alimentano. Poi si scelgono due o tre casi d’uso con il ritorno migliore, si mettono in produzione e si misurano. L’AI Readiness Assessment fa questo lavoro in due settimane, a prezzo fisso: alla fine hai una lista corta di priorità, non un piano faraonico.',
+  },
+  {
+    q: 'Che dati servono?',
+    a: 'Quelli che hai già: gestionale, CRM, email, documenti, fogli di calcolo. Non serve un data warehouse perfetto per partire — serve sapere quali dati sono affidabili e accessibili, e sistemare solo quello che i casi d’uso scelti richiedono. Se per un caso d’uso i dati non bastano, te lo diciamo prima di spendere, non dopo.',
+  },
+  {
+    q: 'Come restiamo conformi all’AI Act?',
+    a: 'Impostando la governance dall’inizio, non a valle. Gli obblighi dell’AI Act arrivano a tappe: i primi da febbraio 2025, i modelli per finalità generali (GPAI) da agosto 2025, i sistemi ad alto rischio da agosto 2026. Censiamo i casi d’uso, li classifichiamo per rischio e definiamo ruoli e supervisione insieme al nostro verticale compliance. Così ogni automazione nasce già conforme — e non rifai il lavoro due volte.',
+  },
+];
+
+const schema = [
+  serviceSchema({
+    name: 'Consulenza Dati & AI per PMI',
+    description:
+      'Consulenza AI per PMI italiane: assessment di AI readiness, valorizzazione dei dati, automazione dei processi ripetitivi e adozione conforme all’AI Act. Casi d’uso ordinati per ritorno, governance fin dall’inizio.',
+    path: path('serviceData', lang),
+    lang,
+  }),
+];
+---
+
+<Base
+  lang={lang}
+  routeKey="serviceData"
+  title="Consulenza AI per aziende e PMI | enable.advisory"
+  description="Consulenza AI per aziende e PMI: partiamo da processi e dati, ordiniamo i casi d’uso per ritorno e adottiamo l’AI in modo conforme all’AI Act."
+  ogImage="/og/serviceData-it.png"
+  schema={schema}
+>
+  <Breadcrumbs
+    lang={lang}
+    items={[
+      { name: 'Servizi', path: path('services', lang) },
+      { name: 'Dati & AI', path: path('serviceData', lang) },
+    ]}
+  />
+
+  <!-- ============================== HERO ============================== -->
+  <section class="relative overflow-hidden">
+    <div
+      class="pointer-events-none absolute inset-0"
+      aria-hidden="true"
+      style="background: radial-gradient(50rem 34rem at 90% -20%, rgb(43 92 255 / 0.11), transparent 60%);"
+    >
+    </div>
+    <div class="wrap relative pt-12 pb-20 md:pt-16 md:pb-28">
+      <p class="label-caps text-mist" data-reveal>Verticale 02 — Dati &amp; AI</p>
+      <h1 class="font-display text-display mt-6 max-w-6xl font-medium" data-reveal>
+        Consulenza AI per PMI: l’AI che rende, non l’AI di moda.
+      </h1>
+      <p class="mt-8 max-w-xl text-lead text-mist" data-reveal>
+        Il mercato dell’AI in Italia vale 1,8 miliardi ed è cresciuto del 50% in un anno. I vendor
+        promettono miracoli, i tool si moltiplicano. Noi partiamo dall’altro capo: dai tuoi
+        processi e dai tuoi dati. Prima capiamo dove l’intelligenza artificiale rende davvero
+        nella tua azienda — poi, solo poi, si parla di strumenti.
+      </p>
+      <div class="mt-10 flex flex-wrap items-center gap-4" data-reveal>
+        <Button href={path('contact', lang)}>Parla con un senior</Button>
+        <Button href={path('products', lang)} variant="ghost">
+          L’assessment a prezzo fisso
+        </Button>
+      </div>
+      <ul class="mt-12 flex flex-wrap gap-3" data-reveal-group>
+        <li data-reveal><Pill>Prima i processi, poi i tool</Pill></li>
+        <li data-reveal><Pill>Casi d’uso ordinati per ritorno</Pill></li>
+        <li data-reveal><Pill>Governance AI Act dall’inizio</Pill></li>
+        <li data-reveal><Pill>Prezzo d’ingresso fisso</Pill></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================ 01 IL PROBLEMA ============================ -->
+  <section class="hairline" aria-labelledby="problema">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        titleId="problema"
+        num="01"
+        label="Il problema"
+        title="L’AI è in ogni discorso. Quasi mai nei processi."
+      />
+      <div class="mt-16 grid grid-cols-12 gap-x-6 gap-y-12" data-reveal-group>
+        <div class="col-span-12 md:col-span-4" data-reveal>
+          <p class="font-display text-[1.375rem] font-semibold text-accent-soft" aria-hidden="true">
+            1
+          </p>
+          <h3 class="font-display mt-3 text-[1.25rem] font-medium">
+            Si parte dal tool, non dal problema
+          </h3>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            Un vendor mostra una demo, parte il pilota, il pilota resta pilota. Senza un business
+            case e un numero da spostare, l’AI in azienda è un abbonamento in più — non un
+            processo che funziona meglio.
+          </p>
+        </div>
+        <div class="col-span-12 md:col-span-4" data-reveal>
+          <p class="font-display text-[1.375rem] font-semibold text-accent-soft" aria-hidden="true">
+            2
+          </p>
+          <h3 class="font-display mt-3 text-[1.25rem] font-medium">
+            I dati non sono pronti a lavorare
+          </h3>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            Gestionale, fogli di calcolo, email, PDF: i dati ci sono, ma non lavorano. E l’AI vale
+            quanto i dati che la alimentano — prima di automatizzare, devono produrre risposte
+            affidabili.
+          </p>
+        </div>
+        <div class="col-span-12 md:col-span-4" data-reveal>
+          <p class="font-display text-[1.375rem] font-semibold text-accent-soft" aria-hidden="true">
+            3
+          </p>
+          <h3 class="font-display mt-3 text-[1.25rem] font-medium">
+            Il divario si allarga
+          </h3>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            Solo l’8% delle PMI italiane ha avviato progetti AI, contro il 71% delle grandi
+            imprese. Chi aspetta “che la tecnologia maturi” regala ai concorrenti un vantaggio
+            che si accumula ogni trimestre.
+          </p>
+        </div>
+      </div>
+
+      <div class="hairline mt-20 pt-14">
+        <p class="label-caps text-mist" data-reveal>Il contesto, in numeri veri</p>
+        <div class="mt-10 grid grid-cols-2 gap-x-6 gap-y-12 lg:grid-cols-4" data-reveal-group>
+          <Counter
+            value="15,7"
+            to={15.7}
+            decimals={1}
+            suffix="%"
+            label="delle PMI italiane usa l’AI — un anno fa era il 7,7%"
+            source="Fonte: ISTAT, 2025"
+            lang={lang}
+          />
+          <Counter
+            value="37"
+            to={37}
+            suffix=" punti"
+            label="di divario AI tra PMI e grandi imprese"
+            source="Fonte: ISTAT, 2025"
+            lang={lang}
+          />
+          <Counter
+            value="8"
+            to={8}
+            suffix="%"
+            label="delle PMI ha avviato progetti AI — contro il 71% delle grandi"
+            source="Fonte: Osservatorio PoliMi"
+            lang={lang}
+          />
+          <Counter
+            value="1,8"
+            to={1.8}
+            decimals={1}
+            suffix=" mld €"
+            label="il mercato AI italiano — +50% sul 2024"
+            source="Fonte: Osservatorio PoliMi"
+            lang={lang}
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================== 02 COSA FACCIAMO ========================== -->
+  <section class="hairline" aria-labelledby="cosa-facciamo">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        titleId="cosa-facciamo"
+        num="02"
+        label="Cosa facciamo"
+        title="Quattro obiettivi, nell’ordine che conviene."
+      >
+        <p class="mt-6 max-w-2xl text-lead text-mist" data-reveal>
+          L’AI per aziende non è un catalogo di tecnologie. È una sequenza: capire, preparare,
+          automatizzare, governare — ogni passo con un obiettivo di business e un numero da
+          misurare.
+        </p>
+      </SectionHeading>
+      <div class="mt-16 grid grid-cols-12 gap-x-6 gap-y-12" data-reveal-group>
+        <div class="col-span-12 md:col-span-6" data-reveal>
+          <p class="font-display text-[1.375rem] font-semibold text-accent-soft" aria-hidden="true">
+            1
+          </p>
+          <h3 class="font-display mt-3 text-[1.25rem] font-medium">
+            Capire dove l’AI rende in azienda
+          </h3>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            Mappiamo i processi e li incrociamo con i dati disponibili. Ne esce una lista corta di
+            casi d’uso ordinati per ritorno atteso — non per effetto demo. Quello che non rende lo
+            diciamo subito: un pilota senza business case è un costo travestito da esperimento.
+          </p>
+        </div>
+        <div class="col-span-12 md:col-span-6" data-reveal>
+          <p class="font-display text-[1.375rem] font-semibold text-accent-soft" aria-hidden="true">
+            2
+          </p>
+          <h3 class="font-display mt-3 text-[1.25rem] font-medium">
+            Mettere i dati in condizione di lavorare
+          </h3>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            Qualità, accessi, integrazioni tra gestionale, CRM e documenti: sistemiamo il minimo
+            indispensabile perché i casi d’uso scelti funzionino. Niente progetto dati infinito.
+            Se il punto debole sono i dati clienti, il lavoro passa dal
+            <a href={path('serviceCrm', lang)} class="link-plain text-paper">verticale CRM &amp; martech</a>.
+          </p>
+        </div>
+        <div class="col-span-12 md:col-span-6" data-reveal>
+          <p class="font-display text-[1.375rem] font-semibold text-accent-soft" aria-hidden="true">
+            3
+          </p>
+          <h3 class="font-display mt-3 text-[1.25rem] font-medium">
+            Automatizzare i processi ripetitivi
+          </h3>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            Offerte, ordini, documenti, risposte ai clienti: dove il lavoro è ripetitivo e il
+            volume è alto, automazioni e agenti AI restituiscono ore alle persone. Ogni
+            automazione entra in produzione con una metrica concordata — se non la sposta, si
+            spegne.
+          </p>
+        </div>
+        <div class="col-span-12 md:col-span-6" data-reveal>
+          <p class="font-display text-[1.375rem] font-semibold text-accent-soft" aria-hidden="true">
+            4
+          </p>
+          <h3 class="font-display mt-3 text-[1.25rem] font-medium">
+            Adottare l’AI in modo conforme (AI Act)
+          </h3>
+          <p class="mt-3 text-[0.9375rem] text-mist">
+            Gli obblighi dell’AI Act arrivano a tappe: i primi da febbraio 2025, i modelli GPAI da
+            agosto 2025, i sistemi ad alto rischio da agosto 2026. Impostiamo la governance
+            dall’inizio con il
+            <a href={path('serviceCompliance', lang)} class="link-plain text-paper"
+              >verticale compliance</a
+            >: censimento dei casi d’uso, classificazione del rischio, ruoli e supervisione.
+          </p>
+        </div>
+      </div>
+      <div class="mt-14" data-reveal>
+        <ArrowLink href={path('resourceAi', lang)} class="text-paper">
+          Per orientarti: la guida all’AI per PMI
+        </ArrowLink>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= 03 IL PRIMO PASSO ========================= -->
+  <section class="section-light" aria-labelledby="primo-passo">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        titleId="primo-passo"
+        num="03"
+        label="Il primo passo"
+        title="AI Readiness Assessment: due settimane, prezzo fisso."
+        light
+      >
+        <p class="mt-6 max-w-2xl text-lead text-umber" data-reveal>
+          La fotografia prima di qualsiasi retainer: dove l’AI rende nella tua azienda, dove no, e
+          cosa serve per partire. Un documento che puoi usare anche senza di noi.
+        </p>
+      </SectionHeading>
+      <div class="mt-14 grid grid-cols-12 gap-x-6 gap-y-12">
+        <div class="col-span-12 lg:col-span-5" data-reveal>
+          <p class="label-caps text-umber">Come funziona</p>
+          <p class="mt-3 text-[0.9375rem] text-umber">
+            Interviste ai responsabili di processo, analisi dei dati disponibili, valutazione
+            delle competenze interne. Due settimane, senza interrompere l’operatività.
+          </p>
+          <p class="label-caps mt-8 text-umber">Cosa decide</p>
+          <p class="mt-3 text-[0.9375rem] text-umber">
+            Alla fine sai quali casi d’uso attivare, in che ordine e con quale ritorno atteso — e
+            cosa non fare. Se l’AI non è la priorità giusta adesso, c’è scritto anche quello.
+          </p>
+          <p class="mt-8 text-[0.875rem] text-umber">
+            Il prezzo definitivo è in via di pubblicazione.
+          </p>
+          <div class="mt-8">
+            <ArrowLink href={path('products', lang)} class="text-accent-deep">
+              Tutti i prodotti d’ingresso
+            </ArrowLink>
+          </div>
+        </div>
+        <div class="col-span-12 lg:col-span-6 lg:col-start-7" data-reveal>
+          <ProductCard
+            light
+            title="AI Readiness Assessment"
+            price="[PREZZO]"
+            duration="2 settimane · prezzo fisso"
+            description="Dove l’AI rende davvero nella tua azienda — processi, dati, competenze — e dove è solo moda. Con i casi d’uso ordinati per ritorno."
+            deliverables={[
+              'Mappa dei processi automatizzabili',
+              'Valutazione di qualità e accessibilità dei dati',
+              'Casi d’uso prioritari con stima di impatto',
+            ]}
+            deliverablesLabel="Cosa ti porti a casa"
+            href={path('products', lang)}
+            ctaLabel="Dettagli del prodotto"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================== 04 CHI RISPONDE ========================== -->
+  <section class="hairline" aria-labelledby="chi-risponde">
+    <div class="wrap grid grid-cols-12 gap-x-6 py-24 md:py-36">
+      <div class="col-span-12 lg:col-span-5">
+        <span class="sec-num block text-accent" aria-hidden="true" data-reveal>04</span>
+        <p class="label-caps mt-4 text-mist" data-reveal>Chi risponde</p>
+        <h2 id="chi-risponde" class="font-display text-h2 mt-4 font-medium" data-reveal>
+          Il senior che risponde del verticale.
+        </h2>
+        <p class="mt-6 max-w-md text-lead text-mist" data-reveal>
+          La persona che incontri al primo confronto è la stessa che firma l’assessment e risponde
+          del risultato. Niente passaggi di mano, niente team che cambia ogni tre mesi. Se il
+          referente cambia durante l’ingaggio, hai diritto di recesso: è scritto nel contratto.
+        </p>
+        <div class="mt-10" data-reveal>
+          <ArrowLink href={path('about', lang)} class="text-paper">Conosci i senior</ArrowLink>
+        </div>
+      </div>
+      <div class="col-span-12 mt-14 lg:col-span-6 lg:col-start-7 lg:mt-0" data-reveal>
+        <div class="rounded-xs border border-white/15 bg-ink-raise p-8">
+          <div
+            class="flex h-40 items-center justify-center rounded-xs bg-white/5 text-[0.8125rem] text-mist"
+            role="img"
+            aria-label="Ritratto in arrivo"
+          >
+            [PLACEHOLDER: FOTO SENIOR]
+          </div>
+          <h3 class="font-display mt-6 text-[1.25rem] font-medium">[PLACEHOLDER: NOME]</h3>
+          <p class="mt-1 text-[0.875rem] text-accent-soft">Senior responsabile — Dati &amp; AI</p>
+          <p class="mt-4 text-[0.9375rem] text-mist">[BIO SENIOR]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================== 05 CASO STUDIO =========================== -->
+  <section class="section-light" aria-labelledby="caso-studio">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        titleId="caso-studio"
+        num="05"
+        label="Caso studio"
+        title="Il primo caso del verticale è in pubblicazione."
+        light
+      >
+        <p class="mt-6 max-w-2xl text-lead text-umber" data-reveal>
+          Pubblichiamo solo risultati misurati, con il consenso del cliente. Il primo caso Dati
+          &amp; AI è in preparazione — nel formato con cui li leggerai tutti: contesto,
+          intervento, risultato.
+        </p>
+      </SectionHeading>
+      <div
+        class="mt-14 grid grid-cols-1 gap-8 rounded-xs border border-ink/15 bg-white/60 p-8 md:grid-cols-3 md:p-10"
+        data-reveal
+      >
+        <div>
+          <p class="label-caps text-umber">Contesto</p>
+          <p class="mt-3 text-[0.9375rem] text-umber">
+            [PLACEHOLDER: settore, dimensione e punto di partenza dell’azienda]
+          </p>
+        </div>
+        <div>
+          <p class="label-caps text-umber">Intervento</p>
+          <p class="mt-3 text-[0.9375rem] text-umber">
+            [PLACEHOLDER: assessment, casi d’uso attivati, automazioni portate in produzione]
+          </p>
+        </div>
+        <div>
+          <p class="label-caps text-umber">Risultato</p>
+          <p class="mt-3 text-[0.9375rem] text-umber">
+            [PLACEHOLDER: metriche misurate — ore risparmiate, tempi di processo, qualità]
+          </p>
+        </div>
+      </div>
+      <div class="mt-12" data-reveal>
+        <ArrowLink href={path('caseStudies', lang)} class="text-accent-deep">
+          La pagina dei casi studio
+        </ArrowLink>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== 06 FAQ =============================== -->
+  <section class="hairline" aria-labelledby="faq">
+    <div class="wrap grid grid-cols-12 gap-x-6 py-24 md:py-36">
+      <div class="col-span-12 lg:col-span-4">
+        <div class="lg:sticky lg:top-32">
+          <span class="sec-num block text-accent" aria-hidden="true" data-reveal>06</span>
+          <p class="label-caps mt-4 text-mist" data-reveal>FAQ</p>
+          <h2 id="faq" class="font-display text-h2 mt-4 font-medium" data-reveal>
+            Le domande giuste sull’AI.
+          </h2>
+          <p class="mt-6 max-w-sm text-[0.9375rem] text-mist" data-reveal>
+            Quelle che faremmo anche noi, con risposte senza slide di contorno.
+          </p>
+        </div>
+      </div>
+      <div class="col-span-12 mt-12 lg:col-span-7 lg:col-start-6 lg:mt-0" data-reveal>
+        <Accordion items={faq} idPrefix="faq-ai" withSchema />
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= 07 IL SISTEMA, NON I SILOS ======================= -->
+  <section class="hairline" aria-labelledby="sistema">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        titleId="sistema"
+        num="07"
+        label="Il sistema, non i silos"
+        title="L’AI non lavora da sola."
+      >
+        <p class="mt-6 max-w-2xl text-lead text-mist" data-reveal>
+          I dati che alimentano l’AI vivono nel CRM. Le regole che la governano stanno nella
+          compliance. Se il tuo punto di partenza è un altro, i verticali affini sono questi.
+        </p>
+      </SectionHeading>
+      <div class="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2" data-reveal-group>
+        <div data-reveal>
+          <VerticalCard
+            href={path('serviceCrm', lang)}
+            num="03"
+            title="CRM & martech"
+            claim="Metti a valore i tuoi clienti."
+            items={['CRM', 'Marketing automation', 'Integrazione']}
+            linkLabel="Esplora il verticale"
+          />
+        </div>
+        <div data-reveal>
+          <VerticalCard
+            href={path('serviceCompliance', lang)}
+            num="01"
+            title="Compliance & governance digitale"
+            claim="Dalla conformità alla crescita."
+            items={['GDPR', 'NIS2', 'EAA', 'AI Act']}
+            linkLabel="Esplora il verticale"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaSection lang={lang} />
+</Base>

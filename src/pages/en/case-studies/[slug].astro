@@ -1,0 +1,192 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Pill from '../../../components/Pill.astro';
+import ArrowLink from '../../../components/ArrowLink.astro';
+import SectionHeading from '../../../components/SectionHeading.astro';
+import Counter from '../../../components/Counter.astro';
+import CtaSection from '../../../components/CtaSection.astro';
+import { path } from '../../../lib/routes';
+import type { RouteKey } from '../../../lib/routes';
+import { caseStudies } from '../../../data/case-studies';
+import type { CaseStudy } from '../../../data/case-studies';
+
+/**
+ * Case study detail template.
+ * While `caseStudies` is empty (or every case is a draft) no page is
+ * generated: that is the intended behaviour.
+ */
+export function getStaticPaths() {
+  return caseStudies
+    .filter((cs) => !cs.draft)
+    .map((cs) => ({ params: { slug: cs.slug.en }, props: { cs } }));
+}
+
+interface Props {
+  cs: CaseStudy;
+}
+
+const lang = 'en' as const;
+const { cs } = Astro.props;
+
+const verticalLabels: Partial<Record<RouteKey, string>> = {
+  serviceCompliance: 'Compliance & digital governance',
+  serviceData: 'Data & AI',
+  serviceCrm: 'CRM & martech',
+  serviceWeb: 'Web, tech & e-commerce',
+};
+const verticalLabel = verticalLabels[cs.vertical] ?? 'Services';
+
+const itUrl = `/it/casi-studio/${cs.slug.it}/`;
+const enUrl = `/en/case-studies/${cs.slug.en}/`;
+
+const rawDescription = `Case study — ${cs.sector.en}. ${cs.context.en}`;
+const description =
+  rawDescription.length > 158 ? `${rawDescription.slice(0, 157).trimEnd()}…` : rawDescription;
+
+/** Decimals inferred from the formatted value (English uses the dot as decimal separator). */
+const results = cs.results.map((r) => ({
+  ...r,
+  decimals: r.value.match(/\.(\d+)$/)?.[1].length ?? 0,
+}));
+---
+
+<Base
+  lang={lang}
+  alternates={{ it: itUrl, en: enUrl }}
+  title={`${cs.title.en} | enable.advisory`}
+  description={description}
+  ogImage="/og/caseStudies-en.png"
+>
+  <Breadcrumbs
+    lang={lang}
+    items={[
+      { name: 'Case studies', path: path('caseStudies', lang) },
+      { name: cs.title.en, path: enUrl },
+    ]}
+  />
+
+  <!-- ============================== HERO ============================== -->
+  <section class="relative overflow-hidden">
+    <div
+      class="pointer-events-none absolute inset-0"
+      aria-hidden="true"
+      style="background: radial-gradient(50rem 34rem at 90% -20%, rgb(43 92 255 / 0.11), transparent 60%);"
+    >
+    </div>
+    <div class="wrap relative pt-12 pb-20 md:pt-16 md:pb-28">
+      <p class="label-caps text-mist" data-reveal>Case study — {verticalLabel}</p>
+      <h1 class="font-display text-display mt-6 max-w-6xl font-medium" data-reveal>
+        {cs.title.en}
+      </h1>
+      <p class="mt-8 max-w-xl text-lead text-mist" data-reveal>
+        Context, intervention and results. Every number on this page is measured and cleared by the
+        client before publication.
+      </p>
+      <ul class="mt-10 flex flex-wrap gap-3" data-reveal-group>
+        <li data-reveal><Pill>{cs.sector.en}</Pill></li>
+        <li data-reveal><Pill>{verticalLabel}</Pill></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================ 01 CONTEXT ============================ -->
+  <section class="hairline">
+    <div class="wrap grid grid-cols-12 gap-x-6 py-24 md:py-36">
+      <div class="col-span-12 lg:col-span-9">
+        <SectionHeading
+          num="01"
+          label="Context"
+          title="Where the company started."
+          class="grid-cols-1!"
+        />
+        <p class="mt-8 max-w-2xl text-lead text-mist" data-reveal>{cs.context.en}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================== 02 INTERVENTION ========================== -->
+  <section class="section-light">
+    <div class="wrap grid grid-cols-12 gap-x-6 py-24 md:py-36">
+      <div class="col-span-12 lg:col-span-9">
+        <SectionHeading
+          num="02"
+          label="Intervention"
+          title="What we did, and how long it took."
+          light
+          class="grid-cols-1!"
+        />
+        <p class="mt-8 max-w-2xl text-lead text-umber" data-reveal>{cs.intervention.en}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ 03 RESULTS ============================ -->
+  {
+    results.length > 0 && (
+      <section class="hairline">
+        <div class="wrap py-24 md:py-36">
+          <SectionHeading num="03" label="Results" title="The numbers, with the method stated.">
+            <p class="mt-6 max-w-2xl text-lead text-mist" data-reveal>
+              Measured over the engagement period and reviewed by the client before going online.
+              When a figure cannot be verified, it does not appear.
+            </p>
+          </SectionHeading>
+          <div class="mt-16 grid grid-cols-2 gap-x-6 gap-y-12 lg:grid-cols-4" data-reveal-group>
+            {results.map((r) =>
+              r.to !== undefined ? (
+                <Counter
+                  value={r.value}
+                  to={r.to}
+                  decimals={r.decimals}
+                  suffix={r.suffix}
+                  label={r.label.en}
+                  lang={lang}
+                />
+              ) : (
+                <div data-reveal>
+                  <p
+                    class="font-display text-num font-semibold"
+                    style="font-variant-numeric: tabular-nums;"
+                  >
+                    <span>{r.value}</span><span class="text-accent-soft">{r.suffix}</span>
+                  </p>
+                  <p class="mt-3 max-w-52 text-[0.9375rem] leading-snug">{r.label.en}</p>
+                </div>
+              )
+            )}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <!-- ======================= 04 THE RELATED VERTICAL ======================= -->
+  <section class="hairline">
+    <div class="wrap py-24 md:py-36">
+      <SectionHeading
+        num="04"
+        label="The related vertical"
+        title={`This work comes out of our ${verticalLabel} vertical.`}
+      >
+        <p class="mt-6 max-w-2xl text-lead text-mist" data-reveal>
+          Each vertical is run by a named senior, and works alongside the others under a single
+          partner accountable for the outcome.
+        </p>
+      </SectionHeading>
+      <div class="mt-12 flex flex-wrap gap-x-10 gap-y-4" data-reveal>
+        <ArrowLink href={path(cs.vertical, lang)} class="text-paper">
+          Explore the vertical
+        </ArrowLink>
+        <ArrowLink href={path('caseStudies', lang)} class="text-paper">
+          All case studies
+        </ArrowLink>
+        <ArrowLink href={path('products', lang)} class="text-paper">
+          Fixed-price products
+        </ArrowLink>
+      </div>
+    </div>
+  </section>
+
+  <CtaSection lang={lang} />
+</Base>
