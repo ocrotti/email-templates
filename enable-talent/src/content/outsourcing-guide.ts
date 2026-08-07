@@ -71,8 +71,8 @@ export const outsourcingGuide: Record<Locale, GuideContent> = {
     title: "How to outsource digital marketing (an agency owner's guide)",
     kicker: "Pillar guide",
     intro: [
-      "Conflict of interest first: we sell managed marketing pods, so we are not neutral. This is still the guide we would want you to read before talking to anyone in this market, us included. Every third-party number below is a published vendor price.",
-      "It is written for a European agency owner: clients whose contract carries your name, GDPR exposure you cannot delegate, a day that runs on CET. Most guides here address a US company hiring its first offshore employee.",
+      "Conflict of interest first: we sell managed marketing pods, so we are not neutral. It is still the guide we would want you to read before talking to anyone here, us included. Every third-party number below is a published vendor price.",
+      "It is written for a European agency owner: contracts carrying your name, GDPR exposure you cannot delegate, a day on CET. Most guides here address a US company hiring its first offshore employee.",
     ],
     scope: {
       number: "01",
@@ -134,14 +134,14 @@ export const outsourcingGuide: Record<Locale, GuideContent> = {
         },
         {
           name: "Managed pods",
-          what: "A small dedicated team sold as capacity, not headcount, with management and QA in the price. Ours runs from Nairobi with senior European QA from Enable Digital, our Italian sister agency, white-label by default.",
+          what: "A dedicated team sold as capacity, not headcount, with management and QA in the price. Ours runs from Nairobi, white-label by default, with senior European QA from Enable Digital, our Italian sister agency.",
           cost: "From €2,000/month, live in 10–14 days, a two-week trial you pay for only if convinced, free replacement within 60–90 days. Typical saving versus a European hire: 40–70%.",
           bestFor: "Forecastable recurring production, when you would rather buy capacity than manage people.",
           breaks: "One-off projects, a single senior specialist, strategy work, budgets under €2,000/month.",
         },
       ],
       note:
-        "Two things nobody here says. The \"40–60% cheaper than local hiring\" line compares gross salaries and ignores your management hours. And your real price competition is not a European hire but the LatAm and Philippine providers at $2,000–4,500/month — what our [pricing](/pricing) answers. Longer: [Somewhere](/blog/somewhere-alternatives), [MarketerHire](/blog/marketerhire-alternatives).",
+        "The \"40–60% cheaper than local hiring\" line on every offshore site compares gross salaries and ignores your management hours. And your real price competition is not a European hire but the LatAm and Philippine providers at $2,000–4,500/month — what our [pricing](/pricing) answers. See also [Somewhere](/blog/somewhere-alternatives) and [MarketerHire](/blog/marketerhire-alternatives).",
     },
     decide: {
       number: "03",
@@ -158,13 +158,12 @@ export const outsourcingGuide: Record<Locale, GuideContent> = {
       number: "04",
       title: "What European agencies must handle that US guides skip",
       body: [
-        "Your client signed with you. Under the GDPR you remain the data controller, and that liability does not move down the chain when you subcontract: fines reach €20 million or 4% of global annual turnover, whichever is higher. No vendor absorbs it for you.",
-        "That does not make offshore delivery a bad idea. It makes an undocumented one a bad idea.",
+        "Your client signed with you. Under the GDPR you remain the data controller, and that liability does not move down the chain when you subcontract: fines reach €20 million or 4% of global annual turnover, whichever is higher. No vendor absorbs it for you. That does not make offshore delivery a bad idea — it makes an undocumented one a bad idea.",
       ],
       points: [
-        { title: "A DPA down the whole chain", body: "Client to you, you to the vendor, vendor to the person doing the work." },
-        { title: "SCCs outside the EEA", body: "Kenya has no EU adequacy decision, nor do most offshore destinations. Cover the transfer with Standard Contractual Clauses and a transfer assessment." },
-        { title: "Least-privilege access and logs", body: "Named users in every client account, no shared logins, permissions scoped to the task, activity logs you can produce." },
+        { title: "A DPA down the whole chain", body: "Client to you, you to the vendor, vendor to whoever does the work." },
+        { title: "SCCs outside the EEA", body: "Kenya has no EU adequacy decision, nor do most offshore destinations. Cover the transfer with Standard Contractual Clauses and an assessment." },
+        { title: "Least-privilege access and logs", body: "Named users in every client account, no shared logins, permissions scoped to the task, activity logs on demand." },
         { title: "Honest white-label", body: "Delivery can be invisible to the end client; data processing cannot. Subprocessor transparency is not optional." },
       ],
     },
@@ -172,27 +171,27 @@ export const outsourcingGuide: Record<Locale, GuideContent> = {
       number: "05",
       title: "Where the work gets done, and why it matters",
       intro:
-        "A clock problem first, a language problem second, a cost problem third. Every destination below has agencies delivering good work from it; the operational detail is in our guide to [hiring an offshore marketing team](/blog/hire-offshore-marketing-team).",
+        "A clock problem first, a language problem second, a cost problem third. Every destination below has agencies delivering good work from it; operational detail sits in our guide to [hiring an offshore marketing team](/blog/hire-offshore-marketing-team).",
       places: [
         {
           place: "Philippines and India",
           clock: "6–7h / 3–5h ahead of CET",
-          body: "The category default: enormous pools, a mature outsourcing industry, English at scale. The cost for a European buyer is the clock — overnight production works, a brief that changes at 4pm does not.",
+          body: "The category default: enormous pools, a mature outsourcing industry, English at scale. The cost for a European buyer is the clock — overnight production works, a 4pm brief change does not.",
         },
         {
           place: "Latin America",
           clock: "4–6h behind CET",
-          body: "The strongest option here if you are American, which is the buyer nearshore providers built it for. On CET their day starts as yours ends, and your mornings run unstaffed.",
+          body: "The strongest option here if you are American — the buyer nearshore providers built it for. On CET their day starts as yours ends, and your mornings run unstaffed.",
         },
         {
           place: "Eastern Europe and South Africa",
           clock: "0–1h from CET",
-          body: "Closest to your calendar, strong English in South Africa, and rates that reflect both: our research puts a mid-level developer in Johannesburg near $42k a year against roughly $14.7k in Nairobi.",
+          body: "Closest to your calendar, strong English in South Africa, and rates that reflect both: our research puts a mid-level developer in Johannesburg near $42k a year — a mature market priced accordingly, and meaningfully above East African rates.",
         },
         {
           place: "Nairobi",
           clock: "UTC+3, 1–2h ahead of CET",
-          body: "English is an official working language, and UTC+3 means the pod's day starts before yours. Google, Microsoft and Safaricom operate there; Moringa School and AkiraChix train digital talent. Honest caveat from our [talent research](/talent): the pool is large but uneven, so vetting does the work.",
+          body: "English is an official working language, and UTC+3 means the pod's day starts before yours. Google, Microsoft and Safaricom operate there; Moringa School and AkiraChix train digital talent. Honest caveat from our [talent research](/talent): the pool is large but uneven, so vetting carries it.",
         },
       ],
     },
@@ -201,15 +200,15 @@ export const outsourcingGuide: Record<Locale, GuideContent> = {
       title: "A 10-step checklist for your first outsourced hire",
       intro: "Work through this before a single vendor call — it holds whether you buy from us, a competitor, or nobody.",
       steps: [
-        { title: "Name the first process", body: "The one repeatable process you would hand over tomorrow. A process, not a role." },
-        { title: "Time it for two weeks", body: "The hours it really consumes are the hours you are buying back." },
+        { title: "Name the first process", body: "The one you would hand over tomorrow. A process, not a role." },
+        { title: "Time it for two weeks", body: "The hours it consumes are the hours you are buying back." },
         { title: "Write the brief and the definition of done", body: "If you cannot write it, you cannot delegate it." },
-        { title: "Name who signs off", body: "A person, not \"the team\", or it becomes whoever is least busy." },
+        { title: "Name who signs off", body: "A person, not \"the team\", or it falls to whoever is least busy." },
         { title: "Set the budget band first", body: "Decide the monthly ceiling before the calls. Vendors anchor." },
         { title: "Shortlist three different models", body: "One marketplace, one recruiter, one managed provider." },
         { title: "Ask the uncomfortable questions", body: "Who manages daily, who reviews before my client sees it, what happens when they quit." },
         { title: "Check the paperwork before the demo", body: "DPA, SCCs, subprocessor list, access model." },
-        { title: "Run a paid trial on real work", body: "Never a synthetic test task — see [how our trial runs](/how-it-works)." },
+        { title: "Run a paid trial on real work", body: "Never a synthetic task — see [how our trial runs](/how-it-works)." },
         { title: "Measure at 30 days", body: "Hours recovered, deliverables shipped, revisions needed, against step two." },
       ],
     },
@@ -217,28 +216,28 @@ export const outsourcingGuide: Record<Locale, GuideContent> = {
     faq: [
       {
         q: "How much does it cost to outsource digital marketing?",
-        a: "Three bands. Curated Western talent: roughly $100–200/hour at Toptal, Turing and Right Side Up, or $5,000–20,000+/month at MarketerHire. Nearshore staffing: Hire With Near quotes $2,000–4,500/month for a mid-level LatAm marketer. Managed pods: ours start at €2,000/month, management and QA included. Against a European in-house hire the saving is typically 40–70% — but only if you do not rebuild the difference as unpaid management time.",
+        a: "Three bands. Curated Western talent: $100–200/hour at Toptal and Turing, or $5,000–20,000+/month at MarketerHire. Nearshore staffing: Hire With Near quotes $2,000–4,500/month for a mid-level LatAm marketer. Managed pods: ours start at €2,000/month, management and QA included. Against a European hire the saving is typically 40–70% — if you do not rebuild it as management time.",
       },
       {
         q: "Is it GDPR-compliant to send client data outside the EU?",
-        a: "Yes, with the right contract. You stay the data controller and stay liable up to €20 million or 4% of global turnover, so you need a DPA down the chain and Standard Contractual Clauses for transfers to a country without an adequacy decision — Kenya is one. Add least-privilege access and activity logs and the arrangement is defensible.",
+        a: "Yes, with the right contract. You stay the data controller, liable up to €20 million or 4% of global turnover, so you need a DPA down the chain and Standard Contractual Clauses for transfers to a country without an adequacy decision — Kenya is one. Add least-privilege access and logs.",
       },
       {
         q: "How long before an outsourced hire is productive?",
-        a: "Recruiting a full-time marketer in Europe typically runs three to six months from job post to productivity. Offshore recruiters shorten the search — Somewhere presents candidates in around five days — but onboarding and management stay yours. A managed pod is live in 10–14 days because the specialists are already vetted.",
+        a: "Hiring a full-time marketer in Europe typically runs three to six months from job post to productivity. Offshore recruiters shorten the search — Somewhere presents candidates in around five days — but onboarding stays yours. A managed pod is live in 10–14 days.",
       },
       {
         q: "Will my clients know I outsource?",
-        a: "Delivery is white-label by default: the pod works inside your tools, under your brand, with no direct client contact. Data processing is the exception — if a client asks who processes their data, the answer must match your DPA.",
+        a: "Delivery is white-label by default: the pod works inside your tools, under your brand, with no direct client contact. Data processing is the exception — the answer to \"who processes our data\" must match your DPA.",
       },
       {
         q: "When is a managed pod the wrong answer?",
-        a: "Four cases: a one-off project, a single senior specialist you will manage yourself, strategy work, and budgets under €2,000/month. A freelancer or an offshore recruiter serves you better in all four, and we would rather say it on the first call.",
+        a: "Four cases: a one-off project, a single senior specialist you will manage yourself, strategy work, and budgets under €2,000/month. A freelancer or an offshore recruiter serves you better in all four, and we say so on the first call.",
       },
     ],
     closing: {
       title: "Want a second opinion on your own case?",
-      body: "Bring the process from step one and the hours from step two. Fifteen minutes is usually enough to tell you which of the five models fits — including the ones we do not sell.",
+      body: "Bring the process from step one and the hours from step two. Fifteen minutes usually settles which of the five models fits — including the ones we do not sell.",
     },
   },
   it: {
@@ -248,8 +247,8 @@ export const outsourcingGuide: Record<Locale, GuideContent> = {
     title: "Come esternalizzare il marketing digitale: guida per agenzie",
     kicker: "Guida pillar",
     intro: [
-      "Il conflitto di interessi prima di tutto: vendiamo pod marketing gestiti, quindi non siamo neutrali. Resta la guida che vorremmo leggessi prima di parlare con chiunque in questo mercato, noi compresi. Ogni cifra di terzi qui sotto è un prezzo pubblicato dal fornitore.",
-      "È scritta per chi guida un'agenzia europea: clienti il cui contratto porta il tuo nome, un'esposizione GDPR che non puoi delegare, una giornata che gira sul fuso europeo. Quasi tutte le guide sul tema parlano a un'azienda americana alla prima assunzione offshore.",
+      "Il conflitto di interessi prima di tutto: vendiamo pod marketing gestiti, quindi non siamo neutrali. Resta la guida che vorremmo leggessi prima di parlare con chiunque qui, noi compresi. Ogni cifra di terzi qui sotto è un prezzo pubblicato dal fornitore.",
+      "È scritta per chi guida un'agenzia europea: contratti col tuo nome sopra, un'esposizione GDPR che non puoi delegare, una giornata sul fuso europeo. Quasi tutte le guide sul tema parlano a un'azienda americana alla prima assunzione offshore.",
     ],
     scope: {
       number: "01",
@@ -262,7 +261,7 @@ export const outsourcingGuide: Record<Locale, GuideContent> = {
         { title: "SEO on-page e tecnica", body: "Metadati, link interni, dati strutturati, redirect, correzioni di crawling, brief." },
         { title: "Piani editoriali", body: "Pianificazione, stesura e programmazione su una linea già definita da un senior." },
         { title: "Asset creativi", body: "Varianti di annunci, kit social, presentazioni, ridimensionamenti. Volumi alti, regole strette." },
-        { title: "Landing page", body: "Costruzione e iterazione nel tuo stack, da un wireframe e un documento di copy." },
+        { title: "Landing page", body: "Costruzione e iterazione nel tuo stack, da wireframe e documento di copy." },
         { title: "Reportistica", body: "Dashboard, presentazioni mensili, igiene del dato, la bozza di commento che rivedi tu." },
       ],
       keepTitle: "Resta dentro: dove vive la tua differenza",
@@ -311,37 +310,36 @@ export const outsourcingGuide: Record<Locale, GuideContent> = {
         },
         {
           name: "Pod gestiti",
-          what: "Un piccolo team dedicato venduto come capacità e non come organico, con gestione e QA incorporati nel prezzo. Il nostro lavora da Nairobi con QA senior europeo di Enable Digital, la nostra agenzia sorella italiana, white-label per impostazione predefinita.",
+          what: "Un team dedicato venduto come capacità e non come organico, con gestione e QA incorporati nel prezzo. Il nostro lavora da Nairobi, white-label di default, con QA senior europeo di Enable Digital, la nostra agenzia sorella italiana.",
           cost: "Da 2.000 €/mese, operativo in 10–14 giorni, due settimane di prova che paghi solo se ti convincono, sostituzione gratuita entro 60–90 giorni. Risparmio tipico su un'assunzione europea: 40–70%.",
           bestFor: "Produzione ricorrente e prevedibile, quando preferisci comprare capacità invece di gestire persone.",
           breaks: "Progetti una tantum, un singolo specialista senior, il lavoro di strategia, budget sotto i 2.000 €/mese.",
         },
       ],
       note:
-        "Due cose che qui non dice nessuno. Il \"40–60% in meno di un'assunzione locale\" confronta stipendi lordi e ignora le tue ore di gestione. E il tuo vero concorrente di prezzo non è un'assunzione europea, sono i fornitori latinoamericani e filippini a 2.000–4.500 $/mese: è a loro che rispondono i nostri [prezzi](/it/pricing). Più lunghi: [Somewhere](/it/blog/somewhere-alternatives), [MarketerHire](/it/blog/marketerhire-alternatives).",
+        "Il \"40–60% in meno di un'assunzione locale\" che leggi ovunque confronta stipendi lordi e ignora le tue ore di gestione. E il tuo vero concorrente di prezzo non è un'assunzione europea: sono i fornitori latinoamericani e filippini a 2.000–4.500 $/mese, ed è a loro che rispondono i nostri [prezzi](/it/pricing). Vedi anche [Somewhere](/it/blog/somewhere-alternatives) e [MarketerHire](/it/blog/marketerhire-alternatives).",
     },
     decide: {
       number: "03",
       title: "Le quattro cose che decidono se funziona",
       intro: "Contano più della scelta del fornitore. Se le metti a posto funziona quasi ogni modello; se le salti falliscono tutti e cinque.",
       items: [
-        { title: "Disciplina nei brief", body: "La qualità dell'output segue quella del brief quasi uno a uno. Chi conclude che l'outsourcing non funziona di solito dava i brief a voce." },
+        { title: "Disciplina nei brief", body: "La qualità dell'output segue quella del brief quasi uno a uno. Chi dice che l'outsourcing non funziona di solito dava i brief a voce." },
         { title: "Un QA che non siano i tuoi senior", body: "Se il tuo miglior stratega rilegge pagine alle otto di sera, hai spostato il costo, non l'hai tolto. Chiedi chi rivede e chi può fermare la consegna." },
         { title: "Continuità che sopravvive a una persona", body: "Processi documentati, una panchina, una finestra di sostituzione dichiarata — la nostra è [gratuita entro 60–90 giorni](/it/guarantee)." },
-        { title: "Sovrapposizione con la tua giornata vera", body: "Non \"copriamo l'Europa\", ma: in che ore questa persona è online sul fuso europeo. È al mattino che i brief cambiano." },
+        { title: "Sovrapposizione con la tua giornata vera", body: "Non \"copriamo l'Europa\", ma: in che ore è online sul fuso europeo. È al mattino che i brief cambiano." },
       ],
     },
     europe: {
       number: "04",
       title: "Quello che un'agenzia europea deve gestire e le guide americane saltano",
       body: [
-        "Il cliente ha firmato con te. Con il GDPR resti titolare del trattamento, e quella responsabilità non scende lungo la catena quando subappalti: le sanzioni arrivano a 20 milioni di euro o al 4% del fatturato annuo globale, a seconda di quale sia più alto. Nessun fornitore se la prende al posto tuo.",
-        "Questo non rende sbagliata la delivery offshore. Rende sbagliato un accordo non documentato.",
+        "Il cliente ha firmato con te. Con il GDPR resti titolare del trattamento, e quella responsabilità non scende lungo la catena quando subappalti: le sanzioni arrivano a 20 milioni di euro o al 4% del fatturato annuo globale, a seconda di quale sia più alto. Nessun fornitore se la prende al posto tuo. Questo non rende sbagliata la delivery offshore: rende sbagliato un accordo non documentato.",
       ],
       points: [
-        { title: "Un DPA su tutta la catena", body: "Dal cliente a te, da te al fornitore, dal fornitore a chi esegue il lavoro." },
-        { title: "SCC fuori dallo SEE", body: "Il Kenya non ha una decisione di adeguatezza europea, e non ce l'hanno quasi tutte le destinazioni offshore. Copri il trasferimento con le Standard Contractual Clauses e una valutazione." },
-        { title: "Accessi minimi e log", body: "Utenti nominali su ogni account cliente, nessuna credenziale condivisa, permessi limitati al compito, log delle attività esibibili." },
+        { title: "Un DPA su tutta la catena", body: "Dal cliente a te, da te al fornitore, dal fornitore a chi esegue." },
+        { title: "SCC fuori dallo SEE", body: "Il Kenya non ha una decisione di adeguatezza europea, come quasi tutte le destinazioni offshore. Copri il trasferimento con le Standard Contractual Clauses e una valutazione." },
+        { title: "Accessi minimi e log", body: "Utenti nominali su ogni account cliente, nessuna credenziale condivisa, permessi limitati al compito, log esibibili." },
         { title: "White-label onesto", body: "La delivery può essere invisibile al cliente finale, il trattamento dei dati no. La trasparenza sui sub-responsabili non è opzionale." },
       ],
     },
@@ -349,7 +347,7 @@ export const outsourcingGuide: Record<Locale, GuideContent> = {
       number: "05",
       title: "Dove si lavora, e perché cambia tutto",
       intro:
-        "Prima un problema di orologio, poi di lingua, poi di costo. Da ognuna di queste destinazioni escono agenzie che lavorano bene; il dettaglio operativo è nella guida per [assumere un team marketing offshore](/it/blog/hire-offshore-marketing-team).",
+        "Prima un problema di orologio, poi di lingua, poi di costo. Da ognuna escono agenzie che lavorano bene; il dettaglio operativo è nella guida per [assumere un team marketing offshore](/it/blog/hire-offshore-marketing-team).",
       places: [
         {
           place: "Filippine e India",
@@ -359,17 +357,17 @@ export const outsourcingGuide: Record<Locale, GuideContent> = {
         {
           place: "America Latina",
           clock: "4–6h indietro sull'Europa",
-          body: "L'opzione più forte se sei americano, ed è quel compratore che i fornitori nearshore avevano in mente. Sul fuso europeo la loro giornata inizia quando la tua finisce, e le tue mattine restano scoperte.",
+          body: "L'opzione più forte se sei americano: è quel compratore che i fornitori nearshore avevano in mente. Sul fuso europeo la loro giornata inizia quando finisce la tua, e le tue mattine restano scoperte.",
         },
         {
           place: "Est Europa e Sudafrica",
           clock: "0–1h dall'Europa centrale",
-          body: "I più vicini al tuo calendario, con ottimo inglese in Sudafrica, e tariffe che riflettono entrambe le cose: la nostra ricerca colloca uno sviluppatore mid-level a Johannesburg intorno a 42.000 $/anno contro circa 14.700 $ a Nairobi.",
+          body: "I più vicini al tuo calendario, con ottimo inglese in Sudafrica e tariffe che lo riflettono: la nostra ricerca colloca uno sviluppatore mid-level a Johannesburg intorno a 42.000 $/anno — un mercato maturo, prezzato di conseguenza e sensibilmente sopra i livelli dell'Africa orientale.",
         },
         {
           place: "Nairobi",
           clock: "UTC+3, 1–2h avanti sull'Europa",
-          body: "L'inglese è lingua ufficiale di lavoro, e UTC+3 significa che la giornata del pod inizia prima della tua. Google, Microsoft e Safaricom hanno sede lì; Moringa School e AkiraChix formano profili digitali. Avvertenza onesta dalla nostra [ricerca sul talento](/it/talent): il bacino è ampio ma disomogeneo, quindi è la selezione a fare il lavoro.",
+          body: "L'inglese è lingua ufficiale di lavoro, e UTC+3 significa che la giornata del pod inizia prima della tua. Google, Microsoft e Safaricom hanno sede lì; Moringa School e AkiraChix formano profili digitali. Avvertenza onesta dalla nostra [ricerca sul talento](/it/talent): il bacino è ampio ma disomogeneo, ed è la selezione a reggerlo.",
         },
       ],
     },
@@ -378,15 +376,15 @@ export const outsourcingGuide: Record<Locale, GuideContent> = {
       title: "Checklist in 10 passi per la prima risorsa esterna",
       intro: "Passaci sopra prima della prima call: vale che tu compri da noi, da un concorrente o da nessuno.",
       steps: [
-        { title: "Dai un nome al primo processo", body: "L'unico processo ripetibile che affideresti domani. Un processo, non un ruolo." },
-        { title: "Cronometralo per due settimane", body: "Le ore che consuma davvero sono le ore che stai ricomprando." },
+        { title: "Dai un nome al primo processo", body: "Quello che affideresti domani. Un processo, non un ruolo." },
+        { title: "Cronometralo per due settimane", body: "Le ore che consuma sono le ore che stai ricomprando." },
         { title: "Scrivi il brief e la definizione di finito", body: "Se non riesci a scriverlo, non riesci a delegarlo." },
-        { title: "Indica chi approva", body: "Una persona, non \"il team\", altrimenti approva chi è meno occupato." },
+        { title: "Indica chi approva", body: "Una persona, non \"il team\", o approva chi è meno occupato." },
         { title: "Fissa la fascia di budget", body: "Decidi il tetto mensile prima delle call. I fornitori ancorano." },
         { title: "Confronta tre modelli diversi", body: "Un marketplace, un recruiter, un fornitore gestito." },
         { title: "Fai le domande scomode", body: "Chi gestisce ogni giorno, chi rivede prima del mio cliente, cosa succede quando si dimette." },
         { title: "Controlla le carte prima della demo", body: "DPA, SCC, elenco dei sub-responsabili, modello di accesso." },
-        { title: "Fai una prova a pagamento su lavoro vero", body: "Mai un compito costruito a tavolino — guarda [come funziona la nostra prova](/it/how-it-works)." },
+        { title: "Fai una prova a pagamento su lavoro vero", body: "Mai un compito a tavolino — guarda [la nostra prova](/it/how-it-works)." },
         { title: "Misura a 30 giorni", body: "Ore recuperate, deliverable consegnati, revisioni necessarie, contro il passo due." },
       ],
     },
@@ -394,28 +392,28 @@ export const outsourcingGuide: Record<Locale, GuideContent> = {
     faq: [
       {
         q: "Quanto costa esternalizzare il marketing digitale?",
-        a: "Tre fasce. Talento occidentale selezionato: circa 100–200 $/ora su Toptal, Turing e Right Side Up, oppure da 5.000 a oltre 20.000 $/mese con MarketerHire. Staffing nearshore: Hire With Near quota 2.000–4.500 $/mese per un marketer mid-level latinoamericano. Pod gestiti: i nostri partono da 2.000 €/mese, gestione e QA inclusi. Rispetto a un'assunzione interna europea il risparmio è tipicamente del 40–70%, ma solo se non ricostruisci la differenza in ore di gestione non pagate.",
+        a: "Tre fasce. Talento occidentale selezionato: 100–200 $/ora su Toptal e Turing, oppure da 5.000 a oltre 20.000 $/mese con MarketerHire. Staffing nearshore: Hire With Near quota 2.000–4.500 $/mese per un marketer mid-level latinoamericano. Pod gestiti: i nostri partono da 2.000 €/mese, gestione e QA inclusi. Su un'assunzione europea il risparmio è tipicamente del 40–70%, se non lo ricostruisci in ore di gestione.",
       },
       {
         q: "È conforme al GDPR mandare dati dei clienti fuori dall'Unione Europea?",
-        a: "Sì, con il contratto giusto. Resti titolare del trattamento e responsabile fino a 20 milioni di euro o al 4% del fatturato globale, quindi servono un DPA lungo tutta la catena e le Standard Contractual Clauses per i trasferimenti verso paesi senza decisione di adeguatezza — il Kenya è uno di questi. Aggiungi accessi minimi e log delle attività e l'impianto è difendibile.",
+        a: "Sì, con il contratto giusto. Resti titolare del trattamento, responsabile fino a 20 milioni di euro o al 4% del fatturato globale, quindi servono un DPA lungo tutta la catena e le Standard Contractual Clauses per i trasferimenti verso paesi senza decisione di adeguatezza — il Kenya è uno. Aggiungi accessi minimi e log.",
       },
       {
         q: "Quanto serve prima che una risorsa esterna sia produttiva?",
-        a: "Assumere un marketer full-time in Europa richiede tipicamente dai tre ai sei mesi tra annuncio e produttività. I recruiter offshore accorciano la ricerca — Somewhere presenta candidati in circa cinque giorni — ma onboarding e gestione restano tuoi. Un pod gestito è operativo in 10–14 giorni perché gli specialisti sono già testati.",
+        a: "Assumere un marketer full-time in Europa richiede tipicamente dai tre ai sei mesi tra annuncio e produttività. I recruiter offshore accorciano la ricerca — Somewhere presenta candidati in circa cinque giorni — ma l'onboarding resta tuo. Un pod gestito è operativo in 10–14 giorni.",
       },
       {
         q: "I miei clienti si accorgeranno che esternalizzo?",
-        a: "La delivery è white-label per impostazione predefinita: il pod lavora dentro i tuoi strumenti, sotto il tuo marchio, senza contatto diretto con il cliente. L'eccezione è il trattamento dei dati: se un cliente chiede chi tratta i suoi dati, la risposta deve coincidere con il tuo DPA.",
+        a: "La delivery è white-label per impostazione predefinita: il pod lavora dentro i tuoi strumenti, sotto il tuo marchio, senza contatto diretto con il cliente. L'eccezione è il trattamento dei dati: la risposta a \"chi tratta i nostri dati\" deve coincidere con il tuo DPA.",
       },
       {
         q: "Quando il pod gestito è la risposta sbagliata?",
-        a: "Quattro casi: un progetto una tantum, un singolo specialista senior che gestirai tu, il lavoro di strategia e i budget sotto i 2.000 €/mese. In tutti e quattro ti serve meglio un freelance o un recruiter offshore, e preferiamo dirtelo alla prima call.",
+        a: "Quattro casi: un progetto una tantum, un singolo specialista senior che gestirai tu, il lavoro di strategia e i budget sotto i 2.000 €/mese. In tutti e quattro ti serve meglio un freelance o un recruiter offshore, e te lo diciamo alla prima call.",
       },
     ],
     closing: {
       title: "Vuoi un secondo parere sul tuo caso?",
-      body: "Porta il processo del passo uno e le ore del passo due. Un quarto d'ora basta di solito per capire quale dei cinque modelli ti serve, inclusi quelli che non vendiamo.",
+      body: "Porta il processo del passo uno e le ore del passo due. Un quarto d'ora basta per capire quale dei cinque modelli ti serve, inclusi quelli che non vendiamo.",
     },
   },
 };
