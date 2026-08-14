@@ -77,7 +77,7 @@ export const talent: Record<Locale, TalentContent> = {
         { title: "Retention is the product", body: "Pod continuity is what you're buying. People paid well above market, with a path up, stay. Turnover is where offshore delivery quietly dies." },
         { title: "Selection power", body: "Paying 2–4x local lets us hire from the top of the pool — the people who otherwise pick Upwork clients in dollars." },
         { title: "An honest answer for your clients", body: "When an end-client asks how the economics work, you have an answer that survives scrutiny: cost-of-living difference, not squeezed labour." },
-        { title: "Still 40–70% below EU cost", body: "The arbitrage is real because the cost-of-living gap is real. Fair pay and major savings aren't in conflict — that's the whole point of the model." },
+        { title: "Still 40–70% below EU employer cost", body: "The arbitrage is real because the cost-of-living gap is real. Fair pay and major savings aren't in conflict — that's the whole point of the model." },
       ],
     },
     reputation: {
@@ -141,7 +141,7 @@ export const talent: Record<Locale, TalentContent> = {
         { title: "La retention è il prodotto", body: "La continuità del pod è ciò che compri. Le persone pagate ben sopra il mercato, con un percorso di crescita, restano. Il turnover è dove la delivery offshore muore in silenzio." },
         { title: "Potere di selezione", body: "Pagare 2–4x il locale ci permette di assumere dal top del pool — le persone che altrimenti scelgono clienti Upwork in dollari." },
         { title: "Una risposta onesta per i tuoi clienti", body: "Quando un cliente finale chiede come funzionano i conti, hai una risposta che regge: differenza di costo della vita, non manodopera spremuta." },
-        { title: "Comunque 40–70% sotto il costo EU", body: "L'arbitraggio è reale perché il gap di costo della vita è reale. Fair pay e grande risparmio non sono in conflitto — è esattamente il punto del modello." },
+        { title: "Comunque 40–70% sotto il costo datoriale UE", body: "L'arbitraggio è reale perché il gap di costo della vita è reale. Fair pay e grande risparmio non sono in conflitto — è esattamente il punto del modello." },
       ],
     },
     reputation: {

@@ -109,7 +109,7 @@ export const home: Record<Locale, HomeContent> = {
       // "Dedicated" and "managed" live in the eyebrow and the differentiator list above
       // and below instead of stretching line one past the fold.
       titleLines: ["Scale your", "agency with", "marketing pods."],
-      sub: "Quality under European control. Costs 40–70% lower. Zero hiring risk. Your invisible delivery department, live in 10–14 days.",
+      sub: "Quality under European control. 40–70% below Western employer cost. Zero hiring risk. Your invisible delivery department, live in 10–14 days.",
       diff: ["Senior European QA on every deliverable", "White-label by default", "2-week trial — pay only after"],
       ctaPrimary: "Book a call",
       ctaSecondary: "Start a 2-week trial",
@@ -311,7 +311,7 @@ export const home: Record<Locale, HomeContent> = {
       eyebrow: "Pod marketing gestiti · Nairobi → Europa",
       // Same 390px constraint as the English hero — see the note there.
       titleLines: ["Scala la tua", "agenzia con", "pod marketing."],
-      sub: "Qualità sotto controllo europeo. Costi più bassi del 40–70%. Zero rischio di assunzione. Il tuo reparto delivery invisibile, operativo in 10–14 giorni.",
+      sub: "Qualità sotto controllo europeo. 40–70% sotto il costo datoriale occidentale. Zero rischio di assunzione. Il tuo reparto delivery invisibile, operativo in 10–14 giorni.",
       diff: ["QA senior europeo su ogni deliverable", "White-label di default", "Trial di 2 settimane — paghi solo dopo"],
       ctaPrimary: "Prenota una call",
       ctaSecondary: "Inizia il trial di 2 settimane",

@@ -83,10 +83,39 @@ if (hardPercent.length > 0) {
   );
 }
 
-// --- 4. The forbidden figures must never reappear. ---------------------------
+const contentFiles = ["home", "roles", "salaries", "talent", "case-study", "pricing", "blog", "outsourcing-guide", "white-label", "guarantee", "how-it-works"];
+
+// --- 4. Every published band must say what it is measured against. -----------
+// The band is against fully-loaded employer cost. Against the bare gross salaries
+// on /marketing-salaries it is 11–70%, so an unqualified "40–70% lower" is a claim
+// the site's own table contradicts. Each mention has to carry its basis.
+const BASIS = [/employer cost/i, /costo datoriale/i];
+const bandText = new RegExp(`${band.min}[–-]${band.max}\\s*%`, "g");
+for (const f of contentFiles) {
+  let text;
+  try {
+    text = read(`src/content/${f}.ts`);
+  } catch {
+    continue;
+  }
+  for (const m of text.matchAll(bandText)) {
+    // The enclosing string literal: content is one double-quoted string per line-ish.
+    const from = text.lastIndexOf('"', m.index);
+    const to = text.indexOf('",', m.index);
+    const literal = text.slice(from === -1 ? 0 : from, to === -1 ? text.length : to);
+    if (!BASIS.some((re) => re.test(literal))) {
+      const line = text.slice(0, m.index).split("\n").length;
+      fail(
+        `src/content/${f}.ts:${line} quotes the ${band.min}–${band.max}% band without naming its basis ` +
+          `("employer cost" / "costo datoriale").`
+      );
+    }
+  }
+}
+
+// --- 5. The forbidden figures must never reappear. ---------------------------
 // Publishing Kenyan local pay or our own cost per specialist lets a reader compute
 // the margin and turns the fair-pay policy into arithmetic.
-const contentFiles = ["home", "roles", "salaries", "talent", "case-study", "pricing", "blog", "outsourcing-guide", "white-label", "guarantee", "how-it-works"];
 const forbidden = [/14[.,]7\s*k/i, /\$?1[.,]225/, /KES\s*\d/, /\$8\d{2}\b/, /\$9\d{2}\b/];
 for (const f of contentFiles) {
   let text;

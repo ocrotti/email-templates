@@ -202,3 +202,62 @@ overstates its own coverage is worse than none:
 The lesson worth keeping: every claim in this file is a measurement with a date on it, not a
 guarantee. `scripts/check-claims.mjs` now enforces the numeric ones automatically, which is the
 only kind of verification that survives contact with later edits.
+
+
+## 10. Full-site sweep (2026-08-14)
+
+Everything below was measured against a production build (`next build` + `next start`), not the
+dev server, on all 48 sitemap URLs unless stated. Scripts live in the session scratchpad; the
+commands are reproducible from the descriptions.
+
+### Defects found and fixed
+
+- **React #418 on every Italian page.** `Counter` formatted numbers with
+  `toLocaleString("it-IT")`. Node's ICU honours CLDR's Italian `minimumGroupingDigits: 2` and
+  renders 2000 as `2000`; Chrome renders `2.000`. Server and client therefore produced different
+  text on every figure in the calculator. Replaced with an explicit grouping helper
+  (`src/lib/format.ts`). The same call in `roles.ts` had been printing `Da €2000/mese` on six role
+  cards instead of the site's `€2.000`.
+- **Role pages printed their benchmark link as literal `[text](/path)`.** `RolePage` passed
+  `savings.body` into `Section`'s `intro`, which rendered raw. `Section.intro` now takes
+  `ReactNode`; the four duplicated `renderInline` helpers were merged into
+  `src/components/InlineLinks.tsx`.
+- **80 axe `list`/`listitem` violations.** `Reveal` wrapped list items in a `<div>`, so no `<li>`
+  was a direct child of its `<ul>`/`<ol>` on `/how-it-works`, `/talent` and
+  `/outsource-digital-marketing`. `Reveal` now takes `as="li"`.
+- **Ten unqualified savings claims.** The hero, the talent fair-pay card, the guide's model table
+  and FAQ, and `/marketing-salaries` all quoted "40–70%" without naming what it is measured
+  against. Against the gross salaries the site itself publishes the range is 11–70%; the band is
+  against fully-loaded employer cost. Every mention now names its basis, and
+  `scripts/check-claims.mjs` check 4 fails the build if a new one does not (14 mentions scanned).
+- **`/marketing-salaries` contradicted itself on its own basis.** Its FAQ answered "employer cost
+  per month" while the methodology above it said gross salary. The FAQ answers and the ERI source
+  lines now say gross salary, with contributions described as sitting on top.
+- **Two staffed roles were silently missing from the benchmark table.** Design and marketing
+  automation have no benchmark in the 2025 market analysis. The table note now says so instead of
+  leaving the omission to be noticed.
+
+### Measurements
+
+| Check | Result |
+|---|---|
+| `npx tsc --noEmit` | clean |
+| `node scripts/check-claims.mjs` | passes, 5 roles, band 40–70%, 6 declared sub-floor pairs |
+| `next build` | 54 pages, `/api/lead` and `/og` dynamic |
+| Console errors / hydration warnings | 0 across 48 routes, both locales |
+| axe-core WCAG 2.0 A+AA and 2.1 A+AA | 0 violations across 48 routes |
+| Broken internal links | 0, across 48 distinct link targets |
+| Titles / descriptions | all within 25–60 and 70–155; no duplicates of either |
+| `<h1>` per page | exactly 1 on all 48 |
+| canonical + hreflang(en/it/x-default) + og:image | present on all 48 |
+| JSON-LD | 110 blocks, 0 parse or `@context` failures (BreadcrumbList 46, FAQPage 28, Service 22, Article 10, Organization 2, Dataset 2) |
+| LCP / CLS (desktop, local) | 128–320ms, CLS 0 on `/`, `/it`, `/pricing`, `/marketing-salaries`, `/outsource-digital-marketing` |
+| Horizontal overflow at 390px and 1440px | 0px on the five pages changed this round |
+| `/api/lead` | 503 + `fallbackEmail` unconfigured, 422 with field list, 200 on honeypot, 400 on malformed JSON |
+
+### Known exception
+
+The sticky watermark section numerals (`text-paper/15` on ink, `text-ink/10` on paper) sit at
+1.2–1.4:1. They are `aria-hidden` decoration — the section's `<h2>` carries the meaning and the
+mobile numeral renders at full contrast — so they are excluded from the axe count above rather
+than fixed. Raising them to 3:1 would make a background element read as content.

@@ -135,7 +135,7 @@ export const outsourcingGuide: Record<Locale, GuideContent> = {
         {
           name: "Managed pods",
           what: "A dedicated team sold as capacity, not headcount, with management and QA in the price. Ours runs from Nairobi, white-label by default, with senior European QA from Enable Digital, our Italian sister agency.",
-          cost: "From €2,000/month, live in 10–14 days, a two-week trial you pay for only if convinced, free replacement within 60–90 days. Typical saving versus a European hire: 40–70%.",
+          cost: "From €2,000/month, live in 10–14 days, a two-week trial you pay for only if convinced, free replacement within 60–90 days. Typical saving versus a European hire's employer cost: 40–70%.",
           bestFor: "Forecastable recurring production, when you would rather buy capacity than manage people.",
           breaks: "One-off projects, a single senior specialist, strategy work, budgets under €2,000/month.",
         },
@@ -216,7 +216,7 @@ export const outsourcingGuide: Record<Locale, GuideContent> = {
     faq: [
       {
         q: "How much does it cost to outsource digital marketing?",
-        a: "Three bands. Curated Western talent: $100–200/hour at Toptal and Turing, or $5,000–20,000+/month at MarketerHire. Nearshore staffing: Hire With Near quotes $2,000–4,500/month for a mid-level LatAm marketer. Managed pods: ours start at €2,000/month, management and QA included. Against a European hire the saving is typically 40–70% — if you do not rebuild it as management time.",
+        a: "Three bands. Curated Western talent: $100–200/hour at Toptal and Turing, or $5,000–20,000+/month at MarketerHire. Nearshore staffing: Hire With Near quotes $2,000–4,500/month for a mid-level LatAm marketer. Managed pods: ours start at €2,000/month, management and QA included. Against a European hire's employer cost the saving is typically 40–70% — if you do not rebuild it as management time.",
       },
       {
         q: "Is it GDPR-compliant to send client data outside the EU?",
@@ -311,7 +311,7 @@ export const outsourcingGuide: Record<Locale, GuideContent> = {
         {
           name: "Pod gestiti",
           what: "Un team dedicato venduto come capacità e non come organico, con gestione e QA incorporati nel prezzo. Il nostro lavora da Nairobi, white-label di default, con QA senior europeo di Enable Digital, la nostra agenzia sorella italiana.",
-          cost: "Da €2.000/mese, operativo in 10–14 giorni, due settimane di prova che paghi solo se ti convincono, sostituzione gratuita entro 60–90 giorni. Risparmio tipico su un'assunzione europea: 40–70%.",
+          cost: "Da €2.000/mese, operativo in 10–14 giorni, due settimane di prova che paghi solo se ti convincono, sostituzione gratuita entro 60–90 giorni. Risparmio tipico sul costo datoriale di un'assunzione europea: 40–70%.",
           bestFor: "Produzione ricorrente e prevedibile, quando preferisci comprare capacità invece di gestire persone.",
           breaks: "Progetti una tantum, un singolo specialista senior, il lavoro di strategia, budget sotto €2.000/mese.",
         },
@@ -392,7 +392,7 @@ export const outsourcingGuide: Record<Locale, GuideContent> = {
     faq: [
       {
         q: "Quanto costa esternalizzare il marketing digitale?",
-        a: "Tre fasce. Talento occidentale selezionato: $100–200/ora su Toptal e Turing, oppure da $5.000 a oltre $20.000/mese con MarketerHire. Staffing nearshore: Hire With Near quota $2.000–4.500/mese per un marketer mid-level latinoamericano. Pod gestiti: i nostri partono da €2.000/mese, gestione e QA inclusi. Su un'assunzione europea il risparmio è tipicamente del 40–70%, se non lo ricostruisci in ore di gestione.",
+        a: "Tre fasce. Talento occidentale selezionato: $100–200/ora su Toptal e Turing, oppure da $5.000 a oltre $20.000/mese con MarketerHire. Staffing nearshore: Hire With Near quota $2.000–4.500/mese per un marketer mid-level latinoamericano. Pod gestiti: i nostri partono da €2.000/mese, gestione e QA inclusi. Sul costo datoriale di un'assunzione europea il risparmio è tipicamente del 40–70%, se non lo ricostruisci in ore di gestione.",
       },
       {
         q: "È conforme al GDPR mandare dati dei clienti fuori dall'Unione Europea?",

@@ -119,7 +119,7 @@ export const salaries: Record<Locale, SalariesContent> = {
           uk: "£5,000–7,000",
         },
       ],
-      note: "Currencies as published: euro for Italy and Germany, pound sterling for the UK. We have not converted GBP into EUR — the exchange rate would add a second layer of noise to already directional data.",
+      note: "Currencies as published: euro for Italy and Germany, pound sterling for the UK. We have not converted GBP into EUR — the exchange rate would add a second layer of noise to already directional data. Two roles we staff are missing on purpose: design and marketing automation. Our 2025 market analysis carries no benchmark we would stand behind for either, and a table like this is worth less the moment it starts guessing.",
     },
     notIncluded: {
       title: "What the salary doesn't include",
@@ -155,7 +155,7 @@ export const salaries: Record<Locale, SalariesContent> = {
     vsPod: {
       title: "How to read these against a pod",
       body: [
-        "A pod seat starts at €2,000 a month, all-in: the specialist, pod management, senior European QA, the replacement guarantee and the GDPR paperwork. Set that against the columns above and you get the 40–70% saving we quote — the spread comes from which market and role you are replacing, not from a rounding in our favour.",
+        "A pod seat starts at €2,000 a month, all-in: the specialist, pod management, senior European QA, the replacement guarantee and the GDPR paperwork. The 40–70% band we quote is measured against fully-loaded employer cost, not against the columns above: those are gross salary only, so setting €2,000 straight against them understates the gap by whatever contributions, recruiting and your own management hours add.",
         "The honest comparison is not seat against seat. Against Italy at the low end the saving is modest; against Germany or the UK on a paid media or developer seat you are at the wide end of the band. [Run your own numbers on the homepage calculator](/) or [see what the bands include](/pricing).",
         "Role by role: [paid media](/roles/paid-media), [SEO](/roles/seo), [content and social](/roles/content-social), [development](/roles/development) — or [the full list of roles](/roles).",
       ],
@@ -163,7 +163,7 @@ export const salaries: Record<Locale, SalariesContent> = {
     methodology: {
       title: "Methodology and caveats",
       body: [
-        "Compiled during 2025–2026 from mixed sources: Glassdoor and PayScale for self-reported ranges, ERI for modelled employer cost, TechCompenso for the Italian SEO median, plus ranges published by staffing vendors in the same markets.",
+        "Compiled during 2025–2026 from mixed sources: Glassdoor and PayScale for self-reported ranges, ERI for modelled salary levels, TechCompenso for the Italian SEO median, plus ranges published by staffing vendors in the same markets.",
         "Reliability is uneven and we will not pretend otherwise. Some cells rest on decent samples; others on a single published range. On self-reported platforms the samples for specialist marketing titles are thin, in Italy especially. Treat every number as a band, not a price.",
         "Figures are gross salary per month unless a row says otherwise, in the currency of the market. If you hire in these markets and our numbers are off, tell us — we would rather correct the page than defend it. [Send us a correction](/contact).",
       ],
@@ -171,7 +171,7 @@ export const salaries: Record<Locale, SalariesContent> = {
       sources: [
         "Glassdoor — self-reported salary ranges",
         "PayScale — self-reported compensation data",
-        "ERI — modelled employer cost by market",
+        "ERI — modelled salary and employer cost by market",
         "TechCompenso — Italian tech and marketing salary survey",
         "Staffing vendors — published rate cards and salary guides",
       ],
@@ -180,7 +180,7 @@ export const salaries: Record<Locale, SalariesContent> = {
     faq: [
       {
         q: "Is this gross salary or employer cost?",
-        a: "Employer cost per month: what the seat costs your company, not what lands in the person's account. Take-home pay is materially lower in every market listed.",
+        a: "Gross salary per month — the contractual figure, before employer contributions. What the seat actually costs your company is higher: contributions, recruiting, tooling and management time sit on top of every number in the table, and none of them are counted here. Take-home pay is lower again.",
       },
       {
         q: "Why is Germany so much higher than Italy?",
@@ -188,7 +188,7 @@ export const salaries: Record<Locale, SalariesContent> = {
       },
       {
         q: "Do these figures include employer contributions?",
-        a: "Where the source modelled full employer cost, yes. Where it published gross pay, contributions sit on top and vary by country and contract type. That mixed basis is why we call these numbers directional.",
+        a: "No. The table is gross salary, so employer contributions sit on top of every number — they vary by country and contract type, and in Italy and Germany they add a substantial share. Where a source modelled fully-loaded cost we took its salary component, which is one more reason to read these as directional.",
       },
       {
         q: "How often is this updated?",
@@ -257,7 +257,7 @@ export const salaries: Record<Locale, SalariesContent> = {
           uk: "£5.000–7.000",
         },
       ],
-      note: "Valute come pubblicate: euro per Italia e Germania, sterline per il Regno Unito. Non abbiamo convertito le sterline: il cambio aggiungerebbe un secondo strato di rumore a dati già direzionali.",
+      note: "Valute come pubblicate: euro per Italia e Germania, sterline per il Regno Unito. Non abbiamo convertito le sterline: il cambio aggiungerebbe un secondo strato di rumore a dati già direzionali. Due ruoli che copriamo mancano di proposito: design e marketing automation. La nostra analisi di mercato 2025 non ha, per nessuno dei due, un benchmark su cui metteremmo la firma — e una tabella così vale meno nel momento in cui inizia a tirare a indovinare.",
     },
     notIncluded: {
       title: "Cosa non c'è nella riga dello stipendio",
@@ -293,7 +293,7 @@ export const salaries: Record<Locale, SalariesContent> = {
     vsPod: {
       title: "Come leggerli rispetto a un pod",
       body: [
-        "Un posto in pod parte da €2.000 al mese, tutto incluso: lo specialist, la gestione del pod, il QA senior europeo, la garanzia di replacement e la parte GDPR. Mettilo accanto alle colonne qui sopra ed esce la forbice 40–70% che dichiariamo: dipende da quale mercato e quale ruolo stai sostituendo, non da un arrotondamento a nostro favore.",
+        "Un posto in pod parte da €2.000 al mese, tutto incluso: lo specialist, la gestione del pod, il QA senior europeo, la garanzia di replacement e la parte GDPR. La forbice 40–70% che dichiariamo è misurata sul costo datoriale pieno, non sulle colonne qui sopra: quelle sono solo retribuzione lorda, quindi mettere €2.000 accanto a quei numeri sottostima il divario di tutto ciò che aggiungono contributi, recruiting e le tue ore di gestione.",
         "Il confronto onesto non è posto contro posto. Contro l'Italia nella fascia bassa il risparmio è contenuto; contro Germania o Regno Unito, su paid media o sviluppo, sei all'estremo alto della forbice. [Fai i tuoi conti con il calcolatore in home](/it) oppure [guarda cosa comprendono le fasce](/it/pricing).",
         "Ruolo per ruolo: [paid media](/it/roles/paid-media), [SEO](/it/roles/seo), [content e social](/it/roles/content-social), [sviluppo](/it/roles/development) — oppure [l'elenco completo dei ruoli](/it/roles).",
       ],
@@ -301,7 +301,7 @@ export const salaries: Record<Locale, SalariesContent> = {
     methodology: {
       title: "Metodo e limiti",
       body: [
-        "Raccolti tra 2025 e 2026 da fonti miste: Glassdoor e PayScale per le fasce auto-dichiarate, ERI per il costo aziendale modellato, TechCompenso per la mediana SEO italiana, più le fasce pubblicate da vendor di staffing negli stessi mercati.",
+        "Raccolti tra 2025 e 2026 da fonti miste: Glassdoor e PayScale per le fasce auto-dichiarate, ERI per i livelli retributivi modellati, TechCompenso per la mediana SEO italiana, più le fasce pubblicate da vendor di staffing negli stessi mercati.",
         "L'affidabilità è disomogenea e non facciamo finta di niente. Alcune celle poggiano su campioni decenti, altre su una sola fascia pubblicata. Sui portali auto-dichiarati i campioni per i titoli marketing specialistici sono sottili, in Italia soprattutto. Tratta ogni numero come una fascia, non come un prezzo.",
         "Le cifre sono retribuzione lorda mensile salvo diversa indicazione nella riga, nella valuta del mercato. Se assumi in questi mercati e i nostri numeri sono sbagliati, scrivicelo: preferiamo correggere la pagina che difenderla. [Mandaci una correzione](/it/contact).",
       ],
@@ -309,7 +309,7 @@ export const salaries: Record<Locale, SalariesContent> = {
       sources: [
         "Glassdoor — fasce salariali auto-dichiarate",
         "PayScale — dati retributivi auto-dichiarati",
-        "ERI — costo aziendale modellato per mercato",
+        "ERI — retribuzioni e costo aziendale modellati per mercato",
         "TechCompenso — rilevazione salari tech e marketing in Italia",
         "Vendor di staffing — listini e guide salariali pubblicate",
       ],
@@ -318,7 +318,7 @@ export const salaries: Record<Locale, SalariesContent> = {
     faq: [
       {
         q: "È lordo o costo aziendale?",
-        a: "Costo aziendale mensile: quanto ti costa il posto, non quanto arriva sul conto della persona. Il netto è sensibilmente più basso in tutti i mercati elencati.",
+        a: "Retribuzione lorda mensile — la cifra contrattuale, prima dei contributi a carico del datore. Quanto ti costa davvero il posto è di più: contributi, recruiting, tool e ore di gestione stanno sopra a ogni numero della tabella e qui non sono conteggiati. Il netto è più basso ancora.",
       },
       {
         q: "Perché la Germania è così più alta dell'Italia?",
@@ -326,7 +326,7 @@ export const salaries: Record<Locale, SalariesContent> = {
       },
       {
         q: "Sono compresi i contributi a carico del datore?",
-        a: "Dove la fonte modellava il costo aziendale pieno, sì. Dove pubblicava il lordo, i contributi vanno aggiunti sopra e cambiano per Paese e tipo di contratto. Per questo li chiamiamo numeri direzionali.",
+        a: "No. La tabella è retribuzione lorda, quindi i contributi stanno sopra a ogni numero: cambiano per Paese e tipo di contratto e in Italia e Germania pesano parecchio. Dove una fonte modellava il costo pieno abbiamo preso la componente salariale — un motivo in più per leggerli come direzionali.",
       },
       {
         q: "Ogni quanto aggiornate la pagina?",
