@@ -36,6 +36,8 @@ interface SharedContent {
     success: string;
     errorRequired: string;
     errorEmail: string;
+    submitting: string;
+    errorSend: string;
   };
 }
 
@@ -124,6 +126,8 @@ export const shared: Record<Locale, SharedContent> = {
       success: "Got it. We'll reply within one business day with two or three proposed slots for your call.",
       errorRequired: "This field is required.",
       errorEmail: "Please enter a valid email address.",
+      submitting: "Sending…",
+      errorSend: "We couldn't send your message. Please write to us directly at",
     },
   },
   it: {
@@ -210,6 +214,8 @@ export const shared: Record<Locale, SharedContent> = {
       success: "Ricevuto. Ti rispondiamo entro un giorno lavorativo con due o tre orari proposti per la call.",
       errorRequired: "Questo campo è obbligatorio.",
       errorEmail: "Inserisci un indirizzo email valido.",
+      submitting: "Invio in corso…",
+      errorSend: "Non siamo riusciti a inviare il messaggio. Scrivici direttamente a",
     },
   },
 };

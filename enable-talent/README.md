@@ -74,7 +74,27 @@ lives in `src/content/enable-digital.ts`; the outbound URL is `ENABLE_DIGITAL_UR
 
 ## Contact form
 
-`src/components/LeadForm.tsx` is wired with qualifying fields (name, email, agency, team size, roles needed, message) and a placeholder submit handler. To go live, point `onSubmit` at your provider (Formspree/Basin endpoint or a Next API route) — the TODO marks the exact line.
+`src/components/LeadForm.tsx` collects the qualifying fields (name, email, agency, team size, roles
+needed, message) and posts them to `src/app/api/lead/route.ts`, which validates them server-side and
+forwards the lead as JSON to whatever you put in `LEAD_WEBHOOK_URL`.
+
+```bash
+LEAD_WEBHOOK_URL=https://…    # any endpoint that accepts a JSON POST
+LEAD_WEBHOOK_TOKEN=…          # optional; sent as `Authorization: Bearer …`
+```
+
+Deliberately provider-agnostic: a Formspree or Basin endpoint, a Zapier/Make/n8n webhook, a Slack
+incoming webhook, or your own CRM all work without touching the code.
+
+**If `LEAD_WEBHOOK_URL` is not set, production returns 503 and the form shows the fallback email
+address.** That is intentional. The alternative — telling a visitor "we'll be in touch" while the
+lead goes nowhere — is the worst possible failure for a brand whose whole pitch is reliability.
+In development the lead is logged to the server console and the form succeeds, so it stays testable.
+
+The endpoint also carries a honeypot field, a 10-second delivery timeout, per-field length caps and a
+best-effort in-memory rate limit (5 requests per minute per IP). That limit lives in instance memory,
+so on serverless it throttles a naive flood, not a determined attacker — put the form provider's own
+spam filter or a WAF in front for the rest.
 
 ## Verification
 

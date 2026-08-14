@@ -3,16 +3,15 @@
 import { useState } from "react";
 import Link from "next/link";
 import type { Locale } from "@/lib/site";
-import { localePath } from "@/lib/site";
+import { CONTACT_EMAIL, localePath } from "@/lib/site";
 import { shared } from "@/content/shared";
 
-/**
- * Qualifying lead form. The action is a placeholder ready to be wired to a
- * form provider (Formspree, Basin, own API route) — see README.
- */
+type Status = "idle" | "sending" | "sent" | "error";
+
+/** Qualifying lead form. Posts to /api/lead, which forwards to LEAD_WEBHOOK_URL. */
 export default function LeadForm({ locale }: { locale: Locale }) {
   const t = shared[locale].form;
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   // Inline, localized validation instead of the browser's transient bubbles
@@ -27,16 +26,39 @@ export default function LeadForm({ locale }: { locale: Locale }) {
     return next;
   };
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const next = validate(e.currentTarget);
+    const form = e.currentTarget;
+    const next = validate(form);
     setErrors(next);
     if (Object.keys(next).length > 0) {
-      (e.currentTarget.elements.namedItem(Object.keys(next)[0]) as HTMLElement | null)?.focus();
+      (form.elements.namedItem(Object.keys(next)[0]) as HTMLElement | null)?.focus();
       return;
     }
-    // TODO: wire to your form provider endpoint (see README → "Contact form").
-    setSent(true);
+
+    setStatus("sending");
+    const data = new FormData(form);
+    try {
+      const res = await fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: data.get("name"),
+          email: data.get("email"),
+          agency: data.get("agency"),
+          teamSize: data.get("teamSize"),
+          roles: data.getAll("roles"),
+          message: data.get("message"),
+          companyWebsite: data.get("companyWebsite"),
+          locale,
+          page: typeof window !== "undefined" ? window.location.pathname : "",
+        }),
+      });
+      const json = await res.json().catch(() => ({ ok: false }));
+      setStatus(res.ok && json.ok ? "sent" : "error");
+    } catch {
+      setStatus("error");
+    }
   };
 
   const inputClass = (field?: string) =>
@@ -53,7 +75,7 @@ export default function LeadForm({ locale }: { locale: Locale }) {
       </span>
     ) : null;
 
-  if (sent) {
+  if (status === "sent") {
     return (
       <div className="rounded-3xl border border-blue/40 bg-blue/10 p-10 text-center">
         <p className="font-display text-2xl font-semibold text-paper">{t.success}</p>
@@ -109,7 +131,7 @@ export default function LeadForm({ locale }: { locale: Locale }) {
           {t.rolesOptions.map((role) => (
             <label key={role} className="cursor-pointer">
               <input type="checkbox" name="roles" value={role} className="peer sr-only" />
-              <span className="inline-block rounded-full border border-ink-line px-4 py-2 text-sm text-mist transition-colors peer-checked:border-blue-bright peer-checked:bg-blue/15 peer-checked:text-paper">
+              <span className="inline-block rounded-full border border-ink-line px-4 py-2 text-sm text-mist transition-colors peer-checked:border-blue-bright peer-checked:bg-blue/15 peer-checked:text-paper peer-focus-visible:ring-2 peer-focus-visible:ring-blue-bright">
                 {role}
               </span>
             </label>
@@ -122,15 +144,34 @@ export default function LeadForm({ locale }: { locale: Locale }) {
         <textarea name="message" rows={4} className={`${inputClass()} resize-none`} />
       </label>
 
+      {/* Honeypot: hidden from people, irresistible to bots. */}
+      <div aria-hidden className="absolute left-[-9999px] h-px w-px overflow-hidden">
+        <label>
+          Company website
+          <input type="text" name="companyWebsite" tabIndex={-1} autoComplete="off" />
+        </label>
+      </div>
+
       <div className="mt-8 flex flex-col items-start gap-4 md:flex-row md:items-center md:justify-between">
         <button
           type="submit"
-          className="inline-flex items-center gap-2 rounded-full bg-blue px-8 py-4 text-sm font-semibold text-white shadow-glow-blue transition-colors hover:bg-blue-bright"
+          disabled={status === "sending"}
+          className="inline-flex items-center gap-2 rounded-full bg-blue px-8 py-4 text-sm font-semibold text-white shadow-glow-blue transition-colors hover:bg-blue-bright disabled:cursor-not-allowed disabled:opacity-70"
         >
-          {t.submit} →
+          {status === "sending" ? t.submitting : `${t.submit} →`}
         </button>
         <p className="text-xs text-mist">{t.privacy}</p>
       </div>
+
+      {status === "error" ? (
+        <p role="alert" className="mt-4 text-sm text-amber">
+          {t.errorSend}{" "}
+          <a href={`mailto:${CONTACT_EMAIL}`} className="link-underline font-medium">
+            {CONTACT_EMAIL}
+          </a>
+          .
+        </p>
+      ) : null}
 
       <p className="mt-4 text-xs leading-relaxed text-mist">
         {t.consent}{" "}
