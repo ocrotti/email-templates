@@ -3,38 +3,45 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { useMemo, useState } from "react";
 import Counter from "./Counter";
-import type { CalculatorRole } from "@/content/home";
+import { benchmarkByKey, podBarPercent, savingsPercent, type MarketKey } from "@/content/benchmarks";
 import type { Locale } from "@/lib/site";
 
 interface Props {
   roleLabel: string;
   marketLabel: string;
-  markets: { key: "it" | "de" | "uk"; label: string }[];
-  roles: CalculatorRole[];
+  markets: { key: MarketKey; label: string }[];
+  roles: { key: string; label: string }[];
   localLabel: string;
   podLabel: string;
   savingsLabel: string;
+  /** Shown instead of a percentage when a pod seat is not the cheaper option. */
+  noSavingLabel: string;
+  noSavingBody: string;
   perMonth: string;
   disclaimer: string;
   locale: Locale;
 }
 
 /**
- * Interactive savings calculator: pick a role and a market, get animated
- * count-up numbers and comparative bars. All figures from the market analysis.
+ * Role x market cost comparison. Every figure derives from src/content/benchmarks.ts.
+ *
+ * The widget is allowed to lose the argument: where a pod seat costs more than the
+ * local gross salary — content & social in Italy does — it says so plainly instead
+ * of printing a negative number under the word "saving".
  */
 export default function SavingsCalculator(props: Props) {
   const [roleKey, setRoleKey] = useState(props.roles[0].key);
-  // Default to Germany: a spread inside the advertised 40–70% band, so the
-  // first number a visitor sees doesn't argue with the claims beside it.
-  const [market, setMarket] = useState<"it" | "de" | "uk">("de");
+  // Open on the visitor's own market: an Italian-language page defaulting to
+  // Germany makes the primary audience do work to see their own number.
+  const [market, setMarket] = useState<MarketKey>(props.locale === "it" ? "it" : "de");
   const reduced = useReducedMotion();
 
-  const role = useMemo(() => props.roles.find((r) => r.key === roleKey)!, [props.roles, roleKey]);
+  const role = useMemo(() => benchmarkByKey(roleKey), [roleKey]);
   const local = role.markets[market];
   const pod = role.pod;
-  const savings = Math.round(((local - pod) / local) * 100);
-  const podBar = Math.round((pod / local) * 100);
+  const savings = savingsPercent(role, market);
+  const podBar = podBarPercent(role, market);
+  const podIsCheaper = savings > 0;
 
   const selectClass =
     "w-full appearance-none rounded-xl border border-ink-line bg-ink-soft px-4 py-3.5 text-sm text-paper outline-none transition-colors focus:border-blue-bright";
@@ -54,11 +61,7 @@ export default function SavingsCalculator(props: Props) {
         </label>
         <label className="block">
           <span className="mb-2 block text-xs uppercase tracking-[0.18em] text-mist">{props.marketLabel}</span>
-          <select
-            className={selectClass}
-            value={market}
-            onChange={(e) => setMarket(e.target.value as "it" | "de" | "uk")}
-          >
+          <select className={selectClass} value={market} onChange={(e) => setMarket(e.target.value as MarketKey)}>
             {props.markets.map((m) => (
               <option key={m.key} value={m.key}>
                 {m.label}
@@ -111,14 +114,20 @@ export default function SavingsCalculator(props: Props) {
           </div>
         </div>
 
-        {/* Savings */}
-        <div className="flex items-baseline justify-between gap-4 rounded-2xl border border-blue/30 bg-blue/10 px-6 py-5">
-          <span className="text-sm font-medium text-paper/90">{props.savingsLabel}</span>
-          <span className="font-display text-4xl font-bold text-blue-bright md:text-5xl">
-            {/* Short count-up: a skimming visitor must never linger on "0%". */}
-            <Counter key={`sav-${roleKey}-${market}`} value={savings} suffix="%" duration={0.5} locale={props.locale} />
-          </span>
-        </div>
+        {/* Verdict. Never a negative percentage. */}
+        {podIsCheaper ? (
+          <div className="flex items-baseline justify-between gap-4 rounded-2xl border border-blue/30 bg-blue/10 px-6 py-5">
+            <span className="text-sm font-medium text-paper/90">{props.savingsLabel}</span>
+            <span className="font-display text-4xl font-bold text-blue-bright md:text-5xl">
+              <Counter key={`sav-${roleKey}-${market}`} value={savings} suffix="%" duration={0.5} locale={props.locale} />
+            </span>
+          </div>
+        ) : (
+          <div className="rounded-2xl border border-amber/30 bg-amber/10 px-6 py-5">
+            <p className="font-display text-lg font-semibold text-amber">{props.noSavingLabel}</p>
+            <p className="mt-2 text-sm leading-relaxed text-paper/80">{props.noSavingBody}</p>
+          </div>
+        )}
       </div>
 
       <p className="mt-6 text-xs leading-relaxed text-mist">{props.disclaimer}</p>

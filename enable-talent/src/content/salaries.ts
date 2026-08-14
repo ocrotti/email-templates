@@ -72,12 +72,12 @@ export const salaries: Record<Locale, SalariesContent> = {
     h1: "European marketing salary benchmarks (Italy, Germany, UK)",
     intro: [
       "We sell offshore marketing pods, so yes — we have an interest in what a European specialist costs. That is why we publish the numbers we use ourselves, sources and weak spots attached. Where a figure is thin, we say so.",
-      "Read them as employer cost per month, not take-home pay, and as a starting point for your own market check rather than a quote. Salary data is directional: it moves with city, seniority, sector and how badly the hire is needed.",
+      "Read them as gross monthly salary, not take-home pay and not fully-loaded employer cost, and as a starting point for your own market check rather than a quote. Salary data is directional: it moves with city, seniority, sector and how badly the hire is needed.",
     ],
     table: {
       title: "The benchmark: five roles, three markets",
       intro:
-        "Monthly employer cost. Where the source published an annual figure instead, the row says so.",
+        "Gross salary per month. Employer contributions sit on top and vary by country and contract. Where the source published an annual figure instead, the row says so.",
       columns: { role: "Role", italy: "Italy", germany: "Germany", uk: "United Kingdom" },
       perMonth: "per month",
       rows: [
@@ -99,10 +99,10 @@ export const salaries: Record<Locale, SalariesContent> = {
         {
           role: "SEO specialist",
           href: "/roles/seo",
-          italy: "~€2,400",
+          italy: "€2,500–2,700",
           germany: "€3,500–4,500",
           uk: "£3,500–5,000",
-          note: "Italy: median gross annual ~€35,000 (TechCompenso).",
+          note: "Italy: median gross annual ~€35,000 (TechCompenso), spread over the 13–14 monthly instalments Italian contracts commonly use — which is where the monthly range comes from.",
         },
         {
           role: "Content & social",
@@ -165,7 +165,7 @@ export const salaries: Record<Locale, SalariesContent> = {
       body: [
         "Compiled during 2025–2026 from mixed sources: Glassdoor and PayScale for self-reported ranges, ERI for modelled employer cost, TechCompenso for the Italian SEO median, plus ranges published by staffing vendors in the same markets.",
         "Reliability is uneven and we will not pretend otherwise. Some cells rest on decent samples; others on a single published range. On self-reported platforms the samples for specialist marketing titles are thin, in Italy especially. Treat every number as a band, not a price.",
-        "Figures are gross employer cost per month unless a row says otherwise, in the currency of the market. If you hire in these markets and our numbers are off, tell us — we would rather correct the page than defend it. [Send us a correction](/contact).",
+        "Figures are gross salary per month unless a row says otherwise, in the currency of the market. If you hire in these markets and our numbers are off, tell us — we would rather correct the page than defend it. [Send us a correction](/contact).",
       ],
       sourcesLabel: "Sources",
       sources: [
@@ -210,12 +210,12 @@ export const salaries: Record<Locale, SalariesContent> = {
     h1: "Quanto costa un marketing specialist in Europa: benchmark salariali",
     intro: [
       "Vendiamo pod marketing offshore, quindi sì: abbiamo un interesse in quanto costa uno specialist in Europa. Per questo pubblichiamo i numeri che usiamo noi, con fonti e punti deboli attaccati. Dove il dato è fragile lo scriviamo.",
-      "Leggili come costo aziendale mensile, non come stipendio netto, e come punto di partenza per la tua verifica di mercato, non come un preventivo. I dati salariali sono direzionali: si muovono con la città, la seniority, il settore e l'urgenza di chiudere.",
+      "Leggili come retribuzione lorda mensile, non come stipendio netto né come costo aziendale pieno, e come punto di partenza per la tua verifica di mercato, non come un preventivo. I dati salariali sono direzionali: si muovono con la città, la seniority, il settore e l'urgenza di chiudere.",
     ],
     table: {
       title: "Il benchmark: cinque ruoli, tre mercati",
       intro:
-        "Costo aziendale mensile. Dove la fonte pubblicava un dato annuo, la riga indica quale.",
+        "Retribuzione lorda mensile. I contributi datoriali stanno sopra e variano per paese e contratto. Dove la fonte pubblicava un dato annuo, la riga lo indica.",
       columns: { role: "Ruolo", italy: "Italia", germany: "Germania", uk: "Regno Unito" },
       perMonth: "al mese",
       rows: [
@@ -237,10 +237,10 @@ export const salaries: Record<Locale, SalariesContent> = {
         {
           role: "SEO specialist",
           href: "/roles/seo",
-          italy: "~€2.400",
+          italy: "€2.500–2.700",
           germany: "€3.500–4.500",
           uk: "£3.500–5.000",
-          note: "Italia: RAL mediana lorda ~€35.000 (TechCompenso).",
+          note: "Italia: RAL mediana lorda ~€35.000 (TechCompenso), distribuita sulle 13–14 mensilità comuni nei contratti italiani — da lì viene la fascia mensile.",
         },
         {
           role: "Content e social",
@@ -303,7 +303,7 @@ export const salaries: Record<Locale, SalariesContent> = {
       body: [
         "Raccolti tra 2025 e 2026 da fonti miste: Glassdoor e PayScale per le fasce auto-dichiarate, ERI per il costo aziendale modellato, TechCompenso per la mediana SEO italiana, più le fasce pubblicate da vendor di staffing negli stessi mercati.",
         "L'affidabilità è disomogenea e non facciamo finta di niente. Alcune celle poggiano su campioni decenti, altre su una sola fascia pubblicata. Sui portali auto-dichiarati i campioni per i titoli marketing specialistici sono sottili, in Italia soprattutto. Tratta ogni numero come una fascia, non come un prezzo.",
-        "Le cifre sono costo aziendale lordo mensile salvo diversa indicazione nella riga, nella valuta del mercato. Se assumi in questi mercati e i nostri numeri sono sbagliati, scrivicelo: preferiamo correggere la pagina che difenderla. [Mandaci una correzione](/it/contact).",
+        "Le cifre sono retribuzione lorda mensile salvo diversa indicazione nella riga, nella valuta del mercato. Se assumi in questi mercati e i nostri numeri sono sbagliati, scrivicelo: preferiamo correggere la pagina che difenderla. [Mandaci una correzione](/it/contact).",
       ],
       sourcesLabel: "Fonti",
       sources: [

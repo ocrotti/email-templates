@@ -134,6 +134,8 @@ export default function HomePage({ locale }: { locale: Locale }) {
           localLabel={t.calculator.localLabel}
           podLabel={t.calculator.podLabel}
           savingsLabel={t.calculator.savingsLabel}
+          noSavingLabel={t.calculator.noSavingLabel}
+          noSavingBody={t.calculator.noSavingBody}
           perMonth={t.calculator.perMonth}
           disclaimer={t.calculator.disclaimer}
           locale={locale}

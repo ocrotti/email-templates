@@ -1,4 +1,5 @@
 import type { Locale } from "@/lib/site";
+import { benchmarks } from "@/content/benchmarks";
 
 export interface RoleContent {
   slug: string;
@@ -20,6 +21,23 @@ export interface RoleContent {
   savings: { title: string; body: string; band: string };
   faq: { q: string; a: string }[];
   cta: string;
+}
+
+
+/**
+ * The chip on each role card.
+ *
+ * It used to restate a savings percentage per role, which drifted out of step with
+ * the calculator (and with itself: two different bands were published for the same
+ * claim). It now states the pod seat price, which is a fact we control and cannot
+ * get wrong — the per-market saving is the calculator's job, and it varies enough
+ * by market that a single number on a card was never honest.
+ */
+function podSeatBand(slug: string, locale: Locale): string {
+  const price = benchmarks.find((b) => b.roleSlug === slug)?.pod ?? 2000;
+  return locale === "en"
+    ? `From €${price.toLocaleString("en-GB")}/month, all-in`
+    : `Da €${price.toLocaleString("it-IT")}/mese, tutto incluso`;
 }
 
 export const roleSlugs = [
@@ -78,7 +96,7 @@ export const roles: Record<Locale, Record<string, RoleContent>> = {
       savings: {
         title: "What you save",
         body: "A media buyer costs €2,000–2,500/month in Italy and €3,600–5,200 in Germany, before taxes and overhead. A pod specialist starts at €2,000/month with management and senior QA included.",
-        band: "Typically 40–65% below EU employer cost",
+        band: podSeatBand("paid-media", "en"),
       },
       faq: [
         {
@@ -145,7 +163,7 @@ export const roles: Record<Locale, Record<string, RoleContent>> = {
       savings: {
         title: "What you save",
         body: "An SEO specialist costs ~€2,400/month in Italy and €3,500–4,500 in Germany before overhead. A pod specialist starts at €2,000/month, management and senior QA included.",
-        band: "Typically 40–60% below EU employer cost",
+        band: podSeatBand("seo", "en"),
       },
       faq: [
         {
@@ -212,7 +230,7 @@ export const roles: Record<Locale, Record<string, RoleContent>> = {
       savings: {
         title: "What you save",
         body: "A content/social specialist costs €1,500–2,000/month in Italy and £3,000–4,500 in the UK before overhead. Inside a pod, the role starts within the €2,000/month starter — with QA and management included, and capacity that doesn't call in sick.",
-        band: "Typically 40–60% below EU employer cost",
+        band: podSeatBand("content-social", "en"),
       },
       faq: [
         {
@@ -279,7 +297,7 @@ export const roles: Record<Locale, Record<string, RoleContent>> = {
       savings: {
         title: "What you save",
         body: "Mid-level digital designers in Western Europe typically cost €2,500–4,000/month as employees, more via studios. A pod designer starts within the €2,000/month starter, art-directed and QA'd.",
-        band: "Typically 40–60% below EU employer cost",
+        band: podSeatBand("design", "en"),
       },
       faq: [
         {
@@ -346,7 +364,7 @@ export const roles: Record<Locale, Record<string, RoleContent>> = {
       savings: {
         title: "What you save",
         body: "Automation specialists in Western Europe run €2,500–4,500/month as employees; senior freelance consultants far more. A pod specialist starts at €2,000/month with QA and management included.",
-        band: "Typically 40–60% below EU employer cost",
+        band: podSeatBand("marketing-automation", "en"),
       },
       faq: [
         {
@@ -413,7 +431,7 @@ export const roles: Record<Locale, Record<string, RoleContent>> = {
       savings: {
         title: "What you save",
         body: "A mid-level developer costs €3,000–4,000/month in Italy and €5,000–6,500 in Germany before overhead. A pod developer starts around €2,400/month, code-reviewed and managed.",
-        band: "Typically 40–65% below EU employer cost",
+        band: podSeatBand("development", "en"),
       },
       faq: [
         {
@@ -482,7 +500,7 @@ export const roles: Record<Locale, Record<string, RoleContent>> = {
       savings: {
         title: "Quanto risparmi",
         body: "Un media buyer costa €2.000–2.500/mese in Italia e €3.600–5.200 in Germania, prima di tasse e overhead. Uno specialist in pod parte da €2.000/mese con gestione e QA senior inclusi.",
-        band: "Tipicamente 40–65% sotto il costo datoriale EU",
+        band: podSeatBand("paid-media", "it"),
       },
       faq: [
         { q: "Di chi sono gli ad account?", a: "Tuoi o del tuo cliente, sempre. Il pod lavora nei tuoi account con accessi gestiti da agenzia. Niente resta in ostaggio nei nostri." },
@@ -537,7 +555,7 @@ export const roles: Record<Locale, Record<string, RoleContent>> = {
       savings: {
         title: "Quanto risparmi",
         body: "Uno specialist SEO costa ~€2.400/mese in Italia e €3.500–4.500 in Germania prima dell'overhead. Uno specialist in pod parte da €2.000/mese, gestione e QA senior inclusi.",
-        band: "Tipicamente 40–60% sotto il costo datoriale EU",
+        band: podSeatBand("seo", "it"),
       },
       faq: [
         { q: "Scrive anche i contenuti?", a: "Brief, metadata e copy on-page in inglese, nativamente. Per long-form in italiano, tedesco o spagnolo, affiancalo ai tuoi writer o aggiungi uno specialist content al pod — brief e QA tengono la qualità costante." },
@@ -593,7 +611,7 @@ export const roles: Record<Locale, Record<string, RoleContent>> = {
       savings: {
         title: "Quanto risparmi",
         body: "Uno specialist content/social costa €1.500–2.000/mese in Italia e £3.000–4.500 nel Regno Unito prima dell'overhead. Nel pod, il ruolo rientra nello starter da €2.000/mese — con QA e gestione inclusi, e una capacità che non si mette in malattia.",
-        band: "Tipicamente 40–60% sotto il costo datoriale EU",
+        band: podSeatBand("content-social", "it"),
       },
       faq: [
         { q: "Il copy suonerà 'offshore'?", a: "Il copy inglese è scritto a livello nativo e rivisto dal QA lead europeo per la voce del brand. Per italiano, tedesco o spagnolo il pod consegna bozze strutturate che il tuo team rifinisce — il carico operativo esce comunque dalla tua scrivania." },
@@ -648,7 +666,7 @@ export const roles: Record<Locale, Record<string, RoleContent>> = {
       savings: {
         title: "Quanto risparmi",
         body: "Un designer digitale mid-level in Europa occidentale costa tipicamente €2.500–4.000/mese da dipendente, di più via studio. Un designer in pod rientra nello starter da €2.000/mese, con direzione artistica e QA.",
-        band: "Tipicamente 40–60% sotto il costo datoriale EU",
+        band: podSeatBand("design", "it"),
       },
       faq: [
         { q: "Chi fa la direzione artistica?", a: "Tu, se hai un creative lead — il pod esegue a velocità di produzione. Se non ce l'hai, il nostro QA senior europeo definisce e fa rispettare la direzione dal tuo brand book." },
@@ -703,7 +721,7 @@ export const roles: Record<Locale, Record<string, RoleContent>> = {
       savings: {
         title: "Quanto risparmi",
         body: "Uno specialist automation in Europa occidentale costa €2.500–4.500/mese da dipendente; i consulenti freelance senior molto di più. Uno specialist in pod parte da €2.000/mese con QA e gestione inclusi.",
-        band: "Tipicamente 40–60% sotto il costo datoriale EU",
+        band: podSeatBand("marketing-automation", "it"),
       },
       faq: [
         { q: "Disegna anche la strategia di automation?", a: "Contribuisce, ma la strategia resta ai tuoi consulenti o al nostro QA lead. Il lavoro del pod è un build-and-run impeccabile — che è ciò che davvero si rompe nella maggior parte dei retainer." },
@@ -758,7 +776,7 @@ export const roles: Record<Locale, Record<string, RoleContent>> = {
       savings: {
         title: "Quanto risparmi",
         body: "Un developer mid-level costa €3.000–4.000/mese in Italia e €5.000–6.500 in Germania prima dell'overhead. Un developer in pod parte da circa €2.400/mese, con code review e gestione.",
-        band: "Tipicamente 40–65% sotto il costo datoriale EU",
+        band: podSeatBand("development", "it"),
       },
       faq: [
         { q: "Chi rivede il codice?", a: "Ogni merge passa da una review — dal tuo tech lead se ce l'hai, o dal nostro processo di QA con supervisione senior. Staging prima della produzione, sempre." },

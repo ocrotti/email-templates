@@ -80,7 +80,7 @@ export const caseStudy: Record<Locale, CaseStudyContent> = {
       intro: "We publish what we can stand behind. The case is live and the dataset grows monthly:",
       note: "Detailed SLA logs, output volumes and savings calculations are shared in scoping calls — with client-specific numbers under NDA where needed. We'd rather show you a spreadsheet on a call than print a suspicious hero metric here.",
       metrics: [
-        { label: "Delivery cost vs equivalent Italian hires", value: "40–70% below, in line with the market analysis bands" },
+        { label: "Delivery cost vs hiring the same capacity in-house", value: "Materially lower once management and QA are counted — see the calculator for the per-market spread" },
         { label: "Pod ramp-up to productive delivery", value: "Within the 10–14 day window we now sell" },
         { label: "QA gate", value: "100% of client-facing deliverables reviewed before delivery" },
         { label: "Specialist pay", value: "2–4x local market rate, documented" },
@@ -135,7 +135,7 @@ export const caseStudy: Record<Locale, CaseStudyContent> = {
       intro: "Pubblichiamo ciò che possiamo difendere. Il caso è vivo e il dataset cresce ogni mese:",
       note: "Log SLA dettagliati, volumi di output e calcoli di risparmio vengono condivisi nelle call di scoping — con i numeri specifici dei clienti sotto NDA dove serve. Preferiamo mostrarti uno spreadsheet in call che stampare qui una hero metric sospetta.",
       metrics: [
-        { label: "Costo di delivery vs assunzioni italiane equivalenti", value: "40–70% sotto, in linea con le fasce dell'analisi di mercato" },
+        { label: "Costo di delivery vs assumere la stessa capacità in casa", value: "Sensibilmente più basso una volta contati gestione e QA — il divario per mercato è nel calcolatore" },
         { label: "Ramp-up del pod alla delivery produttiva", value: "Dentro la finestra di 10–14 giorni che oggi vendiamo" },
         { label: "Gate di QA", value: "100% dei deliverable client-facing rivisti prima della consegna" },
         { label: "Retribuzione specialist", value: "2–4x il mercato locale, documentata" },

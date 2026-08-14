@@ -1,19 +1,11 @@
 import type { Locale } from "@/lib/site";
+import { benchmarks, type MarketKey } from "@/content/benchmarks";
 
 export interface ComparisonRow {
   label: string;
   inHouse: string;
   freelance: string;
   pod: string;
-}
-
-export interface CalculatorRole {
-  key: string;
-  label: string;
-  /** Typical monthly employer cost, midpoints from the 2025 market analysis (EUR). */
-  markets: { it: number; de: number; uk: number };
-  /** Monthly pod price used for the comparison (EUR). */
-  pod: number;
 }
 
 interface HomeContent {
@@ -56,11 +48,13 @@ interface HomeContent {
     intro: string;
     roleLabel: string;
     marketLabel: string;
-    markets: { key: "it" | "de" | "uk"; label: string }[];
-    roles: CalculatorRole[];
+    markets: { key: MarketKey; label: string }[];
+    roles: { key: string; label: string }[];
     localLabel: string;
     podLabel: string;
     savingsLabel: string;
+    noSavingLabel: string;
+    noSavingBody: string;
     perMonth: string;
     disclaimer: string;
   };
@@ -101,14 +95,9 @@ interface HomeContent {
   marqueeLabel: string;
 }
 
-const calculatorRoles: CalculatorRole[] = [
-  // Midpoints of the salary bands in the market analysis (employer cost, monthly).
-  { key: "digital", label: "Digital marketing specialist", markets: { it: 2550, de: 4300, uk: 6700 }, pod: 2000 },
-  { key: "paid", label: "Paid media / media buyer", markets: { it: 2250, de: 4400, uk: 5550 }, pod: 2000 },
-  { key: "seo", label: "SEO specialist", markets: { it: 2400, de: 4000, uk: 4950 }, pod: 2000 },
-  { key: "content", label: "Content & social", markets: { it: 1750, de: 3300, uk: 4400 }, pod: 2000 },
-  { key: "dev", label: "Developer (mid-level)", markets: { it: 3500, de: 5750, uk: 7000 }, pod: 2400 },
-];
+/** Calculator options, derived so a figure can never drift from benchmarks.ts. */
+const calculatorRoles = (locale: Locale) =>
+  benchmarks.map((b) => ({ key: b.key, label: b.label[locale] }));
 
 export const home: Record<Locale, HomeContent> = {
   en: {
@@ -179,7 +168,7 @@ export const home: Record<Locale, HomeContent> = {
       rows: [
         {
           label: "Monthly cost per specialist",
-          inHouse: "€2,400–4,300+ salary, plus taxes and overhead",
+          inHouse: "€2,400–4,300+ gross salary, before contributions and overhead",
           freelance: "Variable; senior EU freelancers €400–700/day",
           pod: "From €2,000 all-in, QA and management included",
         },
@@ -227,12 +216,14 @@ export const home: Record<Locale, HomeContent> = {
         { key: "de", label: "Germany" },
         { key: "uk", label: "United Kingdom" },
       ],
-      roles: calculatorRoles,
-      localLabel: "Typical local employer cost",
+      roles: calculatorRoles("en"),
+      localLabel: "Typical local gross salary",
       podLabel: "Pod specialist, managed + QA",
       savingsLabel: "Typical saving",
+      noSavingLabel: "No saving on salary alone here.",
+      noSavingBody: "For this role and market the pod seat costs about what the salary does. What you get for the same money is management, senior European QA and a replacement guarantee — but if price alone is the question, hire locally. We'd rather say that than sell you a number that isn't there.",
       perMonth: "/month",
-      disclaimer: "UK figures converted to EUR at ~1.17. Salary data is directional: samples are small and markets move. We'll price your exact case on the call — and the specialist behind these numbers earns 2–4x the local Nairobi market rate. Fair pay is part of the product.",
+      disclaimer: "These are gross salaries, not fully-loaded employer cost: employer contributions, recruiting, ramp-up, tooling and management sit on top and are not counted here, so the real gap is wider than shown. The pod figure is all-in. UK converted to EUR at ~1.17. Salary data is directional — samples are small and markets move — and we price your exact case on the call. The specialist behind these numbers earns 2–4x the local Nairobi market rate; fair pay is part of the product.",
     },
     how: {
       number: "05",
@@ -378,7 +369,7 @@ export const home: Record<Locale, HomeContent> = {
       rows: [
         {
           label: "Costo mensile per specialist",
-          inHouse: "€2.400–4.300+ di stipendio, più tasse e overhead",
+          inHouse: "€2.400–4.300+ di lordo, prima di contributi e overhead",
           freelance: "Variabile; freelance senior EU €400–700/giorno",
           pod: "Da €2.000 tutto incluso, con QA e gestione",
         },
@@ -426,12 +417,14 @@ export const home: Record<Locale, HomeContent> = {
         { key: "de", label: "Germania" },
         { key: "uk", label: "Regno Unito" },
       ],
-      roles: calculatorRoles,
-      localLabel: "Costo datoriale locale tipico",
+      roles: calculatorRoles("it"),
+      localLabel: "Retribuzione lorda locale tipica",
       podLabel: "Specialist in pod, gestito + QA",
       savingsLabel: "Risparmio tipico",
+      noSavingLabel: "Qui non risparmi sul solo stipendio.",
+      noSavingBody: "Per questo ruolo e questo mercato il posto in pod costa più o meno quanto lo stipendio. A parità di spesa ottieni gestione, QA senior europeo e garanzia di sostituzione — ma se la domanda è solo il prezzo, assumi in locale. Preferiamo dirtelo che venderti un numero che non c'è.",
       perMonth: "/mese",
-      disclaimer: "Cifre UK convertite in EUR a ~1,17. I dati salariali sono direzionali: i campioni sono piccoli e i mercati si muovono. Il tuo caso esatto lo prezziamo in call — e lo specialist dietro questi numeri guadagna 2–4x il mercato locale di Nairobi. Il fair pay è parte del prodotto.",
+      disclaimer: "Queste sono retribuzioni lorde, non costo datoriale pieno: contributi, recruiting, ramp-up, tool e gestione stanno sopra e qui non sono conteggiati, quindi il divario reale è più ampio di quello mostrato. La cifra del pod è tutto incluso. UK convertito in EUR a ~1,17. I dati salariali sono direzionali — i campioni sono piccoli e i mercati si muovono — e il tuo caso esatto lo prezziamo in call. Lo specialist dietro questi numeri guadagna 2–4x il mercato locale di Nairobi: il fair pay è parte del prodotto.",
     },
     how: {
       number: "05",
