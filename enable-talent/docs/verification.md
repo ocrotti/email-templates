@@ -176,6 +176,29 @@ Two defects found during verification and fixed:
   reader compute our margin, which reduces the fair-pay policy to arithmetic. Removed; the
   Johannesburg benchmark stays because it is a market rate, not our cost base.
 
-Sitemap now carries 56 URLs (28 paths × 2 locales) with `x-default` alternates and real
+Sitemap carries 48 URLs (24 paths × 2 locales) with `x-default` alternates and real
 `lastmod` dates — blog posts use their publication date, everything else a content-updated
 constant, replacing a build timestamp that claimed every page changed on every deploy.
+
+
+## 9. Corrections to this document (2026-08-11)
+
+A six-discipline review re-measured the claims above against the live build. Four did not hold,
+and they are corrected here rather than quietly edited away, because a verification document that
+overstates its own coverage is worse than none:
+
+- **Sitemap size was wrong.** §8 said 56 URLs across 28 paths. It is 48 URLs across 24 paths
+  (14 static + 6 roles + 4 posts, doubled for the locales). Corrected above.
+- **"All titles ≤60 and descriptions ≤155" was stale.** Five strings had drifted back over budget
+  after later edits. The claim only ever held on the day it was written; treat it as a check to
+  re-run, not a property of the site.
+- **The `<th scope="row">` claim over-reached.** It covered `ComparisonTable` only. The pricing
+  "What's included" table had no row-header semantics at all until this round.
+- **The accessibility sweep never ran on `/marketing-salaries`.** It was added after the sweep and
+  inherited none of it — four of its text tints were below AA when the review measured them.
+- **The "three deliberate lines" hero claim holds at ≥768px only.** At 390px the English hero rags
+  to five lines with two orphans.
+
+The lesson worth keeping: every claim in this file is a measurement with a date on it, not a
+guarantee. `scripts/check-claims.mjs` now enforces the numeric ones automatically, which is the
+only kind of verification that survives contact with later edits.

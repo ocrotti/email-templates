@@ -95,7 +95,7 @@ export const roles: Record<Locale, Record<string, RoleContent>> = {
       },
       savings: {
         title: "What you save",
-        body: "A media buyer costs €2,000–2,500/month in Italy and €3,600–5,200 in Germany, before taxes and overhead. A pod specialist starts at €2,000/month with management and senior QA included.",
+        body: "We publish the media-buyer figures for Italy, Germany and the UK — and everything a salary line leaves out — on our [European salary benchmarks](/marketing-salaries) page, so you can check the comparison instead of taking it on trust.",
         band: podSeatBand("paid-media", "en"),
       },
       faq: [
@@ -162,7 +162,7 @@ export const roles: Record<Locale, Record<string, RoleContent>> = {
       },
       savings: {
         title: "What you save",
-        body: "An SEO specialist costs ~€2,400/month in Italy and €3,500–4,500 in Germany before overhead. A pod specialist starts at €2,000/month, management and senior QA included.",
+        body: "The Italian, German and UK figures we work from, with their sources and their weak spots attached, live on our [European salary benchmarks](/marketing-salaries) page rather than being restated here.",
         band: podSeatBand("seo", "en"),
       },
       faq: [
@@ -229,7 +229,7 @@ export const roles: Record<Locale, Record<string, RoleContent>> = {
       },
       savings: {
         title: "What you save",
-        body: "A content/social specialist costs €1,500–2,000/month in Italy and £3,000–4,500 in the UK before overhead. Inside a pod, the role starts within the €2,000/month starter — with QA and management included, and capacity that doesn't call in sick.",
+        body: "This is the one seat where an Italian salary on its own can undercut a pod, which is exactly why the figures sit on our [European salary benchmarks](/marketing-salaries) page instead of being summarised into a flattering line here.",
         band: podSeatBand("content-social", "en"),
       },
       faq: [
@@ -296,7 +296,7 @@ export const roles: Record<Locale, Record<string, RoleContent>> = {
       },
       savings: {
         title: "What you save",
-        body: "Mid-level digital designers in Western Europe typically cost €2,500–4,000/month as employees, more via studios. A pod designer starts within the €2,000/month starter, art-directed and QA'd.",
+        body: "Designer pay moves too much by market and seniority for a single number here to be honest, so the salary data we use — and the costs a salary line hides — sit on our [European salary benchmarks](/marketing-salaries) page.",
         band: podSeatBand("design", "en"),
       },
       faq: [
@@ -363,7 +363,7 @@ export const roles: Record<Locale, Record<string, RoleContent>> = {
       },
       savings: {
         title: "What you save",
-        body: "Automation specialists in Western Europe run €2,500–4,500/month as employees; senior freelance consultants far more. A pod specialist starts at €2,000/month with QA and management included.",
+        body: "Rather than quote a range on every role page, we keep the salary data and the employer costs that stack on top of it in one maintained place: our [European salary benchmarks](/marketing-salaries) page.",
         band: podSeatBand("marketing-automation", "en"),
       },
       faq: [
@@ -430,7 +430,7 @@ export const roles: Record<Locale, Record<string, RoleContent>> = {
       },
       savings: {
         title: "What you save",
-        body: "A mid-level developer costs €3,000–4,000/month in Italy and €5,000–6,500 in Germany before overhead. A pod developer starts around €2,400/month, code-reviewed and managed.",
+        body: "Development has the widest salary spread of any role we staff, so we keep the Italian, German and UK figures next to the pod seat price on our [European salary benchmarks](/marketing-salaries) page.",
         band: podSeatBand("development", "en"),
       },
       faq: [
@@ -499,7 +499,7 @@ export const roles: Record<Locale, Record<string, RoleContent>> = {
       },
       savings: {
         title: "Quanto risparmi",
-        body: "Un media buyer costa €2.000–2.500/mese in Italia e €3.600–5.200 in Germania, prima di tasse e overhead. Uno specialist in pod parte da €2.000/mese con gestione e QA senior inclusi.",
+        body: "Le cifre per i media buyer in Italia, Germania e Regno Unito — e tutto quello che una riga di stipendio non dice — stanno nella nostra pagina [benchmark salariali europei](/it/marketing-salaries), così il confronto lo verifichi invece di fidarti.",
         band: podSeatBand("paid-media", "it"),
       },
       faq: [
@@ -554,7 +554,7 @@ export const roles: Record<Locale, Record<string, RoleContent>> = {
       },
       savings: {
         title: "Quanto risparmi",
-        body: "Uno specialist SEO costa ~€2.400/mese in Italia e €3.500–4.500 in Germania prima dell'overhead. Uno specialist in pod parte da €2.000/mese, gestione e QA senior inclusi.",
+        body: "Le cifre SEO da cui partiamo per Italia, Germania e Regno Unito, con le fonti e i loro punti deboli, stanno nella nostra pagina [benchmark salariali europei](/it/marketing-salaries) invece di essere ripetute qui.",
         band: podSeatBand("seo", "it"),
       },
       faq: [
@@ -610,7 +610,7 @@ export const roles: Record<Locale, Record<string, RoleContent>> = {
       },
       savings: {
         title: "Quanto risparmi",
-        body: "Uno specialist content/social costa €1.500–2.000/mese in Italia e £3.000–4.500 nel Regno Unito prima dell'overhead. Nel pod, il ruolo rientra nello starter da €2.000/mese — con QA e gestione inclusi, e una capacità che non si mette in malattia.",
+        body: "È l'unico posto dove il solo stipendio italiano può costare meno di un pod, ed è esattamente per questo che i numeri stanno nella nostra pagina [benchmark salariali europei](/it/marketing-salaries) e non riassunti qui in una riga a nostro favore.",
         band: podSeatBand("content-social", "it"),
       },
       faq: [
@@ -665,7 +665,7 @@ export const roles: Record<Locale, Record<string, RoleContent>> = {
       },
       savings: {
         title: "Quanto risparmi",
-        body: "Un designer digitale mid-level in Europa occidentale costa tipicamente €2.500–4.000/mese da dipendente, di più via studio. Un designer in pod rientra nello starter da €2.000/mese, con direzione artistica e QA.",
+        body: "La retribuzione dei designer cambia troppo per mercato e seniority perché un numero solo sia onesto: i dati che usiamo, e i costi che una riga di stipendio nasconde, stanno nella nostra pagina [benchmark salariali europei](/it/marketing-salaries).",
         band: podSeatBand("design", "it"),
       },
       faq: [
@@ -720,7 +720,7 @@ export const roles: Record<Locale, Record<string, RoleContent>> = {
       },
       savings: {
         title: "Quanto risparmi",
-        body: "Uno specialist automation in Europa occidentale costa €2.500–4.500/mese da dipendente; i consulenti freelance senior molto di più. Uno specialist in pod parte da €2.000/mese con QA e gestione inclusi.",
+        body: "Invece di ripetere una forbice su ogni pagina ruolo, teniamo i dati salariali e i costi datoriali che ci si sommano sopra in un unico posto: la nostra pagina [benchmark salariali europei](/it/marketing-salaries).",
         band: podSeatBand("marketing-automation", "it"),
       },
       faq: [
@@ -775,7 +775,7 @@ export const roles: Record<Locale, Record<string, RoleContent>> = {
       },
       savings: {
         title: "Quanto risparmi",
-        body: "Un developer mid-level costa €3.000–4.000/mese in Italia e €5.000–6.500 in Germania prima dell'overhead. Un developer in pod parte da circa €2.400/mese, con code review e gestione.",
+        body: "Lo sviluppo ha la forbice salariale più larga tra i ruoli che copriamo, quindi le cifre di Italia, Germania e Regno Unito stanno accanto al prezzo del posto in pod nella nostra pagina [benchmark salariali europei](/it/marketing-salaries).",
         band: podSeatBand("development", "it"),
       },
       faq: [

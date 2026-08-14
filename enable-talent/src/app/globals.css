@@ -108,24 +108,20 @@ body {
   }
 }
 
-/* Scroll-driven timeline states (driven by GSAP ScrollTrigger) */
-.timeline-step {
-  opacity: 0.35;
-  transition: opacity 0.5s ease;
+/* Scroll-driven timeline states (driven by GSAP ScrollTrigger).
+   Steps ship fully readable and only recede once Timeline confirms GSAP is live
+   (root gains .timeline-dimmed) — a failed chunk load must not leave the copy hidden. */
+.timeline-dimmed .timeline-step:not(.timeline-active) .step-title,
+.timeline-dimmed .timeline-step:not(.timeline-active) .step-body {
+  /* De-emphasis stops well short of unreadable: this keeps body copy at ~5:1. */
+  opacity: var(--timeline-dim, 0.8);
 }
-.timeline-step.timeline-active {
-  opacity: 1;
+/* The node is the only thing that dims hard — it carries no text. */
+.timeline-dimmed .timeline-step:not(.timeline-active) [data-node] {
+  opacity: 0.45;
 }
-.timeline-step.timeline-active .node-dot {
-  transform: scale(1);
-}
-@media (prefers-reduced-motion: reduce) {
-  .timeline-step {
-    opacity: 1;
-  }
-  .timeline-step .node-dot {
-    transform: scale(1);
-  }
+.timeline-dimmed .timeline-step:not(.timeline-active) .node-dot {
+  transform: scale(0);
 }
 
 /* Keep space reserved for images/embeds to avoid CLS */

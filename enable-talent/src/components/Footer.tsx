@@ -1,10 +1,17 @@
+"use client";
+
+// Client-side only for usePathname: the footer switcher has to offer the same
+// page as the header and the head hreflang, not the homepage.
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import type { Locale } from "@/lib/site";
-import { ENABLE_DIGITAL_URL, localePath } from "@/lib/site";
+import { ENABLE_DIGITAL_URL, localePath, switchLocaleHref } from "@/lib/site";
 import { shared } from "@/content/shared";
 
 export default function Footer({ locale }: { locale: Locale }) {
   const t = shared[locale];
+  const pathname = usePathname();
 
   return (
     <footer className="border-t border-ink-line bg-ink px-5 pb-10 pt-16 text-paper md:px-10 md:pt-24">
@@ -67,7 +74,7 @@ export default function Footer({ locale }: { locale: Locale }) {
               {t.footer.privacyLabel}
             </Link>
             <Link
-              href={locale === "en" ? "/it" : "/"}
+              href={switchLocaleHref(locale, pathname)}
               hrefLang={locale === "en" ? "it" : "en"}
               className="link-underline w-fit py-1"
             >

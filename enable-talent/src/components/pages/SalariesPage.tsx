@@ -95,13 +95,13 @@ export default function SalariesPage({ locale }: { locale: Locale }) {
           <Reveal>
             <p className="mb-4 font-mono text-sm text-blue-bright">{t.coverage}</p>
           </Reveal>
-          <Reveal delay={0.05}>
-            <h1 className="text-display-lg max-w-4xl font-display font-bold">{t.h1}</h1>
-          </Reveal>
-          {t.intro.map((p, i) => (
-            <Reveal key={p.slice(0, 24)} delay={0.12 + i * 0.06}>
-              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mist">{p}</p>
-            </Reveal>
+          {/* h1 and intro sit outside Reveal: the h1 is the LCP element and must
+              paint from the server HTML, before hydration. */}
+          <h1 className="text-display-lg max-w-4xl font-display font-bold">{t.h1}</h1>
+          {t.intro.map((p) => (
+            <p key={p.slice(0, 24)} className="mt-6 max-w-2xl text-lg leading-relaxed text-mist">
+              {p}
+            </p>
           ))}
         </div>
       </section>
@@ -124,12 +124,12 @@ export default function SalariesPage({ locale }: { locale: Locale }) {
               <dl className="mt-4 space-y-3 text-sm">
                 {markets.map((m) => (
                   <div key={m.key} className="flex items-baseline justify-between gap-4">
-                    <dt className="text-xs uppercase tracking-[0.14em] text-ink/55">{m.label}</dt>
+                    <dt className="text-xs uppercase tracking-[0.14em] text-ink/65">{m.label}</dt>
                     <dd className="text-right font-medium tabular-nums text-ink">{row[m.key]}</dd>
                   </div>
                 ))}
               </dl>
-              {row.note ? <p className="mt-4 text-xs leading-relaxed text-ink/55">{row.note}</p> : null}
+              {row.note ? <p className="mt-4 text-xs leading-relaxed text-ink/65">{row.note}</p> : null}
             </div>
           ))}
         </div>
@@ -151,7 +151,7 @@ export default function SalariesPage({ locale }: { locale: Locale }) {
                     className="border-b border-paper-line pb-3 pr-6 font-display text-base font-semibold text-ink/75"
                   >
                     {m.label}
-                    <span className="mt-0.5 block text-xs font-normal normal-case tracking-normal text-ink/45">
+                    <span className="mt-0.5 block text-xs font-normal normal-case tracking-normal text-ink/65">
                       {t.table.perMonth}
                     </span>
                   </th>
@@ -169,7 +169,7 @@ export default function SalariesPage({ locale }: { locale: Locale }) {
                     ) : (
                       row.role
                     )}
-                    {row.note ? <span className="mt-1.5 block text-xs font-normal leading-relaxed text-ink/50">{row.note}</span> : null}
+                    {row.note ? <span className="mt-1.5 block text-xs font-normal leading-relaxed text-ink/65">{row.note}</span> : null}
                   </th>
                   {markets.map((m) => (
                     <td key={m.key} className="border-b border-paper-line/70 py-4 pr-6 align-top tabular-nums text-ink/75">

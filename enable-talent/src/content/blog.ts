@@ -106,6 +106,7 @@ export const blogPosts: Record<Locale, BlogPost[]> = {
           paragraphs: [
             "If you're hiring one back-office role you're happy to manage yourself — an assistant, a support rep, a bookkeeper — Somewhere's scale, pool and six-month guarantee are hard to argue with. Their model is proven at a volume we can't claim.",
             "If what's actually squeezing you is delivery capacity across marketing roles, with your client's brand on every deliverable and EU data protection in scope, then a recruited individual isn't the unit you need — a managed team is. That's the gap [the pod model](/how-it-works) exists to fill.",
+            "If you are still mapping the landscape rather than choosing inside it, the full guide is [how to outsource digital marketing](/outsource-digital-marketing) — five models at published prices, recruiters included.",
           ],
         },
       ],
@@ -174,6 +175,7 @@ export const blogPosts: Record<Locale, BlogPost[]> = {
           heading: "A decision rule that holds up",
           paragraphs: [
             "Buy fractional experts when the bottleneck is judgment. Buy managed pods when the bottleneck is throughput. Most growing agencies eventually need both — the mistake that burns margin is using premium-marketplace pricing to solve a throughput problem.",
+            "Marketplaces are one of five ways to buy outside capacity. The full guide compares all of them at published prices: [how to outsource digital marketing](/outsource-digital-marketing).",
           ],
         },
       ],
@@ -192,7 +194,7 @@ export const blogPosts: Record<Locale, BlogPost[]> = {
         {
           paragraphs: [
             "Most agencies that offshore don't announce it — a Hire With Near interviewee put it plainly: most agencies they'd worked with in recent years were offshoring talent while raising their prices. The work already moves offshore. The difference between the agencies it helps and the agencies it embarrasses is structure.",
-            "This guide is the checklist we wish existed when we built our own offshore delivery — models, costs, compliance and the failure modes nobody puts on their landing page.",
+            "This guide is the checklist we wish existed when we built our own offshore delivery — models, costs, compliance and the failure modes nobody puts on their landing page. It is the hiring end of the full guide to [outsourcing digital marketing](/outsource-digital-marketing); start there if you have not yet decided what should leave your agency at all.",
           ],
         },
         {
@@ -249,7 +251,10 @@ export const blogPosts: Record<Locale, BlogPost[]> = {
     {
       slug: "white-label-delivery",
       title: "White-label delivery: how agencies scale without hiring",
-      seoTitle: "White-Label Marketing Delivery for Agencies | enable.talent",
+      // Deliberately NOT the /white-label-marketing H1. The landing page owns
+      // "white label marketing agency/partner"; this article owns the model
+      // explainer, so the two stop competing for one query.
+      seoTitle: "White-Label Delivery: Scale Without Hiring | enable.talent",
       description:
         "How white-label delivery works, where it breaks, and the contract terms that keep the partner invisible — a guide for agencies scaling without hiring.",
       date: "2026-06-05",
@@ -263,7 +268,7 @@ export const blogPosts: Record<Locale, BlogPost[]> = {
           ],
         },
         {
-          heading: "What white-label actually requires",
+          heading: "The four conditions that have to hold at once",
           paragraphs: [
             "The promise is simple: your client sees your brand, your account team and your quality bar — the production happens elsewhere. For that to hold, four things must be true simultaneously: the output must match your standards without your review becoming the bottleneck; the partner must be invisible contractually and operationally; continuity must survive any individual leaving; and the economics must leave margin after the coordination cost.",
             "Most white-label failures are a violation of exactly one of these — usually discovered by a client, which is the expensive way. It's why we ran the model on ourselves first: [Enable Digital, our client zero](/case-study), is the documented version.",
@@ -275,7 +280,7 @@ export const blogPosts: Record<Locale, BlogPost[]> = {
           list: [
             "White-label agencies (established category: white-label SEO and PPC shops): productised, reliable, but you adapt to their process and their margins are baked into your price.",
             "Freelancer benches: flexible and cheap to start, but invisible-partner discipline (NDAs, branding, availability) depends on each individual — fragile at portfolio scale.",
-            "Managed pods: [a dedicated offshore team under your workflow](/how-it-works) with a QA layer on top. Newer as a category; the one built to make 'your invisible delivery department' literal.",
+            "Managed pods: [a dedicated offshore team under your workflow](/how-it-works) with a QA layer on top. Newer as a category; the one built to make 'your invisible delivery department' literal — [our own white-label pod](/white-label-marketing) is the commercial version of what this section describes.",
           ],
         },
         {
@@ -289,6 +294,7 @@ export const blogPosts: Record<Locale, BlogPost[]> = {
           heading: "When not to white-label",
           paragraphs: [
             "Strategy, senior client relationships and anything where your differentiation actually lives should stay in-house — outsourcing your core is how agencies commoditise themselves. White-label works for the production layer: the campaigns, assets, pages and reports where quality is definable and volume is the problem. Scale the engine, keep the brain.",
+            "Where to draw that line, model by model, is the subject of the full guide: [how to outsource digital marketing](/outsource-digital-marketing).",
           ],
         },
       ],
@@ -315,7 +321,7 @@ export const blogPosts: Record<Locale, BlogPost[]> = {
         {
           heading: "Cosa vende davvero Somewhere",
           paragraphs: [
-            "Somewhere è un servizio di recruiting: trovano e vettano un dipendente offshore (Filippine, America Latina, Sudafrica, Egitto), tu lo assumi e lo gestisci. Il pitch è '80% in meno' di uno stipendio USA, e la fee è una percentuale una tantum. La loro garanzia — replacement gratuito entro sei mesi — è la più forte della categoria, e la scala che la sostiene se la sono guadagnata.",
+            "Somewhere è un servizio di recruiting: trovano e selezionano un dipendente offshore (Filippine, America Latina, Sudafrica, Egitto), tu lo assumi e lo gestisci. Il pitch è '80% in meno' di uno stipendio USA, e la fee è una percentuale una tantum. La loro garanzia — replacement gratuito entro sei mesi — è la più forte della categoria, e la scala che la sostiene se la sono guadagnata.",
             "Nota cosa non c'è nel pacchetto: gestione, quality assurance, continuità oltre il singolo hire, o un setup legale europeo. Ricevi una persona, non un sistema. Per una PMI USA che assume un'executive assistant o un customer support, è esattamente la cosa giusta.",
           ],
         },
@@ -344,6 +350,7 @@ export const blogPosts: Record<Locale, BlogPost[]> = {
           paragraphs: [
             "Se stai assumendo un singolo ruolo di back-office che sei felice di gestire in autonomia — un'assistant, un support, un bookkeeper — la scala di Somewhere, il pool e la garanzia di sei mesi sono difficili da battere. Il loro modello è provato a un volume che noi non possiamo rivendicare.",
             "Se ciò che ti stringe davvero è la capacità di delivery su ruoli marketing, con il brand del tuo cliente su ogni deliverable e la protezione dei dati UE in scope, allora l'unità che ti serve non è un individuo reclutato — è un team gestito. È il gap che [il modello pod](/it/how-it-works) esiste per riempire.",
+            "Se stai ancora mappando il panorama invece di scegliere al suo interno, la guida completa è [come esternalizzare il marketing digitale](/it/outsource-digital-marketing): cinque modelli con i prezzi pubblicati, recruiter compresi.",
           ],
         },
       ],
@@ -388,7 +395,7 @@ export const blogPosts: Record<Locale, BlogPost[]> = {
           ],
           list: [
             "Growth Collective — marketplace marketing curato, ingaggio a progetto o a ore, talento occidentale, prezzi trasparenti. Adatto a lavori a progetto ben perimetrati dove vuoi scegliere tu la persona.",
-            "Mayple — marketplace con vetting sulle performance (1% di accettazione su 141 criteri, con verifica su dati reali degli ad account), piani da $2.565/mese e garanzia di 30 giorni. Pensato soprattutto per brand eCommerce e DTC che comprano esecuzione vettata.",
+            "Mayple — marketplace con vetting sulle performance (1% di accettazione su 141 criteri, con verifica su dati reali degli ad account), piani da $2.565/mese e garanzia di 30 giorni. Pensato soprattutto per brand eCommerce e DTC che comprano esecuzione già selezionata.",
             "Right Side Up — collettivo premium di marketer occidentali a $100–200/ora, nessun lock-in, e dichiaratamente rilassato se assumi le sue persone. Giusto per brand che vogliono talento di calibro in-house senza overhead d'agenzia.",
             "Toptal — il marketplace globale del 'top 3%' a $100–200/ora con trial di 2 settimane. Più forte su engineering e ruoli tecnici; il marketing non è il suo baricentro.",
             "Upwork — il marketplace aperto, senza layer di curation: vetting e gestione restano interamente a te. Sensato per task una tantum dove un errore costa poco.",
@@ -409,6 +416,7 @@ export const blogPosts: Record<Locale, BlogPost[]> = {
           heading: "Una regola di decisione che regge",
           paragraphs: [
             "Compra esperti fractional quando il collo di bottiglia è il giudizio. Compra pod gestiti quando il collo di bottiglia è il throughput. La maggior parte delle agenzie in crescita prima o poi ha bisogno di entrambi — l'errore che brucia margine è usare prezzi da marketplace premium per risolvere un problema di throughput.",
+            "I marketplace sono uno dei cinque modi di comprare capacità esterna. La guida completa li confronta tutti con i prezzi pubblicati: [come esternalizzare il marketing digitale](/it/outsource-digital-marketing).",
           ],
         },
       ],
@@ -427,7 +435,7 @@ export const blogPosts: Record<Locale, BlogPost[]> = {
         {
           paragraphs: [
             "La maggior parte delle agenzie che offshora non lo annuncia — un intervistato di Hire With Near l'ha detto chiaramente: quasi tutte le agenzie con cui aveva lavorato negli ultimi anni stavano offshorando il talento alzando al contempo i prezzi. Il lavoro va già offshore. La differenza tra le agenzie che ne beneficiano e quelle che ne vengono imbarazzate è la struttura.",
-            "Questa guida è la checklist che avremmo voluto quando abbiamo costruito la nostra delivery offshore — modelli, costi, compliance e le modalità di fallimento che nessuno mette in landing page.",
+            "Questa guida è la checklist che avremmo voluto quando abbiamo costruito la nostra delivery offshore — modelli, costi, compliance e le modalità di fallimento che nessuno mette in landing page. È il capitolo sull'assunzione della guida completa su [come esternalizzare il marketing digitale](/it/outsource-digital-marketing): parti da lì se non hai ancora deciso cosa debba uscire dall'agenzia.",
           ],
         },
         {
@@ -482,7 +490,9 @@ export const blogPosts: Record<Locale, BlogPost[]> = {
     {
       slug: "white-label-delivery",
       title: "Delivery white-label: come le agenzie scalano senza assumere",
-      seoTitle: "Delivery Marketing White-Label per Agenzie | enable.talent",
+      // Vedi la nota sul gemello inglese: il titolo non replica l'H1 di
+      // /it/white-label-marketing, così le due pagine non si contendono la stessa query.
+      seoTitle: "Delivery White-Label: Scalare Senza Assumere | enable.talent",
       description:
         "Come funziona la delivery white-label, dove si rompe e le clausole contrattuali che tengono invisibile il partner — guida per agenzie che scalano.",
       date: "2026-06-05",
@@ -496,7 +506,7 @@ export const blogPosts: Record<Locale, BlogPost[]> = {
           ],
         },
         {
-          heading: "Cosa richiede davvero il white-label",
+          heading: "Le quattro condizioni che devono reggere insieme",
           paragraphs: [
             "La promessa è semplice: il tuo cliente vede il tuo brand, il tuo account team e la tua asticella di qualità — la produzione avviene altrove. Perché regga, quattro cose devono essere vere insieme: l'output deve rispettare i tuoi standard senza che la tua review diventi il collo di bottiglia; il partner deve essere invisibile contrattualmente e operativamente; la continuità deve sopravvivere all'uscita di qualsiasi individuo; e l'economia deve lasciare margine dopo il costo di coordinamento.",
             "La maggior parte dei fallimenti white-label è la violazione di esattamente una di queste — di solito scoperta da un cliente, che è il modo costoso. È il motivo per cui abbiamo fatto girare il modello prima su noi stessi: [Enable Digital, il nostro cliente zero](/it/case-study), è la versione documentata.",
@@ -508,7 +518,7 @@ export const blogPosts: Record<Locale, BlogPost[]> = {
           list: [
             "Agenzie white-label (categoria matura: shop white-label SEO e PPC): prodotto standardizzato, affidabile, ma ti adatti al loro processo e i loro margini sono incorporati nel tuo prezzo.",
             "Bench di freelance: flessibile ed economica all'inizio, ma la disciplina da partner invisibile (NDA, branding, disponibilità) dipende da ogni individuo — fragile a scala di portafoglio.",
-            "Pod gestiti: [un team offshore dedicato dentro il tuo workflow](/it/how-it-works) con un layer di QA sopra. Categoria più giovane; quella costruita per rendere letterale 'il tuo reparto delivery invisibile'.",
+            "Pod gestiti: [un team offshore dedicato dentro il tuo workflow](/it/how-it-works) con un layer di QA sopra. Categoria più giovane; quella costruita per rendere letterale 'il tuo reparto delivery invisibile' — il [nostro pod white-label](/it/white-label-marketing) è la versione commerciale di quello che questa sezione descrive.",
           ],
         },
         {
@@ -522,6 +532,7 @@ export const blogPosts: Record<Locale, BlogPost[]> = {
           heading: "Quando non fare white-label",
           paragraphs: [
             "Strategia, relazioni senior con i clienti e tutto ciò in cui vive davvero la tua differenziazione devono restare in casa — esternalizzare il proprio core è il modo in cui le agenzie si commoditizzano. Il white-label funziona per il layer di produzione: campagne, asset, pagine e report dove la qualità è definibile e il volume è il problema. Scala il motore, tieni il cervello.",
+            "Dove tracciare quella linea, modello per modello, è il tema della guida completa: [come esternalizzare il marketing digitale](/it/outsource-digital-marketing).",
           ],
         },
       ],

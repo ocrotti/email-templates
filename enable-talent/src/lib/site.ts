@@ -17,6 +17,16 @@ export function localePath(locale: Locale, path: string): string {
   return locale === "en" ? path : `/it${clean}` || "/it";
 }
 
+/**
+ * Href for the current page in the other locale. `locale` is the locale being
+ * viewed. Header and footer must share this: two switchers pointing at
+ * different pages contradict each other and the page's own hreflang tags.
+ */
+export function switchLocaleHref(locale: Locale, pathname: string): string {
+  const basePath = locale === "it" ? pathname.replace(/^\/it/, "") || "/" : pathname;
+  return locale === "en" ? localePath("it", basePath) : basePath;
+}
+
 export function absoluteUrl(path: string): string {
   return `${SITE_URL}${path === "/" ? "" : path}`;
 }

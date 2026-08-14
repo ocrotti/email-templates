@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import type { Locale } from "@/lib/site";
-import { localePath } from "@/lib/site";
+import { localePath, switchLocaleHref } from "@/lib/site";
 import { shared } from "@/content/shared";
 
 export default function Header({ locale }: { locale: Locale }) {
@@ -39,9 +39,15 @@ export default function Header({ locale }: { locale: Locale }) {
     };
   }, [open]);
 
-  // Language switch keeps the current page: strip/add the /it prefix.
-  const basePath = locale === "it" ? pathname.replace(/^\/it/, "") || "/" : pathname;
-  const switchHref = locale === "en" ? localePath("it", basePath) : basePath;
+  const switchHref = switchLocaleHref(locale, pathname);
+  const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
+  const menuLabel = open
+    ? locale === "en"
+      ? "Close menu"
+      : "Chiudi il menu"
+    : locale === "en"
+      ? "Open menu"
+      : "Apri il menu";
 
   return (
     <header
@@ -63,11 +69,12 @@ export default function Header({ locale }: { locale: Locale }) {
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Main">
           {t.nav.map((item) => {
             const href = localePath(locale, item.path);
-            const active = pathname === href || pathname.startsWith(`${href}/`);
+            const active = isActive(href);
             return (
               <Link
                 key={item.path}
                 href={href}
+                aria-current={active ? "page" : undefined}
                 className={`link-underline py-2 text-sm transition-colors ${
                   active ? "text-paper" : "text-mist hover:text-paper"
                 }`}
@@ -88,7 +95,7 @@ export default function Header({ locale }: { locale: Locale }) {
           </Link>
           <Link
             href={localePath(locale, t.bookCallHref)}
-            className="hidden rounded-full bg-blue px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-blue-bright lg:inline-flex"
+            className="hidden rounded-full bg-blue px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-blue-bright md:inline-flex"
           >
             {t.ctaPrimary}
           </Link>
@@ -96,7 +103,8 @@ export default function Header({ locale }: { locale: Locale }) {
             type="button"
             onClick={() => setOpen(!open)}
             aria-expanded={open}
-            aria-label="Menu"
+            aria-controls="mobile-menu"
+            aria-label={menuLabel}
             className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 lg:hidden"
           >
             <span className={`h-px w-6 bg-paper transition-transform ${open ? "translate-y-[3.5px] rotate-45" : ""}`} />
@@ -108,6 +116,7 @@ export default function Header({ locale }: { locale: Locale }) {
       <AnimatePresence>
         {open ? (
           <motion.nav
+            id="mobile-menu"
             aria-label="Mobile"
             initial={reduced ? false : { opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
@@ -116,15 +125,24 @@ export default function Header({ locale }: { locale: Locale }) {
             className="overflow-hidden border-b border-ink-line bg-ink lg:hidden"
           >
             <div className="flex flex-col gap-1 px-5 py-4">
-              {t.nav.map((item) => (
-                <Link
-                  key={item.path}
-                  href={localePath(locale, item.path)}
-                  className="rounded-lg px-3 py-3 text-base text-paper/85 transition-colors hover:bg-ink-soft"
-                >
-                  {item.label}
-                </Link>
-              ))}
+              {t.nav.map((item) => {
+                const href = localePath(locale, item.path);
+                const active = isActive(href);
+                return (
+                  <Link
+                    key={item.path}
+                    href={href}
+                    aria-current={active ? "page" : undefined}
+                    // Opacity alone is too faint to read as "you are here" at
+                    // arm's length, so the drawer marks it with the hover fill too.
+                    className={`rounded-lg px-3 py-3 text-base transition-colors hover:bg-ink-soft ${
+                      active ? "bg-ink-soft text-paper" : "text-paper/85"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
               <div className="mt-3 flex items-center gap-3 px-3 pb-2">
                 <Link
                   href={localePath(locale, t.bookCallHref)}

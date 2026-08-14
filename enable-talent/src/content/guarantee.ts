@@ -143,7 +143,7 @@ export const guarantee: Record<Locale, GuaranteeContent> = {
         { label: "Review QA prima della consegna al cliente", value: "100% dei deliverable" },
         { label: "Report qualità settimanale", value: "Ogni venerdì" },
         { label: "Finestra di replacement", value: "60–90 giorni, gratuito" },
-        { label: "Preavviso per scalare su / giù", value: "30 giorni" },
+        { label: "Preavviso per aumentare o ridurre i posti", value: "30 giorni" },
         { label: "Uscita: handover di asset e documentazione", value: "≤ 30 giorni, completo" },
       ],
       note: "Il fuso aiuta: Nairobi è UTC+3, 1–2 ore avanti sul CET. Gli SLA girano nel tuo orario di ufficio, non su batch notturni.",

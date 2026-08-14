@@ -140,7 +140,7 @@ export const howItWorks: Record<Locale, HowContent> = {
       { day: "Giorni 3–7", title: "Matching dalla bench", body: "Selezioniamo specialist già testati dalla nostra bench di Nairobi per stack e settore. Conosci il pod e il QA lead senior europeo in un'unica call." },
       { day: "Giorni 7–14", title: "Onboarding", body: "Accessi, tool, template, naming convention, voce del brand. Il QA lead converte i tuoi standard nelle checklist su cui il pod lavora." },
       { day: "Settimane 2–4", title: "Sprint di trial", body: "Due settimane di deliverable veri a rischio ridotto. Output quotidiano, review settimanale con te. Paghi solo dopo che il trial ti ha convinto." },
-      { day: "Sempre", title: "Delivery gestita", body: "Il pod gira dentro il tuo workflow con report QA mensili, review di capacità e una linea diretta di escalation. Scali i posti su o giù con 30 giorni di preavviso." },
+      { day: "Sempre", title: "Delivery gestita", body: "Il pod gira dentro il tuo workflow con report QA mensili, review di capacità e una linea diretta di escalation. Aumenti o riduci i posti con 30 giorni di preavviso." },
     ],
     qa: {
       number: "02",

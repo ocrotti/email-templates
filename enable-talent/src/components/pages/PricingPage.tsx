@@ -1,6 +1,7 @@
 import type { Locale } from "@/lib/site";
 import { localePath } from "@/lib/site";
 import { pricing } from "@/content/pricing";
+import { pageSchema } from "@/content/page-schema";
 import { BreadcrumbJsonLd, FaqJsonLd, ServiceJsonLd } from "@/components/JsonLd";
 import Faq from "@/components/Faq";
 import MagneticButton from "@/components/MagneticButton";
@@ -10,26 +11,29 @@ import Link from "next/link";
 
 export default function PricingPage({ locale }: { locale: Locale }) {
   const t = pricing[locale];
+  const schema = pageSchema[locale];
 
   return (
     <>
-      <ServiceJsonLd name="Managed marketing pods" description={t.seoDescription} path={localePath(locale, "/pricing")} />
+      <ServiceJsonLd
+        name={schema.service.pricing}
+        description={t.seoDescription}
+        path={localePath(locale, "/pricing")}
+      />
       <FaqJsonLd items={t.faq} />
       <BreadcrumbJsonLd
         items={[
           { name: "enable.talent", path: localePath(locale, "/") },
-          { name: "Pricing", path: localePath(locale, "/pricing") },
+          { name: schema.breadcrumb.pricing, path: localePath(locale, "/pricing") },
         ]}
       />
 
+      {/* Hero h1 and intro sit outside Reveal: the h1 is the LCP element and must
+          paint from the server HTML, before hydration. */}
       <section className="bg-ink px-5 pb-16 pt-32 text-paper md:px-10 md:pb-24 md:pt-44">
         <div className="mx-auto w-full max-w-wrap">
-          <Reveal>
-            <h1 className="text-display-lg max-w-4xl font-display font-bold">{t.title}</h1>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mist">{t.intro}</p>
-          </Reveal>
+          <h1 className="text-display-lg max-w-4xl font-display font-bold">{t.title}</h1>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mist">{t.intro}</p>
         </div>
       </section>
 
@@ -83,11 +87,11 @@ export default function PricingPage({ locale }: { locale: Locale }) {
               <p className="font-display text-base font-semibold text-ink">{row.label}</p>
               <dl className="mt-3 grid grid-cols-2 gap-4 text-sm">
                 <div>
-                  <dt className="text-xs uppercase tracking-[0.14em] text-blue">Starter</dt>
+                  <dt className="text-xs uppercase tracking-[0.14em] text-blue">{schema.pricingTable.starter}</dt>
                   <dd className="mt-1 text-ink/70">{row.starter}</dd>
                 </div>
                 <div>
-                  <dt className="text-xs uppercase tracking-[0.14em] text-ink/60">Full</dt>
+                  <dt className="text-xs uppercase tracking-[0.14em] text-ink/60">{schema.pricingTable.full}</dt>
                   <dd className="mt-1 text-ink/70">{row.full}</dd>
                 </div>
               </dl>
@@ -96,17 +100,25 @@ export default function PricingPage({ locale }: { locale: Locale }) {
         </div>
         <div className="hidden overflow-x-auto md:block">
           <table className="w-full min-w-[640px] border-separate border-spacing-0 text-left text-sm">
+            <caption className="sr-only">{schema.pricingTable.caption}</caption>
             <thead>
               <tr>
-                <th className="border-b border-paper-line pb-3 pr-6 font-display text-base text-ink/70" />
-                <th className="border-b border-paper-line pb-3 pr-6 font-display text-base font-semibold text-blue">Starter</th>
-                <th className="border-b border-paper-line pb-3 font-display text-base font-semibold text-ink">Full</th>
+                {/* Empty corner cell: a th here would announce as a header for the row labels. */}
+                <td className="border-b border-paper-line pb-3 pr-6" />
+                <th scope="col" className="border-b border-paper-line pb-3 pr-6 font-display text-base font-semibold text-blue">
+                  {schema.pricingTable.starter}
+                </th>
+                <th scope="col" className="border-b border-paper-line pb-3 font-display text-base font-semibold text-ink">
+                  {schema.pricingTable.full}
+                </th>
               </tr>
             </thead>
             <tbody>
               {t.included.rows.map((row) => (
                 <tr key={row.label}>
-                  <td className="border-b border-paper-line/70 py-3.5 pr-6 font-medium text-ink">{row.label}</td>
+                  <th scope="row" className="border-b border-paper-line/70 py-3.5 pr-6 text-left font-medium text-ink">
+                    {row.label}
+                  </th>
                   <td className="border-b border-paper-line/70 py-3.5 pr-6 text-ink/65">{row.starter}</td>
                   <td className="border-b border-paper-line/70 py-3.5 text-ink/65">{row.full}</td>
                 </tr>

@@ -22,12 +22,10 @@ export default function PrivacyPage({ locale }: { locale: Locale }) {
           <Reveal>
             <p className="font-mono text-sm text-blue-bright">{t.updated}</p>
           </Reveal>
-          <Reveal delay={0.05}>
-            <h1 className="text-display-lg mt-4 max-w-4xl font-display font-bold">{t.title}</h1>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <p className="mt-6 max-w-3xl text-lg leading-relaxed text-mist">{t.intro}</p>
-          </Reveal>
+          {/* h1 and intro sit outside Reveal: the h1 is the LCP element and must
+              paint from the server HTML, before hydration. */}
+          <h1 className="text-display-lg mt-4 max-w-4xl font-display font-bold">{t.title}</h1>
+          <p className="mt-6 max-w-3xl text-lg leading-relaxed text-mist">{t.intro}</p>
         </div>
       </section>
 

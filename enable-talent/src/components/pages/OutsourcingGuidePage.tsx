@@ -4,6 +4,7 @@ import type { Locale } from "@/lib/site";
 import { localePath } from "@/lib/site";
 import { outsourcingGuide } from "@/content/outsourcing-guide";
 import { shared } from "@/content/shared";
+import { pageSchema } from "@/content/page-schema";
 import { ArticleJsonLd, BreadcrumbJsonLd, FaqJsonLd } from "@/components/JsonLd";
 import Faq from "@/components/Faq";
 import MagneticButton from "@/components/MagneticButton";
@@ -55,10 +56,24 @@ function renderInlineLight(text: string): ReactNode {
   return nodes;
 }
 
+/** Anchor id for a guide section, derived from its content number ("01" → "guide-01"). */
+function sectionId(number: string): string {
+  return `guide-${number}`;
+}
+
 export default function OutsourcingGuidePage({ locale }: { locale: Locale }) {
   const t = outsourcingGuide[locale];
   const s = shared[locale];
+  const g = pageSchema[locale].guide;
   const path = "/outsource-digital-marketing";
+
+  // The page runs ~10,500px; the jump list gives readers a map and a way to skip
+  // to the part they came for. Labels come from the sections themselves, so they
+  // are localized for free and cannot drift out of sync.
+  const toc = [t.scope, t.models, t.decide, t.europe, t.geography, t.checklist].map((section) => ({
+    number: section.number,
+    title: section.title,
+  }));
 
   return (
     <>
@@ -85,21 +100,40 @@ export default function OutsourcingGuidePage({ locale }: { locale: Locale }) {
               {t.kicker}
             </p>
           </Reveal>
-          <Reveal delay={0.05}>
-            <h1 className="text-display-lg max-w-4xl font-display font-bold">{t.title}</h1>
-          </Reveal>
+          {/* h1 and intro sit outside Reveal: the h1 is the LCP element and must
+              paint from the server HTML, before hydration. */}
+          <h1 className="text-display-lg max-w-4xl font-display font-bold">{t.title}</h1>
           <div className="mt-6 max-w-2xl space-y-5">
-            {t.intro.map((p, i) => (
-              <Reveal key={p.slice(0, 24)} delay={0.12 + i * 0.06}>
-                <p className="text-base leading-relaxed text-mist md:text-lg">{p}</p>
-              </Reveal>
+            {t.intro.map((p) => (
+              <p key={p.slice(0, 24)} className="text-base leading-relaxed text-mist md:text-lg">
+                {p}
+              </p>
             ))}
           </div>
+          <Reveal delay={0.2}>
+            <nav aria-labelledby="guide-toc" className="mt-12 max-w-3xl rounded-2xl border border-ink-line bg-ink-soft/50 p-6 md:p-8">
+              <h2 id="guide-toc" className="text-xs uppercase tracking-[0.2em] text-mist">
+                {g.tocTitle}
+              </h2>
+              <ol className="mt-5 grid gap-x-8 gap-y-3 sm:grid-cols-2">
+                {toc.map((item) => (
+                  <li key={item.number} className="flex gap-4 text-sm">
+                    <span className="font-mono text-blue-bright" aria-hidden>
+                      {item.number}
+                    </span>
+                    <a href={`#${sectionId(item.number)}`} className="link-underline text-paper/85">
+                      {item.title}
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            </nav>
+          </Reveal>
         </div>
       </section>
 
       {/* 01 — scope: what moves out vs what stays in */}
-      <Section number={t.scope.number} title={t.scope.title} intro={t.scope.intro} theme="light">
+      <Section id={sectionId(t.scope.number)} number={t.scope.number} title={t.scope.title} intro={t.scope.intro} theme="light">
         <div className="grid gap-10 lg:grid-cols-2">
           <div>
             <Reveal>
@@ -124,7 +158,8 @@ export default function OutsourcingGuidePage({ locale }: { locale: Locale }) {
               {t.scope.keep.map((item, i) => (
                 <Reveal key={item.title} delay={i * 0.06}>
                   <li className="rounded-2xl border border-amber/40 bg-amber/5 p-5">
-                    <p className="font-display text-base font-semibold text-amber-deep">{item.title}</p>
+                    {/* amber-ink, not amber-deep: this is text on a peach card. */}
+                    <p className="font-display text-base font-semibold text-amber-ink">{item.title}</p>
                     <p className="mt-1.5 text-sm leading-relaxed text-ink/70">{item.body}</p>
                   </li>
                 </Reveal>
@@ -138,7 +173,7 @@ export default function OutsourcingGuidePage({ locale }: { locale: Locale }) {
       </Section>
 
       {/* 02 — the five models */}
-      <Section number={t.models.number} title={t.models.title} intro={t.models.intro} theme="dark">
+      <Section id={sectionId(t.models.number)} number={t.models.number} title={t.models.title} intro={t.models.intro} theme="dark">
         <ol className="space-y-6">
           {t.models.items.map((model, i) => (
             <Reveal key={model.name} delay={Math.min(i, 2) * 0.08}>
@@ -169,10 +204,23 @@ export default function OutsourcingGuidePage({ locale }: { locale: Locale }) {
         <Reveal delay={0.1}>
           <p className="mt-10 max-w-3xl text-base leading-relaxed text-mist">{renderInline(t.models.note)}</p>
         </Reveal>
+        {/* Mid-page CTA: the model comparison is where a reader decides, and the
+            closing CTA is another ~7,000px away. */}
+        <Reveal delay={0.15}>
+          <div className="mt-12 flex flex-col gap-6 rounded-2xl border border-blue/30 bg-blue/10 p-7 md:flex-row md:items-center md:justify-between md:p-8">
+            <div className="max-w-xl">
+              <h3 className="font-display text-lg font-semibold text-paper">{g.midCta.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-mist">{g.midCta.body}</p>
+            </div>
+            <MagneticButton href={localePath(locale, "/contact")} className="shrink-0">
+              {s.ctaPrimary} →
+            </MagneticButton>
+          </div>
+        </Reveal>
       </Section>
 
       {/* 03 — the four success factors */}
-      <Section number={t.decide.number} title={t.decide.title} intro={t.decide.intro} theme="light">
+      <Section id={sectionId(t.decide.number)} number={t.decide.number} title={t.decide.title} intro={t.decide.intro} theme="light">
         <div className="grid gap-6 md:grid-cols-2">
           {t.decide.items.map((item, i) => (
             <Reveal key={item.title} delay={i * 0.08}>
@@ -187,7 +235,7 @@ export default function OutsourcingGuidePage({ locale }: { locale: Locale }) {
       </Section>
 
       {/* 04 — GDPR and the European specifics */}
-      <Section number={t.europe.number} title={t.europe.title} theme="dark">
+      <Section id={sectionId(t.europe.number)} number={t.europe.number} title={t.europe.title} theme="dark">
         <div className="max-w-2xl space-y-5">
           {t.europe.body.map((p) => (
             <Reveal key={p.slice(0, 24)}>
@@ -211,7 +259,7 @@ export default function OutsourcingGuidePage({ locale }: { locale: Locale }) {
       </Section>
 
       {/* 05 — geography */}
-      <Section number={t.geography.number} title={t.geography.title} theme="light">
+      <Section id={sectionId(t.geography.number)} number={t.geography.number} title={t.geography.title} theme="light">
         <Reveal>
           <p className="max-w-2xl text-base leading-relaxed text-ink/70 md:text-lg">
             {renderInlineLight(t.geography.intro)}
@@ -235,7 +283,7 @@ export default function OutsourcingGuidePage({ locale }: { locale: Locale }) {
       </Section>
 
       {/* 06 — checklist */}
-      <Section number={t.checklist.number} title={t.checklist.title} intro={t.checklist.intro} theme="dark">
+      <Section id={sectionId(t.checklist.number)} number={t.checklist.number} title={t.checklist.title} intro={t.checklist.intro} theme="dark">
         <ol className="space-y-4">
           {t.checklist.steps.map((step, i) => (
             <Reveal key={step.title} delay={Math.min(i, 4) * 0.06}>

@@ -103,7 +103,12 @@ export const home: Record<Locale, HomeContent> = {
   en: {
     hero: {
       eyebrow: "Managed marketing pods · Nairobi → Europe",
-      titleLines: ["Scale your agency with", "dedicated, managed", "marketing pods."],
+      // Hand-split, and every line has to survive a 390px viewport: at that width the
+      // clamp floors the display size at 2.4rem and the H1 gets ~350px, so a line over
+      // ~14 characters re-wraps and the three-line stack rags into five with orphans.
+      // "Dedicated" and "managed" live in the eyebrow and the differentiator list above
+      // and below instead of stretching line one past the fold.
+      titleLines: ["Scale your", "agency with", "marketing pods."],
       sub: "Quality under European control. Costs 40–70% lower. Zero hiring risk. Your invisible delivery department, live in 10–14 days.",
       diff: ["Senior European QA on every deliverable", "White-label by default", "2-week trial — pay only after"],
       ctaPrimary: "Book a call",
@@ -304,7 +309,8 @@ export const home: Record<Locale, HomeContent> = {
   it: {
     hero: {
       eyebrow: "Pod marketing gestiti · Nairobi → Europa",
-      titleLines: ["Scala la tua agenzia", "con pod marketing", "dedicati e gestiti."],
+      // Same 390px constraint as the English hero — see the note there.
+      titleLines: ["Scala la tua", "agenzia con", "pod marketing."],
       sub: "Qualità sotto controllo europeo. Costi più bassi del 40–70%. Zero rischio di assunzione. Il tuo reparto delivery invisibile, operativo in 10–14 giorni.",
       diff: ["QA senior europeo su ogni deliverable", "White-label di default", "Trial di 2 settimane — paghi solo dopo"],
       ctaPrimary: "Prenota una call",

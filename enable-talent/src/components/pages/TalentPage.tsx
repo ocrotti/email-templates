@@ -2,6 +2,7 @@ import type { Locale } from "@/lib/site";
 import { localePath } from "@/lib/site";
 import { talent } from "@/content/talent";
 import { shared } from "@/content/shared";
+import { pageSchema } from "@/content/page-schema";
 import { BreadcrumbJsonLd, FaqJsonLd } from "@/components/JsonLd";
 import Faq from "@/components/Faq";
 import MagneticButton from "@/components/MagneticButton";
@@ -11,6 +12,7 @@ import Section from "@/components/Section";
 export default function TalentPage({ locale }: { locale: Locale }) {
   const t = talent[locale];
   const s = shared[locale];
+  const schema = pageSchema[locale];
 
   return (
     <>
@@ -18,7 +20,7 @@ export default function TalentPage({ locale }: { locale: Locale }) {
       <BreadcrumbJsonLd
         items={[
           { name: "enable.talent", path: localePath(locale, "/") },
-          { name: "Talent", path: localePath(locale, "/talent") },
+          { name: schema.breadcrumb.talent, path: localePath(locale, "/talent") },
         ]}
       />
 
@@ -31,12 +33,10 @@ export default function TalentPage({ locale }: { locale: Locale }) {
               Nairobi · Silicon Savannah
             </p>
           </Reveal>
-          <Reveal delay={0.05}>
-            <h1 className="text-display-lg max-w-4xl font-display font-bold">{t.title}</h1>
-          </Reveal>
-          <Reveal delay={0.12}>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mist">{t.intro}</p>
-          </Reveal>
+          {/* h1 and intro sit outside Reveal: the h1 is the LCP element and must
+              paint from the server HTML, before hydration. */}
+          <h1 className="text-display-lg max-w-4xl font-display font-bold">{t.title}</h1>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mist">{t.intro}</p>
         </div>
       </section>
 
@@ -63,7 +63,8 @@ export default function TalentPage({ locale }: { locale: Locale }) {
           {t.vetting.steps.map((step, i) => (
             <Reveal key={step.title} delay={i * 0.08}>
               <li className="flex gap-6 rounded-2xl border border-paper-line bg-white/70 p-6 md:items-center">
-                <span className="font-mono text-sm font-semibold text-amber-deep">{String(i + 1).padStart(2, "0")}</span>
+                {/* amber-ink, not amber-deep: this is text on a light card. */}
+                <span className="font-mono text-sm font-semibold text-amber-ink">{String(i + 1).padStart(2, "0")}</span>
                 <div>
                   <h3 className="font-display text-lg font-semibold text-ink">{step.title}</h3>
                   <p className="mt-1.5 text-sm leading-relaxed text-ink/65">{step.body}</p>

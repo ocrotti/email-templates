@@ -96,7 +96,7 @@ export const outsourcingGuide: Record<Locale, GuideContent> = {
         { title: "Judgement calls", body: "Budget shifts, crisis response, saying no. Delegate work, never accountability." },
       ],
       note:
-        "Blunt test: if quality fits a checklist, the task can leave. If it depends on this client's politics, it cannot. Our [role pages](/roles) list what goes first.",
+        "Blunt test: if quality fits a checklist, the task can leave. If it depends on this client's politics, it cannot. Those production tasks map onto the seats we staff — [campaign builds](/roles/paid-media), [on-page and technical SEO](/roles/seo), [content calendars](/roles/content-social), [design assets](/roles/design), [automation flows](/roles/marketing-automation) and [landing pages](/roles/development) — and each of those [role pages](/roles) says what the seat does day to day, and what it does not.",
     },
     models: {
       number: "02",
@@ -120,7 +120,7 @@ export const outsourcingGuide: Record<Locale, GuideContent> = {
         },
         {
           name: "White-label per-service agencies",
-          what: "You resell another agency's SEO, paid or design under your brand — classic [white-label marketing](/white-label-marketing).",
+          what: "You resell another agency's SEO, paid or design under your brand — classic [white-label marketing](/white-label-marketing). How that delivery layer behaves once it is running is the subject of our [white-label delivery guide](/blog/white-label-delivery).",
           cost: "Per deliverable, or a fixed monthly package per service line.",
           bestFor: "Adding a service you do not have and will not build.",
           breaks: "Someone else prices your delivery, and you sit two layers from the work.",
@@ -141,7 +141,7 @@ export const outsourcingGuide: Record<Locale, GuideContent> = {
         },
       ],
       note:
-        "The \"40–60% cheaper than local hiring\" line on every offshore site compares gross salaries and ignores your management hours. And your real price competition is not a European hire but the LatAm and Philippine providers at $2,000–4,500/month — what our [pricing](/pricing) answers. See also [Somewhere](/blog/somewhere-alternatives) and [MarketerHire](/blog/marketerhire-alternatives).",
+        "Every offshore site opens on a single headline percentage, and that number is the least trustworthy part of the pitch: it compares gross salaries, ignores your management hours, and averages markets that behave nothing alike. We publish 40–70% below Western employer cost and then let the [homepage calculator](/) show you the thin end of it — against a bare Italian salary the gap narrows sharply, and on content and social it disappears entirely. Your real price competition is not a European hire either: it is the LatAm and Philippine providers at $2,000–4,500/month, which is what our [pricing](/pricing) answers. See also [Somewhere](/blog/somewhere-alternatives) and [MarketerHire](/blog/marketerhire-alternatives).",
     },
     decide: {
       number: "03",
@@ -272,7 +272,7 @@ export const outsourcingGuide: Record<Locale, GuideContent> = {
         { title: "Le decisioni di merito", body: "Spostare budget, gestire una crisi, dire no. Deleghi il lavoro, mai la responsabilità." },
       ],
       note:
-        "Test brutale: se la qualità sta in una checklist, l'attività può uscire. Se dipende dalle dinamiche interne di quel cliente, no. Le nostre [pagine ruolo](/it/roles) elencano cosa esce per primo.",
+        "Test brutale: se la qualità sta in una checklist, l'attività può uscire. Se dipende dalle dinamiche interne di quel cliente, no. Quelle attività di produzione corrispondono ai posti che copriamo — [costruzione delle campagne](/it/roles/paid-media), [SEO on-page e tecnica](/it/roles/seo), [calendari editoriali](/it/roles/content-social), [asset di design](/it/roles/design), [flussi di automation](/it/roles/marketing-automation) e [landing page](/it/roles/development) — e ognuna di quelle [pagine ruolo](/it/roles) racconta cosa fa quel posto ogni giorno, e cosa non fa.",
     },
     models: {
       number: "02",
@@ -296,7 +296,7 @@ export const outsourcingGuide: Record<Locale, GuideContent> = {
         },
         {
           name: "Agenzie white-label per singolo servizio",
-          what: "Rivendi sotto il tuo marchio la SEO, il paid o il design di un'altra agenzia: il classico [marketing white-label](/it/white-label-marketing).",
+          what: "Rivendi sotto il tuo marchio la SEO, il paid o il design di un'altra agenzia: il classico [marketing white-label](/it/white-label-marketing). Come si comporta quel layer di delivery una volta avviato è il tema della nostra [guida alla delivery white-label](/it/blog/white-label-delivery).",
           cost: "A deliverable, o con un pacchetto mensile fisso per linea di servizio.",
           bestFor: "Aggiungere un servizio che non hai e non costruirai.",
           breaks: "Il prezzo della tua delivery lo fa un altro, e sei a due livelli da chi esegue.",
@@ -317,7 +317,7 @@ export const outsourcingGuide: Record<Locale, GuideContent> = {
         },
       ],
       note:
-        "Il \"40–60% in meno di un'assunzione locale\" che leggi ovunque confronta stipendi lordi e ignora le tue ore di gestione. E il tuo vero concorrente di prezzo non è un'assunzione europea: sono i fornitori latinoamericani e filippini a 2.000–4.500 $/mese, ed è a loro che rispondono i nostri [prezzi](/it/pricing). Vedi anche [Somewhere](/it/blog/somewhere-alternatives) e [MarketerHire](/it/blog/marketerhire-alternatives).",
+        "Ogni sito offshore si apre su un'unica percentuale in vetrina, ed è la parte meno affidabile del discorso: confronta stipendi lordi, ignora le tue ore di gestione e fa la media di mercati che si comportano in modo diverso. Noi pubblichiamo 40–70% sotto il costo datoriale occidentale e poi lasciamo che sia il [calcolatore in home](/it) a mostrarti l'estremo più stretto: contro uno stipendio italiano lordo il divario si assottiglia parecchio, e su content e social sparisce del tutto. E il tuo vero concorrente di prezzo non è un'assunzione europea: sono i fornitori latinoamericani e filippini a $2.000–4.500/mese, ed è a loro che rispondono i nostri [prezzi](/it/pricing). Vedi anche [Somewhere](/it/blog/somewhere-alternatives) e [MarketerHire](/it/blog/marketerhire-alternatives).",
     },
     decide: {
       number: "03",

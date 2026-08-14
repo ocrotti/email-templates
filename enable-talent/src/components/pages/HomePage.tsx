@@ -3,7 +3,7 @@ import { localePath } from "@/lib/site";
 import { home, marqueeItems } from "@/content/home";
 import { enableDigital } from "@/content/enable-digital";
 import { roles, roleSlugs } from "@/content/roles";
-import { shared } from "@/content/shared";
+import { pageSchema } from "@/content/page-schema";
 import { FaqJsonLd, OrganizationJsonLd, ServiceJsonLd } from "@/components/JsonLd";
 import Counter from "@/components/Counter";
 import ComparisonTable from "@/components/ComparisonTable";
@@ -24,13 +24,14 @@ export default function HomePage({ locale }: { locale: Locale }) {
   const t = home[locale];
   const roleData = roles[locale];
   const bridge = enableDigital[locale];
+  const schema = pageSchema[locale];
 
   return (
     <>
       <OrganizationJsonLd />
       <ServiceJsonLd
-        name="Managed marketing pods for European agencies"
-        description="Dedicated Nairobi marketing pods with senior European QA, white-label workflow, 2-week trial and replacement guarantee."
+        name={schema.service.home.name}
+        description={schema.service.home.description}
         path={localePath(locale, "/")}
       />
       <FaqJsonLd items={t.faq.items} />
@@ -46,9 +47,9 @@ export default function HomePage({ locale }: { locale: Locale }) {
               </p>
             </Reveal>
             <HeroReveal lines={t.hero.titleLines} className="text-display-xl font-display font-bold" />
-            <Reveal delay={0.42} y={20}>
-              <p className="mt-8 max-w-xl text-lg leading-relaxed text-mist md:text-xl">{t.hero.sub}</p>
-            </Reveal>
+            {/* Not wrapped in Reveal: this paragraph is the LCP element, so it has
+                to paint from the server HTML rather than wait for hydration. */}
+            <p className="mt-8 max-w-xl text-lg leading-relaxed text-mist md:text-xl">{t.hero.sub}</p>
             <Reveal delay={0.52} y={20}>
               <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2">
                 {t.hero.diff.map((d) => (
@@ -110,7 +111,8 @@ export default function HomePage({ locale }: { locale: Locale }) {
             <div className="mt-4 grid gap-6 md:grid-cols-2">
               {t.solution.not.map((item) => (
                 <div key={item.title}>
-                  <p className="font-semibold text-amber-deep">{item.title}</p>
+                  {/* amber-ink, not amber-deep: this is text on a peach ground. */}
+                  <p className="font-semibold text-amber-ink">{item.title}</p>
                   <p className="mt-1.5 text-sm leading-relaxed text-ink/65">{item.body}</p>
                 </div>
               ))}
@@ -168,25 +170,33 @@ export default function HomePage({ locale }: { locale: Locale }) {
         </Reveal>
       </Section>
 
-      {/* Roles grid */}
-      <Section theme="dark" title={locale === "en" ? "Built from six roles." : "Costruito da sei ruoli."} compact>
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {roleSlugs.map((slug, i) => {
-            const role = roleData[slug];
-            return (
-              <Reveal key={slug} delay={i * 0.08}>
-                <RoleCard
-                  href={localePath(locale, `/roles/${slug}`)}
-                  name={role.name}
-                  tagline={role.tagline}
-                  band={role.savings.band}
-                  index={i}
-                />
-              </Reveal>
-            );
-          })}
+      {/* Roles grid — an index, not a step in the 01→09 argument, so it renders
+          outside the numbered gutter grid instead of sitting in it unnumbered. */}
+      <section data-theme="dark" className="relative bg-ink px-5 py-20 text-paper transition-colors duration-700 md:px-10 md:py-32">
+        <div className="mx-auto w-full max-w-wrap">
+          <Reveal>
+            <h2 className="text-display-sm max-w-3xl font-display font-bold">
+              {locale === "en" ? "Built from six roles." : "Costruito da sei ruoli."}
+            </h2>
+          </Reveal>
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 md:mt-16 lg:grid-cols-3">
+            {roleSlugs.map((slug, i) => {
+              const role = roleData[slug];
+              return (
+                <Reveal key={slug} delay={i * 0.08}>
+                  <RoleCard
+                    href={localePath(locale, `/roles/${slug}`)}
+                    name={role.name}
+                    tagline={role.tagline}
+                    band={role.savings.band}
+                    index={i}
+                  />
+                </Reveal>
+              );
+            })}
+          </div>
         </div>
-      </Section>
+      </section>
 
       {/* 06 — Proof */}
       <Section number={t.proof.number} title={t.proof.title} intro={t.proof.body} theme="dark" compact>

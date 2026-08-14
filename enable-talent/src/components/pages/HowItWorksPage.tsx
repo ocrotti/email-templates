@@ -2,6 +2,7 @@ import type { Locale } from "@/lib/site";
 import { localePath } from "@/lib/site";
 import { howItWorks } from "@/content/how-it-works";
 import { shared } from "@/content/shared";
+import { pageSchema } from "@/content/page-schema";
 import { BreadcrumbJsonLd, FaqJsonLd, ServiceJsonLd } from "@/components/JsonLd";
 import Faq from "@/components/Faq";
 import MagneticButton from "@/components/MagneticButton";
@@ -12,11 +13,12 @@ import Timeline from "@/components/Timeline";
 export default function HowItWorksPage({ locale }: { locale: Locale }) {
   const t = howItWorks[locale];
   const s = shared[locale];
+  const schema = pageSchema[locale];
 
   return (
     <>
       <ServiceJsonLd
-        name="Managed pod onboarding process"
+        name={schema.service.howItWorks}
         description={t.seoDescription}
         path={localePath(locale, "/how-it-works")}
       />
@@ -24,18 +26,17 @@ export default function HowItWorksPage({ locale }: { locale: Locale }) {
       <BreadcrumbJsonLd
         items={[
           { name: "enable.talent", path: localePath(locale, "/") },
-          { name: t.title, path: localePath(locale, "/how-it-works") },
+          // The page title is a full sentence; a crumb needs the nav label.
+          { name: schema.breadcrumb.howItWorks, path: localePath(locale, "/how-it-works") },
         ]}
       />
 
+      {/* Hero h1 and intro sit outside Reveal: the h1 is the LCP element and must
+          paint from the server HTML, before hydration. */}
       <section className="bg-ink px-5 pb-16 pt-32 text-paper md:px-10 md:pb-24 md:pt-44">
         <div className="mx-auto w-full max-w-wrap">
-          <Reveal>
-            <h1 className="text-display-lg max-w-4xl font-display font-bold">{t.title}</h1>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mist">{t.intro}</p>
-          </Reveal>
+          <h1 className="text-display-lg max-w-4xl font-display font-bold">{t.title}</h1>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mist">{t.intro}</p>
         </div>
       </section>
 

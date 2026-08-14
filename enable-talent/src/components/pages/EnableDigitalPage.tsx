@@ -26,12 +26,10 @@ export default function EnableDigitalPage({ locale }: { locale: Locale }) {
               {t.eyebrow}
             </p>
           </Reveal>
-          <Reveal delay={0.05}>
-            <h1 className="text-display-lg max-w-4xl font-display font-bold">{t.title}</h1>
-          </Reveal>
-          <Reveal delay={0.12}>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mist">{t.intro}</p>
-          </Reveal>
+          {/* h1 and intro sit outside Reveal: the h1 is the LCP element and must
+              paint from the server HTML, before hydration. */}
+          <h1 className="text-display-lg max-w-4xl font-display font-bold">{t.title}</h1>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mist">{t.intro}</p>
         </div>
       </section>
 
@@ -52,7 +50,8 @@ export default function EnableDigitalPage({ locale }: { locale: Locale }) {
                   </div>
                   <p
                     className={`mt-6 border-t pt-4 text-sm font-semibold ${
-                      toDigital ? "border-amber-deep/25 text-amber-deep" : "border-blue/25 text-blue"
+                      // amber-ink, not amber-deep: this is text on a peach card.
+                      toDigital ? "border-amber-deep/25 text-amber-ink" : "border-blue/25 text-blue"
                     }`}
                   >
                     {item.verdict}

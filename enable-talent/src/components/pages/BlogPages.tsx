@@ -65,12 +65,10 @@ export function BlogIndexPage({ locale }: { locale: Locale }) {
       />
       <section className="bg-ink px-5 pb-16 pt-32 text-paper md:px-10 md:pb-24 md:pt-44">
         <div className="mx-auto w-full max-w-wrap">
-          <Reveal>
-            <h1 className="text-display-lg max-w-4xl font-display font-bold">{t.title}</h1>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mist">{t.intro}</p>
-          </Reveal>
+          {/* h1 and intro sit outside Reveal: the h1 is the LCP element and must
+              paint from the server HTML, before hydration. */}
+          <h1 className="text-display-lg max-w-4xl font-display font-bold">{t.title}</h1>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mist">{t.intro}</p>
         </div>
       </section>
       <Section theme="dark">
@@ -135,9 +133,9 @@ export function BlogPostPage({ locale, post }: { locale: Locale; post: BlogPost 
               {t.backToBlog}
             </Link>
           </Reveal>
-          <Reveal delay={0.05}>
-            <h1 className="text-display-md mt-6 font-display font-bold">{post.title}</h1>
-          </Reveal>
+          {/* h1 outside Reveal: it is the LCP element and must paint from the
+              server HTML, before hydration. */}
+          <h1 className="text-display-md mt-6 font-display font-bold">{post.title}</h1>
           <Reveal delay={0.12}>
             <div className="mt-6 flex flex-wrap items-center gap-3 text-sm text-mist">
               <span className="rounded-full border border-amber/40 px-3 py-1 text-xs text-amber">{post.tag}</span>

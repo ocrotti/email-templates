@@ -2,6 +2,7 @@ import type { Locale } from "@/lib/site";
 import { localePath } from "@/lib/site";
 import { caseStudy } from "@/content/case-study";
 import { shared } from "@/content/shared";
+import { pageSchema } from "@/content/page-schema";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import MagneticButton from "@/components/MagneticButton";
 import Reveal from "@/components/Reveal";
@@ -10,13 +11,14 @@ import Section from "@/components/Section";
 export default function CaseStudyPage({ locale }: { locale: Locale }) {
   const t = caseStudy[locale];
   const s = shared[locale];
+  const schema = pageSchema[locale];
 
   return (
     <>
       <BreadcrumbJsonLd
         items={[
           { name: "enable.talent", path: localePath(locale, "/") },
-          { name: "Case study", path: localePath(locale, "/case-study") },
+          { name: schema.breadcrumb.caseStudy, path: localePath(locale, "/case-study") },
         ]}
       />
 
@@ -27,12 +29,10 @@ export default function CaseStudyPage({ locale }: { locale: Locale }) {
               {t.eyebrow}
             </p>
           </Reveal>
-          <Reveal delay={0.05}>
-            <h1 className="text-display-lg max-w-4xl font-display font-bold">{t.title}</h1>
-          </Reveal>
-          <Reveal delay={0.12}>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mist">{t.intro}</p>
-          </Reveal>
+          {/* h1 and intro sit outside Reveal: the h1 is the LCP element and must
+              paint from the server HTML, before hydration. */}
+          <h1 className="text-display-lg max-w-4xl font-display font-bold">{t.title}</h1>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mist">{t.intro}</p>
         </div>
       </section>
 
@@ -78,7 +78,7 @@ export default function CaseStudyPage({ locale }: { locale: Locale }) {
             </Reveal>
           ))}
         </div>
-        <p className="mt-8 max-w-2xl text-sm leading-relaxed text-ink/55">{t.results.note}</p>
+        <p className="mt-8 max-w-2xl text-sm leading-relaxed text-ink/65">{t.results.note}</p>
       </Section>
 
       <Section title={t.next.title} intro={t.next.body} theme="dark" compact>

@@ -37,10 +37,13 @@ the Enable Digital bridge, not as a keyword investment. Do not spend on Italian 
 | `/` | offshore marketing teams for European agencies | managed marketing pods | commercial | Title targets the category, not the brand. |
 | `/white-label-marketing` | white label marketing agency / partner | white label delivery for agencies | commercial | The head commercial term we can credibly contest. IT twin targets the thin Italian SERP. |
 | `/outsource-digital-marketing` | outsource digital marketing | offshore digital marketing services, how to outsource marketing | informational pillar | Written for the agency owner the incumbent guides ignore. Funnels to `/roles`, `/pricing`, `/white-label-marketing`. |
-| `/marketing-salaries` | marketing salary benchmarks Europe | digital marketing specialist salary Italy, SEO specialist salary Germany | informational | Link-magnet data page. Publishes EU employer cost only — never Kenyan salaries or our internal cost. |
+| `/marketing-salaries` | marketing salary benchmarks Europe | digital marketing specialist salary Italy, SEO specialist salary Germany | informational | Link-magnet data page. Publishes European gross salary only — never Kenyan salaries or our internal cost. `scripts/check-claims.mjs` enforces that. |
 | `/roles/<slug>` (×6) | hire an offshore \<role\> | remote \<role\> for agencies | commercial long-tail | Keyword H1s; 600–800 unique words each. Highest-leverage cluster: low volume, highest intent. |
 | `/roles` | offshore marketing roles | — | commercial hub | Distributes authority to the six role pages. |
 | `/pricing` | managed marketing pod pricing | offshore marketing team cost | commercial | Publishing bands beats "contact us" for a new brand. |
+| `/how-it-works` | how managed marketing pods work | offshore marketing delivery process | informational | Answers the "what actually happens" objection; the timeline page the home teaser feeds. |
+| `/blog` | — | brand + blog | hub | Distributes to the four articles; not a ranking target itself. |
+| `/contact` | — | brand + contact | conversion | Deliberately not optimised for search: it is the destination, not an entry point. |
 | `/guarantee` | — | trust queries, brand + "guarantee" | trust | Ranks for little; converts a lot. |
 | `/talent` | — | brand + Nairobi/fair pay | trust | Answers the quality objection; the fair-pay policy is also reputational insurance. |
 | `/case-study` | — | brand | trust | — |

@@ -2,6 +2,7 @@ import type { Locale } from "@/lib/site";
 import { localePath } from "@/lib/site";
 import { roles, rolesIndex, roleSlugs } from "@/content/roles";
 import { shared } from "@/content/shared";
+import { pageSchema } from "@/content/page-schema";
 import { BreadcrumbJsonLd, FaqJsonLd, ServiceJsonLd } from "@/components/JsonLd";
 import Faq from "@/components/Faq";
 import MagneticButton from "@/components/MagneticButton";
@@ -13,6 +14,8 @@ import Link from "next/link";
 export function RolesIndexPage({ locale }: { locale: Locale }) {
   const t = rolesIndex[locale];
   const roleData = roles[locale];
+  const s = shared[locale];
+  const cta = pageSchema[locale].rolesCta;
 
   return (
     <>
@@ -22,14 +25,12 @@ export function RolesIndexPage({ locale }: { locale: Locale }) {
           { name: t.title, path: localePath(locale, "/roles") },
         ]}
       />
+      {/* Hero h1 and intro sit outside Reveal: the h1 is the LCP element and must
+          paint from the server HTML, before hydration. */}
       <section className="bg-ink px-5 pb-16 pt-32 text-paper md:px-10 md:pb-24 md:pt-44">
         <div className="mx-auto w-full max-w-wrap">
-          <Reveal>
-            <h1 className="text-display-lg max-w-4xl font-display font-bold">{t.title}</h1>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mist">{t.intro}</p>
-          </Reveal>
+          <h1 className="text-display-lg max-w-4xl font-display font-bold">{t.title}</h1>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mist">{t.intro}</p>
         </div>
       </section>
       <Section theme="dark">
@@ -61,13 +62,25 @@ export function RolesIndexPage({ locale }: { locale: Locale }) {
           </Link>
         </p>
       </Section>
+
+      {/* Closing CTA: without it this is the only commercial page whose <main>
+          offers no conversion action. */}
+      <Section title={cta.title} intro={cta.body} theme="dark" compact>
+        <Reveal delay={0.1}>
+          <div className="flex flex-wrap gap-4">
+            <MagneticButton href={localePath(locale, "/contact")}>{s.ctaPrimary} →</MagneticButton>
+            <MagneticButton href={localePath(locale, "/pricing")} variant="ghost">
+              {cta.pricing}
+            </MagneticButton>
+          </div>
+        </Reveal>
+      </Section>
     </>
   );
 }
 
 export function RolePage({ locale, slug }: { locale: Locale; slug: string }) {
   const t = roles[locale][slug];
-  const s = shared[locale];
   const path = `/roles/${slug}`;
 
   return (
@@ -92,12 +105,10 @@ export function RolePage({ locale, slug }: { locale: Locale; slug: string }) {
               / {t.name}
             </p>
           </Reveal>
-          <Reveal delay={0.05}>
-            <h1 className="text-display-lg max-w-4xl font-display font-bold">{t.h1}</h1>
-          </Reveal>
-          <Reveal delay={0.12}>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mist">{t.tagline}</p>
-          </Reveal>
+          {/* h1 and tagline sit outside Reveal: the h1 is the LCP element and must
+              paint from the server HTML, before hydration. */}
+          <h1 className="text-display-lg max-w-4xl font-display font-bold">{t.h1}</h1>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mist">{t.tagline}</p>
           <Reveal delay={0.2}>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <span className="rounded-full border border-amber/40 px-4 py-1.5 text-sm text-amber">{t.savings.band}</span>
@@ -131,7 +142,7 @@ export function RolePage({ locale, slug }: { locale: Locale; slug: string }) {
         </div>
         <Reveal delay={0.15}>
           <div className="mt-10">
-            <h3 className="mb-4 text-xs uppercase tracking-[0.2em] text-ink/50">{t.stack.title}</h3>
+            <h3 className="mb-4 text-xs uppercase tracking-[0.2em] text-ink/65">{t.stack.title}</h3>
             <ul className="flex flex-wrap gap-2">
               {t.stack.items.map((item) => (
                 <li key={item} className="rounded-full border border-paper-line bg-white/60 px-4 py-1.5 text-sm text-ink/75">

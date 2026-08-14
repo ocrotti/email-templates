@@ -24,7 +24,10 @@ const config: Config = {
         amber: {
           DEFAULT: "#E8833A",
           soft: "#F2A96A",
+          // deep is a border/fill tone only: as text it lands at 3.0:1 on the
+          // peach cards. ink is the text step — 4.7:1 on the same ground.
           deep: "#C96F45",
+          ink: "#A0522A",
         },
         mist: "#9C9CA6",
       },
@@ -33,9 +36,12 @@ const config: Config = {
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
       },
       fontSize: {
-        "display-xl": ["clamp(2.4rem, 3.9vw, 3.75rem)", { lineHeight: "1.04", letterSpacing: "-0.03em" }],
-        "display-lg": ["clamp(2.25rem, 5.5vw, 4.75rem)", { lineHeight: "1.02", letterSpacing: "-0.025em" }],
-        "display-md": ["clamp(1.75rem, 4vw, 3.25rem)", { lineHeight: "1.06", letterSpacing: "-0.02em" }],
+        // Every step is larger than the one below it at *every* viewport width:
+        // min, vw and max all descend together, so the names never lie. xl is the
+        // full-width page h1; lg is the home hero, which lives in a ~676px column.
+        "display-xl": ["clamp(2.5rem, 5.5vw, 4.75rem)", { lineHeight: "1.02", letterSpacing: "-0.03em" }],
+        "display-lg": ["clamp(2.25rem, 3.9vw, 3.75rem)", { lineHeight: "1.04", letterSpacing: "-0.025em" }],
+        "display-md": ["clamp(1.75rem, 3.8vw, 3.25rem)", { lineHeight: "1.06", letterSpacing: "-0.02em" }],
         "display-sm": ["clamp(1.375rem, 2.5vw, 2rem)", { lineHeight: "1.15", letterSpacing: "-0.015em" }],
       },
       maxWidth: {
