@@ -72,7 +72,7 @@ export const outsourcingGuide: Record<Locale, GuideContent> = {
     kicker: "Pillar guide",
     intro: [
       "Conflict of interest first: we sell managed marketing pods, so we are not neutral. It is still the guide we would want you to read before talking to anyone here, us included. Every third-party number below is a published vendor price.",
-      "It is written for a European agency owner: contracts carrying your name, GDPR exposure you cannot delegate, a day on CET. Most guides here address a US company hiring its first offshore employee.",
+      "It is written for a European agency owner: contracts carrying your name, GDPR exposure you cannot delegate, a day on CET. Most guides on this topic address a US company hiring its first offshore employee.",
     ],
     scope: {
       number: "01",
@@ -116,7 +116,7 @@ export const outsourcingGuide: Record<Locale, GuideContent> = {
           what: "They source and vet a person — Philippines, LatAm, South Africa — and you hire and manage them. Somewhere is the reference point.",
           cost: "A one-time placement fee plus salary, with a six-month replacement guarantee at Somewhere.",
           bestFor: "You have real management capacity and want a permanent hire at a lower salary.",
-          breaks: "Nobody has time to be someone's manager, and the leaver takes undocumented process along.",
+          breaks: "Nobody has time to be someone's manager, and whoever leaves takes the undocumented process with them.",
         },
         {
           name: "White-label per-service agencies",
@@ -283,7 +283,7 @@ export const outsourcingGuide: Record<Locale, GuideContent> = {
         {
           name: "Marketplace freelance e network selezionati",
           what: "Da un lato i bacini aperti tipo Upwork, dall'altro i network che testano i profili e trattengono un margine.",
-          cost: "Toptal e Turing pubblicano circa 100–200 $/ora. Sul marketing: MarketerHire da 5.000 a oltre 20.000 $/mese, Right Side Up 100–200 $/ora, lo starter di Mayple intorno a 2.565 $/mese.",
+          cost: "Toptal e Turing pubblicano circa $100–200/ora. Sul marketing: MarketerHire da $5.000 a oltre $20.000/mese, Right Side Up $100–200/ora, lo starter di Mayple intorno a $2.565/mese.",
           bestFor: "Un progetto una tantum, una competenza rara per sei settimane, un audit.",
           breaks: "Sulla delivery a retainer: briefing, controllo qualità e continuità restano a te, e i bravi alzano le tariffe.",
         },
@@ -304,16 +304,16 @@ export const outsourcingGuide: Record<Locale, GuideContent> = {
         {
           name: "Staffing nearshore",
           what: "Persone dedicate in un fuso vicino al compratore, con buste paga gestite. I nomi noti sono Hire With Near e Floowi.",
-          cost: "Hire With Near quota 2.000–4.500 $/mese per un marketer mid-level latinoamericano, senza costi anticipati.",
+          cost: "Hire With Near quota $2.000–4.500/mese per un marketer mid-level latinoamericano, senza costi anticipati.",
           bestFor: "Le agenzie americane. Se la tua giornata è quella di New York, è l'opzione più forte.",
           breaks: "Per un'agenzia europea è l'emisfero sbagliato: la loro mattina è il tuo tardo pomeriggio.",
         },
         {
           name: "Pod gestiti",
           what: "Un team dedicato venduto come capacità e non come organico, con gestione e QA incorporati nel prezzo. Il nostro lavora da Nairobi, white-label di default, con QA senior europeo di Enable Digital, la nostra agenzia sorella italiana.",
-          cost: "Da 2.000 €/mese, operativo in 10–14 giorni, due settimane di prova che paghi solo se ti convincono, sostituzione gratuita entro 60–90 giorni. Risparmio tipico su un'assunzione europea: 40–70%.",
+          cost: "Da €2.000/mese, operativo in 10–14 giorni, due settimane di prova che paghi solo se ti convincono, sostituzione gratuita entro 60–90 giorni. Risparmio tipico su un'assunzione europea: 40–70%.",
           bestFor: "Produzione ricorrente e prevedibile, quando preferisci comprare capacità invece di gestire persone.",
-          breaks: "Progetti una tantum, un singolo specialista senior, il lavoro di strategia, budget sotto i 2.000 €/mese.",
+          breaks: "Progetti una tantum, un singolo specialista senior, il lavoro di strategia, budget sotto €2.000/mese.",
         },
       ],
       note:
@@ -327,7 +327,7 @@ export const outsourcingGuide: Record<Locale, GuideContent> = {
         { title: "Disciplina nei brief", body: "La qualità dell'output segue quella del brief quasi uno a uno. Chi dice che l'outsourcing non funziona di solito dava i brief a voce." },
         { title: "Un QA che non siano i tuoi senior", body: "Se il tuo miglior stratega rilegge pagine alle otto di sera, hai spostato il costo, non l'hai tolto. Chiedi chi rivede e chi può fermare la consegna." },
         { title: "Continuità che sopravvive a una persona", body: "Processi documentati, una panchina, una finestra di sostituzione dichiarata — la nostra è [gratuita entro 60–90 giorni](/it/guarantee)." },
-        { title: "Sovrapposizione con la tua giornata vera", body: "Non \"copriamo l'Europa\", ma: in che ore è online sul fuso europeo. È al mattino che i brief cambiano." },
+        { title: "Sovrapposizione con la tua giornata vera", body: "Non «copriamo l'Europa», ma: in che ore è online sul fuso europeo. È al mattino che i brief cambiano." },
       ],
     },
     europe: {
@@ -362,12 +362,12 @@ export const outsourcingGuide: Record<Locale, GuideContent> = {
         {
           place: "Est Europa e Sudafrica",
           clock: "0–1h dall'Europa centrale",
-          body: "I più vicini al tuo calendario, con ottimo inglese in Sudafrica e tariffe che lo riflettono: la nostra ricerca colloca uno sviluppatore mid-level a Johannesburg intorno a 42.000 $/anno — un mercato maturo, prezzato di conseguenza e sensibilmente sopra i livelli dell'Africa orientale.",
+          body: "I più vicini al tuo calendario, con ottimo inglese in Sudafrica e tariffe che lo riflettono: la nostra ricerca colloca uno sviluppatore mid-level a Johannesburg intorno a $42.000/anno — un mercato maturo, prezzato di conseguenza e sensibilmente sopra i livelli dell'Africa orientale.",
         },
         {
           place: "Nairobi",
           clock: "UTC+3, 1–2h avanti sull'Europa",
-          body: "L'inglese è lingua ufficiale di lavoro, e UTC+3 significa che la giornata del pod inizia prima della tua. Google, Microsoft e Safaricom hanno sede lì; Moringa School e AkiraChix formano profili digitali. Avvertenza onesta dalla nostra [ricerca sul talento](/it/talent): il bacino è ampio ma disomogeneo, ed è la selezione a reggerlo.",
+          body: "L'inglese è lingua ufficiale di lavoro, e UTC+3 significa che la giornata del pod inizia prima della tua. Google, Microsoft e Safaricom operano lì; Moringa School e AkiraChix formano profili digitali. Avvertenza onesta dalla nostra [ricerca sul talento](/it/talent): il bacino è ampio ma disomogeneo, ed è la selezione a reggerlo.",
         },
       ],
     },
@@ -379,7 +379,7 @@ export const outsourcingGuide: Record<Locale, GuideContent> = {
         { title: "Dai un nome al primo processo", body: "Quello che affideresti domani. Un processo, non un ruolo." },
         { title: "Cronometralo per due settimane", body: "Le ore che consuma sono le ore che stai ricomprando." },
         { title: "Scrivi il brief e la definizione di finito", body: "Se non riesci a scriverlo, non riesci a delegarlo." },
-        { title: "Indica chi approva", body: "Una persona, non \"il team\", o approva chi è meno occupato." },
+        { title: "Indica chi approva", body: "Una persona, non «il team», o approva chi è meno occupato." },
         { title: "Fissa la fascia di budget", body: "Decidi il tetto mensile prima delle call. I fornitori ancorano." },
         { title: "Confronta tre modelli diversi", body: "Un marketplace, un recruiter, un fornitore gestito." },
         { title: "Fai le domande scomode", body: "Chi gestisce ogni giorno, chi rivede prima del mio cliente, cosa succede quando si dimette." },
@@ -392,7 +392,7 @@ export const outsourcingGuide: Record<Locale, GuideContent> = {
     faq: [
       {
         q: "Quanto costa esternalizzare il marketing digitale?",
-        a: "Tre fasce. Talento occidentale selezionato: 100–200 $/ora su Toptal e Turing, oppure da 5.000 a oltre 20.000 $/mese con MarketerHire. Staffing nearshore: Hire With Near quota 2.000–4.500 $/mese per un marketer mid-level latinoamericano. Pod gestiti: i nostri partono da 2.000 €/mese, gestione e QA inclusi. Su un'assunzione europea il risparmio è tipicamente del 40–70%, se non lo ricostruisci in ore di gestione.",
+        a: "Tre fasce. Talento occidentale selezionato: $100–200/ora su Toptal e Turing, oppure da $5.000 a oltre $20.000/mese con MarketerHire. Staffing nearshore: Hire With Near quota $2.000–4.500/mese per un marketer mid-level latinoamericano. Pod gestiti: i nostri partono da €2.000/mese, gestione e QA inclusi. Su un'assunzione europea il risparmio è tipicamente del 40–70%, se non lo ricostruisci in ore di gestione.",
       },
       {
         q: "È conforme al GDPR mandare dati dei clienti fuori dall'Unione Europea?",
@@ -404,11 +404,11 @@ export const outsourcingGuide: Record<Locale, GuideContent> = {
       },
       {
         q: "I miei clienti si accorgeranno che esternalizzo?",
-        a: "La delivery è white-label per impostazione predefinita: il pod lavora dentro i tuoi strumenti, sotto il tuo marchio, senza contatto diretto con il cliente. L'eccezione è il trattamento dei dati: la risposta a \"chi tratta i nostri dati\" deve coincidere con il tuo DPA.",
+        a: "La delivery è white-label per impostazione predefinita: il pod lavora dentro i tuoi strumenti, sotto il tuo marchio, senza contatto diretto con il cliente. L'eccezione è il trattamento dei dati: la risposta a «chi tratta i nostri dati» deve coincidere con il tuo DPA.",
       },
       {
         q: "Quando il pod gestito è la risposta sbagliata?",
-        a: "Quattro casi: un progetto una tantum, un singolo specialista senior che gestirai tu, il lavoro di strategia e i budget sotto i 2.000 €/mese. In tutti e quattro ti serve meglio un freelance o un recruiter offshore, e te lo diciamo alla prima call.",
+        a: "Quattro casi: un progetto una tantum, un singolo specialista senior che gestirai tu, il lavoro di strategia e i budget sotto €2.000/mese. In tutti e quattro ti serve meglio un freelance o un recruiter offshore, e te lo diciamo alla prima call.",
       },
     ],
     closing: {

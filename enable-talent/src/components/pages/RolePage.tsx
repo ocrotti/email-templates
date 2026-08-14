@@ -9,6 +9,7 @@ import MagneticButton from "@/components/MagneticButton";
 import Reveal from "@/components/Reveal";
 import RoleCard from "@/components/RoleCard";
 import Section from "@/components/Section";
+import { renderInline } from "@/components/InlineLinks";
 import Link from "next/link";
 
 export function RolesIndexPage({ locale }: { locale: Locale }) {
@@ -29,7 +30,7 @@ export function RolesIndexPage({ locale }: { locale: Locale }) {
           paint from the server HTML, before hydration. */}
       <section className="bg-ink px-5 pb-16 pt-32 text-paper md:px-10 md:pb-24 md:pt-44">
         <div className="mx-auto w-full max-w-wrap">
-          <h1 className="text-display-lg max-w-4xl font-display font-bold">{t.title}</h1>
+          <h1 className="text-display-xl max-w-4xl font-display font-bold">{t.title}</h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mist">{t.intro}</p>
         </div>
       </section>
@@ -107,7 +108,7 @@ export function RolePage({ locale, slug }: { locale: Locale; slug: string }) {
           </Reveal>
           {/* h1 and tagline sit outside Reveal: the h1 is the LCP element and must
               paint from the server HTML, before hydration. */}
-          <h1 className="text-display-lg max-w-4xl font-display font-bold">{t.h1}</h1>
+          <h1 className="text-display-xl max-w-4xl font-display font-bold">{t.h1}</h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mist">{t.tagline}</p>
           <Reveal delay={0.2}>
             <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -180,7 +181,8 @@ export function RolePage({ locale, slug }: { locale: Locale; slug: string }) {
         </Reveal>
       </Section>
 
-      <Section number="04" title={t.savings.title} intro={t.savings.body} theme="light" compact>
+      {/* The body carries an inline link to the benchmark page. */}
+      <Section number="04" title={t.savings.title} intro={renderInline(t.savings.body, "light")} theme="light" compact>
         <Reveal>
           <p className="inline-block rounded-2xl border border-blue/30 bg-blue/10 px-6 py-4 font-display text-xl font-semibold text-blue">
             {t.savings.band}

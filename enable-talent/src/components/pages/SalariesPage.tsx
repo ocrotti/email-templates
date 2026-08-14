@@ -8,30 +8,7 @@ import Faq from "@/components/Faq";
 import MagneticButton from "@/components/MagneticButton";
 import Reveal from "@/components/Reveal";
 import Section from "@/components/Section";
-
-/**
- * Renders markdown-style inline links `[text](href)` inside a content string.
- * Content strings are per-locale, so IT strings already carry `/it/...` paths.
- */
-function renderInline(text: string, className: string): ReactNode {
-  if (!text.includes("](")) return text;
-  const nodes: ReactNode[] = [];
-  const linkRe = /\[([^\]]+)\]\(([^()\s]+)\)/g;
-  let last = 0;
-  let match: RegExpExecArray | null;
-  while ((match = linkRe.exec(text)) !== null) {
-    if (match.index > last) nodes.push(text.slice(last, match.index));
-    const [, label, href] = match;
-    nodes.push(
-      <Link key={`${href}-${match.index}`} href={href} className={className}>
-        {label}
-      </Link>,
-    );
-    last = match.index + match[0].length;
-  }
-  if (last < text.length) nodes.push(text.slice(last));
-  return nodes;
-}
+import { renderInline } from "@/components/InlineLinks";
 
 /**
  * schema.org Dataset for the benchmark table. Kept deliberately minimal so
@@ -97,7 +74,7 @@ export default function SalariesPage({ locale }: { locale: Locale }) {
           </Reveal>
           {/* h1 and intro sit outside Reveal: the h1 is the LCP element and must
               paint from the server HTML, before hydration. */}
-          <h1 className="text-display-lg max-w-4xl font-display font-bold">{t.h1}</h1>
+          <h1 className="text-display-xl max-w-4xl font-display font-bold">{t.h1}</h1>
           {t.intro.map((p) => (
             <p key={p.slice(0, 24)} className="mt-6 max-w-2xl text-lg leading-relaxed text-mist">
               {p}
@@ -204,7 +181,7 @@ export default function SalariesPage({ locale }: { locale: Locale }) {
           {t.vsPod.body.map((p) => (
             <Reveal key={p.slice(0, 24)}>
               <p className="text-base leading-relaxed text-ink/70 md:text-lg">
-                {renderInline(p, "link-underline font-medium text-blue")}
+                {renderInline(p, "light")}
               </p>
             </Reveal>
           ))}
@@ -224,7 +201,7 @@ export default function SalariesPage({ locale }: { locale: Locale }) {
           {t.methodology.body.map((p) => (
             <Reveal key={p.slice(0, 24)}>
               <p className="text-base leading-relaxed text-paper/80 md:text-lg">
-                {renderInline(p, "link-underline font-medium text-blue-bright")}
+                {renderInline(p, "dark")}
               </p>
             </Reveal>
           ))}

@@ -86,6 +86,7 @@ export const talent: Record<Locale, TalentContent> = {
       body: [
         "We know what agencies picture when they hear 'offshore': briefs lost in translation, quality roulette, a partner who vanishes at the first escalation. That reputation was earned — by a model that treats people as interchangeable and quality as the client's problem.",
         "Our answer isn't a manifesto, it's structure: fair pay published on this page, vetting we'll walk any client through, senior European marketers signing off every deliverable, and guarantees that put the risk on us. If a section of this site ever reads like an excuse instead of a mechanism, hold us to it.",
+        "And if your open question is not Nairobi's reputation but whether Nairobi is the right place at all, we compare it with the Philippines, Latin America and Eastern Europe — clock, language and what each is genuinely good at — in our [guide to outsourcing digital marketing](/outsource-digital-marketing).",
       ],
     },
     faq: [
@@ -98,7 +99,7 @@ export const talent: Record<Locale, TalentContent> = {
   it: {
     seoTitle: "Talento di Nairobi, Fair Pay, Vetting Vero | enable.talent",
     seoDescription:
-      "Perché Nairobi: inglese forte, fuso UTC+3, l'ecosistema Silicon Savannah — e una policy di fair pay esplicita: gli specialist guadagnano 2–4x il mercato locale.",
+      "Perché Nairobi: inglese forte, fuso UTC+3, ecosistema Silicon Savannah — e una policy di fair pay esplicita: specialist pagati 2–4x il mercato locale.",
     title: "Il talento è ovunque. Le opportunità no.",
     intro:
       "Questa pagina esiste per due motivi: rispondere all'obiezione qualità con i fatti, e mettere per iscritto la nostra policy di fair pay, dove clienti e specialist possono entrambi chiedercene conto.",
@@ -133,7 +134,7 @@ export const talent: Record<Locale, TalentContent> = {
       number: "03",
       title: "Fair pay, in numeri, di proposito",
       body: [
-        "Il pitch sporco dell'industria offshore è '80% in meno'. Commercialmente funziona, e si merita il suo problema di reputazione: in fondo a quello sconto di solito c'è qualcuno pagato il minimo locale senza un percorso da nessuna parte.",
+        "Il pitch sporco dell'industria offshore è «80% in meno». Commercialmente funziona, e si merita il suo problema di reputazione: in fondo a quello sconto di solito c'è qualcuno pagato il minimo locale senza un percorso da nessuna parte.",
         "Noi il modello lo gestiamo diversamente, e lo pubblichiamo: i nostri specialist guadagnano 2–4x il mercato keniano, con budget di formazione e un percorso di carriera definito verso ruoli senior e vicini al QA. Non è beneficenza — è il meccanismo che fa funzionare tutto il prodotto:",
       ],
       points: [
@@ -145,10 +146,11 @@ export const talent: Record<Locale, TalentContent> = {
     },
     reputation: {
       number: "04",
-      title: "Sulla reputazione dell'“outsourcing low-cost”",
+      title: "Sulla reputazione dell'«outsourcing low-cost»",
       body: [
-        "Sappiamo cosa immaginano le agenzie quando sentono 'offshore': brief persi in traduzione, roulette della qualità, un partner che sparisce alla prima escalation. Quella reputazione è stata guadagnata — da un modello che tratta le persone come intercambiabili e la qualità come un problema del cliente.",
+        "Sappiamo cosa immaginano le agenzie quando sentono «offshore»: brief persi in traduzione, roulette della qualità, un partner che sparisce alla prima escalation. Quella reputazione è stata guadagnata — da un modello che tratta le persone come intercambiabili e la qualità come un problema del cliente.",
         "La nostra risposta non è un manifesto, è struttura: fair pay pubblicato in questa pagina, un vetting che presentiamo a qualsiasi cliente, marketer senior europei che firmano ogni deliverable, e garanzie che mettono il rischio su di noi. Se una sezione di questo sito dovesse mai suonare come una scusa invece che come un meccanismo, chiedicene conto.",
+        "E se la domanda aperta non è la reputazione di Nairobi ma se Nairobi sia il posto giusto, il confronto con Filippine, America Latina ed Europa dell'Est — fuso orario, lingua e i punti di forza reali di ciascuna — sta nella nostra [guida all'outsourcing del marketing digitale](/it/outsource-digital-marketing).",
       ],
     },
     faq: [

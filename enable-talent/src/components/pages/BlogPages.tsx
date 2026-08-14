@@ -7,39 +7,8 @@ import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 import MagneticButton from "@/components/MagneticButton";
 import Reveal from "@/components/Reveal";
 import Section from "@/components/Section";
+import { renderInline } from "@/components/InlineLinks";
 import { shared } from "@/content/shared";
-
-/**
- * Renders markdown-style inline links `[text](href)` inside a content string.
- * Internal hrefs are locale-aware by construction: content strings are
- * per-locale, so IT strings carry their own `/it/...` paths.
- */
-function renderInline(text: string): ReactNode {
-  if (!text.includes("](")) return text;
-  const nodes: ReactNode[] = [];
-  const linkRe = /\[([^\]]+)\]\(([^()\s]+)\)/g;
-  let last = 0;
-  let match: RegExpExecArray | null;
-  while ((match = linkRe.exec(text)) !== null) {
-    if (match.index > last) nodes.push(text.slice(last, match.index));
-    const [, label, href] = match;
-    const className = "link-underline font-medium text-blue-bright";
-    nodes.push(
-      /^https?:\/\//.test(href) ? (
-        <a key={`${href}-${match.index}`} href={href} className={className} target="_blank" rel="noopener noreferrer">
-          {label}
-        </a>
-      ) : (
-        <Link key={`${href}-${match.index}`} href={href} className={className}>
-          {label}
-        </Link>
-      ),
-    );
-    last = match.index + match[0].length;
-  }
-  if (last < text.length) nodes.push(text.slice(last));
-  return nodes;
-}
 
 /** Formats an ISO date (yyyy-mm-dd) per locale, e.g. "14 Jul 2026" / "14 lug 2026". */
 function formatDate(iso: string, locale: Locale): string {
@@ -67,7 +36,7 @@ export function BlogIndexPage({ locale }: { locale: Locale }) {
         <div className="mx-auto w-full max-w-wrap">
           {/* h1 and intro sit outside Reveal: the h1 is the LCP element and must
               paint from the server HTML, before hydration. */}
-          <h1 className="text-display-lg max-w-4xl font-display font-bold">{t.title}</h1>
+          <h1 className="text-display-xl max-w-4xl font-display font-bold">{t.title}</h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mist">{t.intro}</p>
         </div>
       </section>

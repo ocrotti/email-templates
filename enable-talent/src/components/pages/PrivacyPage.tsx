@@ -24,7 +24,7 @@ export default function PrivacyPage({ locale }: { locale: Locale }) {
           </Reveal>
           {/* h1 and intro sit outside Reveal: the h1 is the LCP element and must
               paint from the server HTML, before hydration. */}
-          <h1 className="text-display-lg mt-4 max-w-4xl font-display font-bold">{t.title}</h1>
+          <h1 className="text-display-xl mt-4 max-w-4xl font-display font-bold">{t.title}</h1>
           <p className="mt-6 max-w-3xl text-lg leading-relaxed text-mist">{t.intro}</p>
         </div>
       </section>

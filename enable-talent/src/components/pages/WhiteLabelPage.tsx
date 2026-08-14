@@ -8,31 +8,7 @@ import Faq from "@/components/Faq";
 import MagneticButton from "@/components/MagneticButton";
 import Reveal from "@/components/Reveal";
 import Section from "@/components/Section";
-
-/**
- * Renders markdown-style inline links `[text](href)` inside a content string.
- * Content strings are per-locale, so IT strings already carry their `/it/...` paths.
- */
-function renderInline(text: string, theme: "dark" | "light" = "dark"): ReactNode {
-  if (!text.includes("](")) return text;
-  const className = `link-underline font-medium ${theme === "dark" ? "text-blue-bright" : "text-blue"}`;
-  const nodes: ReactNode[] = [];
-  const linkRe = /\[([^\]]+)\]\(([^()\s]+)\)/g;
-  let last = 0;
-  let match: RegExpExecArray | null;
-  while ((match = linkRe.exec(text)) !== null) {
-    if (match.index > last) nodes.push(text.slice(last, match.index));
-    const [, label, href] = match;
-    nodes.push(
-      <Link key={`${href}-${match.index}`} href={href} className={className}>
-        {label}
-      </Link>,
-    );
-    last = match.index + match[0].length;
-  }
-  if (last < text.length) nodes.push(text.slice(last));
-  return nodes;
-}
+import { renderInline } from "@/components/InlineLinks";
 
 export default function WhiteLabelPage({ locale }: { locale: Locale }) {
   const t = whiteLabel[locale];
@@ -62,7 +38,7 @@ export default function WhiteLabelPage({ locale }: { locale: Locale }) {
           </Reveal>
           {/* h1 and intro sit outside Reveal: the h1 is the LCP element and must
               paint from the server HTML, before hydration. */}
-          <h1 className="text-display-lg max-w-4xl font-display font-bold">{t.title}</h1>
+          <h1 className="text-display-xl max-w-4xl font-display font-bold">{t.title}</h1>
           <p className="mt-6 max-w-3xl text-lg leading-relaxed text-mist">{t.intro}</p>
           <Reveal delay={0.2}>
             <div className="mt-10 flex flex-wrap gap-4">

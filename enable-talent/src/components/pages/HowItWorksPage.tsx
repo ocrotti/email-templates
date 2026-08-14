@@ -35,7 +35,7 @@ export default function HowItWorksPage({ locale }: { locale: Locale }) {
           paint from the server HTML, before hydration. */}
       <section className="bg-ink px-5 pb-16 pt-32 text-paper md:px-10 md:pb-24 md:pt-44">
         <div className="mx-auto w-full max-w-wrap">
-          <h1 className="text-display-lg max-w-4xl font-display font-bold">{t.title}</h1>
+          <h1 className="text-display-xl max-w-4xl font-display font-bold">{t.title}</h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mist">{t.intro}</p>
         </div>
       </section>
@@ -70,12 +70,15 @@ export default function HowItWorksPage({ locale }: { locale: Locale }) {
       <Section number={t.matching.number} title={t.matching.title} intro={t.matching.body} theme="dark">
         <ol className="grid gap-6 md:grid-cols-2">
           {t.matching.steps.map((step, i) => (
-            <Reveal key={step.title} delay={i * 0.1}>
-              <li className="h-full rounded-2xl border border-ink-line bg-ink-soft/50 p-7">
-                <span className="font-mono text-sm text-blue-bright">{String(i + 1).padStart(2, "0")}</span>
-                <h3 className="mt-3 font-display text-lg font-semibold text-paper">{step.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-mist">{step.body}</p>
-              </li>
+            <Reveal
+              as="li"
+              key={step.title}
+              delay={i * 0.1}
+              className="h-full rounded-2xl border border-ink-line bg-ink-soft/50 p-7"
+            >
+              <span className="font-mono text-sm text-blue-bright">{String(i + 1).padStart(2, "0")}</span>
+              <h3 className="mt-3 font-display text-lg font-semibold text-paper">{step.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-mist">{step.body}</p>
             </Reveal>
           ))}
         </ol>

@@ -10,7 +10,7 @@ import SmoothScroll from "@/components/SmoothScroll";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "enable.talent — Pod Marketing Gestiti per Agenzie Europee",
+    default: "Pod Marketing Gestiti per Agenzie Europee | enable.talent",
     template: "%s",
   },
   description:

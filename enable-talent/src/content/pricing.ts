@@ -88,6 +88,7 @@ export const pricing: Record<Locale, PricingContent> = {
       body: [
         "You can — Hire With Near sells mid-level LatAm marketers at $2,000–4,500/month, and for a US agency on US hours that's often the right call. We'd rather tell you that than pretend the alternative doesn't exist.",
         "What that money doesn't buy is the part that fails in practice: someone accountable for quality before your client sees the work, someone replacing an underperformer while delivery keeps running, and someone holding the GDPR paperwork for an EU data controller. That layer is the product. The specialists are excellent — the system around them is what you're paying for.",
+        "If you are still weighing this against agencies, marketplaces and freelancers in general rather than against us specifically, start one level up: our [guide to outsourcing digital marketing](/outsource-digital-marketing) puts all five models side by side at published prices, including the ones we lose to.",
       ],
     },
     faq: [
@@ -158,10 +159,11 @@ export const pricing: Record<Locale, PricingContent> = {
       body: [
         "Puoi — Hire With Near vende marketer LatAm mid-level a $2.000–4.500/mese, e per un'agenzia USA su orari USA spesso è la scelta giusta. Preferiamo dirtelo, invece di fingere che l'alternativa non esista.",
         "Quello che quei soldi non comprano è la parte che in pratica si rompe: qualcuno responsabile della qualità prima che il tuo cliente veda il lavoro, qualcuno che sostituisce chi non performa mentre la delivery continua, e qualcuno che tiene la burocrazia GDPR per un data controller UE. Quel layer è il prodotto. Gli specialist sono eccellenti — il sistema intorno è ciò che paghi.",
+        "Se stai ancora confrontando tutto questo con agenzie, marketplace e freelance in generale, e non con noi in particolare, parti da un livello sopra: la nostra [guida all'outsourcing del marketing digitale](/it/outsource-digital-marketing) mette in fila tutti e cinque i modelli con i prezzi pubblicati, compresi quelli contro cui perdiamo.",
       ],
     },
     faq: [
-      { q: "Perché il pod starter è a prezzo 'introduttivo'?", a: "Perché siamo nuovi e prezziamo per costruire proof. I primi clienti bloccano l'ingresso a €2.000 per il primo anno; il prezzo di listino salirà verso €2.800 man mano che i casi studio si accumulano. Lo diciamo apertamente invece di inventare urgenza." },
+      { q: "Perché il pod starter è a prezzo «introduttivo»?", a: "Perché siamo nuovi e prezziamo per costruire proof. I primi clienti bloccano l'ingresso a €2.000 per il primo anno; il prezzo di listino salirà verso €2.800 man mano che i casi studio si accumulano. Lo diciamo apertamente invece di inventare urgenza." },
       { q: "Ci sono costi di setup?", a: "Nessun setup fee, nessuna fee di recruiting, nessuna conversion fee. Scoping, matching e onboarding sono nel prezzo. La prima fattura arriva dopo il trial." },
       { q: "Quanto costa il trial?", a: "Il trial gira a rischio ridotto: deliverable veri per due settimane, e paghi solo se continui. I termini esatti del trial sono fissati nella proposta prima di qualsiasi impegno." },
       { q: "Posso mischiare ruoli in un pod starter?", a: "Il pod starter è un solo specialist. Se ti serve una combinazione paid media + design, è un pod da due posti — lo quotiamo con precisione, di solito ben sotto due stipendi locali." },

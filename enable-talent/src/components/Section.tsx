@@ -4,7 +4,8 @@ import Reveal from "./Reveal";
 interface Props {
   number?: string;
   title?: string;
-  intro?: string;
+  /** ReactNode, not string: some intros carry inline links (see InlineLinks). */
+  intro?: ReactNode;
   theme?: "dark" | "light";
   children?: ReactNode;
   id?: string;
@@ -29,7 +30,12 @@ export default function Section({ number, title, intro, theme = "dark", children
       <div className="mx-auto grid w-full max-w-wrap gap-8 md:grid-cols-[80px_1fr] md:gap-12">
         <div className="relative hidden md:block">
           {number ? (
+            // Decorative watermark: it repeats the section's position in the page,
+            // which the heading order already carries. Hidden from assistive tech
+            // so its deliberately low contrast is an art-direction choice rather
+            // than unreadable content.
             <span
+              aria-hidden
               className={`sticky top-28 block font-display text-5xl font-bold tabular-nums ${
                 dark ? "text-paper/15" : "text-ink/10"
               }`}

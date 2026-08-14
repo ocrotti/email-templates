@@ -7,6 +7,7 @@ import Faq from "@/components/Faq";
 import MagneticButton from "@/components/MagneticButton";
 import Reveal from "@/components/Reveal";
 import Section from "@/components/Section";
+import { renderInline } from "@/components/InlineLinks";
 import Link from "next/link";
 
 export default function PricingPage({ locale }: { locale: Locale }) {
@@ -32,7 +33,7 @@ export default function PricingPage({ locale }: { locale: Locale }) {
           paint from the server HTML, before hydration. */}
       <section className="bg-ink px-5 pb-16 pt-32 text-paper md:px-10 md:pb-24 md:pt-44">
         <div className="mx-auto w-full max-w-wrap">
-          <h1 className="text-display-lg max-w-4xl font-display font-bold">{t.title}</h1>
+          <h1 className="text-display-xl max-w-4xl font-display font-bold">{t.title}</h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mist">{t.intro}</p>
         </div>
       </section>
@@ -132,7 +133,7 @@ export default function PricingPage({ locale }: { locale: Locale }) {
         <div className="max-w-2xl space-y-5">
           {t.why.body.map((p) => (
             <Reveal key={p.slice(0, 24)}>
-              <p className="text-base leading-relaxed text-paper/80 md:text-lg">{p}</p>
+              <p className="text-base leading-relaxed text-paper/80 md:text-lg">{renderInline(p, "dark")}</p>
             </Reveal>
           ))}
           <Reveal>

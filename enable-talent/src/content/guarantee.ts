@@ -39,7 +39,7 @@ export const guarantee: Record<Locale, GuaranteeContent> = {
     pillars: [
       {
         title: "2-week trial, reduced risk",
-        body: "The pod ships real deliverables for two weeks before you owe anything meaningful.",
+        body: "The pod ships real deliverables for two weeks before you owe anything.",
         detail: "Trial scope, deliverables and evaluation criteria are written into the proposal, so 'convinced' isn't a vibe — it's a checklist you defined.",
       },
       {
@@ -115,8 +115,8 @@ export const guarantee: Record<Locale, GuaranteeContent> = {
     pillars: [
       {
         title: "Trial di 2 settimane, rischio ridotto",
-        body: "Il pod consegna deliverable veri per due settimane prima che tu debba qualcosa di significativo.",
-        detail: "Scope, deliverable e criteri di valutazione del trial sono scritti nella proposta: 'convinto' non è una sensazione — è una checklist che hai definito tu.",
+        body: "Il pod consegna deliverable veri per due settimane prima che tu debba pagare qualcosa.",
+        detail: "Scope, deliverable e criteri di valutazione del trial sono scritti nella proposta: «convinto» non è una sensazione — è una checklist che hai definito tu.",
       },
       {
         title: "Paghi solo dopo il trial",
@@ -170,11 +170,11 @@ export const guarantee: Record<Locale, GuaranteeContent> = {
         { title: "Ogni giorno", body: "Il pod lavora nel tuo orario, nei tuoi tool. I blocchi emergono nei tuoi canali nel momento in cui esistono, non in un report del venerdì." },
         { title: "Ogni settimana", body: "Report qualità dal QA lead: consegnato, respinto, perché, e cosa ci serve da te. Quindici righe oneste battono una dashboard di semafori verdi." },
         { title: "Ogni mese", body: "Review di capacità e SLA: carico del pod vs pipeline, metriche di qualità, stato della retention, e implicazioni di prezzo se i tuoi bisogni stanno cambiando." },
-        { title: "Ogni trimestre", body: "La riunione scomoda: cosa dovremmo fermare, iniziare, cambiare? Incluso 'vi serviamo ancora a questa dimensione' — chiesto da noi, per primi." },
+        { title: "Ogni trimestre", body: "La riunione scomoda: cosa dovremmo fermare, iniziare, cambiare? Incluso «vi serviamo ancora a questa dimensione» — chiesto da noi, per primi." },
       ],
     },
     faq: [
-      { q: "Cosa significa esattamente 'rischio ridotto' per il trial?", a: "I termini del trial sono fissati nella proposta prima che tu firmi qualsiasi cosa. La struttura: due settimane di deliverable definiti, valutati su criteri che fissi tu, con pagamento dovuto solo se continui. Niente depositi, niente setup fee." },
+      { q: "Cosa significa esattamente «rischio ridotto» per il trial?", a: "I termini del trial sono fissati nella proposta prima che tu firmi qualsiasi cosa. La struttura: due settimane di deliverable definiti, valutati su criteri che fissi tu, con pagamento dovuto solo se continui. Niente depositi, niente setup fee." },
       { q: "E se voglio assumere direttamente un membro del pod?", a: "Succede, e preferiamo regolarlo piuttosto che fingere che non succederà: i termini di conversione sono nel contratto, prezzati equamente, dopo 12 mesi nel pod. Non terremo in ostaggio la tua delivery per questo." },
       { q: "Di chi è la proprietà del lavoro?", a: "Tua, piena, dal momento della consegna — e all'uscita, tutto il work in progress più la documentazione passano entro 30 giorni. La cessione IP è nel contratto di ogni specialist." },
       { q: "E la riservatezza verso i miei clienti?", a: "Il white-label è contrattuale: NDA su lista clienti, posizionamento e prezzi. Gli specialist firmano termini di riservatezza che sopravvivono all'ingaggio." },

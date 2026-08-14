@@ -181,7 +181,7 @@ export const whiteLabel: Record<Locale, WhiteLabelContent> = {
       },
       {
         q: "What if the pod underperforms?",
-        a: "You see two weeks of real deliverables before anything meaningful is owed. After that, underperformance triggers a free replacement inside 60–90 days while delivery keeps running, plus SLA remedies written into the contract.",
+        a: "You see two weeks of real deliverables before anything is owed. After that, underperformance triggers a free replacement inside 60–90 days while delivery keeps running, plus SLA remedies written into the contract.",
       },
     ],
     closing: {
@@ -219,7 +219,7 @@ export const whiteLabel: Record<Locale, WhiteLabelContent> = {
         },
         {
           title: "Continuità che sopravvive alle persone",
-          body: "Un freelance da solo con l'account pubblicitario del tuo cliente è un punto di rottura unico. Un pod ha un manager, documentazione e replacement gratuito entro 60–90 giorni.",
+          body: "Un freelance da solo con l'account pubblicitario del tuo cliente è un unico punto di rottura. Un pod ha un manager, documentazione e replacement gratuito entro 60–90 giorni.",
         },
         {
           title: "Conti che ti lasciano ancora margine",
@@ -326,7 +326,7 @@ export const whiteLabel: Record<Locale, WhiteLabelContent> = {
       },
       {
         q: "E se il pod non rende?",
-        a: "Vedi due settimane di deliverable veri prima di dover qualcosa. Poi l'underperformance attiva un replacement gratuito entro 60–90 giorni mentre la delivery continua, più i rimedi SLA scritti nel contratto.",
+        a: "Vedi due settimane di deliverable veri prima di dover pagare qualcosa. Poi l'underperformance attiva un replacement gratuito entro 60–90 giorni mentre la delivery continua, più i rimedi SLA scritti nel contratto.",
       },
     ],
     closing: {

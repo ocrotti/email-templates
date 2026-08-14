@@ -10,51 +10,7 @@ import Faq from "@/components/Faq";
 import MagneticButton from "@/components/MagneticButton";
 import Reveal from "@/components/Reveal";
 import Section from "@/components/Section";
-
-/**
- * Renders markdown-style inline links `[text](href)` inside a content string.
- * Content strings are per-locale, so IT strings already carry `/it/...` hrefs.
- */
-function renderInline(text: string): ReactNode {
-  if (!text.includes("](")) return text;
-  const nodes: ReactNode[] = [];
-  const linkRe = /\[([^\]]+)\]\(([^()\s]+)\)/g;
-  let last = 0;
-  let match: RegExpExecArray | null;
-  while ((match = linkRe.exec(text)) !== null) {
-    if (match.index > last) nodes.push(text.slice(last, match.index));
-    const [, label, href] = match;
-    nodes.push(
-      <Link key={`${href}-${match.index}`} href={href} className="link-underline font-medium text-blue-bright">
-        {label}
-      </Link>,
-    );
-    last = match.index + match[0].length;
-  }
-  if (last < text.length) nodes.push(text.slice(last));
-  return nodes;
-}
-
-/** Same, but tuned for light sections where blue-bright loses contrast. */
-function renderInlineLight(text: string): ReactNode {
-  if (!text.includes("](")) return text;
-  const nodes: ReactNode[] = [];
-  const linkRe = /\[([^\]]+)\]\(([^()\s]+)\)/g;
-  let last = 0;
-  let match: RegExpExecArray | null;
-  while ((match = linkRe.exec(text)) !== null) {
-    if (match.index > last) nodes.push(text.slice(last, match.index));
-    const [, label, href] = match;
-    nodes.push(
-      <Link key={`${href}-${match.index}`} href={href} className="link-underline font-medium text-blue">
-        {label}
-      </Link>,
-    );
-    last = match.index + match[0].length;
-  }
-  if (last < text.length) nodes.push(text.slice(last));
-  return nodes;
-}
+import { renderInline } from "@/components/InlineLinks";
 
 /** Anchor id for a guide section, derived from its content number ("01" → "guide-01"). */
 function sectionId(number: string): string {
@@ -102,7 +58,7 @@ export default function OutsourcingGuidePage({ locale }: { locale: Locale }) {
           </Reveal>
           {/* h1 and intro sit outside Reveal: the h1 is the LCP element and must
               paint from the server HTML, before hydration. */}
-          <h1 className="text-display-lg max-w-4xl font-display font-bold">{t.title}</h1>
+          <h1 className="text-display-xl max-w-4xl font-display font-bold">{t.title}</h1>
           <div className="mt-6 max-w-2xl space-y-5">
             {t.intro.map((p) => (
               <p key={p.slice(0, 24)} className="text-base leading-relaxed text-mist md:text-lg">
@@ -141,11 +97,14 @@ export default function OutsourcingGuidePage({ locale }: { locale: Locale }) {
             </Reveal>
             <ul className="mt-5 space-y-4">
               {t.scope.outsource.map((item, i) => (
-                <Reveal key={item.title} delay={i * 0.06}>
-                  <li className="rounded-2xl border border-paper-line bg-white/70 p-5">
-                    <p className="font-display text-base font-semibold text-ink">{item.title}</p>
-                    <p className="mt-1.5 text-sm leading-relaxed text-ink/65">{item.body}</p>
-                  </li>
+                <Reveal
+                  as="li"
+                  key={item.title}
+                  delay={i * 0.06}
+                  className="rounded-2xl border border-paper-line bg-white/70 p-5"
+                >
+                  <p className="font-display text-base font-semibold text-ink">{item.title}</p>
+                  <p className="mt-1.5 text-sm leading-relaxed text-ink/65">{item.body}</p>
                 </Reveal>
               ))}
             </ul>
@@ -156,19 +115,22 @@ export default function OutsourcingGuidePage({ locale }: { locale: Locale }) {
             </Reveal>
             <ul className="mt-5 space-y-4">
               {t.scope.keep.map((item, i) => (
-                <Reveal key={item.title} delay={i * 0.06}>
-                  <li className="rounded-2xl border border-amber/40 bg-amber/5 p-5">
-                    {/* amber-ink, not amber-deep: this is text on a peach card. */}
-                    <p className="font-display text-base font-semibold text-amber-ink">{item.title}</p>
-                    <p className="mt-1.5 text-sm leading-relaxed text-ink/70">{item.body}</p>
-                  </li>
+                <Reveal
+                  as="li"
+                  key={item.title}
+                  delay={i * 0.06}
+                  className="rounded-2xl border border-amber/40 bg-amber/5 p-5"
+                >
+                  {/* amber-ink, not amber-deep: this is text on a peach card. */}
+                  <p className="font-display text-base font-semibold text-amber-ink">{item.title}</p>
+                  <p className="mt-1.5 text-sm leading-relaxed text-ink/70">{item.body}</p>
                 </Reveal>
               ))}
             </ul>
           </div>
         </div>
         <Reveal delay={0.1}>
-          <p className="mt-10 max-w-2xl text-base leading-relaxed text-ink/70">{renderInlineLight(t.scope.note)}</p>
+          <p className="mt-10 max-w-2xl text-base leading-relaxed text-ink/70">{renderInline(t.scope.note, "light")}</p>
         </Reveal>
       </Section>
 
@@ -176,28 +138,31 @@ export default function OutsourcingGuidePage({ locale }: { locale: Locale }) {
       <Section id={sectionId(t.models.number)} number={t.models.number} title={t.models.title} intro={t.models.intro} theme="dark">
         <ol className="space-y-6">
           {t.models.items.map((model, i) => (
-            <Reveal key={model.name} delay={Math.min(i, 2) * 0.08}>
-              <li className="rounded-2xl border border-ink-line bg-ink-soft/50 p-7 md:p-8">
-                <div className="flex items-baseline gap-4">
-                  <span className="font-mono text-sm text-blue-bright">{String(i + 1).padStart(2, "0")}</span>
-                  <h3 className="font-display text-xl font-semibold text-paper">{model.name}</h3>
-                </div>
-                <dl className="mt-5 grid gap-5 md:grid-cols-2">
-                  {(
-                    [
-                      [t.models.labels.what, model.what],
-                      [t.models.labels.cost, model.cost],
-                      [t.models.labels.bestFor, model.bestFor],
-                      [t.models.labels.breaks, model.breaks],
-                    ] as const
-                  ).map(([label, value]) => (
-                    <div key={label}>
-                      <dt className="text-xs uppercase tracking-[0.16em] text-mist/80">{label}</dt>
-                      <dd className="mt-1.5 text-sm leading-relaxed text-paper/80">{renderInline(value)}</dd>
-                    </div>
-                  ))}
-                </dl>
-              </li>
+            <Reveal
+              as="li"
+              key={model.name}
+              delay={Math.min(i, 2) * 0.08}
+              className="rounded-2xl border border-ink-line bg-ink-soft/50 p-7 md:p-8"
+            >
+              <div className="flex items-baseline gap-4">
+                <span className="font-mono text-sm text-blue-bright">{String(i + 1).padStart(2, "0")}</span>
+                <h3 className="font-display text-xl font-semibold text-paper">{model.name}</h3>
+              </div>
+              <dl className="mt-5 grid gap-5 md:grid-cols-2">
+                {(
+                  [
+                    [t.models.labels.what, model.what],
+                    [t.models.labels.cost, model.cost],
+                    [t.models.labels.bestFor, model.bestFor],
+                    [t.models.labels.breaks, model.breaks],
+                  ] as const
+                ).map(([label, value]) => (
+                  <div key={label}>
+                    <dt className="text-xs uppercase tracking-[0.16em] text-mist/80">{label}</dt>
+                    <dd className="mt-1.5 text-sm leading-relaxed text-paper/80">{renderInline(value)}</dd>
+                  </div>
+                ))}
+              </dl>
             </Reveal>
           ))}
         </ol>
@@ -227,7 +192,7 @@ export default function OutsourcingGuidePage({ locale }: { locale: Locale }) {
               <div className="h-full rounded-2xl border border-paper-line bg-white/70 p-7">
                 <span className="block h-1 w-10 rounded-full bg-blue" aria-hidden />
                 <h3 className="mt-4 font-display text-lg font-semibold text-ink">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-ink/65">{renderInlineLight(item.body)}</p>
+                <p className="mt-2 text-sm leading-relaxed text-ink/65">{renderInline(item.body, "light")}</p>
               </div>
             </Reveal>
           ))}
@@ -262,7 +227,7 @@ export default function OutsourcingGuidePage({ locale }: { locale: Locale }) {
       <Section id={sectionId(t.geography.number)} number={t.geography.number} title={t.geography.title} theme="light">
         <Reveal>
           <p className="max-w-2xl text-base leading-relaxed text-ink/70 md:text-lg">
-            {renderInlineLight(t.geography.intro)}
+            {renderInline(t.geography.intro, "light")}
           </p>
         </Reveal>
         <div className="mt-12 grid gap-6 md:grid-cols-2">
@@ -275,7 +240,7 @@ export default function OutsourcingGuidePage({ locale }: { locale: Locale }) {
                     {place.clock}
                   </span>
                 </div>
-                <p className="mt-3 text-sm leading-relaxed text-ink/65">{renderInlineLight(place.body)}</p>
+                <p className="mt-3 text-sm leading-relaxed text-ink/65">{renderInline(place.body, "light")}</p>
               </div>
             </Reveal>
           ))}
@@ -286,14 +251,17 @@ export default function OutsourcingGuidePage({ locale }: { locale: Locale }) {
       <Section id={sectionId(t.checklist.number)} number={t.checklist.number} title={t.checklist.title} intro={t.checklist.intro} theme="dark">
         <ol className="space-y-4">
           {t.checklist.steps.map((step, i) => (
-            <Reveal key={step.title} delay={Math.min(i, 4) * 0.06}>
-              <li className="flex gap-6 rounded-2xl border border-ink-line bg-ink-soft/40 p-6">
-                <span className="font-mono text-sm font-semibold text-amber">{String(i + 1).padStart(2, "0")}</span>
-                <div>
-                  <h3 className="font-display text-base font-semibold text-paper">{step.title}</h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-mist">{renderInline(step.body)}</p>
-                </div>
-              </li>
+            <Reveal
+              as="li"
+              key={step.title}
+              delay={Math.min(i, 4) * 0.06}
+              className="flex gap-6 rounded-2xl border border-ink-line bg-ink-soft/40 p-6"
+            >
+              <span className="font-mono text-sm font-semibold text-amber">{String(i + 1).padStart(2, "0")}</span>
+              <div>
+                <h3 className="font-display text-base font-semibold text-paper">{step.title}</h3>
+                <p className="mt-1.5 text-sm leading-relaxed text-mist">{renderInline(step.body)}</p>
+              </div>
             </Reveal>
           ))}
         </ol>

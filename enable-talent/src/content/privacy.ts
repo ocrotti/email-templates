@@ -141,10 +141,12 @@ export const privacy: Record<Locale, PrivacyContent> = {
     ],
   },
   it: {
-    seoTitle: "Privacy Policy | enable.talent",
+    // Italian title and H1 differ from the English page on purpose: they were
+    // byte-identical, which is the one duplicate title on the site.
+    seoTitle: "Informativa privacy | enable.talent",
     seoDescription:
       "Come enable.talent tratta i dati del modulo di contatto: finalità, base giuridica, conservazione, responsabili, trasferimenti extra-SEE e diritti GDPR.",
-    title: "Privacy Policy",
+    title: "Informativa privacy",
     updated: "Ultimo aggiornamento: 7 agosto 2026",
     intro:
       "Vendiamo serietà GDPR di mestiere, quindi questa pagina ci tiene allo stesso standard: cosa raccoglie questo sito, perché, su quale base giuridica, e cosa puoi farci — in linguaggio chiaro, senza banner di consenso da combattere.",
@@ -153,7 +155,7 @@ export const privacy: Record<Locale, PrivacyContent> = {
         number: "01",
         title: "Chi siamo (il titolare del trattamento)",
         paragraphs: [
-          "enable.talent è gestito da [Ragione sociale — da completare prima del lancio], con sede legale in [Sede legale — da completare prima del lancio], P. IVA [Partita IVA — da completare prima del lancio] (\"noi\"). Per i dati personali descritti in questa policy, siamo il titolare del trattamento ai sensi del Regolamento (UE) 2016/679 (GDPR).",
+          "enable.talent è gestito da [Ragione sociale — da completare prima del lancio], con sede legale in [Sede legale — da completare prima del lancio], P. IVA [Partita IVA — da completare prima del lancio] («noi»). Per i dati personali descritti in questa policy, siamo il titolare del trattamento ai sensi del Regolamento (UE) 2016/679 (GDPR).",
           "Per qualsiasi cosa riguardi questa policy, puoi scriverci a [Email privacy — da completare prima del lancio].",
         ],
       },

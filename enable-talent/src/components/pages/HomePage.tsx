@@ -46,7 +46,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
                 {t.hero.eyebrow}
               </p>
             </Reveal>
-            <HeroReveal lines={t.hero.titleLines} className="text-display-xl font-display font-bold" />
+            <HeroReveal lines={t.hero.titleLines} className="text-display-lg font-display font-bold" />
             {/* Not wrapped in Reveal: this paragraph is the LCP element, so it has
                 to paint from the server HTML rather than wait for hydration. */}
             <p className="mt-8 max-w-xl text-lg leading-relaxed text-mist md:text-xl">{t.hero.sub}</p>

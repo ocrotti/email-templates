@@ -126,7 +126,7 @@ export const caseStudy: Record<Locale, CaseStudyContent> = {
       body: [
         "Il layer di QA non è opzionale. I primi deliverable erano tecnicamente corretti e contestualmente fuori — tono, aspettative dei clienti, le regole non scritte del B2B italiano. Il gate di QA li ha intercettati, e i loop di rifiuto sono diventati materiale di formazione. In poche settimane l'accettazione al primo passaggio è salita. È per questo che il QA è in ogni pod che vendiamo, non negoziabile: il modello senza è solo freelancing remoto con più logistica.",
         "La disciplina dei brief batte la densità di talento. La qualità dell'output del pod seguiva quasi uno-a-uno la qualità dei nostri brief. Così abbiamo messo i brief a template — e quel template oggi fa parte di ogni onboarding cliente.",
-        "L'allineamento di fuso è un asset operativo vero, non una riga di marketing. Brief in giornata, bozze in giornata, standup dentro l'orario CET. Il cliché offshore delle '24 ore di turnaround' esiste per colpa dei fusi disallineati; a +1/+2h semplicemente non si applica.",
+        "L'allineamento di fuso è un asset operativo vero, non una riga di marketing. Brief in giornata, bozze in giornata, standup dentro l'orario CET. Il cliché offshore delle «24 ore di turnaround» esiste per colpa dei fusi disallineati; a +1/+2h semplicemente non si applica.",
       ],
     },
     results: {

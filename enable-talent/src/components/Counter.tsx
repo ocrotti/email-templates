@@ -3,6 +3,7 @@
 import { useReducedMotion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
+import { formatNumber } from "@/lib/format";
 import type { Locale } from "@/lib/site";
 
 interface Props {
@@ -14,8 +15,6 @@ interface Props {
   /** Formats digits for the page's language, not the visitor's browser. */
   locale?: Locale;
 }
-
-const NUMBER_LOCALE: Record<Locale, string> = { en: "en-GB", it: "it-IT" };
 
 /** Count-up number that animates once when scrolled into view. */
 export default function Counter({ value, prefix = "", suffix = "", className, duration = 1.4, locale = "en" }: Props) {
@@ -45,7 +44,7 @@ export default function Counter({ value, prefix = "", suffix = "", className, du
   return (
     <span ref={ref} className={className}>
       {prefix}
-      {display.toLocaleString(NUMBER_LOCALE[locale])}
+      {formatNumber(display, locale)}
       {suffix}
     </span>
   );

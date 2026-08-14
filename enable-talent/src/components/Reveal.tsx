@@ -9,6 +9,11 @@ interface Props {
   delay?: number;
   y?: number;
   className?: string;
+  /**
+   * Element to render. Use `li` inside a `<ul>`/`<ol>`: a wrapper div between the
+   * list and its items breaks the list semantics screen readers announce.
+   */
+  as?: "div" | "li";
 }
 
 const variants = (y: number) => ({
@@ -27,9 +32,9 @@ const variants = (y: number) => ({
  * after mount, and only for content still below the fold, so nothing that is
  * already on screen flickers back out.
  */
-export default function Reveal({ children, delay = 0, y = 28, className }: Props) {
+export default function Reveal({ children, delay = 0, y = 28, className, as = "div" }: Props) {
   const reduced = useReducedMotion();
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLElement>(null);
   const [armed, setArmed] = useState(false);
 
   useEffect(() => {
@@ -38,19 +43,24 @@ export default function Reveal({ children, delay = 0, y = 28, className }: Props
     if (el && el.getBoundingClientRect().top > window.innerHeight) setArmed(true);
   }, [reduced]);
 
-  return (
-    <motion.div
-      ref={ref}
-      className={className}
-      initial={false}
-      animate={armed ? "hidden" : "shown"}
-      // The positive bottom margin fires the reveal ~200px before the element
-      // enters the viewport, so fast scrollers never see missing sections.
-      whileInView="shown"
-      viewport={{ once: true, margin: "0px 0px 200px 0px" }}
-      variants={variants(y)}
-      transition={{ duration: 0.55, delay, ease: [0.22, 1, 0.36, 1] }}
-    >
+  const motionProps = {
+    className,
+    initial: false as const,
+    animate: armed ? "hidden" : "shown",
+    // The positive bottom margin fires the reveal ~200px before the element
+    // enters the viewport, so fast scrollers never see missing sections.
+    whileInView: "shown",
+    viewport: { once: true, margin: "0px 0px 200px 0px" },
+    variants: variants(y),
+    transition: { duration: 0.55, delay, ease: [0.22, 1, 0.36, 1] as const },
+  };
+
+  return as === "li" ? (
+    <motion.li ref={ref as React.RefObject<HTMLLIElement>} {...motionProps}>
+      {children}
+    </motion.li>
+  ) : (
+    <motion.div ref={ref as React.RefObject<HTMLDivElement>} {...motionProps}>
       {children}
     </motion.div>
   );

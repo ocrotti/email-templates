@@ -1,4 +1,5 @@
 import type { Locale } from "@/lib/site";
+import { formatNumber } from "@/lib/format";
 import { benchmarks } from "@/content/benchmarks";
 
 export interface RoleContent {
@@ -36,8 +37,8 @@ export interface RoleContent {
 function podSeatBand(slug: string, locale: Locale): string {
   const price = benchmarks.find((b) => b.roleSlug === slug)?.pod ?? 2000;
   return locale === "en"
-    ? `From €${price.toLocaleString("en-GB")}/month, all-in`
-    : `Da €${price.toLocaleString("it-IT")}/mese, tutto incluso`;
+    ? `From €${formatNumber(price, "en")}/month, all-in`
+    : `Da €${formatNumber(price, "it")}/mese, tutto incluso`;
 }
 
 export const roleSlugs = [
@@ -461,7 +462,7 @@ export const roles: Record<Locale, Record<string, RoleContent>> = {
       h1: "Assumi uno specialist paid media offshore",
       seoTitle: "Assumi uno Specialist Paid Media Offshore | enable.talent",
       seoDescription:
-        "Specialist paid media dedicati e gestiti da Nairobi per agenzie europee. QA senior europeo su ogni account. Da €2.000/mese, trial di 2 settimane.",
+        "Media buyer dedicati e gestiti da Nairobi per agenzie europee. QA senior europeo su ogni account. Da €2.000/mese, trial retribuito di 2 settimane.",
       tagline: "Campagne costruite, lanciate e ottimizzate ogni giorno — riviste da un buyer senior europeo prima che il tuo cliente veda un numero.",
       intro: [
         "Il paid media è dove muoiono i margini delle agenzie: i clienti pretendono ottimizzazione quotidiana, le piattaforme cambiano ogni settimana, e un buon media buyer in Germania costa €3.600–5.200 al mese prima dell'overhead. La risposta tipica è sovraccaricare un buyer senior su troppi account — e la performance decade in silenzio.",
@@ -572,11 +573,11 @@ export const roles: Record<Locale, Record<string, RoleContent>> = {
       h1: "Assumi uno specialist content & social offshore",
       seoTitle: "Specialist Content & Social Offshore | enable.talent",
       seoDescription:
-        "Specialist content e social dedicati per agenzie: calendari, copy, community e reporting da Nairobi, con QA europeo. Da €2.000/mese, trial di 2 settimane.",
+        "Content e social dedicati per agenzie: calendari, copy, community e reporting da Nairobi, con QA europeo. Da €2.000/mese, trial retribuito di 2 settimane.",
       tagline: "Calendari pieni, post pubblicati, community seguite — ogni settimana, nella voce del tuo brand, con revisione europea.",
       intro: [
         "I retainer content e social sono un business di volume: ogni cliente vuole calendari, varianti di copy, scheduling, community management e report mensili. Nel Regno Unito uno specialist social costa £3.000–4.500 al mese; in Italia €1.500–2.000 — e comunque copre un numero finito di clienti prima che la qualità scivoli.",
-        "Uno specialist content & social in pod industrializza quel volume. Prepara i calendari dalla tua strategia, scrive copy in inglese a livello nativo, adatta i formati per canale, programma, monitora e riporta. Il QA lead europeo rivede tono e coerenza di brand prima che qualcosa entri in coda — così l'“offshore” non compare mai nei feed dei tuoi clienti.",
+        "Uno specialist content & social in pod industrializza quel volume. Prepara i calendari dalla tua strategia, scrive copy in inglese a livello nativo, adatta i formati per canale, programma, monitora e riporta. Il QA lead europeo rivede tono e coerenza di brand prima che qualcosa entri in coda — così l'«offshore» non compare mai nei feed dei tuoi clienti.",
         "Per i mercati non anglofoni il pod lavora brief-to-draft: il tuo team locale rifinisce la lingua mentre il pod porta ricerca, struttura, coordinamento visual e operations — che di solito sono il vero collo di bottiglia.",
         "Il tono di voce è il punto dove il content offshore di solito fallisce, ed è lì che si concentra il QA. I revisori senior di Enable Digital, la nostra agenzia sorella italiana, confrontano ogni calendario e ogni batch di copy con il brand book del cliente prima che arrivino al tuo flusso di approvazione. Le sbavature vengono corrette dentro il pod, e la correzione entra nel brief dello specialist — così lo stesso errore non si ripresenta il mese dopo.",
       ],
@@ -614,7 +615,7 @@ export const roles: Record<Locale, Record<string, RoleContent>> = {
         band: podSeatBand("content-social", "it"),
       },
       faq: [
-        { q: "Il copy suonerà 'offshore'?", a: "Il copy inglese è scritto a livello nativo e rivisto dal QA lead europeo per la voce del brand. Per italiano, tedesco o spagnolo il pod consegna bozze strutturate che il tuo team rifinisce — il carico operativo esce comunque dalla tua scrivania." },
+        { q: "Il copy suonerà «offshore»?", a: "Il copy inglese è scritto a livello nativo e rivisto dal QA lead europeo per la voce del brand. Per italiano, tedesco o spagnolo il pod consegna bozze strutturate che il tuo team rifinisce — il carico operativo esce comunque dalla tua scrivania." },
         { q: "Possono reggere SLA di community management?", a: "Sì — le finestre di risposta sono definite nello SLA del pod, e il fuso di Nairobi significa copertura durante il tuo orario di ufficio, non batch asincroni." },
         { q: "Fanno anche i visual?", a: "Visual template-based in Canva/Figma, sì. Per sistemi di design originali aggiungi un designer al pod — i due ruoli lavorano come un'unica linea di delivery." },
         { q: "Come funzionano le approvazioni giorno per giorno?", a: "Calendari e copy arrivano nel tuo strumento di approvazione — Notion, Trello, quello che usi — già passati dal QA. Il tuo team approva o commenta; il pod gestisce revisioni e programmazione. Tu rivedi il lavoro, non lo rincorri." },
@@ -627,7 +628,7 @@ export const roles: Record<Locale, Record<string, RoleContent>> = {
       h1: "Assumi un designer marketing offshore",
       seoTitle: "Assumi un Designer Marketing Offshore | enable.talent",
       seoDescription:
-        "Designer marketing dedicati per agenzie: creatività adv, kit social e landing page da Nairobi, con direzione artistica e QA europei. Trial di 2 settimane.",
+        "Designer marketing dedicati: creatività adv, kit social e landing page da Nairobi, con direzione artistica e QA europei. Trial di 2 settimane retribuito.",
       tagline: "Creatività adv, kit social e landing page a velocità di produzione — la direzione artistica resta a te, o al nostro QA senior.",
       intro: [
         "Il design è il primo collo di bottiglia quando il volume delle campagne cresce: ogni test paid vuole varianti, ogni calendario social vuole asset, ogni campagna vuole una landing — e i designer senior EU sono prenotati, costosi, o entrambe le cose.",
@@ -741,7 +742,7 @@ export const roles: Record<Locale, Record<string, RoleContent>> = {
       tagline: "Landing, siti e storefront consegnati in orario — con code review, disciplina di staging e zero eroismi.",
       intro: [
         "Il lavoro dev in agenzia va a ondate: tre siti questo mese, zero il prossimo. Assumere un developer mid-level in Germania costa €5.000–6.500 al mese, pipeline piena o no — così il lavoro va a freelance strapieni, e le deadline iniziano a slittare.",
-        "Un developer in pod ti dà capacità di build dedicata a una frazione di quel costo: siti WordPress e Webflow, storefront Shopify, landing page, implementazioni di tracking e l'infinita coda di 'piccole modifiche' che blocca il tuo team marketing. Nairobi ha profondità ingegneristica vera — developer mid-level formati in un ecosistema dove reclutano Google, Microsoft e Safaricom.",
+        "Un developer in pod ti dà capacità di build dedicata a una frazione di quel costo: siti WordPress e Webflow, storefront Shopify, landing page, implementazioni di tracking e l'infinita coda di «piccole modifiche» che blocca il tuo team marketing. Nairobi ha profondità ingegneristica vera — developer mid-level formati in un ecosistema dove reclutano Google, Microsoft e Safaricom.",
         "La disciplina di delivery è il differenziatore: version control, ambienti di staging e review sotto il QA europeo del pod prima che qualcosa tocchi la produzione. Velocità senza deploy da cowboy.",
         "Il QA sullo sviluppo lo gestisce Enable Digital, la nostra agenzia sorella italiana, ed è volutamente poco romantico: pull request riviste prima del merge, checklist di lancio su comportamento responsive, form, tracking, performance e basi di accessibilità, e sign-off in staging prima di ogni rilascio. Se una scadenza è a rischio, te lo dice il pod lead in anticipo — con delle opzioni sul tavolo — invece di fartelo scoprire alla data di consegna.",
       ],
@@ -751,7 +752,7 @@ export const roles: Record<Locale, Record<string, RoleContent>> = {
           { title: "Build di siti e landing", body: "WordPress, Webflow e Shopify dai tuoi design — fedeli al pixel, responsive, in deadline." },
           { title: "Sviluppo frontend", body: "Next.js / React per build headless e web app dove il progetto richiede codice vero." },
           { title: "Tracking e integrazioni", body: "Container GTM, eventi GA4, pixel e CAPI, integrazioni CRM e form — testate, documentate." },
-          { title: "Manutenzione e coda modifiche", body: "La coda dei 'possiamo cambiare al volo…' gestita dentro lo SLA, così i siti dei clienti smettono di essere il tuo collo di bottiglia." },
+          { title: "Manutenzione e coda modifiche", body: "La coda dei «possiamo cambiare al volo…» gestita dentro lo SLA, così i siti dei clienti smettono di essere il tuo collo di bottiglia." },
           { title: "Performance e Core Web Vitals", body: "Audit di velocità e interventi sui siti esistenti dei clienti — immagini, script, configurazione hosting — misurati prima e dopo, non dichiarati." },
           { title: "Sviluppo template email", body: "Build di email HTML responsive per lo stack di automation, testate sui principali client di posta, così le campagne rendono come il designer le ha pensate." },
         ],
@@ -801,7 +802,7 @@ export const rolesIndex: Record<Locale, RolesIndexContent> = {
   en: {
     seoTitle: "Pod Roles: Offshore Marketing Specialists | enable.talent",
     seoDescription:
-      "Six roles, one delivery engine: paid media, SEO, content & social, design, marketing automation and development — dedicated specialists in managed pods with European QA.",
+      "Six roles, one delivery engine: paid media, SEO, content & social, design, automation and development — dedicated specialists in pods with European QA.",
     title: "Six roles. One delivery engine.",
     intro:
       "Pods are assembled from these roles — one specialist or several, always dedicated, always under senior European QA. Pick the bottleneck; we'll build around it.",
@@ -810,7 +811,7 @@ export const rolesIndex: Record<Locale, RolesIndexContent> = {
   it: {
     seoTitle: "Ruoli dei Pod: Specialist Marketing Offshore | enable.talent",
     seoDescription:
-      "Sei ruoli, un solo motore di delivery: paid media, SEO, content & social, design, marketing automation e sviluppo — specialist dedicati in pod gestiti con QA europeo.",
+      "Sei ruoli, un motore di delivery: paid media, SEO, content & social, design, automation e sviluppo — specialist dedicati in pod con QA europeo.",
     title: "Sei ruoli. Un solo motore di delivery.",
     intro:
       "I pod si compongono da questi ruoli — uno specialist o più, sempre dedicati, sempre sotto QA senior europeo. Scegli il collo di bottiglia; noi costruiamo intorno.",

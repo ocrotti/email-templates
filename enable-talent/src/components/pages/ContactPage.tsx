@@ -47,7 +47,7 @@ export default function ContactPage({ locale }: { locale: Locale }) {
           <div>
             {/* h1 and intro sit outside Reveal: the h1 is the LCP element and must
                 paint from the server HTML, before hydration. */}
-            <h1 className="text-display-lg font-display font-bold">{t.title}</h1>
+            <h1 className="text-display-xl font-display font-bold">{t.title}</h1>
             <p className="mt-6 max-w-md text-lg leading-relaxed text-mist">{t.intro}</p>
             <Reveal delay={0.18}>
               <ul className="mt-8 space-y-3">

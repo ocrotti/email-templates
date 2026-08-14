@@ -314,14 +314,14 @@ export const blogPosts: Record<Locale, BlogPost[]> = {
       sections: [
         {
           paragraphs: [
-            "Somewhere (ex Support Shepherd) è uno dei nomi più grandi del recruiting offshore: 5.000+ aziende servite, 11.000+ assunzioni, un pool candidati oltre il milione, badge SOC 2 e una '6-month Perfect Hire Guarantee'. Se dopo aver letto il loro sito la tua conclusione è stata 'impressionante, ma non è esattamente come lavora la mia agenzia' — questo articolo è per te.",
+            "Somewhere (ex Support Shepherd) è uno dei nomi più grandi del recruiting offshore: 5.000+ aziende servite, 11.000+ assunzioni, un pool candidati oltre il milione, badge SOC 2 e una «6-month Perfect Hire Guarantee». Se dopo aver letto il loro sito la tua conclusione è stata «impressionante, ma non è esattamente come lavora la mia agenzia» — questo articolo è per te.",
             "Siamo un competitor con un interesse evidente, quindi argomentiamo con fatti verificabili — e ti diciamo quando Somewhere è davvero la scelta migliore.",
           ],
         },
         {
           heading: "Cosa vende davvero Somewhere",
           paragraphs: [
-            "Somewhere è un servizio di recruiting: trovano e selezionano un dipendente offshore (Filippine, America Latina, Sudafrica, Egitto), tu lo assumi e lo gestisci. Il pitch è '80% in meno' di uno stipendio USA, e la fee è una percentuale una tantum. La loro garanzia — replacement gratuito entro sei mesi — è la più forte della categoria, e la scala che la sostiene se la sono guadagnata.",
+            "Somewhere è un servizio di recruiting: trovano e selezionano un dipendente offshore (Filippine, America Latina, Sudafrica, Egitto), tu lo assumi e lo gestisci. Il pitch è «80% in meno» di uno stipendio USA, e la fee è una percentuale una tantum. La loro garanzia — replacement gratuito entro sei mesi — è la più forte della categoria, e la scala che la sostiene se la sono guadagnata.",
             "Nota cosa non c'è nel pacchetto: gestione, quality assurance, continuità oltre il singolo hire, o un setup legale europeo. Ricevi una persona, non un sistema. Per una PMI USA che assume un'executive assistant o un customer support, è esattamente la cosa giusta.",
           ],
         },
@@ -397,7 +397,7 @@ export const blogPosts: Record<Locale, BlogPost[]> = {
             "Growth Collective — marketplace marketing curato, ingaggio a progetto o a ore, talento occidentale, prezzi trasparenti. Adatto a lavori a progetto ben perimetrati dove vuoi scegliere tu la persona.",
             "Mayple — marketplace con vetting sulle performance (1% di accettazione su 141 criteri, con verifica su dati reali degli ad account), piani da $2.565/mese e garanzia di 30 giorni. Pensato soprattutto per brand eCommerce e DTC che comprano esecuzione già selezionata.",
             "Right Side Up — collettivo premium di marketer occidentali a $100–200/ora, nessun lock-in, e dichiaratamente rilassato se assumi le sue persone. Giusto per brand che vogliono talento di calibro in-house senza overhead d'agenzia.",
-            "Toptal — il marketplace globale del 'top 3%' a $100–200/ora con trial di 2 settimane. Più forte su engineering e ruoli tecnici; il marketing non è il suo baricentro.",
+            "Toptal — il marketplace globale del «top 3%» a $100–200/ora con trial di 2 settimane. Più forte su engineering e ruoli tecnici; il marketing non è il suo baricentro.",
             "Upwork — il marketplace aperto, senza layer di curation: vetting e gestione restano interamente a te. Sensato per task una tantum dove un errore costa poco.",
             "Somewhere e Hire With Near — recruiting, non marketplace: trovano candidati offshore o nearshore (Filippine, America Latina, Sudafrica, Egitto; Near vende marketer mid-level LatAm a $2.000–4.500/mese), tu assumi e gestisci. Giusti quando vuoi un hire permanente e hai la capacità di management — vedi [il nostro confronto completo su Somewhere per agenzie europee](/it/blog/somewhere-alternatives).",
             "Agenzie white-label — shop SEO e PPC produttizzati, una categoria matura. Giuste quando vuoi un servizio definito consegnato sotto il tuo brand e puoi adattarti al loro processo — analizziamo il modello nella [nostra guida alla delivery white-label](/it/blog/white-label-delivery).",
@@ -476,7 +476,7 @@ export const blogPosts: Record<Locale, BlogPost[]> = {
             "Entropia dei brief — la qualità segue la disciplina dei brief quasi uno-a-uno; senza template, l'output va alla deriva.",
             "Turnover — gli specialist sottopagati se ne vanno al prossimo gig in dollari, portandosi via tre mesi di contesto. Il fair pay è infrastruttura di retention, non teatro etico.",
             "Attrito di fuso — un offset di 6–10 ore trasforma ogni revisione in un ciclo di 24 ore. Nairobi a CET+1/2 elimina questa variabile per i buyer europei.",
-            "Debito di gestione invisibile — 'abbiamo risparmiato il 60% sugli stipendi' diventa in silenzio 'la nostra PM passa metà settimana a coordinare il lavoro offshore'. Conta quel costo prima, non dopo.",
+            "Debito di gestione invisibile — «abbiamo risparmiato il 60% sugli stipendi» diventa in silenzio «la nostra PM passa metà settimana a coordinare il lavoro offshore». Conta quel costo prima, non dopo.",
           ],
         },
         {
@@ -518,7 +518,7 @@ export const blogPosts: Record<Locale, BlogPost[]> = {
           list: [
             "Agenzie white-label (categoria matura: shop white-label SEO e PPC): prodotto standardizzato, affidabile, ma ti adatti al loro processo e i loro margini sono incorporati nel tuo prezzo.",
             "Bench di freelance: flessibile ed economica all'inizio, ma la disciplina da partner invisibile (NDA, branding, disponibilità) dipende da ogni individuo — fragile a scala di portafoglio.",
-            "Pod gestiti: [un team offshore dedicato dentro il tuo workflow](/it/how-it-works) con un layer di QA sopra. Categoria più giovane; quella costruita per rendere letterale 'il tuo reparto delivery invisibile' — il [nostro pod white-label](/it/white-label-marketing) è la versione commerciale di quello che questa sezione descrive.",
+            "Pod gestiti: [un team offshore dedicato dentro il tuo workflow](/it/how-it-works) con un layer di QA sopra. Categoria più giovane; quella costruita per rendere letterale «il tuo reparto delivery invisibile» — il [nostro pod white-label](/it/white-label-marketing) è la versione commerciale di quello che questa sezione descrive.",
           ],
         },
         {

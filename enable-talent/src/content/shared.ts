@@ -185,7 +185,7 @@ export const shared: Record<Locale, SharedContent> = {
         cta: "Vai su enabledigital.it",
       },
       legal: "© enable.talent. Ogni claim su questo sito viene dalla nostra ricerca di mercato o da lavoro documentato con i clienti.",
-      privacyLabel: "Privacy Policy",
+      privacyLabel: "Informativa privacy",
       langSwitch: "English",
     },
     form: {
@@ -210,7 +210,9 @@ export const shared: Record<Locale, SharedContent> = {
       submit: "Prenota la call",
       privacy: "Rispondiamo entro un giorno lavorativo. Niente newsletter, niente sequenze automatiche.",
       consent: "Inviando il modulo, accetti che trattiamo i tuoi dati per rispondere alla tua richiesta. Vedi la",
-      consentLink: "Privacy Policy",
+      // Reads as one phrase with `consent` above — the form renders them with a
+      // single space between, so the label carries the article's noun.
+      consentLink: "nostra informativa privacy",
       success: "Ricevuto. Ti rispondiamo entro un giorno lavorativo con due o tre orari proposti per la call.",
       errorRequired: "Questo campo è obbligatorio.",
       errorEmail: "Inserisci un indirizzo email valido.",

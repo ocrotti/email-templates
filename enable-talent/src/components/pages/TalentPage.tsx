@@ -8,6 +8,7 @@ import Faq from "@/components/Faq";
 import MagneticButton from "@/components/MagneticButton";
 import Reveal from "@/components/Reveal";
 import Section from "@/components/Section";
+import { renderInline } from "@/components/InlineLinks";
 
 export default function TalentPage({ locale }: { locale: Locale }) {
   const t = talent[locale];
@@ -35,7 +36,7 @@ export default function TalentPage({ locale }: { locale: Locale }) {
           </Reveal>
           {/* h1 and intro sit outside Reveal: the h1 is the LCP element and must
               paint from the server HTML, before hydration. */}
-          <h1 className="text-display-lg max-w-4xl font-display font-bold">{t.title}</h1>
+          <h1 className="text-display-xl max-w-4xl font-display font-bold">{t.title}</h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mist">{t.intro}</p>
         </div>
       </section>
@@ -61,15 +62,18 @@ export default function TalentPage({ locale }: { locale: Locale }) {
       <Section number={t.vetting.number} title={t.vetting.title} intro={t.vetting.intro} theme="light" compact>
         <ol className="space-y-4">
           {t.vetting.steps.map((step, i) => (
-            <Reveal key={step.title} delay={i * 0.08}>
-              <li className="flex gap-6 rounded-2xl border border-paper-line bg-white/70 p-6 md:items-center">
-                {/* amber-ink, not amber-deep: this is text on a light card. */}
-                <span className="font-mono text-sm font-semibold text-amber-ink">{String(i + 1).padStart(2, "0")}</span>
-                <div>
-                  <h3 className="font-display text-lg font-semibold text-ink">{step.title}</h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-ink/65">{step.body}</p>
-                </div>
-              </li>
+            <Reveal
+              as="li"
+              key={step.title}
+              delay={i * 0.08}
+              className="flex gap-6 rounded-2xl border border-paper-line bg-white/70 p-6 md:items-center"
+            >
+              {/* amber-ink, not amber-deep: this is text on a light card. */}
+              <span className="font-mono text-sm font-semibold text-amber-ink">{String(i + 1).padStart(2, "0")}</span>
+              <div>
+                <h3 className="font-display text-lg font-semibold text-ink">{step.title}</h3>
+                <p className="mt-1.5 text-sm leading-relaxed text-ink/65">{step.body}</p>
+              </div>
             </Reveal>
           ))}
         </ol>
@@ -99,7 +103,7 @@ export default function TalentPage({ locale }: { locale: Locale }) {
         <div className="max-w-2xl space-y-5">
           {t.reputation.body.map((p) => (
             <Reveal key={p.slice(0, 24)}>
-              <p className="text-base leading-relaxed text-ink/70 md:text-lg">{p}</p>
+              <p className="text-base leading-relaxed text-ink/70 md:text-lg">{renderInline(p, "light")}</p>
             </Reveal>
           ))}
         </div>
