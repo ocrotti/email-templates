@@ -40,14 +40,14 @@ export const compliance: Dict<ComplianceContent> = {
     },
     hero: {
       kicker: "Come lavoriamo",
-      title: "La compliance non si dichiara. Si progetta.",
+      title: "La compliance si progetta come si progetta il prodotto.",
       subtitle:
         "Ogni piattaforma Enable Pharma nasce dentro il perimetro normativo italiano ed europeo: non lo aggiriamo, lo usiamo come specifica di progetto. Questa pagina mostra l'impianto, norma per norma.",
     },
     intro: {
       title: "Perché ve lo mostriamo",
       body: [
-        "Chi compra comunicazione in pharma non compra creatività: compra la certezza di non finire in una contestazione. Per questo il nostro impianto compliance è documentato, ispezionabile e discusso con legal, medical e farmacovigilanza del cliente prima della firma, non dopo il primo incidente.",
+        "Chi compra comunicazione in pharma compra soprattutto una certezza: non finire in una contestazione. Per questo il nostro impianto compliance è documentato, ispezionabile e discusso con legal, medical e farmacovigilanza del cliente prima della firma, non dopo il primo incidente.",
         "Quello che segue non è un elenco di sigle: è il modo in cui ogni requisito normativo diventa una funzione concreta della piattaforma — un workflow, un ruolo, un registro.",
       ],
     },
@@ -175,14 +175,14 @@ export const compliance: Dict<ComplianceContent> = {
     },
     hero: {
       kicker: "How we work",
-      title: "Compliance is not declared. It is designed.",
+      title: "We design compliance the way we design the product.",
       subtitle:
         "Every Enable Pharma platform starts inside the Italian and European regulatory perimeter: we don't work around it, we use it as the design specification. This page shows the framework, regulation by regulation.",
     },
     intro: {
       title: "Why we show you this",
       body: [
-        "Pharma buyers don't buy creativity: they buy the certainty of not ending up in a dispute. That is why our compliance framework is documented, inspectable and discussed with the client's legal, medical and pharmacovigilance teams before signing — not after the first incident.",
+        "What pharma buyers are really buying is one certainty: not ending up in a dispute. That is why our compliance framework is documented, inspectable and discussed with the client's legal, medical and pharmacovigilance teams before signing — not after the first incident.",
         "What follows is not a list of acronyms: it is how each regulatory requirement becomes a concrete feature of the platform — a workflow, a role, a register.",
       ],
     },

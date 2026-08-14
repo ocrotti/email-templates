@@ -33,9 +33,9 @@ export default function SectionShell({
       }`}
     >
       <div className="mx-auto max-w-7xl">
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,300px)_1fr] lg:gap-16">
+        <div className="grid grid-cols-1 gap-8 xl:grid-cols-[minmax(0,240px)_1fr] xl:gap-12">
           <div className="relative">
-            <SectionNumber value={number} className="lg:sticky lg:top-28" />
+            <SectionNumber value={number} className="xl:sticky xl:top-28" />
           </div>
           <div className="min-w-0">
             <Reveal>

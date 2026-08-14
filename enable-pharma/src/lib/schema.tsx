@@ -12,9 +12,23 @@ export function organizationSchema(locale: Locale) {
     "@type": "Organization",
     "@id": `${siteConfig.url}/#organization`,
     name: siteConfig.name,
+    legalName: siteConfig.legal.companyName || siteConfig.name,
     url: siteConfig.url,
+    logo: `${siteConfig.url}/icon.svg`,
     email: siteConfig.email,
     sameAs: [siteConfig.linkedin],
+    // Filled in from site-config once the legal identity is confirmed;
+    // an empty address object would be worse than none.
+    ...(siteConfig.legal.vatId ? { vatID: siteConfig.legal.vatId } : {}),
+    ...(siteConfig.legal.address
+      ? {
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: siteConfig.legal.address,
+            addressCountry: "IT",
+          },
+        }
+      : {}),
     description:
       locale === "it"
         ? "Enable Pharma costruisce e gestisce piattaforme di disease awareness istituzionali (unbranded) come servizio ricorrente per le aziende della salute."
@@ -64,6 +78,10 @@ export function professionalServiceSchema(locale: Locale) {
   };
 }
 
+// FAQ answers carry inline [label](/path) links for the rendered page;
+// the structured data has to be clean text.
+const stripLinks = (s: string) => s.replace(/\[([^\]]+)\]\([^)\s]+\)/g, "$1");
+
 export function faqSchema(items: FaqItem[]) {
   return {
     "@context": "https://schema.org",
@@ -71,7 +89,7 @@ export function faqSchema(items: FaqItem[]) {
     mainEntity: items.map((item) => ({
       "@type": "Question",
       name: item.question,
-      acceptedAnswer: { "@type": "Answer", text: item.answer },
+      acceptedAnswer: { "@type": "Answer", text: stripLinks(item.answer) },
     })),
   };
 }
@@ -85,8 +103,11 @@ export function articleSchema(article: Article, locale: Locale, url: string) {
     // title (always <= 60) rather than emit an over-long headline.
     headline: lang.title.length <= 110 ? lang.title : lang.metaTitle,
     description: lang.metaDescription,
-    datePublished: article.date,
-    dateModified: article.date,
+    image: [`${siteConfig.url}${locale === "it" ? "" : "/en"}/opengraph-image`],
+    // A bare date is ambiguous to a crawler; pin it to a wall-clock time
+    // in the publication's own timezone.
+    datePublished: `${article.date}T09:00:00+02:00`,
+    dateModified: `${article.date}T09:00:00+02:00`,
     inLanguage: locale,
     mainEntityOfPage: url,
     keywords: article.keywords[locale].join(", "),

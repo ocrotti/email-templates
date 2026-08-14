@@ -63,7 +63,7 @@ export default async function CaseStudyPage({
               {t.hero.title}
             </h1>
             <p className="prose-copy mt-7 text-ink-soft">{t.hero.subtitle}</p>
-            <p className="eyebrow mt-8 max-w-3xl border-l-2 border-accent pl-5 leading-relaxed text-ink-soft">
+            <p className="mt-8 max-w-3xl border-l-2 border-accent pl-5 text-sm leading-relaxed text-ink-soft">
               {t.hero.disclaimer}
             </p>
           </FadeUp>
@@ -157,7 +157,7 @@ export default async function CaseStudyPage({
               <Reveal
                 key={axis.name}
                 delay={i * 0.07}
-                className="card-sweep border border-line-dark p-7"
+                className="border border-line-dark p-7"
               >
                 <p className="eyebrow text-accent-ondark">
                   {String(i + 1).padStart(2, "0")}

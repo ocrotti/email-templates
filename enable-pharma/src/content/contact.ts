@@ -12,12 +12,20 @@ export interface ContactFormLabels {
   areaPlaceholder: string;
   message: string;
   messagePlaceholder: string;
-  privacy: string;
+  /** Consent line, split so the notice itself can be a link inside it. */
+  privacyBefore: string;
+  privacyLinkLabel: string;
+  privacyAfter: string;
   submit: string;
   sending: string;
-  success: string;
+  successTitle: string;
+  successBody: string;
+  successNextLabel: string;
+  successNextInsight: string;
+  successNextCase: string;
   error: string;
   requiredNote: string;
+  noscript: string;
 }
 
 interface ContactContent {
@@ -48,7 +56,7 @@ export const contact: Dict<ContactContent> = {
       kicker: "Contatti",
       title: "Iniziamo dal perimetro.",
       subtitle:
-        "Raccontateci patologia, funzione e obiettivo. Vi rispondiamo entro 24 ore lavorative con una proposta di primo confronto — senza pitch da 60 slide.",
+        "Raccontateci patologia, funzione e obiettivo. Vi rispondiamo entro un giorno lavorativo con una proposta di primo confronto — senza pitch da 60 slide.",
     },
     aside: {
       title: "Come funziona il primo contatto",
@@ -58,7 +66,7 @@ export const contact: Dict<ContactContent> = {
         "Proposta di audit con perimetro e prezzo fisso",
         "Audit di 4–6 settimane con roadmap approvabile",
       ],
-      responseNote: "Risposta entro 24 ore lavorative.",
+      responseNote: "Risposta entro un giorno lavorativo.",
       emailLabel: "Oppure scriveteci direttamente:",
     },
     form: {
@@ -68,9 +76,11 @@ export const contact: Dict<ContactContent> = {
       company: "Azienda",
       role: "Funzione",
       rolePlaceholder: "Seleziona una funzione",
+      // Mirrors the five desks named on /compliance, in the same order.
       roles: [
         "Medical Affairs",
-        "Corporate / Public Affairs",
+        "Legal & Compliance",
+        "Corporate & Public Affairs",
         "Patient Advocacy",
         "Market Access / Brand",
         "Altro",
@@ -80,14 +90,21 @@ export const contact: Dict<ContactContent> = {
       message: "Messaggio",
       messagePlaceholder:
         "Due righe sul contesto: patologia, obiettivo, tempi.",
-      privacy:
-        "Ho letto l'informativa privacy e acconsento al trattamento dei dati per rispondere alla mia richiesta.",
+      privacyBefore: "Ho letto l'",
+      privacyLinkLabel: "informativa privacy",
+      privacyAfter:
+        " e acconsento al trattamento dei dati per rispondere alla mia richiesta.",
       submit: "Invia la richiesta",
       sending: "Invio in corso…",
-      success:
-        "Richiesta ricevuta. Vi rispondiamo entro 24 ore lavorative.",
+      successTitle: "Richiesta ricevuta.",
+      successBody:
+        "Vi rispondiamo entro un giorno lavorativo da info@enablepharma.it. Se non vedete la risposta, controllate la posta indesiderata.",
+      successNextLabel: "Nel frattempo",
+      successNextInsight: "Leggete gli insight",
+      successNextCase: "Guardate il progetto tipo",
       error: "Qualcosa non ha funzionato. Riprovate, o scrivete a",
       requiredNote: "Tutti i campi sono obbligatori, tranne l'area terapeutica.",
+      noscript: "Questo modulo richiede JavaScript. Scriveteci direttamente a",
     },
   },
   en: {
@@ -122,7 +139,8 @@ export const contact: Dict<ContactContent> = {
       rolePlaceholder: "Select your function",
       roles: [
         "Medical Affairs",
-        "Corporate / Public Affairs",
+        "Legal & Compliance",
+        "Corporate & Public Affairs",
         "Patient Advocacy",
         "Market Access / Brand",
         "Other",
@@ -132,13 +150,21 @@ export const contact: Dict<ContactContent> = {
       message: "Message",
       messagePlaceholder:
         "Two lines of context: condition, goal, timing.",
-      privacy:
-        "I have read the privacy notice and consent to the processing of my data to answer this request.",
+      privacyBefore: "I have read the ",
+      privacyLinkLabel: "privacy notice",
+      privacyAfter:
+        " and consent to the processing of my data to answer this request.",
       submit: "Send the request",
       sending: "Sending…",
-      success: "Request received. We reply within one business day.",
+      successTitle: "Request received.",
+      successBody:
+        "We reply within one business day from info@enablepharma.it. If you cannot see our reply, please check your spam folder.",
+      successNextLabel: "In the meantime",
+      successNextInsight: "Read the insights",
+      successNextCase: "See the example project",
       error: "Something went wrong. Please try again, or write to",
       requiredNote: "All fields are required except the therapeutic area.",
+      noscript: "This form needs JavaScript. Write to us directly at",
     },
   },
 };

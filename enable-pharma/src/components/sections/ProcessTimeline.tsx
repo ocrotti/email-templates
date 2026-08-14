@@ -49,7 +49,7 @@ export default function ProcessTimeline({
               />
               <button
                 type="button"
-                className="group flex w-full cursor-pointer items-baseline justify-between gap-4 py-5 text-left"
+                className="group flex w-full cursor-pointer items-center justify-between gap-4 py-5 text-left"
                 aria-expanded={isOpen}
                 aria-controls={`phase-panel-${i}`}
                 id={`phase-trigger-${i}`}
@@ -65,6 +65,16 @@ export default function ProcessTimeline({
                 </span>
                 <span className="eyebrow shrink-0 text-ink-soft">
                   {phase.weeks}
+                </span>
+                {/* Without a marker the four closed phases read as plain
+                    text; this mirrors the FAQ accordion's affordance. */}
+                <span
+                  aria-hidden="true"
+                  className={`grid h-9 w-9 shrink-0 place-items-center rounded-full border border-control text-lg transition-transform duration-500 ${
+                    isOpen ? "rotate-45 text-accent-deep" : ""
+                  }`}
+                >
+                  +
                 </span>
               </button>
               {/* See FAQAccordion: the 0fr collapse is visual only, so a

@@ -56,12 +56,12 @@ export const caseStudy: Dict<CaseStudyContent> = {
       subtitle:
         "Come si costruisce un presidio di awareness continuativo, compliant e misurabile: le attività reali, nell'ordine reale.",
       disclaimer:
-        "Progetto anonimizzato, basato su attività reali del settore e presentato come esempio. Nessun riferimento a aziende, farmaci o piattaforme esistenti. KPI dichiarati come illustrativi.",
+        "Progetto anonimizzato, basato su attività reali del settore e presentato come esempio. Nessun riferimento ad aziende, farmaci o piattaforme esistenti. KPI dichiarati come illustrativi.",
     },
     scenario: {
       title: "Lo scenario",
       body: [
-        "Un'azienda farmaceutica attiva nelle malattie rare della coagulazione vuole presidiare la awareness in modo continuativo. La patologia ha un ritardo diagnostico significativo, una community di pazienti piccola e dispersa, e associazioni attive ma con risorse limitate.",
+        "Un'azienda farmaceutica attiva nelle malattie rare della coagulazione vuole presidiare l'awareness in modo continuativo. La patologia ha un ritardo diagnostico significativo, una community di pazienti piccola e dispersa, e associazioni attive ma con risorse limitate.",
         "Il vincolo di partenza è duplice: nessun rischio normativo — la comunicazione deve restare rigorosamente istituzionale e unbranded — e nessuna campagna spot: l'obiettivo è un asset che duri, non un picco di reach.",
       ],
       constraintsTitle: "Il perimetro",

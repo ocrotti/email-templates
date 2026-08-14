@@ -19,6 +19,13 @@
   --color-accent-ondark: #ff5a2b;
   --color-line: #d9d2c0;
   --color-line-dark: #3a362b;
+  /* Borders that ARE the affordance of an interactive control (inputs,
+     the menu button, the locale pill, the accordion marker) need 3:1
+     against their background — WCAG 2.2 SC 1.4.11. The --color-line pair
+     above is 1.32:1 / 1.48:1: right for decorative rules, too faint for
+     a control. These two are 3.52:1 on paper and 3.74:1 on ink. */
+  --color-control: #857f6c;
+  --color-control-dark: #787264;
 
   /* Typography */
   --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
@@ -160,6 +167,14 @@ body {
   opacity: 0.9;
 }
 
+/* On ink the paper-side accent underline drops to 3.4:1; the on-dark
+   token restores it. Deliberately NOT extended to `.text-ink`: the
+   on-dark buttons are ink type on a lacquer fill, and overriding the
+   colour there breaks a contrast that is already correct. */
+.on-dark .decoration-accent {
+  text-decoration-color: var(--color-accent-ondark);
+}
+
 /* ------------------------------------------------------------- marquee */
 
 @keyframes marquee-x {
@@ -282,6 +297,12 @@ body {
   }
 }
 
+/* On ink the lacquer red drops to 3.4:1 and the sweep disappears on the
+   very cards that carry the offer: use the on-dark token there. */
+.on-dark .card-sweep::after {
+  border-color: var(--color-accent-ondark);
+}
+
 /* ------------------------------------------------- reduced motion */
 
 @media (prefers-reduced-motion: reduce) {
@@ -359,6 +380,8 @@ body {
   --color-accent-ondark: #5f79ff;
   --color-line: #d3d6d9;
   --color-line-dark: #2c3247;
+  --color-control: #767c85;
+  --color-control-dark: #6f7686;
 }
 
 /* Direction 3 — "clinico": deep clinical green dominant with a vivid
@@ -374,4 +397,6 @@ body {
   --color-accent-ondark: #43d98c;
   --color-line: #d0d7cc;
   --color-line-dark: #2b3d33;
+  --color-control: #78826f;
+  --color-control-dark: #6d7a71;
 }

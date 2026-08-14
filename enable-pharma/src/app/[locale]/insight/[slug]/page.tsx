@@ -40,6 +40,13 @@ export async function generateMetadata({
   const article = getArticleBySlug(slug, locale);
   if (!article) return {};
   const lang = article.content[locale];
+  const canonical = `${siteConfig.url}${getPathname({
+    locale,
+    href: {
+      pathname: "/insight/[slug]",
+      params: { slug: article.slug[locale] },
+    } as never,
+  })}`;
   return pageMetadata({
     locale,
     pathname: "/insight/[slug]",
@@ -48,6 +55,7 @@ export async function generateMetadata({
     description: lang.metaDescription,
     ogType: "article",
     publishedTime: article.date,
+    ogImageUrl: `${canonical}/opengraph-image`,
   });
 }
 

@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
+import { Link } from "@/i18n/navigation";
 import type { ContactFormLabels } from "@/content/contact";
 import { siteConfig } from "@/lib/site-config";
+import { ArrowLink } from "@/components/ui/Button";
 
 type Status = "idle" | "sending" | "success" | "error";
 
@@ -25,8 +27,14 @@ export default function ContactForm({
   onDark = false,
 }: ContactFormProps) {
   const [status, setStatus] = useState<Status>("idle");
-  const successRef = useRef<HTMLParagraphElement | null>(null);
+  // Submitting is JS-only. Until hydration runs, the button would post
+  // the form as a plain GET and drop the lead without a word, so it
+  // stays disabled and <noscript> hands over the address instead.
+  const [hydrated, setHydrated] = useState(false);
+  const successRef = useRef<HTMLDivElement | null>(null);
   const errorRef = useRef<HTMLParagraphElement | null>(null);
+
+  useEffect(() => setHydrated(true), []);
 
   useEffect(() => {
     if (status === "success") successRef.current?.focus();
@@ -38,8 +46,8 @@ export default function ContactForm({
   // to 2.3:1 — below the AA minimum.
   const inputClass = `w-full border-b bg-transparent px-0 py-3 text-base outline-none transition-colors focus:border-accent ${
     onDark
-      ? "border-line-dark text-paper placeholder:text-paper placeholder:opacity-60"
-      : "border-line text-ink placeholder:text-ink-soft"
+      ? "border-control-dark text-paper placeholder:text-paper placeholder:opacity-60"
+      : "border-control text-ink placeholder:text-ink-soft"
   }`;
 
   const labelClass = `eyebrow block ${onDark ? "text-paper/60" : "text-ink-soft"}`;
@@ -68,16 +76,32 @@ export default function ContactForm({
       // Focused on mount: submitting unmounts the form, so without this
       // the user's focus falls back to <body> and keyboard and screen
       // reader users lose their place entirely.
-      <p
+      <div
         ref={successRef}
         tabIndex={-1}
         role="status"
-        className={`prose-copy border-l-2 border-accent pl-5 outline-none ${
+        className={`border-l-2 border-accent pl-5 outline-none ${
           onDark ? "text-paper" : "text-ink"
         }`}
       >
-        {labels.success}
-      </p>
+        <p className="font-display-soft text-2xl">{labels.successTitle}</p>
+        <p className="prose-copy mt-3">{labels.successBody}</p>
+        {/* The full-page form leaves half a screen empty once it is
+            replaced; give the visit somewhere to go next. */}
+        {!compact ? (
+          <>
+            <p className="eyebrow mt-8 text-accent-deep">
+              {labels.successNextLabel}
+            </p>
+            <div className="mt-4 flex flex-col items-start gap-3">
+              <ArrowLink href="/insight">{labels.successNextInsight}</ArrowLink>
+              <ArrowLink href="/progetto-esempio">
+                {labels.successNextCase}
+              </ArrowLink>
+            </div>
+          </>
+        ) : null}
+      </div>
     );
   }
 
@@ -157,7 +181,12 @@ export default function ContactForm({
               name="role"
               required
               defaultValue=""
-              className={`${inputClass} cursor-pointer appearance-none pr-8`}
+              // Until a function is picked the select is :invalid, so the
+              // placeholder drops to the same tone as the sibling text
+              // placeholders instead of reading as a filled-in answer.
+              className={`${inputClass} cursor-pointer appearance-none pr-8 ${
+                onDark ? "invalid:text-paper/60" : "invalid:text-ink-soft"
+              }`}
             >
               <option value="" disabled>
                 {labels.rolePlaceholder}
@@ -186,7 +215,9 @@ export default function ContactForm({
             </svg>
           </div>
         </div>
-        <div>
+        {/* Full width: five single-column fields before a full-width one
+            would leave the third grid row half empty. */}
+        <div className={compact ? "" : "md:col-span-2"}>
           <label htmlFor={`area-${compact}`} className={labelClass}>
             {labels.area}
           </label>
@@ -220,14 +251,29 @@ export default function ContactForm({
               className="mt-1 h-4 w-4 shrink-0 accent-(--color-accent)"
             />
             <span className={onDark ? "text-paper/70" : "text-ink-soft"}>
-              {labels.privacy}
+              {labels.privacyBefore}
+              {/* Attesting you read a notice you cannot reach is not
+                  informed consent. stopPropagation keeps the click off
+                  the surrounding label, which would toggle the box. */}
+              <Link
+                href="/privacy"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className={`underline decoration-accent underline-offset-2 ${
+                  onDark ? "hover:text-accent-ondark" : "hover:text-accent-deep"
+                }`}
+              >
+                {labels.privacyLinkLabel}
+              </Link>
+              {labels.privacyAfter}
             </span>
           </label>
         </div>
         <div className={compact ? "" : "md:col-span-2"}>
           <button
             type="submit"
-            disabled={status === "sending"}
+            disabled={!hydrated || status === "sending"}
             className={`inline-flex cursor-pointer items-center gap-3 rounded-full px-7 py-4 text-[0.95rem] font-medium transition-colors disabled:opacity-60 ${
               onDark
                 ? "bg-accent-ondark text-ink hover:bg-accent hover:text-paper"
@@ -266,6 +312,20 @@ export default function ContactForm({
               {labels.requiredNote}
             </p>
           ) : null}
+          <noscript>
+            <p
+              className={`mt-4 text-sm ${onDark ? "text-paper/80" : "text-ink-soft"}`}
+            >
+              {labels.noscript}{" "}
+              <a
+                href={`mailto:${siteConfig.email}`}
+                className="font-medium underline underline-offset-2"
+              >
+                {siteConfig.email}
+              </a>
+              .
+            </p>
+          </noscript>
         </div>
       </div>
     </form>

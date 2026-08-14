@@ -100,7 +100,7 @@ interface HomeContent {
 export const home: Dict<HomeContent> = {
   it: {
     meta: {
-      title: "Enable Pharma — Disease awareness compliant as-a-service",
+      title: "Disease awareness as-a-service per il pharma | Enable Pharma",
       description:
         "Più di un'agenzia di comunicazione pharma: piattaforme di disease awareness unbranded, community e farmacovigilanza in un servizio ricorrente.",
     },
@@ -108,7 +108,7 @@ export const home: Dict<HomeContent> = {
       kicker: "Disease awareness as-a-service — Italia · EU",
       titleLines: ["Community di", "disease awareness,", "compliant by design."],
       subtitle:
-        "Costruiamo e gestiamo piattaforme di sensibilizzazione istituzionali e unbranded per le aziende della salute. Un servizio ricorrente, non una campagna. La compliance non è un disclaimer in fondo alla pagina: è progettata dentro il prodotto.",
+        "Costruiamo e gestiamo piattaforme di sensibilizzazione istituzionali e unbranded per le aziende della salute. Un servizio ricorrente, non una campagna: la compliance entra nel progetto come specifica, con workflow, owner e audit trail.",
       proofPoints: [
         {
           title: "Compliance-by-design",
@@ -140,7 +140,7 @@ export const home: Dict<HomeContent> = {
     problem: {
       number: "01",
       label: "Il problema",
-      title: "In Italia la awareness si fa a campagne. Poi si spegne.",
+      title: "In Italia l'awareness si fa a campagne. Poi si spegne.",
       points: [
         {
           title: "Progetti spot, non presidi",
@@ -156,7 +156,7 @@ export const home: Dict<HomeContent> = {
         },
       ],
       outcome:
-        "Intanto le persone restano sole: nella spondilite anchilosante il ritardo diagnostico medio è di 7–8 anni (survey EMAS) e in Italia il 60% dei pazienti reumatologici attende più di 3 anni (ANMAR / Osservatorio CAPIRE). La awareness continuativa è tempo di diagnosi guadagnato.",
+        "Intanto le persone restano sole: nella spondilite anchilosante il ritardo diagnostico medio è di 7–8 anni (survey EMAS) e in Italia il 60% dei pazienti reumatologici attende più di 3 anni (ANMAR / Osservatorio CAPIRE). Su orizzonti così lunghi, l'informazione continuativa è l'unica che può incontrare una persona nel momento in cui cerca.",
     },
     solution: {
       number: "02",
@@ -221,7 +221,7 @@ export const home: Dict<HomeContent> = {
     process: {
       number: "03",
       label: "Come lavoriamo",
-      title: "Compliance-first non è uno slogan. È l'ordine delle fasi.",
+      title: "Cinque fasi, in un ordine che non cambia.",
       intro:
         "Prima si definisce il perimetro normativo, poi si progetta, poi si pubblica. Ogni fase ha un owner, deliverable espliciti e un passaggio di revisione documentato.",
       phases: [
@@ -306,9 +306,9 @@ export const home: Dict<HomeContent> = {
     areas: {
       number: "05",
       label: "Aree terapeutiche",
-      title: "Dove la awareness vale una diagnosi.",
+      title: "Dove un presidio continuativo pesa di più.",
       intro:
-        "Non lavoriamo ovunque. Scegliamo aree dove il ritardo diagnostico è misurabile in anni e una community continuativa cambia le traiettorie: prima il sospetto clinico, prima il centro giusto, prima la presa in carico.",
+        "Non lavoriamo ovunque. Scegliamo aree dove il ritardo diagnostico è misurabile in anni e dove l'informazione manca proprio nel punto del percorso in cui servirebbe: prima del sospetto clinico, prima della scelta del centro.",
       list: [
         {
           title: "Malattie rare e ultra-rare",
@@ -394,11 +394,11 @@ export const home: Dict<HomeContent> = {
       differentiators: [
         {
           title: "La compliance è il prodotto",
-          body: "Workflow MLR, farmacovigilanza e GDPR non sono promesse: sono processi documentati, con owner, SLA e audit trail, che il vostro legal può ispezionare prima della firma.",
+          body: "Workflow MLR, farmacovigilanza e GDPR sono processi documentati, con owner, SLA e audit trail: il vostro legal può ispezionarli prima della firma.",
         },
         {
           title: "Esperienza vera sulle rare",
-          body: "Veniamo da progetti di awareness continuativa in malattie rare ed ematologia: conosciamo associazioni, centri di riferimento e la differenza tra una campagna e un presidio.",
+          body: "Il team viene da progetti di awareness continuativa in malattie rare ed ematologia: mappa delle associazioni, centri di riferimento, calendari di disclosure. In audit portiamo i deliverable, non i loghi dei clienti.",
         },
         {
           title: "Modello ricorrente, KPI nel tempo",
@@ -423,22 +423,22 @@ export const home: Dict<HomeContent> = {
         {
           question: "State facendo pubblicità di farmaci?",
           answer:
-            "No. La pubblicità al pubblico dei farmaci con obbligo di prescrizione è vietata dal D.Lgs. 219/2006. Le nostre piattaforme sono comunicazione istituzionale sulla patologia: l'art. 113 esclude dalla nozione di pubblicità le informazioni su salute e malattie prive di riferimenti, anche indiretti, a medicinali. Nessun nome di farmaco, nessun principio attivo, mai. Il nome e il logo dell'azienda possono comparire in chiave istituzionale.",
+            "No. La pubblicità al pubblico dei farmaci con obbligo di prescrizione è vietata dal D.Lgs. 219/2006. Le nostre piattaforme sono comunicazione istituzionale sulla patologia: l'art. 113 esclude dalla nozione di pubblicità le informazioni su salute e malattie prive di riferimenti, anche indiretti, a medicinali. Nessun nome di farmaco, nessun principio attivo, mai. Il nome e il logo dell'azienda possono comparire in chiave istituzionale. Il perimetro completo è mappato in [Disease awareness in Italia: cosa si può fare](/insight/campagne-unbranded-pharma-cosa-si-puo-fare).",
         },
         {
           question: "Chi firma la revisione medico-scientifica?",
           answer:
-            "Ogni contenuto è sviluppato con revisione medica, fonti citate e data di revisione visibile, sotto il comitato scientifico nominato per il progetto. Al vostro processo MLR non arrivano bozze: arrivano fascicoli, con ogni claim agganciato alla sua fonte e ogni versione archiviata. La responsabilità approvativa finale resta dove deve stare: nel vostro processo interno.",
+            "Ogni contenuto è sviluppato con revisione medica, fonti citate e data di revisione visibile, sotto il comitato scientifico nominato per il progetto. Al vostro processo MLR non arrivano bozze: arrivano fascicoli, con ogni claim agganciato alla sua fonte e ogni versione archiviata. La responsabilità approvativa finale resta dove deve stare: nel vostro processo interno. Come progettiamo il percorso di revisione è spiegato in [Comunicazione medico-scientifica e review MLR](/insight/comunicazione-medico-scientifica-revisione-mlr).",
         },
         {
           question: "Come gestite un evento avverso segnalato nei commenti?",
           answer:
-            "Con un workflow di farmacovigilanza conforme alle GVP, Modulo VI: monitoraggio dei canali owned, intercettazione delle menzioni rilevanti, escalation a personale di farmacovigilanza qualificato entro le finestre di reporting, template di risposta approvati e registro completo. Il workflow si definisce insieme al vostro dipartimento PV prima del lancio, non dopo il primo caso.",
+            "Con un workflow di farmacovigilanza conforme alle GVP, Modulo VI: monitoraggio dei canali owned, intercettazione delle menzioni rilevanti, escalation a personale di farmacovigilanza qualificato entro le finestre di reporting, template di risposta approvati e registro completo. Il workflow si definisce insieme al vostro dipartimento PV prima del lancio, non dopo il primo caso. Il workflow completo è descritto in [Farmacovigilanza sui social media](/insight/farmacovigilanza-social-media-gvp-modulo-vi).",
         },
         {
           question: "Che ruolo hanno le associazioni pazienti?",
           answer:
-            "Sono partner, non canali. Il coinvolgimento avviene con contratti scritti e con la disclosure dei trasferimenti di valore prevista dal Codice Farmindustria, che recepisce il Codice EFPIA. La trasparenza tutela l'associazione, l'azienda e la credibilità della piattaforma.",
+            "Sono partner, non canali. Il coinvolgimento avviene con contratti scritti e con la disclosure dei trasferimenti di valore prevista dal Codice Farmindustria, che recepisce il Codice EFPIA. La trasparenza tutela l'associazione, l'azienda e la credibilità della piattaforma. Le regole operative, associazione per associazione, sono in [Patient engagement compliant](/insight/patient-engagement-associazioni-influencer-agcom).",
         },
         {
           question: "A fine contratto la piattaforma è nostra?",
@@ -474,7 +474,7 @@ export const home: Dict<HomeContent> = {
       kicker: "Disease awareness as a service — Italy · EU",
       titleLines: ["Disease awareness", "communities,", "compliant by design."],
       subtitle:
-        "We build and run institutional, unbranded awareness platforms for healthcare companies. A recurring service, not a campaign. Compliance is not a disclaimer at the bottom of the page: it is engineered into the product.",
+        "We build and run institutional, unbranded awareness platforms for healthcare companies. A recurring service, not a campaign: compliance enters the project as a specification, with workflows, owners and an audit trail.",
       proofPoints: [
         {
           title: "Compliance by design",
@@ -522,14 +522,14 @@ export const home: Dict<HomeContent> = {
         },
       ],
       outcome:
-        "Meanwhile people wait alone: in ankylosing spondylitis the average diagnostic delay is 7–8 years (EMAS survey), and in Italy 60% of rheumatology patients wait more than 3 years (ANMAR / CAPIRE Observatory). Continuous awareness is diagnostic time won back.",
+        "Meanwhile people wait alone: in ankylosing spondylitis the average diagnostic delay is 7–8 years (EMAS survey), and in Italy 60% of rheumatology patients wait more than 3 years (ANMAR / CAPIRE Observatory). Over horizons that long, only continuous information can meet someone at the moment they start looking.",
     },
     solution: {
       number: "02",
       label: "The solution",
       title: "A platform you switch on. And never want to switch off.",
       intro:
-        "The awareness platform as a service is a continuous asset — a patient community as a service, not a campaign: a condition hub, medically reviewed content, a podcast series, a moderated community. The company switches it on once; we keep it running, growing and compliant, month after month.",
+        "The awareness platform as a service is a continuous asset: a condition hub, medically reviewed content, a podcast series, a moderated community. The company switches it on once; we keep it running, growing and compliant, month after month.",
       pillars: [
         {
           title: "Compliance inside the product",
@@ -587,7 +587,7 @@ export const home: Dict<HomeContent> = {
     process: {
       number: "03",
       label: "How we work",
-      title: "Compliance-first is not a slogan. It is the order of the phases.",
+      title: "Five phases, in an order that never changes.",
       intro:
         "First the regulatory scope, then the design, then the publishing. Every phase has an owner, explicit deliverables and a documented review step.",
       phases: [
@@ -672,9 +672,9 @@ export const home: Dict<HomeContent> = {
     areas: {
       number: "05",
       label: "Therapeutic areas",
-      title: "Where awareness shortens the road to diagnosis.",
+      title: "Where a continuous presence counts most.",
       intro:
-        "We don't work everywhere. We choose areas where diagnostic delay is measured in years and a continuous community changes trajectories: earlier clinical suspicion, earlier referral, earlier care.",
+        "We don't work everywhere. We choose areas where diagnostic delay is measured in years and where information is missing at exactly the point in the journey where it would count: before clinical suspicion, before the choice of centre.",
       list: [
         {
           title: "Rare and ultra-rare diseases",
@@ -760,15 +760,15 @@ export const home: Dict<HomeContent> = {
       differentiators: [
         {
           title: "Compliance is the product",
-          body: "MLR workflows, pharmacovigilance and GDPR are not promises: they are documented processes with owners, SLAs and audit trails your legal team can inspect before signing.",
+          body: "MLR workflows, pharmacovigilance and GDPR are documented processes with owners, SLAs and audit trails: your legal team can inspect them before signing.",
         },
         {
           title: "Real experience in rare diseases",
-          body: "We come from continuous awareness projects in rare diseases and haematology: we know the associations, the reference centres, and the difference between a campaign and a presence.",
+          body: "The team comes from continuous awareness projects in rare diseases and haematology: association maps, reference centres, disclosure calendars. In the audit we show the deliverables, not client logos.",
         },
         {
           title: "Recurring model, KPIs over time",
-          body: "We are not a pharma content agency billing campaign by campaign. Think of us as a patient engagement agency with a recurring mandate: assets measured on engagement, conversation quality and continuity of presence, quarter after quarter.",
+          body: "We are not a pharma communications agency billing campaign by campaign: we build assets measured on engagement, conversation quality and continuity of presence, quarter after quarter.",
         },
       ],
       trustTitle: "Signals that matter to whoever signs",
@@ -789,22 +789,22 @@ export const home: Dict<HomeContent> = {
         {
           question: "Is this medicinal product advertising?",
           answer:
-            "No. Advertising prescription-only medicines to the public is prohibited in Italy by Legislative Decree 219/2006. Our platforms are institutional communication about the condition: art. 113 excludes from the notion of advertising any information on health and diseases with no reference, even indirect, to medicinal products. No drug names, no active ingredients, ever. The company's name and logo may appear in an institutional capacity.",
+            "No. Advertising prescription-only medicines to the public is prohibited in Italy by Legislative Decree 219/2006. Our platforms are institutional communication about the condition: art. 113 excludes from the notion of advertising any information on health and diseases with no reference, even indirect, to medicinal products. No drug names, no active ingredients, ever. The company's name and logo may appear in an institutional capacity. We map the full perimeter in [Disease awareness in Italy: what you can do](/en/insights/unbranded-disease-awareness-campaigns-italy).",
         },
         {
           question: "Who signs off the medical-scientific review?",
           answer:
-            "Every piece of content is developed under medical review, with cited sources and a visible review date, overseen by the scientific committee named for the project. Your MLR process never receives drafts: it receives dossiers, each claim attached to its source, each version archived. Final approval authority stays where it belongs: in your internal process.",
+            "Every piece of content is developed under medical review, with cited sources and a visible review date, overseen by the scientific committee named for the project. Your MLR process never receives drafts: it receives dossiers, each claim attached to its source, each version archived. Final approval authority stays where it belongs: in your internal process. How we design the review route is explained in [The MLR review is a process you can design](/en/insights/medical-scientific-communication-mlr-review).",
         },
         {
           question: "How do you handle an adverse event mentioned in the comments?",
           answer:
-            "With a pharmacovigilance workflow aligned to GVP Module VI: monitoring of owned channels, interception of relevant mentions, escalation to qualified pharmacovigilance personnel within reporting windows, approved response templates and a complete register. The workflow is defined with your PV department before launch, not after the first case.",
+            "With a pharmacovigilance workflow aligned to GVP Module VI: monitoring of owned channels, interception of relevant mentions, escalation to qualified pharmacovigilance personnel within reporting windows, approved response templates and a complete register. The workflow is defined with your PV department before launch, not after the first case. We describe the full workflow in [Social media pharmacovigilance](/en/insights/social-media-pharmacovigilance-gvp-module-vi).",
         },
         {
           question: "What role do patient associations play?",
           answer:
-            "They are partners, not channels. Engagement happens through written contracts and with the disclosure of transfers of value required by the Farmindustria Code, which implements the EFPIA Code. Transparency protects the association, the company and the credibility of the platform.",
+            "They are partners, not channels. Engagement happens through written contracts and with the disclosure of transfers of value required by the Farmindustria Code, which implements the EFPIA Code. Transparency protects the association, the company and the credibility of the platform. The operating rules are set out in [Compliant patient engagement in Italy](/en/insights/compliant-patient-engagement-agcom-italy).",
         },
         {
           question: "Do we own the platform at the end of the contract?",

@@ -145,7 +145,7 @@ export default async function HomePage({
             <Reveal
               key={mod.title}
               delay={i * 0.08}
-              className={`card-sweep flex flex-col p-8 ${
+              className={`flex flex-col p-8 ${
                 i === 1 ? "bg-ink text-paper on-dark" : "bg-paper-2"
               }`}
             >
@@ -173,7 +173,10 @@ export default async function HomePage({
               >
                 {mod.items.map((item) => (
                   <li key={item} className="flex gap-2">
-                    <span aria-hidden="true" className="text-accent">
+                    <span
+                      aria-hidden="true"
+                      className={i === 1 ? "text-accent-ondark" : "text-accent"}
+                    >
                       —
                     </span>
                     {item}
@@ -217,7 +220,7 @@ export default async function HomePage({
               <dt className="order-2 mt-3 block text-sm leading-snug text-paper/70">
                 {kpi.label}
               </dt>
-              <dd className="font-display order-1 flex flex-wrap items-baseline gap-x-2 text-5xl text-accent-ondark md:text-6xl">
+              <dd className="font-display order-1 flex flex-wrap items-baseline gap-x-2 text-[clamp(2.25rem,3.2vw,3.25rem)] text-accent-ondark">
                 <Counter
                   value={kpi.value}
                   prefix={kpi.prefix}
@@ -230,7 +233,9 @@ export default async function HomePage({
             </Reveal>
           ))}
         </dl>
-        <p className="eyebrow mt-10 text-paper/50">{t.caseTeaser.kpiNote}</p>
+        <p className="mt-10 max-w-2xl text-sm leading-relaxed text-paper/70">
+          {t.caseTeaser.kpiNote}
+        </p>
         <Reveal className="mt-10">
           <ButtonLink href="/progetto-esempio" variant="primaryOnDark" magnetic>
             {t.caseTeaser.cta}
@@ -249,12 +254,15 @@ export default async function HomePage({
         <div className="divide-y divide-line border-y border-line">
           {t.areas.list.map((area, i) => (
             <Reveal key={area.title} className="grid gap-4 py-8 md:grid-cols-[minmax(0,340px)_1fr] md:gap-12">
-              <h3 className="font-display-soft flex items-baseline gap-4 text-2xl">
-                <span className="eyebrow text-accent-deep">
+              {/* The letter sits beside the heading, not inside it:
+                  within the h3 it fused into the extracted text
+                  ("BEmatologia e plasma") for crawlers and readers. */}
+              <div className="flex items-baseline gap-4">
+                <span aria-hidden="true" className="eyebrow text-accent-deep">
                   {String.fromCharCode(65 + i)}
                 </span>
-                {area.title}
-              </h3>
+                <h3 className="font-display-soft text-2xl">{area.title}</h3>
+              </div>
               <p className="prose-copy text-ink-soft">{area.body}</p>
             </Reveal>
           ))}
@@ -302,7 +310,7 @@ export default async function HomePage({
             >
               <h4 className="font-display-soft text-xl">{tier.name}</h4>
               <p
-                className={`font-display mt-5 text-4xl md:text-5xl ${
+                className={`font-display mt-5 text-[clamp(2rem,3.4vw,2.625rem)] ${
                   tier.highlighted ? "text-accent-ondark" : "text-accent-deep"
                 }`}
               >
@@ -331,7 +339,12 @@ export default async function HomePage({
               >
                 {tier.features.map((f) => (
                   <li key={f} className="flex gap-2">
-                    <span aria-hidden="true" className="text-accent">
+                    <span
+                      aria-hidden="true"
+                      className={
+                        tier.highlighted ? "text-accent-ondark" : "text-accent"
+                      }
+                    >
                       —
                     </span>
                     {f}
@@ -403,7 +416,9 @@ export default async function HomePage({
       >
         <FAQAccordion items={t.faq.items} />
         <Reveal className="mt-12">
-          <ArrowLink href="/insight">{t.faq.insightLink}</ArrowLink>
+          <ArrowLink href="/insight" onDark>
+            {t.faq.insightLink}
+          </ArrowLink>
         </Reveal>
       </SectionShell>
     </>

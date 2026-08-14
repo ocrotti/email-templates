@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import type { FaqItem } from "@/content/types";
+import { renderRichText } from "@/components/ui/RichText";
 
 /**
  * FAQ accordion with correctly animated auto-height (CSS grid
@@ -20,7 +21,7 @@ export default function FAQAccordion({ items }: { items: FaqItem[] }) {
             <h3>
               <button
                 type="button"
-                className="group flex w-full items-center justify-between gap-6 py-6 text-left"
+                className="group flex w-full cursor-pointer items-center justify-between gap-6 py-6 text-left"
                 aria-expanded={isOpen}
                 aria-controls={`faq-panel-${i}`}
                 id={`faq-trigger-${i}`}
@@ -31,7 +32,7 @@ export default function FAQAccordion({ items }: { items: FaqItem[] }) {
                 </span>
                 <span
                   aria-hidden="true"
-                  className={`grid h-9 w-9 shrink-0 place-items-center rounded-full border border-line-dark text-lg transition-transform duration-500 ${
+                  className={`grid h-9 w-9 shrink-0 place-items-center rounded-full border border-control-dark text-lg transition-transform duration-500 ${
                     isOpen ? "rotate-45 text-accent-ondark" : ""
                   }`}
                 >
@@ -51,7 +52,7 @@ export default function FAQAccordion({ items }: { items: FaqItem[] }) {
             >
               <div>
                 <p className="prose-copy max-w-3xl pb-7 text-paper/75">
-                  {item.answer}
+                  {renderRichText(item.answer)}
                 </p>
               </div>
             </div>

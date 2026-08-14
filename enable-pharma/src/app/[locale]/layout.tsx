@@ -21,6 +21,16 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
+/**
+ * Any `[locale]` outside generateStaticParams is a routing miss, not a
+ * page to render. Without this, `/favicon.ico` (which the middleware
+ * skips, so it keeps its dotted path) reached this layout with
+ * locale="favicon.ico" and blew up with a 500 instead of a 404. Turning
+ * unknown segments into routing misses also hands them to
+ * `global-not-found.tsx`, the only 404 that renders a real document.
+ */
+export const dynamicParams = false;
+
 export async function generateMetadata({
   params,
 }: {

@@ -1,8 +1,12 @@
 import type { MetadataRoute } from "next";
 import { routing, type AppPathname, type Locale } from "@/i18n/routing";
 import { getPathname } from "@/i18n/navigation";
-import { articles } from "@/content/insights";
+import { articles, sortedArticles } from "@/content/insights";
 import { siteConfig } from "@/lib/site-config";
+
+// Bump when the static pages' copy is revised: half the sitemap was
+// shipping without a <lastmod> at all.
+const SITE_LAST_UPDATED = "2026-08-14";
 
 const staticPages: AppPathname[] = [
   "/",
@@ -56,7 +60,14 @@ function entries(
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
-    ...staticPages.flatMap((p) => entries(p)),
+    ...staticPages.flatMap((p) =>
+      entries(
+        p,
+        undefined,
+        // The index is only as fresh as its newest article.
+        p === "/insight" ? sortedArticles[0].date : SITE_LAST_UPDATED,
+      ),
+    ),
     ...articles.flatMap((article) =>
       entries("/insight/[slug]", { slug: article.slug }, article.date),
     ),

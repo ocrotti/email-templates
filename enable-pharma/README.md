@@ -74,6 +74,8 @@ src/
 │   ├── contatti/            form qualificato (EN: /contact)
 │   └── privacy/             informativa (noindex)
 ├── app/api/contact/         API route del form
+├── app/global-not-found.tsx 404 globale: rende il documento intero
+├── app/apple-icon.tsx       apple-touch-icon generata (180×180)
 ├── content/                 TUTTO il copy, tipizzato, IT+EN affiancati
 ├── components/
 │   ├── motion/              MotionRoot + wrapper dichiarativi
@@ -83,6 +85,20 @@ src/
 ├── lib/                     seo.ts, schema.tsx, fonts.ts, site-config.ts
 └── i18n/                    routing (slug localizzati), navigation, request
 ```
+
+### La 404
+
+Il guscio del documento (`<html>`/`<body>`) vive in `app/[locale]/layout.tsx`,
+quindi un `notFound()` non ha un root layout in cui renderizzarsi e Next ripiega
+sul suo shell di errore: pagina bianca, senza `lang`, con il title e il canonical
+della home. `app/global-not-found.tsx` (abilitata da `experimental.globalNotFound`
+in `next.config.ts`) rende il documento per intero e conserva lo status 404.
+
+Perché ci arrivi davvero, `app/[locale]/layout.tsx` esporta
+`dynamicParams = false`: qualunque `[locale]` fuori da `generateStaticParams` è
+un routing miss, non una pagina da rendere. È anche il motivo per cui
+`/favicon.ico` non finisce più in un 500 — il matcher del middleware non salta
+più tutti i path con un punto, quindi vanno elencati lì i file serviti dalla root.
 
 **Il copy non sta mai nei componenti.** Vive in `src/content/*.ts` come dizionari
 tipizzati `Dict<T> = Record<"it" | "en", T>`: TypeScript fallisce la build se una
@@ -298,6 +314,18 @@ dominio reale con dati di campo prima di dichiarare l'obiettivo `< 2.0s` raggiun
 
 Verificato inoltre con script ripetibili (in `scratchpad`, non committati):
 
+- routing: `/favicon.ico`, `/apple-touch-icon.png`, `/ads.txt` e i file di
+  verifica di Search Console rispondono **404** (prima erano 500); ogni URL
+  sconosciuta rende una 404 reale — documento completo, `<html lang>`, header,
+  vie d'uscita — con status 404 e `noindex`;
+- header di sicurezza presenti su ogni risposta (CSP con `frame-ancestors
+  'none'`, HSTS, `Referrer-Policy`, `X-Content-Type-Options`);
+- layout nella fascia 1024–1440px: nessun KPI e nessun prezzo che esce dalla
+  propria cella o card, in italiano e in inglese;
+- form: uno solo per pagina in entrambe le lingue, consenso che linka
+  l'informativa senza commutare la checkbox, fallback `<noscript>`, stato di
+  successo con due vie di uscita, stato di errore con mailto;
+
 - responsive 320→1920px: nessun overflow orizzontale, nessun elemento animato
   bloccato invisibile, CTA dell'hero sempre sopra la fold;
 - SEO: lunghezze e unicità di title/description, un solo H1, canonical
@@ -327,3 +355,12 @@ Verificato inoltre con script ripetibili (in `scratchpad`, non committati):
 - [ ] `RESEND_API_KEY` in produzione + test end-to-end del form (senza chiave
       l'API risponde 500 e il lead vede l'errore con mailto di fallback)
 - [ ] Smoke test post-deploy: `curl` su sitemap.xml (nessun localhost), form → 200
+- [ ] Scelta sullo strumento di misurazione: oggi il sito non carica **nessun**
+      analytics. Se ne serve uno, sceglierne uno cookieless (Vercel Web
+      Analytics, Plausible/Umami in UE) per non rendere falsa la sezione
+      «Cookie» dell'informativa e non introdurre l'obbligo di banner.
+- [ ] `src/content/privacy.ts`, sezione «A chi comunichiamo i dati»: confermare
+      con il legale se il provider email comporta un trasferimento extra-UE (in
+      quel caso va aggiunta una frase sulle garanzie adottate)
+- [ ] Aggiornare `SITE_LAST_UPDATED` in `src/app/sitemap.ts` a ogni revisione
+      dei contenuti delle pagine statiche

@@ -54,8 +54,8 @@ export const site: Dict<SiteChrome> = {
       claim: "Disease awareness as-a-service, compliant by design.",
       formTitle: "Parliamone",
       formIntro:
-        "Due righe sul contesto: patologia, funzione, obiettivo. Rispondiamo entro 24 ore lavorative.",
-      responseNote: "Risposta entro 24 ore lavorative",
+        "Due righe sul contesto: patologia, funzione, obiettivo. Rispondiamo entro un giorno lavorativo.",
+      responseNote: "Risposta entro un giorno lavorativo",
       navTitle: "Sito",
       contactTitle: "Contatti",
       legalNote:
@@ -67,7 +67,7 @@ export const site: Dict<SiteChrome> = {
     },
     notFound: {
       title: "Pagina non trovata",
-      body: "La pagina che cerchi non esiste o è stata spostata.",
+      body: "La pagina che cercate non esiste o è stata spostata.",
       cta: "Torna alla home",
     },
     meta: {

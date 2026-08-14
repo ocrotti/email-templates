@@ -7,9 +7,15 @@ import { usePathname } from "next/navigation";
 // identical form in the global footer right below it duplicates the
 // consent checkbox and confuses which one to fill. On those routes the
 // footer shows a lightweight contact block instead.
-// "/it/contatti" covers the internal locale-prefixed form of the same
-// route, so server prerender and client hydration always agree.
-const CONTACT_PATHS = new Set(["/contatti", "/it/contatti", "/en/contact"]);
+// "/it/contatti" and "/en/contatti" are the app router's internal
+// pathnames — the segments stay Italian even for the English locale —
+// so server prerender and client hydration agree in both languages.
+const CONTACT_PATHS = new Set([
+  "/contatti",
+  "/it/contatti",
+  "/en/contact",
+  "/en/contatti",
+]);
 
 export default function FooterFormGate({
   children,

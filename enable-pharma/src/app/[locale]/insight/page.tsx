@@ -79,13 +79,11 @@ export default async function InsightIndexPage({
               return (
                 <Reveal key={article.slug.it} delay={i * 0.05}>
                   <article>
-                    <Link
-                      href={{
-                        pathname: "/insight/[slug]",
-                        params: { slug: article.slug[locale] },
-                      }}
-                      className="group grid gap-4 py-10 transition-colors md:grid-cols-[minmax(0,200px)_1fr_auto] md:gap-10"
-                    >
+                    {/* A div, not one giant link: the whole card stays
+                        clickable through the title link's ::after, but the
+                        link's accessible name is the article title alone
+                        instead of number + date + excerpt + tags. */}
+                    <div className="group relative grid gap-4 py-10 transition-colors md:grid-cols-[minmax(0,200px)_1fr_auto] md:gap-10">
                       <div>
                         {/* Outlined numeral: ties the index to the same
                             signature system as the 01–08 home sections. */}
@@ -105,15 +103,25 @@ export default async function InsightIndexPage({
                       </div>
                       <div className="min-w-0">
                         <h2 className="font-display-soft text-2xl transition-colors group-hover:text-accent-deep md:text-3xl">
-                          {lang.title}
+                          <Link
+                            href={{
+                              pathname: "/insight/[slug]",
+                              params: { slug: article.slug[locale] },
+                            }}
+                            className="after:absolute after:inset-0 after:content-['']"
+                          >
+                            {lang.title}
+                          </Link>
                         </h2>
                         <p className="prose-copy mt-3 text-ink-soft">
                           {lang.excerpt}
                         </p>
-                        <p className="eyebrow mt-4 flex flex-wrap gap-x-4 gap-y-1 text-ink-soft">
-                          {article.keywords[locale].slice(0, 3).map((k) => (
-                            <span key={k}>{k}</span>
-                          ))}
+                        {/* Keywords stay in articles.json for metadata
+                            and JSON-LD; printed under the card they read
+                            as SEO scaffolding left on the page. This is
+                            also the only read affordance below 768px. */}
+                        <p className="eyebrow mt-4 text-accent-deep">
+                          {t.readLabel} <span aria-hidden="true">→</span>
                         </p>
                       </div>
                       <span
@@ -122,7 +130,7 @@ export default async function InsightIndexPage({
                       >
                         →
                       </span>
-                    </Link>
+                    </div>
                   </article>
                 </Reveal>
               );

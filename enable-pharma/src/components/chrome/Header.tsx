@@ -65,6 +65,11 @@ export default function Header({ locale }: { locale: Locale }) {
 
   const otherLocale = t.localeSwitch.target;
 
+  // An article lives under /insight/<slug>, so an exact match would
+  // leave the whole nav unmarked while reading one.
+  const isCurrent = (href: string) =>
+    pathname === href || pathname.startsWith(href + "/");
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${
@@ -78,7 +83,7 @@ export default function Header({ locale }: { locale: Locale }) {
             so home and language stay reachable while the menu is open. */}
         <Link
           href="/"
-          className="font-display relative z-50 -my-2 inline-block py-2 text-lg tracking-tight"
+          className="font-display relative z-50 -my-3.5 inline-block py-3.5 text-lg tracking-tight"
           aria-label="Enable Pharma — home"
         >
           Enable&nbsp;Pharma<span className="text-accent">.</span>
@@ -89,8 +94,11 @@ export default function Header({ locale }: { locale: Locale }) {
             <Link
               key={item.href}
               href={item.href}
+              aria-current={isCurrent(item.href) ? "page" : undefined}
               className={`inline-block py-3 text-sm font-medium transition-colors hover:text-accent-deep ${
-                pathname === item.href ? "text-accent-deep" : ""
+                isCurrent(item.href)
+                  ? "text-accent-deep underline decoration-accent decoration-2 underline-offset-8"
+                  : ""
               }`}
             >
               {item.label}
@@ -119,14 +127,14 @@ export default function Header({ locale }: { locale: Locale }) {
               away and the desktop pill is lg-only. */}
           <Link
             href="/contatti"
-            className="inline-flex items-center rounded-full bg-accent px-4 py-2.5 text-sm font-medium text-paper transition-colors hover:bg-accent-deep"
+            className="inline-flex h-11 items-center rounded-full bg-accent px-4 text-sm font-medium text-paper transition-colors hover:bg-accent-deep"
           >
             {t.ctaShort}
           </Link>
           <button
             ref={menuButtonRef}
             type="button"
-            className="relative z-50 grid h-11 w-11 place-items-center rounded-full border border-line"
+            className="relative z-50 grid h-11 w-11 cursor-pointer place-items-center rounded-full border border-control"
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? t.closeLabel : t.menuLabel}
@@ -167,10 +175,18 @@ export default function Header({ locale }: { locale: Locale }) {
             <Link
               key={item.href}
               href={item.href}
-              className="font-display border-b border-line py-4 text-3xl"
+              aria-current={isCurrent(item.href) ? "page" : undefined}
+              className={`font-display border-b border-line py-4 text-3xl${
+                isCurrent(item.href) ? " text-accent-deep" : ""
+              }`}
               style={{ transitionDelay: `${i * 40}ms` }}
             >
               {item.label}
+              {isCurrent(item.href) ? (
+                <span aria-hidden="true" className="ml-3 text-accent">
+                  ·
+                </span>
+              ) : null}
             </Link>
           ))}
           <Link

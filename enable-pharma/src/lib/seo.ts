@@ -15,6 +15,8 @@ interface PageMetaArgs {
   /** ISO date — emitted as article:published_time when ogType=article */
   publishedTime?: string;
   modifiedTime?: string;
+  /** Overrides the locale OG card (articles generate their own) */
+  ogImageUrl?: string;
 }
 
 function absoluteUrl(
@@ -46,6 +48,7 @@ export function pageMetadata({
   ogType = "website",
   publishedTime,
   modifiedTime,
+  ogImageUrl,
 }: PageMetaArgs): Metadata {
   const urlFor = (l: Locale) =>
     absoluteUrl(
@@ -67,12 +70,16 @@ export function pageMetadata({
   // the middleware — crawlers get a redirect instead of an image.
   const ogPrefix = locale === routing.defaultLocale ? "" : `/${locale}`;
   const ogImage = {
-    url: `${siteConfig.url}${ogPrefix}/opengraph-image`,
+    // Articles pass their own generated card, which carries the piece's
+    // headline; everything else falls back to the locale card.
+    url: ogImageUrl ?? `${siteConfig.url}${ogPrefix}/opengraph-image`,
     width: 1200,
     height: 630,
-    // The generated image shows the brand + claim; the page title often
+    // The locale image shows the brand + claim; the page title often
     // contains the brand too, so composing both duplicated it.
-    alt: "Enable Pharma — disease awareness, compliant by design",
+    alt: ogImageUrl
+      ? title
+      : "Enable Pharma — disease awareness, compliant by design",
   };
 
   return {
@@ -84,7 +91,8 @@ export function pageMetadata({
       description,
       url: canonical,
       siteName: siteConfig.name,
-      locale: locale === "it" ? "it_IT" : "en_US",
+      locale: locale === "it" ? "it_IT" : "en_GB",
+      alternateLocale: locale === "it" ? ["en_GB"] : ["it_IT"],
       type: ogType,
       images: [ogImage],
       // Next serializes these into article:published_time /
