@@ -21,6 +21,17 @@ const controllerIt = companyName
       vatId ? `, ${vatId}` : ""
     }, è il titolare del trattamento dei dati personali raccolti tramite questo sito. Per ogni richiesta: ${siteConfig.email}.`
   : `Enable Pharma è il titolare del trattamento dei dati personali raccolti tramite questo sito. Per ogni richiesta: ${siteConfig.email}.`;
+// The cookie section has to describe the site as it is actually
+// deployed, not as it was written: with no measurement configured the
+// only cookie is the language one and no banner is shown.
+const analyticsOn = Boolean(siteConfig.analytics.gaId);
+const cookiesIt = analyticsOn
+  ? "Il sito non utilizza cookie di profilazione né strumenti di tracciamento pubblicitario. Un cookie tecnico memorizza la preferenza di lingua (it/en) e non richiede consenso. Le statistiche di navigazione anonime sono attivate solo dopo un consenso esplicito, raccolto con un banner che permette di rifiutare con lo stesso peso con cui permette di accettare; la scelta è modificabile o revocabile in qualsiasi momento dalla voce «Preferenze cookie» nel footer. Prima del consenso non viene caricato alcuno script di misurazione."
+  : "Il sito non utilizza cookie di profilazione né strumenti di tracciamento pubblicitario, e non carica strumenti di analisi statistica. L'unico cookie tecnico utilizzato memorizza la preferenza di lingua (it/en). Non è richiesto un banner di consenso per i soli cookie tecnici.";
+const cookiesEn = analyticsOn
+  ? "This site uses no profiling cookies and no advertising trackers. A technical cookie stores the language preference (it/en) and requires no consent. Anonymous usage statistics are enabled only after explicit consent, collected through a banner that makes refusing exactly as easy as accepting; the choice can be changed or withdrawn at any time from the «Cookie preferences» entry in the footer. No measurement script is loaded before consent."
+  : "This site uses no profiling cookies, no advertising trackers and no analytics tools. The only technical cookie stores the language preference (it/en). Technical cookies alone do not require a consent banner.";
+
 const controllerEn = companyName
   ? `${companyName}${address ? `, registered office at ${address}` : ""}${
       vatId ? `, ${vatId}` : ""
@@ -59,7 +70,7 @@ export const privacy: Dict<PrivacyContent> = {
       {
         heading: "Cookie",
         body: [
-          "Il sito non utilizza cookie di profilazione né strumenti di tracciamento pubblicitario. L'unico cookie tecnico utilizzato memorizza la preferenza di lingua (it/en). Non è richiesto un banner di consenso per i soli cookie tecnici.",
+          cookiesIt,
         ],
       },
       {
@@ -101,7 +112,7 @@ export const privacy: Dict<PrivacyContent> = {
       {
         heading: "Cookies",
         body: [
-          "This site uses no profiling cookies and no advertising trackers. The only technical cookie stores the language preference (it/en). Technical cookies alone do not require a consent banner.",
+          cookiesEn,
         ],
       },
       {

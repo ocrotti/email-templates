@@ -86,6 +86,31 @@ src/
 └── i18n/                    routing (slug localizzati), navigation, request
 ```
 
+### Cookie e misurazione
+
+Di default il sito **non carica nessuno strumento di analisi**: l'unico cookie è
+quello tecnico della lingua, non c'è banner e l'informativa dice esattamente
+questo.
+
+Impostando `NEXT_PUBLIC_GA_ID` (formato `G-XXXXXXXXXX`) si accende la catena
+completa:
+
+- il banner di consenso compare alla prima visita, con «Accetta» e «Rifiuta»
+  della stessa identica dimensione e peso — rifiutare deve costare quanto
+  accettare, e un consenso ottenuto con un dark pattern non è consenso;
+- **prima della scelta non viene caricato niente**: lo script di misurazione non
+  è nel documento finché il consenso non è dato, quindi chi ignora il banner sta
+  come chi lo rifiuta;
+- la scelta vive in `localStorage`, non in un cookie: rifiutare non scrive nulla;
+- la voce «Preferenze cookie» nel footer riapre il banner, e revocare spegne la
+  raccolta nella sessione in corso (`ga-disable-<ID>`), non solo alla visita dopo;
+- la CSP in `next.config.ts` apre agli host Google **solo** se la variabile è
+  impostata, e la sezione «Cookie» dell'informativa cambia testo di conseguenza.
+
+Se si preferisce uno strumento cookieless (Vercel Web Analytics, Plausible,
+Umami) il banner non serve: basta lasciare `NEXT_PUBLIC_GA_ID` vuoto e montare
+lo script nel layout.
+
 ### La 404
 
 Il guscio del documento (`<html>`/`<body>`) vive in `app/[locale]/layout.tsx`,
@@ -337,7 +362,8 @@ Verificato inoltre con script ripetibili (in `scratchpad`, non committati):
 
 ## Da confermare prima del go-live
 
-- [ ] Prezzi in `src/lib/site-config.ts` (oggi placeholder di benchmark)
+- [ ] Prezzo dell'audit in `src/lib/site-config.ts` (€7.500 è ancora il
+      placeholder di benchmark; la soglia mensile di €5.000 è confermata)
 - [ ] Dominio di produzione in `NEXT_PUBLIC_SITE_URL`
 - [ ] Indirizzo email e URL LinkedIn in `src/lib/site-config.ts`
 - [ ] **Blocker legale** — `siteConfig.legal` (ragione sociale, P.IVA, sede) in
@@ -355,10 +381,9 @@ Verificato inoltre con script ripetibili (in `scratchpad`, non committati):
 - [ ] `RESEND_API_KEY` in produzione + test end-to-end del form (senza chiave
       l'API risponde 500 e il lead vede l'errore con mailto di fallback)
 - [ ] Smoke test post-deploy: `curl` su sitemap.xml (nessun localhost), form → 200
-- [ ] Scelta sullo strumento di misurazione: oggi il sito non carica **nessun**
-      analytics. Se ne serve uno, sceglierne uno cookieless (Vercel Web
-      Analytics, Plausible/Umami in UE) per non rendere falsa la sezione
-      «Cookie» dell'informativa e non introdurre l'obbligo di banner.
+- [ ] `NEXT_PUBLIC_GA_ID` in produzione se si vuole GA4: il banner di consenso e
+      la sezione «Cookie» dell'informativa si attivano da soli (vedi sopra).
+      Lasciandola vuota il sito resta senza analytics e senza banner.
 - [ ] `src/content/privacy.ts`, sezione «A chi comunichiamo i dati»: confermare
       con il legale se il provider email comporta un trasferimento extra-UE (in
       quel caso va aggiunta una frase sulle garanzie adottate)

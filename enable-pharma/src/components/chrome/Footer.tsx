@@ -5,6 +5,7 @@ import { contact } from "@/content/contact";
 import { siteConfig } from "@/lib/site-config";
 import ContactForm from "@/components/forms/ContactForm";
 import FooterFormGate from "./FooterFormGate";
+import CookiePreferencesLink from "./CookiePreferencesLink";
 
 export default function Footer({ locale }: { locale: Locale }) {
   const t = site[locale];
@@ -45,6 +46,7 @@ export default function Footer({ locale }: { locale: Locale }) {
                       {t.footer.privacyLabel}
                     </Link>
                   </li>
+                  <CookiePreferencesLink locale={locale} />
                 </ul>
               </div>
               <div>

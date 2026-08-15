@@ -3,6 +3,18 @@ import createNextIntlPlugin from "next-intl/plugin";
 
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
+// Google's hosts are allowed only when analytics is actually configured:
+// with NEXT_PUBLIC_GA_ID unset the policy stays first-party only, which
+// is also what the privacy notice claims in that configuration.
+const gaEnabled = Boolean(process.env.NEXT_PUBLIC_GA_ID);
+const gaScript = gaEnabled ? " https://www.googletagmanager.com" : "";
+const gaConnect = gaEnabled
+  ? " https://www.google-analytics.com https://region1.google-analytics.com"
+  : "";
+const gaImg = gaEnabled
+  ? " https://www.google-analytics.com https://www.googletagmanager.com"
+  : "";
+
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
@@ -76,11 +88,11 @@ const nextConfig: NextConfig = {
             key: "Content-Security-Policy",
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline'",
+              `script-src 'self' 'unsafe-inline'${gaScript}`,
               "style-src 'self' 'unsafe-inline'",
-              "img-src 'self' data:",
+              `img-src 'self' data:${gaImg}`,
               "font-src 'self'",
-              "connect-src 'self'",
+              `connect-src 'self'${gaConnect}`,
               "frame-ancestors 'none'",
               "base-uri 'self'",
               "form-action 'self'",

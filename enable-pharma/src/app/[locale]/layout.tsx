@@ -14,6 +14,7 @@ import {
 } from "@/lib/schema";
 import Header from "@/components/chrome/Header";
 import Footer from "@/components/chrome/Footer";
+import CookieConsent from "@/components/chrome/CookieConsent";
 import MotionRoot from "@/components/motion/MotionRoot";
 import "../globals.css";
 
@@ -96,6 +97,10 @@ export default async function LocaleLayout({
             </main>
             <Footer locale={locale as Locale} />
           </MotionRoot>
+          {/* Outside MotionRoot: the banner must never be affected by
+              scroll-driven animation, and it renders nothing at all
+              unless measurement is configured. */}
+          <CookieConsent locale={locale as Locale} />
         </NextIntlClientProvider>
       </body>
     </html>
