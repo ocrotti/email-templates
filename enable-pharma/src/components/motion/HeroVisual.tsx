@@ -20,8 +20,8 @@ export default function HeroVisual({ className = "" }: { className?: string }) {
     if (!ctx) return;
 
     const styles = getComputedStyle(document.documentElement);
-    const ink = styles.getPropertyValue("--color-ink-soft").trim() || "#57503f";
-    const accent = styles.getPropertyValue("--color-accent").trim() || "#c73b16";
+    const ink = styles.getPropertyValue("--color-ink-soft").trim() || "#46605a";
+    const accent = styles.getPropertyValue("--color-accent").trim() || "#0d7a68";
 
     const reduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)",

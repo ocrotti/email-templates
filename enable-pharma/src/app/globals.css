@@ -2,30 +2,33 @@
 
 /* ---------------------------------------------------------------------------
    ENABLE PHARMA — design tokens
-   Active theme: "lacca" — warm ivory paper, warm near-black ink, lacquer red.
-   Two alternate directions are documented at the bottom of this file
-   ("cobalto" and "clinico"): set data-theme on <html> to switch.
+   Active theme: "biotech" — petrol green on a cool off-white. Health
+   without hospital: the colour family the rare-disease and patient-
+   advocacy world actually uses, and far enough from the clinical blue
+   that every second pharma site is built on.
+   Three alternate directions are documented at the bottom of this file
+   ("clinico", "segnale", "lacca"): set data-theme on <html> to switch.
 --------------------------------------------------------------------------- */
 
 @theme {
-  /* Palette (theme: lacca) */
-  --color-paper: #f4f0e6;
-  --color-paper-2: #ebe5d6;
-  --color-ink: #1a1712;
-  --color-ink-2: #2b2820;
-  --color-ink-soft: #57503f;
-  --color-accent: #c73b16;
-  --color-accent-deep: #9c2c0e;
-  --color-accent-ondark: #ff5a2b;
-  --color-line: #d9d2c0;
-  --color-line-dark: #3a362b;
+  /* Palette (theme: biotech) */
+  --color-paper: #f2f6f4;
+  --color-paper-2: #e5ece9;
+  --color-ink: #0c1f1c;
+  --color-ink-2: #16302c;
+  --color-ink-soft: #46605a;
+  --color-accent: #0d7a68;
+  --color-accent-deep: #095c4e;
+  --color-accent-ondark: #3fd0b4;
+  --color-line: #d2dedb;
+  --color-line-dark: #22403a;
   /* Borders that ARE the affordance of an interactive control (inputs,
      the menu button, the locale pill, the accordion marker) need 3:1
      against their background — WCAG 2.2 SC 1.4.11. The --color-line pair
      above is 1.32:1 / 1.48:1: right for decorative rules, too faint for
      a control. These two are 3.52:1 on paper and 3.74:1 on ink. */
-  --color-control: #857f6c;
-  --color-control-dark: #787264;
+  --color-control: #75887f;
+  --color-control-dark: #6a8079;
 
   /* Typography */
   --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
@@ -363,40 +366,62 @@ body {
 
 /* ---------------------------------------------------------------------------
    ALTERNATE THEMES (documented, not active).
-   Switch by setting <html data-theme="cobalto"> or <html data-theme="clinico">
-   in src/app/[locale]/layout.tsx. Re-check WCAG AA contrast if you adjust.
+   Switch by setting data-theme on <html> in src/app/[locale]/layout.tsx
+   ("clinico", "lacca", "segnale"). Every palette here is checked against
+   the same contrast floors as the active one: body text 4.5:1, control
+   borders 3:1 (WCAG 1.4.11), on-dark accents 4.5:1 on ink. Re-check if
+   you adjust anything.
 --------------------------------------------------------------------------- */
 
-/* Direction 2 — "cobalto": near-black blue ink on cool porcelain,
-   deep electric blue accent. Colder, more product-engineering. */
-[data-theme="cobalto"] {
-  --color-paper: #f2f3f1;
-  --color-paper-2: #e7e9e6;
-  --color-ink: #101422;
-  --color-ink-2: #1c2233;
-  --color-ink-soft: #4a5166;
-  --color-accent: #1f3fff;
-  --color-accent-deep: #1730c4;
-  --color-accent-ondark: #5f79ff;
-  --color-line: #d3d6d9;
-  --color-line-dark: #2c3247;
-  --color-control: #767c85;
-  --color-control-dark: #6f7686;
+/* Direction 2 — "clinico": deep navy on cool white, hospital blue.
+   The most immediately legible as pharma; also the most conventional. */
+[data-theme="clinico"] {
+  --color-paper: #f4f7f9;
+  --color-paper-2: #e8edf1;
+  --color-ink: #0e1b28;
+  --color-ink-2: #17293a;
+  --color-ink-soft: #4a5b6b;
+  --color-accent: #0b6fb8;
+  --color-accent-deep: #08558f;
+  --color-accent-ondark: #56b3ef;
+  --color-line: #d5dde4;
+  --color-line-dark: #253746;
+  --color-control: #7a8896;
+  --color-control-dark: #6f8090;
 }
 
-/* Direction 3 — "clinico": deep clinical green dominant with a vivid
-   spring accent. Darker, more institutional. */
-[data-theme="clinico"] {
-  --color-paper: #eff2ec;
-  --color-paper-2: #e3e8dd;
-  --color-ink: #14201a;
-  --color-ink-2: #1f3028;
-  --color-ink-soft: #49584f;
-  --color-accent: #0e7a4f;
-  --color-accent-deep: #0a5d3c;
-  --color-accent-ondark: #43d98c;
-  --color-line: #d0d7cc;
-  --color-line-dark: #2b3d33;
-  --color-control: #78826f;
-  --color-control-dark: #6d7a71;
+/* Direction 3 — "lacca": the original warm ivory and lacquer red. Kept
+   for reference; retired as the default for being too far from the
+   colour language the pharma buyer expects. */
+[data-theme="lacca"] {
+  --color-paper: #f4f0e6;
+  --color-paper-2: #ebe5d6;
+  --color-ink: #1a1712;
+  --color-ink-2: #2b2820;
+  --color-ink-soft: #57503f;
+  --color-accent: #c73b16;
+  --color-accent-deep: #9c2c0e;
+  --color-accent-ondark: #ff5a2b;
+  --color-line: #d9d2c0;
+  --color-line-dark: #3a362b;
+  --color-control: #857f6c;
+  --color-control-dark: #787264;
+}
+
+/* Direction 4 — "segnale": near-black blue with an electric cyan signal.
+   The most contemporary of the three; digital-health rather than
+   corporate-pharma. */
+[data-theme="segnale"] {
+  --color-paper: #eef2f6;
+  --color-paper-2: #e1e8ee;
+  --color-ink: #0b1220;
+  --color-ink-2: #131d31;
+  --color-ink-soft: #46536b;
+  --color-accent: #1747c4;
+  --color-accent-deep: #10339a;
+  --color-accent-ondark: #4fd2ff;
+  --color-line: #d3dae2;
+  --color-line-dark: #202c44;
+  --color-control: #737f92;
+  --color-control-dark: #6b7a90;
 }

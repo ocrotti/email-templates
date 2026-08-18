@@ -209,26 +209,32 @@ invece corretto e richiesto.
 
 ### Cambiare il tema colore
 
-Il tema attivo è **`lacca`**: carta avorio calda, inchiostro near-black caldo, accento
-rosso lacca. È definito nel blocco `@theme` di `src/app/globals.css`.
+Il tema attivo è **`biotech`**: verde petrolio su bianco sporco freddo. È la famiglia
+cromatica che il mondo delle malattie rare e del patient advocacy usa davvero — dice
+salute senza dire ospedale, e sta abbastanza lontana dal blu clinico su cui è costruito
+un sito pharma su due. È definito nel blocco `@theme` di `src/app/globals.css`.
 
-Due direzioni alternative sono già scritte e documentate in fondo allo stesso file:
+Tre direzioni alternative sono scritte e documentate in fondo allo stesso file:
 
 | Tema | Carattere |
 |---|---|
-| `lacca` (attivo) | avorio caldo + rosso lacca — editoriale, caldo, memorabile |
-| `cobalto` | porcellana fredda + blu elettrico profondo — più product/engineering |
-| `clinico` | verde clinico scuro + accento verde vivo — più istituzionale |
+| `biotech` (attivo) | verde petrolio + verde mare on-dark — salute, non ospedale |
+| `clinico` | blu ospedaliero su bianco freddo — la lettura più immediata di «pharma», e la più convenzionale |
+| `segnale` | blu profondo + ciano elettrico — digital health, più contemporaneo |
+| `lacca` | avorio caldo + rosso lacca — la direzione iniziale, ritirata perché fuori dal linguaggio del settore |
 
 Per attivarne un'altra, aggiungi `data-theme` all'elemento `<html>`:
 
 ```tsx
 // src/app/[locale]/layout.tsx
-<html lang={locale} data-theme="cobalto" className={...}>
+<html lang={locale} data-theme="clinico" className={...}>
 ```
 
-Aggiorna anche `themeColor` nell'export `viewport` dello stesso file, e **riverifica
-il contrasto WCAG AA** se modifichi i valori.
+Aggiorna anche `themeColor` nell'export `viewport` dello stesso file e i colori scritti
+a mano in `src/app/icon.svg`, `src/app/apple-icon.tsx` e nelle due rotte
+`opengraph-image.tsx` (le immagini generate non leggono i token CSS). Poi **riverifica
+il contrasto WCAG AA**: ogni palette in fondo a `globals.css` rispetta gli stessi
+minimi — testo 4.5:1, bordi dei controlli 3:1, accenti on-dark 4.5:1 su inchiostro.
 
 ### Rigenerare i font
 

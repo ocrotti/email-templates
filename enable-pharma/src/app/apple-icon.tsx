@@ -24,8 +24,8 @@ export default async function AppleIcon() {
           alignItems: "center",
           justifyContent: "center",
           position: "relative",
-          background: "#1a1712",
-          color: "#f4f0e6",
+          background: "#0c1f1c",
+          color: "#f2f6f4",
           fontFamily: "ArchivoBold",
           fontSize: 104,
           letterSpacing: "-4px",
@@ -40,7 +40,7 @@ export default async function AppleIcon() {
             width: 34,
             height: 34,
             borderRadius: 17,
-            background: "#c73b16",
+            background: "#0d7a68",
           }}
         />
       </div>

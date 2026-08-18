@@ -56,8 +56,8 @@ export default async function ArticleOgImage({
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#f4f0e6",
-          color: "#1a1712",
+          background: "#f2f6f4",
+          color: "#0c1f1c",
           padding: "72px 80px",
           fontFamily: "ArchivoMedium",
         }}
@@ -72,9 +72,9 @@ export default async function ArticleOgImage({
         >
           <div style={{ display: "flex", fontFamily: "ArchivoBold" }}>
             Enable Pharma
-            <div style={{ color: "#c73b16" }}>.</div>
+            <div style={{ color: "#0d7a68" }}>.</div>
           </div>
-          <div style={{ display: "flex", fontSize: 22, color: "#57503f" }}>
+          <div style={{ display: "flex", fontSize: 22, color: "#46605a" }}>
             enablepharma.it
           </div>
         </div>
@@ -86,7 +86,7 @@ export default async function ArticleOgImage({
               fontSize: 22,
               letterSpacing: "3px",
               textTransform: "uppercase",
-              color: "#c73b16",
+              color: "#0d7a68",
               marginBottom: 24,
             }}
           >
@@ -110,8 +110,8 @@ export default async function ArticleOgImage({
           style={{
             display: "flex",
             fontSize: 24,
-            color: "#57503f",
-            borderTop: "2px solid #d9d2c0",
+            color: "#46605a",
+            borderTop: "2px solid #d2dedb",
             paddingTop: 28,
           }}
         >
