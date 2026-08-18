@@ -1,0 +1,1093 @@
+[
+  {
+    "slug": {
+      "it": "campagne-unbranded-pharma-cosa-si-puo-fare",
+      "en": "unbranded-disease-awareness-campaigns-italy"
+    },
+    "date": "2026-05-19",
+    "keywords": {
+      "it": [
+        "campagne unbranded pharma",
+        "disease awareness campaign",
+        "agenzia comunicazione pharma",
+        "comunicazione istituzionale farmaceutica",
+        "art. 113 D.Lgs. 219/2006"
+      ],
+      "en": [
+        "unbranded pharma campaigns",
+        "disease awareness campaign",
+        "disease awareness platform",
+        "unbranded disease awareness Italy"
+      ]
+    },
+    "readingMinutes": 6,
+    "content": {
+      "it": {
+        "title": "Disease awareness in Italia: cosa si può fare (e cosa no)",
+        "metaTitle": "Campagne unbranded pharma in Italia: cosa si può fare",
+        "metaDescription": "Guida B2B alle campagne unbranded pharma in Italia: art. 113 D.Lgs. 219/2006, vincoli Farmindustria, GVP e GDPR. Regole operative e checklist pre-lancio.",
+        "excerpt": "La normativa italiana non vieta la disease awareness: la definisce. Una guida operativa allo spazio legale delle campagne unbranded pharma, dai vincoli dell'articolo 113 alla checklist pre-lancio.",
+        "sections": [
+          {
+            "heading": "Le regole non sono l'ostacolo: sono la specifica di progetto",
+            "paragraphs": [
+              "Nella maggior parte delle aziende farmaceutiche italiane, l'idea di una disease awareness campaign muore in una riunione. Qualcuno pronuncia le parole «pubblicità al pubblico», il legale alza un sopracciglio, il progetto torna nel cassetto. È un riflesso comprensibile. Ed è, quasi sempre, un errore di lettura.",
+              "La normativa italiana non vieta la disease awareness. La definisce. Traccia un perimetro preciso dentro il quale un'azienda può informare il pubblico su una patologia, con il proprio nome e il proprio logo, in piena legittimità. Chi conosce il perimetro può costruire; chi lo conosce a metà rinuncia, o peggio improvvisa. Questa guida mappa lo spazio legale delle campagne unbranded pharma in Italia: cosa si può fare, cosa no, e perché le regole convengono a chi le tratta come specifica di progetto anziché come ostacolo."
+            ]
+          },
+          {
+            "heading": "Il divieto di pubblicità e l'articolo 113: dove vive legalmente l'awareness",
+            "paragraphs": [
+              "Il punto di partenza è il D.Lgs. 219/2006, il Codice del farmaco che attua la direttiva 2001/83/CE. Il decreto vieta la pubblicità al pubblico dei medicinali soggetti a obbligo di prescrizione. Il divieto è netto e non ammette scorciatoie creative: nessun messaggio rivolto al pubblico può promuovere, direttamente o indirettamente, un farmaco con obbligo di ricetta.",
+              "Lo stesso decreto, però, apre uno spazio esplicito. L'articolo 113 stabilisce che le informazioni sulla salute e sulle malattie non costituiscono pubblicità, a condizione che non contengano alcun riferimento, neppure indiretto, a medicinali. Il nome e il logo dell'azienda sono ammessi: è la cosiddetta comunicazione istituzionale. L'articolo 124, comma 9, aggiunge che le aziende possono sostenere iniziative su temi non attinenti ai medicinali che commercializzano.",
+              "È qui che vive legalmente la disease awareness: non in una zona grigia da attraversare in fretta, ma in uno spazio disegnato dal legislatore. Il confine non è vago. È scritto, ed è verificabile contenuto per contenuto."
+            ]
+          },
+          {
+            "heading": "La regola d'oro operativa",
+            "paragraphs": [
+              "Tradotta in pratica, la norma produce una regola d'oro semplice da enunciare e impegnativa da mantenere:"
+            ],
+            "list": [
+              "Nessun nome di farmaco, mai: né nei contenuti, né nei metadati, né nelle risposte della community.",
+              "Nessun principio attivo, nemmeno in forma allusiva o abbreviata.",
+              "Nessun riferimento indiretto a un medicinale: classi terapeutiche riconducibili a un solo prodotto, link a pagine di prodotto, richiami visivi al brand del farmaco.",
+              "Nome e logo dell'azienda: ammessi. La firma istituzionale è legittima e, se gestita bene, è un asset di fiducia."
+            ]
+          },
+          {
+            "heading": "Cosa significa «riferimento indiretto» nella pratica",
+            "paragraphs": [
+              "I progetti raramente falliscono sul nome del farmaco: nessuno lo scrive. Falliscono sul riferimento indiretto. La norma non fornisce un elenco di casi; la prassi professionale sì. Alcune situazioni ricorrenti meritano attenzione:",
+              "Il test utile è severo: un osservatore informato — un concorrente, un'autorità, un giornalista — collegherebbe questo contenuto a un medicinale dell'azienda? Se la risposta è «forse», il contenuto va riscritto. È un criterio di progettazione, non di censura: definisce in anticipo cosa la piattaforma pubblica e cosa no, e rende ogni scelta difendibile. La regola vale per ogni superficie: articoli, video, post social, newsletter, risposte dei moderatori, persino URL e testi alternativi delle immagini. La compliance di una piattaforma si misura sul contenuto peggiore, non su quello migliore."
+            ],
+            "list": [
+              "Parlare di una classe terapeutica in cui l'azienda ha l'unico prodotto, o il prodotto dominante.",
+              "Invitare a «chiedere al medico delle nuove opzioni terapeutiche» in un'area in cui l'azienda ha appena lanciato.",
+              "Usare palette, claim o immaginario che richiamano la campagna di prodotto rivolta ai medici.",
+              "Sincronizzare il lancio della piattaforma con il lancio commerciale, creando un collegamento temporale leggibile."
+            ]
+          },
+          {
+            "heading": "I vincoli Farmindustria: informazione reattiva e rapporti con i pazienti",
+            "paragraphs": [
+              "Sopra la legge c'è l'autoregolamentazione. Il Codice deontologico Farmindustria (versione 5 aprile 2022, che recepisce il Codice EFPIA) impone vincoli che una piattaforma seria incorpora dal primo giorno. L'articolo 3.26 consente alle aziende di fornire al pubblico informazioni sulle patologie solo in modo reattivo — in risposta a richieste non sollecitate — e tramite personale non commerciale.",
+              "La distinzione operativa è netta: la piattaforma può pubblicare proattivamente contenuti istituzionali di awareness, privi di ogni riferimento ai medicinali; le risposte individuali su patologie devono invece seguire il binario reattivo, gestite da personale non commerciale, con processi tracciati.",
+              "Sui rapporti con le associazioni pazienti il Codice è altrettanto preciso: solo contratti scritti, e disclosure annuale — entro giugno — dell'elenco delle associazioni sostenute e dell'ammontare aggregato dei trasferimenti di valore. Chi progetta una piattaforma di awareness deve prevedere questo calendario, non scoprirlo a maggio."
+            ]
+          },
+          {
+            "heading": "Perché la campagna one-off spreca lo spazio legale",
+            "paragraphs": [
+              "C'è poi un errore che non è normativo ma strategico: trattare la disease awareness come una campagna a termine. I numeri del ritardo diagnostico spiegano perché. Nella spondilite anchilosante il ritardo diagnostico medio è di 7–8 anni (survey europea EMAS); in Italia il 60% dei pazienti reumatologici attende oltre 3 anni per una diagnosi (dati ANMAR / Osservatorio CAPIRE). Una campagna di otto settimane non incide su un problema che si misura in anni.",
+              "Il mercato più maturo si è già mosso: negli Stati Uniti le prime cinque campagne unbranded valevano in media 216 milioni di dollari di spesa nel 2021, contro 44 milioni nel 2020 (analisi PharmaPhorum su dati Kantar Media). La direzione è chiara: l'awareness non è più un progetto tattico, è un'infrastruttura.",
+              "C'è anche un argomento di puro costo. L'infrastruttura di compliance — [il monitoraggio delle sospette reazioni avverse secondo il Modulo VI delle GVP europee](/insight/farmacovigilanza-social-media-gvp-modulo-vi), la moderazione documentata, l'impianto GDPR con consenso esplicito ex articolo 9.2.a per i dati sulla salute, la DPIA, i ruoli di titolare e responsabile — costa quasi lo stesso per sei settimane o per tre anni. Una campagna one-off la costruisce e la smonta. Una piattaforma continuativa la ammortizza, e accumula audience, fiducia e consensi che nessuna agenzia di comunicazione pharma può ricreare da zero alla campagna successiva."
+            ]
+          },
+          {
+            "heading": "Checklist pre-lancio (e un modo per non partire alla cieca)",
+            "paragraphs": [
+              "Prima di pubblicare la prima pagina, sette verifiche:",
+              "Enable Pharma nasce per questo: piattaforme istituzionali di disease awareness con [la compliance progettata dentro](/compliance), non aggiunta dopo. Il punto di ingresso è l'Awareness & Compliance Audit: quattro-sei settimane, prezzo fisso, per mappare rischi, requisiti e opportunità della vostra area terapeutica prima di investire un euro in piattaforma."
+            ],
+            "list": [
+              "Contenuti: nessun nome di farmaco, principio attivo o riferimento indiretto — in testi, metadati, URL, immagini e risposte previste dei moderatori.",
+              "Articolo 113: solo nome e logo aziendali; nessun collegamento, neppure grafico, a materiali di prodotto.",
+              "Farmacovigilanza: processo conforme al Modulo VI delle GVP — monitoraggio delle menzioni di sospette reazioni avverse sui canali gestiti, escalation a personale qualificato entro le finestre di reporting, moderazione documentata.",
+              "GDPR: consenso esplicito ex art. 9.2.a per i dati sulla salute, informativa chiara, consenso granulare, minimizzazione, DPIA, sicurezza ex art. 32 e verifica delle misure di garanzia ex art. 2-septies del Codice Privacy.",
+              "Farmindustria: canale reattivo presidiato da personale non commerciale; contratti scritti con le associazioni pazienti; calendario di disclosure annuale.",
+              "Influencer e creator: adeguamento alla [delibera AGCOM 197/25/CONS](/insight/patient-engagement-associazioni-influencer-agcom) — trasparenza dei contenuti sponsorizzati, obblighi rafforzati quando i contenuti incidono sulla salute, elenco degli influencer rilevanti in prima applicazione dal 5 febbraio 2026.",
+              "Accessibilità: conformità agli obblighi dello European Accessibility Act, recepito in Italia con il D.Lgs. 82/2022."
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "label": "D.Lgs. 219/2006 (Codice del farmaco), artt. 113 e 124",
+            "note": "Divieto di pubblicità al pubblico dei farmaci con obbligo di prescrizione; spazio della comunicazione istituzionale",
+            "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2006-04-24;219"
+          },
+          {
+            "label": "Codice deontologico Farmindustria, versione 5 aprile 2022 (art. 3.26)",
+            "note": "Informazione reattiva al pubblico; contratti scritti e disclosure annuale per le associazioni pazienti"
+          },
+          {
+            "label": "EU Good Pharmacovigilance Practices, Modulo VI",
+            "note": "Monitoraggio delle sospette reazioni avverse sui canali digitali gestiti per conto delle aziende"
+          },
+          {
+            "label": "GDPR art. 9; Codice Privacy art. 2-septies",
+            "note": "Trattamento dei dati sulla salute: consenso esplicito e misure di garanzia",
+            "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+          },
+          {
+            "label": "AGCOM, delibera 197/25/CONS (23 luglio 2025)",
+            "note": "Linee guida e codice di condotta per influencer"
+          },
+          {
+            "label": "European Accessibility Act / D.Lgs. 82/2022",
+            "note": "Obblighi di accessibilità digitale in applicazione dal 2025",
+            "url": "https://eur-lex.europa.eu/eli/dir/2019/882/oj"
+          },
+          {
+            "label": "Survey europea EMAS; ANMAR / Osservatorio CAPIRE",
+            "note": "Dati sul ritardo diagnostico in reumatologia"
+          },
+          {
+            "label": "PharmaPhorum su dati Kantar Media",
+            "note": "Spesa delle prime cinque campagne unbranded negli Stati Uniti, 2020–2021"
+          }
+        ]
+      },
+      "en": {
+        "title": "Disease awareness in Italy: what you can do (and what you can't)",
+        "metaTitle": "Unbranded Pharma Campaigns in Italy: What's Allowed",
+        "metaDescription": "A B2B guide to unbranded pharma campaigns in Italy: the Rx ad ban, Article 113, Farmindustria rules, GVP and GDPR duties, plus a pre-launch checklist.",
+        "excerpt": "Italian law does not prohibit disease awareness — it defines it. An operating guide to the legal space for unbranded pharma campaigns, from Article 113 to a pre-launch checklist.",
+        "sections": [
+          {
+            "heading": "The rules are not the obstacle — they are the design spec",
+            "paragraphs": [
+              "In most pharma companies, a disease awareness project dies in a meeting. Someone says \"advertising to the public\", legal raises an eyebrow, and the idea goes back into the drawer. The reflex is understandable. It is also, in most cases, a misreading.",
+              "Italian law does not prohibit disease awareness. It defines it. There is a precisely drawn perimeter within which a company can inform the public about a disease, under its own name and logo, in full legitimacy. Teams that know the perimeter can build; teams that half-know it either give up or improvise. This guide maps the legal space for unbranded pharma campaigns in Italy: what is allowed, what is not, and why the rules favour whoever treats them as a design spec rather than an obstacle."
+            ]
+          },
+          {
+            "heading": "The Rx advertising ban — and where awareness legally lives",
+            "paragraphs": [
+              "The starting point is Legislative Decree 219/2006, Italy's medicines code implementing Directive 2001/83/EC. It prohibits advertising prescription-only medicines to the public. The ban is absolute and leaves no room for creative workarounds: no message aimed at the public may promote a prescription medicine, directly or indirectly.",
+              "The same decree, however, opens an explicit space. Article 113 states that information about health and diseases does not qualify as advertising, provided it contains no reference — not even an indirect one — to medicinal products. The company's name and logo are permitted: this is institutional communication. Article 124(9) adds that companies may support initiatives on topics unrelated to the medicines they market.",
+              "This is where a disease awareness platform legally lives: not in a grey zone to be crossed quickly, but in a space the legislator drew on purpose. The boundary is not vague. It is written down, and it can be verified content by content."
+            ]
+          },
+          {
+            "heading": "The operative golden rule",
+            "paragraphs": [
+              "Translated into practice, the law yields a golden rule that is easy to state and demanding to keep:"
+            ],
+            "list": [
+              "No drug names, ever — not in content, not in metadata, not in community replies.",
+              "No active ingredients, not even alluded to or abbreviated.",
+              "No indirect reference to a medicine: therapeutic classes traceable to a single product, links to product pages, visual cues echoing a drug's brand.",
+              "Company name and logo: permitted. An institutional signature is legitimate and, handled well, a trust asset."
+            ]
+          },
+          {
+            "heading": "What \"indirect reference\" means in practice",
+            "paragraphs": [
+              "Projects rarely fail on the drug name — nobody writes it. They fail on indirect reference. The law does not provide a list of cases; professional practice does. Some recurring situations deserve scrutiny:",
+              "The useful test is a harsh one: would an informed observer — a competitor, a regulator, a journalist — connect this content to one of the company's medicines? If the answer is \"maybe\", rewrite it. This is a design criterion, not censorship: it defines upfront what the platform publishes and what it does not, and makes every choice defensible. The rule applies to every surface: articles, videos, social posts, newsletters, moderator replies, even URLs and image alt text. A platform's compliance is measured on its worst piece of content, not its best."
+            ],
+            "list": [
+              "Discussing a therapeutic class in which the company has the only, or the dominant, product.",
+              "Inviting readers to \"ask your doctor about new treatment options\" in an area where the company has just launched.",
+              "Using palettes, claims or imagery that echo the product campaign aimed at physicians.",
+              "Timing the platform launch to coincide with a commercial launch, creating a readable temporal link."
+            ]
+          },
+          {
+            "heading": "The Farmindustria constraints: reactive information and patient relationships",
+            "paragraphs": [
+              "Above the law sits self-regulation. The Farmindustria Code of Conduct (version of 5 April 2022, which incorporates the EFPIA Code) sets constraints a serious platform builds in from day one. Article 3.26 allows companies to provide the public with information on diseases only reactively — in response to unsolicited requests — and through non-commercial staff.",
+              "The operational distinction is sharp: the platform can proactively publish institutional awareness content, free of any reference to medicines; individual answers about diseases must instead follow the reactive track, handled by non-commercial personnel, with documented processes.",
+              "On patient associations the Code is equally precise: written contracts only, and annual disclosure — by June — of the list of supported associations and the aggregate value transferred. Anyone designing an awareness platform should plan for that calendar, not discover it in May."
+            ]
+          },
+          {
+            "heading": "Why one-off campaigns waste the space a platform should occupy",
+            "paragraphs": [
+              "There is also a mistake that is strategic rather than regulatory: treating disease awareness as a time-boxed campaign. Diagnostic delay data explain why. In ankylosing spondylitis the average diagnostic delay is 7–8 years (EMAS European survey); in Italy, 60% of rheumatology patients wait more than 3 years for a diagnosis (ANMAR / CAPIRE Observatory data). An eight-week campaign does not move a problem measured in years.",
+              "The most mature market has already shifted: in the United States, the top five unbranded pharma campaigns averaged 216 million dollars in spend in 2021, up from 44 million in 2020 (PharmaPhorum analysis of Kantar Media data). The direction is clear: awareness is no longer a tactical project — it is infrastructure.",
+              "There is also a pure cost argument. The compliance infrastructure — [adverse event monitoring under EU GVP Module VI](/en/insights/social-media-pharmacovigilance-gvp-module-vi), documented moderation, a GDPR setup with explicit consent under Article 9(2)(a) for health data, a DPIA, controller and processor roles — costs nearly the same for six weeks as for three years. A one-off campaign builds it and tears it down. A continuous disease awareness platform amortises it, and accumulates the audience, trust and consent records that no agency can recreate from scratch for the next campaign."
+            ]
+          },
+          {
+            "heading": "A pre-launch checklist (and a way not to start blind)",
+            "paragraphs": [
+              "Before publishing the first page, seven checks:",
+              "This is what Enable Pharma was built for: institutional disease awareness platforms with [compliance designed in](/en/compliance), not bolted on. The entry point is the Awareness & Compliance Audit: four to six weeks, fixed price, mapping the risks, requirements and opportunities of your therapeutic area before you invest a euro in a platform."
+            ],
+            "list": [
+              "Content: no drug names, active ingredients or indirect references — in copy, metadata, URLs, images or planned moderator replies.",
+              "Article 113: company name and logo only; no link, not even a visual one, to product materials.",
+              "Pharmacovigilance: a process compliant with EU GVP Module VI — monitoring mentions of suspected adverse reactions across managed channels, escalation to qualified staff within the reporting windows, documented moderation.",
+              "GDPR: explicit consent under Article 9(2)(a) for health data, clear notices, granular consent, minimisation, a DPIA, security measures under Article 32, and a check against the safeguards of Article 2-septies of the Italian Privacy Code.",
+              "Farmindustria: a reactive channel staffed by non-commercial personnel; written contracts with patient associations; an annual disclosure calendar.",
+              "Influencers and creators: alignment with [AGCOM resolution 197/25/CONS](/en/insights/compliant-patient-engagement-agcom-italy) — transparency of sponsored content, reinforced duties where content affects health, and the register of relevant influencers first applying from 5 February 2026.",
+              "Accessibility: compliance with the European Accessibility Act, transposed in Italy by Legislative Decree 82/2022."
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "label": "Legislative Decree 219/2006 (Italian medicines code), Articles 113 and 124",
+            "note": "Ban on advertising prescription medicines to the public; the institutional communication space",
+            "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2006-04-24;219"
+          },
+          {
+            "label": "Farmindustria Code of Conduct, 5 April 2022 version (Article 3.26)",
+            "note": "Reactive information to the public; written contracts and annual disclosure for patient associations"
+          },
+          {
+            "label": "EU Good Pharmacovigilance Practices, Module VI",
+            "note": "Monitoring of suspected adverse reactions on company-owned digital channels"
+          },
+          {
+            "label": "GDPR Article 9; Italian Privacy Code Article 2-septies",
+            "note": "Processing of health data: explicit consent and additional safeguards",
+            "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+          },
+          {
+            "label": "AGCOM resolution 197/25/CONS (23 July 2025)",
+            "note": "Guidelines and code of conduct for influencers"
+          },
+          {
+            "label": "European Accessibility Act / Legislative Decree 82/2022",
+            "note": "Digital accessibility obligations applying from 2025",
+            "url": "https://eur-lex.europa.eu/eli/dir/2019/882/oj"
+          },
+          {
+            "label": "EMAS European survey; ANMAR / CAPIRE Observatory",
+            "note": "Diagnostic delay data in rheumatology"
+          },
+          {
+            "label": "PharmaPhorum analysis of Kantar Media data",
+            "note": "US spend on the top five unbranded campaigns, 2020–2021"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "slug": {
+      "it": "farmacovigilanza-social-media-gvp-modulo-vi",
+      "en": "social-media-pharmacovigilance-gvp-module-vi"
+    },
+    "date": "2026-06-23",
+    "keywords": {
+      "it": [
+        "farmacovigilanza social media",
+        "farmacovigilanza social network",
+        "GVP Modulo VI",
+        "reazioni avverse social media",
+        "moderazione community pazienti"
+      ],
+      "en": [
+        "social media pharmacovigilance",
+        "GVP Module VI social media",
+        "adverse event reporting social media",
+        "pharmacovigilance community moderation"
+      ]
+    },
+    "readingMinutes": 6,
+    "content": {
+      "it": {
+        "title": "Farmacovigilanza sui social media: l'obbligo che decide se il progetto vive",
+        "metaTitle": "Farmacovigilanza social media: guida al GVP Modulo VI",
+        "metaDescription": "GVP Modulo VI sui canali social owned: menzioni segnalabili, workflow, SLA e come trasformare la farmacovigilanza in un segnale di fiducia.",
+        "excerpt": "La farmacovigilanza è il motivo per cui i team medico-legali bloccano i progetti di community — ed è un problema operativo, non un vicolo cieco giuridico. Cosa richiede il GVP Modulo VI sui canali social e come si costruisce un workflow che regge un'ispezione.",
+        "sections": [
+          {
+            "heading": "Il veto che arriva sempre dallo stesso ufficio",
+            "paragraphs": [
+              "I progetti di community per pazienti raramente muoiono per mancanza di budget. Muoiono in una riunione, quando il responsabile medico o il legale pone una domanda semplice: chi gestisce le segnalazioni di sospette reazioni avverse che compariranno nei commenti? Se la risposta è vaga, il progetto si ferma lì. E si ferma per una ragione seria, non per eccesso di prudenza.",
+              "Un canale digitale gestito da o per conto di un'azienda farmaceutica è un canale presidiato ai fini di farmacovigilanza. Le menzioni di possibili effetti indesiderati che vi compaiono non sono conversazioni qualsiasi: attivano obblighi precisi, con tempi definiti. Ignorarle non è un'opzione. Sperare che non arrivino, nemmeno.",
+              "La buona notizia è che la farmacovigilanza sui social media non è un problema giuridico irrisolvibile. È un problema operativo: processi, ruoli, tempi, tracciabilità. E i problemi operativi si risolvono con il disegno, non con il divieto. Questo articolo descrive come."
+            ]
+          },
+          {
+            "heading": "Cosa richiede il GVP Modulo VI sui canali owned",
+            "paragraphs": [
+              "Il riferimento è il Modulo VI delle Good Pharmacovigilance Practices europee (EU GVP). Il principio è lineare: chi gestisce canali digitali «owned» per conto di un'azienda farmaceutica deve monitorare le menzioni di sospette reazioni avverse e portarle all'attenzione di personale di farmacovigilanza qualificato entro le finestre di reporting previste. Servono inoltre moderazione documentata e processi tracciabili.",
+              "Tre conseguenze pratiche. Primo: l'obbligo riguarda i canali che l'azienda possiede o controlla — il sito della piattaforma di awareness, i profili social collegati, i moduli di contatto, la messaggistica. Secondo: affidare la gestione a un fornitore non trasferisce la responsabilità. Il fornitore opera per conto dell'azienda e deve lavorare dentro le sue procedure, con obblighi contrattuali espliciti.",
+              "Terzo, e più importante per chi lavora su progetti istituzionali: il fatto che [la piattaforma sia unbranded](/insight/campagne-unbranded-pharma-cosa-si-puo-fare) non cambia nulla. Una piattaforma di disease awareness costruita a norma non nomina medicinali — ma gli utenti sì, spontaneamente, perché parlano della propria vita. Quando lo fanno su un canale owned, l'obbligo di monitoraggio esiste. È esattamente questo il punto che il team medico-legale vuole vedere risolto prima di firmare."
+            ]
+          },
+          {
+            "heading": "Cosa conta come menzione segnalabile",
+            "paragraphs": [
+              "L'errore più comune è immaginare la segnalazione come un evento formale, con un utente che dichiara di voler riportare una reazione avversa. Nella realtà, una menzione rilevante può essere un commento di due righe: «da quando ho iniziato quella terapia non dormo più». Può essere un messaggio privato, una risposta dentro un thread, un racconto personale sotto un contenuto che parla di tutt'altro. Non serve linguaggio tecnico, non serve l'intenzione di segnalare, non serve che il medicinale sia nominato con precisione.",
+              "Nella pratica, chi fa farmacovigilanza valuta se dalla menzione emergono elementi minimi: una persona identificabile, un medicinale, un evento indesiderato. Ma questa valutazione non spetta al moderatore. La regola operativa che protegge il progetto è una sola: il moderatore non decide, fa sempre escalation. Ogni menzione dubbia viene intercettata, registrata e passata a chi è qualificato per valutarla. Il costo di un falso positivo è qualche minuto di lavoro. Il costo di un falso negativo scoperto in ispezione è di un altro ordine di grandezza.",
+              "I messaggi privati meritano una nota. Molti utenti raccontano la propria esperienza in DM proprio perché non vogliono farlo in pubblico. Anche quei messaggi arrivano su un canale owned. Anche quelli vanno presidiati, con gli stessi tempi e la stessa tracciabilità dei commenti visibili."
+            ]
+          },
+          {
+            "heading": "Il workflow che regge un'ispezione",
+            "paragraphs": [
+              "Un processo di farmacovigilanza digitale credibile non è un documento in un cassetto: è una catena operativa che funziona ogni giorno, anche quando non succede niente. Gli elementi essenziali:",
+              "Nessuno di questi elementi è esotico. Sono controlli ordinari, dello stesso tipo che le aziende farmaceutiche applicano già ad altri processi regolati. La differenza decisiva è il momento in cui vengono progettati: prima del lancio, dentro l'architettura della piattaforma — non dopo il primo incidente, sotto pressione."
+            ],
+            "list": [
+              "Moderazione documentata: regole scritte su cosa si pubblica, cosa si rimuove e cosa si intercetta, con ruoli, turni e responsabilità definiti.",
+              "Revisione sistematica dei canali owned: commenti, messaggi privati e menzioni esaminati con una frequenza dichiarata in procedura, non «quando capita».",
+              "Escalation al personale di farmacovigilanza qualificato: un canale dedicato, con presa in carico entro le finestre di reporting previste dal GVP Modulo VI.",
+              "Template di risposta approvati in anticipo: il moderatore non improvvisa in pubblico su temi di salute — ringrazia, non commenta il caso clinico, indirizza ai canali corretti.",
+              "Audit trail completo: ogni menzione tracciata dalla rilevazione alla chiusura, con data, ora, operatore ed esito.",
+              "Formazione registrata dei moderatori e riconciliazione periodica tra i log di moderazione e le segnalazioni effettivamente inoltrate."
+            ]
+          },
+          {
+            "heading": "Perché «spegniamo i commenti» è la risposta sbagliata",
+            "paragraphs": [
+              "Di fronte a questi obblighi, la tentazione classica è chiudere i commenti e trasformare la community in una bacheca. È una falsa soluzione, per due ragioni.",
+              "La prima: distrugge il valore. Una piattaforma di disease awareness funziona perché le persone si parlano — fanno domande, si riconoscono nelle esperienze altrui, tornano. È l'interazione a generare fiducia, permanenza e utilità reale, anche a fronte di ritardi diagnostici che in patologie come la spondilite anchilosante arrivano in media a 7–8 anni (survey europea EMAS). Senza conversazione resta una brochure con un dominio: i costi rimangono, il motivo per cui il progetto esisteva sparisce.",
+              "La seconda: non elimina l'obbligo. I messaggi privati continuano ad arrivare. Le menzioni sui profili collegati pure. Chiudere i commenti riduce il perimetro, non lo azzera — e lascia l'azienda con gli stessi doveri e meno controllo sulla conversazione, che semplicemente si sposta dove nessuno la presidia.",
+              "Il tema vero è il dimensionamento. Un presidio serio richiede finestre di copertura definite, weekend e festivi inclusi, con livelli di servizio dichiarati; moderatori formati, con backup previsti; un contratto con il fornitore che espliciti clausole di farmacovigilanza, tempi di escalation e obblighi di tracciabilità. Non serve necessariamente un presidio continuo su ogni canale: serve un presidio dichiarato, documentato e rispettato. In ispezione conta una cosa sola — la coerenza tra ciò che la procedura promette e ciò che i log dimostrano."
+            ]
+          },
+          {
+            "heading": "Da rischio a segnale di fiducia",
+            "paragraphs": [
+              "A questo punto il ragionamento si rovescia. Un processo di farmacovigilanza progettato bene non è il prezzo da pagare per avere una community: è l'argomento che la fa approvare. Quando il medical e il legal vedono una procedura chiara, ruoli assegnati, tempi definiti e un audit trail dimostrabile, il progetto smette di essere un rischio da contenere e diventa un'attività governata — con un responsabile per ogni passaggio.",
+              "Vale anche verso l'esterno. Uno spazio moderato con serietà, dove i temi di salute vengono trattati con regole visibili e nessuno improvvisa risposte cliniche, è più credibile per i pazienti, per i caregiver e per i clinici che lo incontrano. La compliance, resa visibile, è un segnale di fiducia. È questo il senso di «compliance-by-design»: l'obbligo non si aggira, si ingegnerizza — e diventa parte del valore.",
+              "Enable Pharma progetta [piattaforme di awareness istituzionali](/progetto-esempio) con la farmacovigilanza integrata nei processi fin dal primo giorno. Il punto di partenza è l'Awareness & Compliance Audit: quattro-sei settimane a prezzo fisso per mappare canali, obblighi e lacune operative, e uscirne con un workflow che il vostro team medico-legale possa approvare senza riserve."
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "label": "EU GVP, Modulo VI",
+            "note": "Gestione e segnalazione delle sospette reazioni avverse ai medicinali; obblighi sui canali digitali gestiti dall'azienda."
+          },
+          {
+            "label": "D.Lgs. 219/2006",
+            "note": "Codice del farmaco, attuazione della direttiva 2001/83/CE; art. 113 sul perimetro dell'informazione non promozionale.",
+            "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2006-04-24;219"
+          },
+          {
+            "label": "Regolamento (UE) 2016/679 (GDPR)",
+            "note": "Art. 9 sui dati relativi alla salute, art. 32 sulla sicurezza del trattamento.",
+            "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+          }
+        ]
+      },
+      "en": {
+        "title": "Social media pharmacovigilance: the obligation that decides whether your project lives",
+        "metaTitle": "Social Media Pharmacovigilance: GVP Module VI in Practice",
+        "metaDescription": "What GVP Module VI requires on owned social channels: reportable mentions, workflows, SLAs — and how to turn pharmacovigilance into a trust signal.",
+        "excerpt": "Pharmacovigilance is the reason legal and medical teams veto community projects — and it is an operations problem, not a legal dead end. What GVP Module VI requires on owned channels, and how to build a workflow that stands up to inspection.",
+        "sections": [
+          {
+            "heading": "The veto always comes from the same office",
+            "paragraphs": [
+              "Patient community projects rarely die for lack of budget. They die in a meeting, when the medical lead or legal counsel asks one simple question: who handles the suspected adverse reaction mentions that will appear in the comments? If the answer is vague, the project stops there. And it stops for a serious reason, not out of excessive caution.",
+              "A digital channel run by or on behalf of a pharmaceutical company is a monitored channel for pharmacovigilance purposes. Mentions of possible adverse effects that appear on it are not ordinary conversation: they trigger precise obligations, with defined timelines. Ignoring them is not an option. Hoping they never show up is not one either.",
+              "The good news is that social media pharmacovigilance is not an unsolvable legal problem. It is an operations problem: processes, roles, timelines, traceability. And operations problems are solved by design, not by prohibition. This article explains how."
+            ]
+          },
+          {
+            "heading": "What GVP Module VI actually requires on owned channels",
+            "paragraphs": [
+              "The reference is Module VI of the EU Good Pharmacovigilance Practices (GVP). The principle is straightforward: whoever manages owned digital channels on behalf of a pharmaceutical company must monitor mentions of suspected adverse reactions and bring them to the attention of qualified pharmacovigilance staff within the applicable reporting windows. Documented moderation and traceable processes are required alongside.",
+              "Three practical consequences follow. First: the obligation covers the channels the company owns or controls — the awareness platform's website, its linked social profiles, contact forms, direct messaging. Second: outsourcing the work to a vendor does not transfer the responsibility. The vendor acts on the company's behalf and must operate inside the company's procedures, under explicit contractual obligations.",
+              "Third, and most relevant for institutional projects: [the platform being unbranded](/en/insights/unbranded-disease-awareness-campaigns-italy) changes nothing. A compliant disease-awareness platform never names medicines — but users do, spontaneously, because they are talking about their own lives. When that happens on an owned channel, the monitoring obligation applies. This is precisely the point your medical-legal team wants resolved before signing off."
+            ]
+          },
+          {
+            "heading": "What counts as a reportable mention",
+            "paragraphs": [
+              "The most common mistake is picturing an adverse event report as a formal act, with a user declaring their intention to report a reaction. In reality, a relevant mention can be a two-line comment: \"since I started that treatment I can't sleep anymore\". It can be a private message, a reply buried in a thread, a personal story under a post about something else entirely. No technical language is needed, no intention to report, no precise naming of the medicine.",
+              "In practice, pharmacovigilance teams assess whether minimum elements emerge from a mention: an identifiable person, a medicinal product, an undesirable event. But that assessment is not the moderator's job. The single operating rule that protects the project is this: the moderator never decides — the moderator always escalates. Every doubtful mention is captured, logged and passed to someone qualified to assess it. The cost of a false positive is a few minutes of work. The cost of a false negative discovered during an inspection is of a different order of magnitude.",
+              "Direct messages deserve a specific note. Many users share their experience in DMs precisely because they do not want to do it in public. Those messages still arrive on an owned channel. They must be monitored with the same timelines and the same traceability as visible comments."
+            ]
+          },
+          {
+            "heading": "A workflow that stands up to inspection",
+            "paragraphs": [
+              "A credible digital pharmacovigilance process is not a document in a drawer: it is an operational chain that runs every day, including the days when nothing happens. The essential components:",
+              "None of this is exotic. These are ordinary controls, of the same kind pharmaceutical companies already apply to other regulated processes. The decisive difference is when they are designed: before launch, inside the platform's architecture — not after the first incident, under pressure."
+            ],
+            "list": [
+              "Documented moderation: written rules on what gets published, what gets removed and what gets flagged, with defined roles, shifts and responsibilities.",
+              "Systematic review of owned channels: comments, direct messages and mentions screened at a frequency stated in the procedure, not \"when someone gets around to it\".",
+              "Escalation to qualified pharmacovigilance staff: a dedicated channel, with handover within the reporting windows set by GVP Module VI.",
+              "Response templates approved in advance: the moderator never improvises on health topics in public — they acknowledge, never comment on the clinical case, and direct people to the appropriate channels.",
+              "A complete audit trail: every mention tracked from detection to closure, with date, time, operator and outcome.",
+              "Recorded moderator training, plus periodic reconciliation between moderation logs and the reports actually forwarded."
+            ]
+          },
+          {
+            "heading": "Why \"just turn off comments\" is the wrong answer",
+            "paragraphs": [
+              "Faced with these obligations, the classic temptation is to close the comments and turn the community into a bulletin board. It is a false solution, for two reasons.",
+              "First: it destroys the value. A disease-awareness platform works because people talk to each other — they ask questions, recognise themselves in others' experiences, come back. Interaction is what generates trust, retention and real usefulness, in conditions where diagnostic delay is measured in years: in ankylosing spondylitis, the average delay is 7–8 years according to the European EMAS survey. Without conversation you are left with a brochure that has a domain name: the costs remain, the reason the project existed disappears.",
+              "Second: it does not remove the obligation. Private messages keep arriving. Mentions on linked profiles keep appearing. Closing comments shrinks the perimeter; it does not eliminate it — and it leaves the company with the same duties and less control over a conversation that simply moves to places nobody is monitoring.",
+              "The real issue is sizing the operation. A serious setup requires defined coverage windows, weekends and holidays included, with stated service levels; trained moderators with planned backup; and a vendor contract that spells out pharmacovigilance clauses, escalation timelines and traceability obligations. Continuous round-the-clock coverage of every channel is not necessarily required. What is required is coverage that is declared, documented and honoured. In an inspection, one thing matters: consistency between what the procedure promises and what the logs demonstrate."
+            ]
+          },
+          {
+            "heading": "From risk to trust signal",
+            "paragraphs": [
+              "At this point the reasoning flips. A well-designed pharmacovigilance process is not the price to pay for having a community: it is the argument that gets the community approved. When medical and legal see a clear procedure, assigned roles, defined timelines and a demonstrable audit trail, the project stops being a risk to contain and becomes a governed activity — with an owner for every step.",
+              "The same holds externally. A seriously moderated space, where health topics are handled under visible rules and nobody improvises clinical answers, is more credible to patients, caregivers and the clinicians who encounter it. Compliance, made visible, is a trust signal. That is the meaning of compliance-by-design: the obligation is not worked around, it is engineered in — and it becomes part of the value.",
+              "Enable Pharma designs [institutional awareness platforms](/en/example-project) with pharmacovigilance built into the operating processes from day one. The starting point is the Awareness & Compliance Audit: a fixed-price, four-to-six-week engagement that maps your channels, obligations and operational gaps, and delivers a workflow your medical-legal team can approve without reservations."
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "label": "EU GVP, Module VI",
+            "note": "Management and reporting of suspected adverse reactions; obligations on company-operated digital channels."
+          },
+          {
+            "label": "Italian Legislative Decree 219/2006",
+            "note": "Medicines Code implementing Directive 2001/83/EC; art. 113 on the scope of non-promotional information.",
+            "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2006-04-24;219"
+          },
+          {
+            "label": "Regulation (EU) 2016/679 (GDPR)",
+            "note": "Art. 9 on health data, art. 32 on security of processing.",
+            "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "slug": {
+      "it": "patient-engagement-associazioni-influencer-agcom",
+      "en": "compliant-patient-engagement-agcom-italy"
+    },
+    "date": "2026-07-28",
+    "keywords": {
+      "it": [
+        "patient engagement",
+        "associazioni pazienti",
+        "influencer salute AGCOM",
+        "delibera AGCOM 197/25/CONS"
+      ],
+      "en": [
+        "patient engagement",
+        "patient advocacy",
+        "patient engagement agency",
+        "health influencers Italy",
+        "compliant patient engagement"
+      ]
+    },
+    "readingMinutes": 7,
+    "content": {
+      "it": {
+        "title": "Patient engagement compliant: associazioni pazienti e influencer dopo la delibera AGCOM 197/25/CONS",
+        "metaTitle": "Patient engagement compliant: associazioni e influencer",
+        "metaDescription": "Associazioni pazienti, delibera AGCOM 197/25/CONS, creator sanitari: come costruire un patient engagement difendibile in Italia.",
+        "excerpt": "La voce dei pazienti è l'asset più potente di un programma di awareness, ed è anche il più regolato. Le regole Farmindustria per le associazioni, la delibera AGCOM 197/25/CONS per gli influencer e un metodo per collaborazioni difendibili.",
+        "sections": [
+          {
+            "heading": "La voce dei pazienti è l'asset più forte. Ed è anche il più regolato",
+            "paragraphs": [
+              "Nessun contenuto istituzionale ha la credibilità di un paziente che racconta la propria esperienza. Le persone si fidano di chi ha vissuto una patologia, non di chi la descrive da fuori. Per questo la voce dei pazienti è l'asset più potente di qualsiasi programma di disease awareness. Ed è anche quello su cui convergono più norme contemporaneamente: il codice del farmaco, il codice deontologico Farmindustria, la farmacovigilanza, la protezione dei dati e, da luglio 2025, le nuove regole AGCOM per gli influencer.",
+              "Il 23 luglio 2025 AGCOM ha approvato in via definitiva la delibera 197/25/CONS: linee guida e un codice di condotta per gli influencer, con un elenco pubblico per i profili più grandi, obblighi di trasparenza sui contenuti sponsorizzati e sanzioni fino a 600.000 euro. Quando i contenuti incidono sulla salute, gli obblighi di correttezza sono rafforzati. Chi costruisce programmi di patient engagement in Italia deve conoscere questo quadro nel dettaglio. Non per paura: per metodo. Le regole, lette bene, dicono esattamente come lavorare."
+            ]
+          },
+          {
+            "heading": "Patient engagement: perché oggi non ha un solo proprietario",
+            "paragraphs": [
+              "Dieci anni fa il rapporto con i pazienti era un capitolo della comunicazione. Oggi attraversa almeno quattro funzioni. Medical Affairs presidia l'accuratezza scientifica e il confine con l'informazione sul farmaco. Corporate Affairs gestisce la comunicazione istituzionale e la reputazione. Patient Advocacy costruisce e mantiene le relazioni con le associazioni. Market Access porta la prospettiva del paziente nei dossier di valore. È un progresso: significa che la voce dei pazienti conta davvero nelle decisioni.",
+              "Ma la distribuzione crea un rischio operativo preciso: nessuno vede l'intero processo. Un contratto firmato da una funzione, un contenuto pubblicato da un'altra, un creator selezionato da un fornitore esterno. Quando le responsabilità sono frammentate, i controlli si perdono nei passaggi di mano. Il primo requisito di un programma difendibile non è un documento legale: è una mappa di governance. Chi decide, chi approva, chi archivia, chi risponde all'autorità se arriva una domanda."
+            ]
+          },
+          {
+            "heading": "Associazioni pazienti: le regole di Farmindustria ed EFPIA",
+            "paragraphs": [
+              "Il codice deontologico Farmindustria, nella versione del 5 aprile 2022 che recepisce il Codice EFPIA, fissa regole precise per i rapporti con le associazioni pazienti. Primo: contratti scritti, sempre. Secondo: trasparenza annuale. Entro giugno di ogni anno l'azienda deve rendere pubblico l'elenco delle associazioni sostenute e l'ammontare aggregato dei trasferimenti di valore. Non è burocrazia: è la condizione che permette di collaborare senza compromettere l'indipendenza delle associazioni, che è il loro capitale più prezioso.",
+              "Lo stesso codice, all'articolo 3.26, consente di fornire informazioni al pubblico sulle patologie solo in modo reattivo, cioè non sollecitato, e tramite personale non commerciale. La cornice generale resta il D.Lgs. 219/2006: l'articolo 113 stabilisce che le informazioni su salute e malattie non sono pubblicità se prive di riferimenti, neppure indiretti, a medicinali. Nome e logo dell'azienda sono ammessi come comunicazione istituzionale. È un perimetro stretto ma chiaro: un programma di awareness ben disegnato ci sta dentro senza forzature."
+            ]
+          },
+          {
+            "heading": "La delibera AGCOM 197/25/CONS: cosa cambia per chi lavora con gli influencer",
+            "paragraphs": [
+              "La delibera 197/25/CONS, approvata in via definitiva il 23 luglio 2025, introduce linee guida e un codice di condotta per gli influencer che operano in Italia. Gli «influencer rilevanti» — almeno 500.000 follower o 1 milione di visualizzazioni medie mensili — devono iscriversi a un elenco pubblico, con prima applicazione il 5 febbraio 2026. Quattro punti contano per chi lavora sulla salute: diciture chiare come «Pubblicità» o «ADV» con indicazione del brand committente; «#invitedby» per inviti e collaborazioni senza contratto, perché anche l'ospitalità va dichiarata; obblighi rafforzati di correttezza quando i contenuti incidono sulla salute delle persone; sanzioni fino a 600.000 euro in caso di violazione.",
+              "E le collaborazioni già attive? Prendete una collaborazione tipo, ipotetica ma frequente: nel 2025 avete contrattualizzato una creator che racconta la convivenza con una patologia cronica. Contratto firmato prima della delibera, calendario editoriale fino all'estate 2026. Il 5 febbraio 2026 scatta la prima applicazione dell'elenco degli influencer rilevanti. Non dovete rifare tutto. Dovete fare una verifica ordinata, in sei passi.",
+              "Un avvertimento: il passaggio più sottovalutato non è il contratto, è il presidio dei canali. Il monitoraggio dei commenti confina con la [farmacovigilanza sui social media](/insight/farmacovigilanza-social-media-gvp-modulo-vi) e va documentato con la stessa disciplina. Per una fotografia completa, i nostri [servizi di compliance](/compliance) coprono entrambi i fronti."
+            ],
+            "list": [
+              "Verificate se la creator rientra nei criteri dimensionali dell'elenco fissati dalla delibera: numeri alla mano, canale per canale. Sotto soglia oggi ma in crescita? Fissate una verifica trimestrale.",
+              "Rivedete il contratto: obblighi di trasparenza allineati al codice di condotta, responsabilità sulla conformità dei contenuti — chi risponde, per cosa — e gestione delle violazioni. Se l'impianto regge, basta un addendum firmato.",
+              "Etichettate ogni contenuto sponsorizzato con dicitura chiara — «Pubblicità» o «ADV» — e con il brand committente. Nessuna eccezione per stories e formati brevi.",
+              "Pre-approvate i contenuti che incidono sulla salute: revisione MLR prima della pubblicazione, tempi definiti, versioni tracciate.",
+              "Monitorate commenti e menzioni sui contenuti pubblicati. Una sospetta reazione avversa nei commenti segue le procedure di farmacovigilanza, non quelle del social media team.",
+              "Se la creator pubblica qualcosa fuori perimetro che tocca il vostro ambito: documentate, chiedete modifica o rimozione secondo contratto, valutate l'escalation interna. Il silenzio è la scelta peggiore."
+            ]
+          },
+          {
+            "heading": "Selezionare e contrattualizzare creator in modo difendibile",
+            "paragraphs": [
+              "Per un'azienda farmaceutica il punto non è solo la responsabilità dell'influencer: è la due diligence a monte. Se un creator che parla di una patologia riceve valore dall'azienda, direttamente o tramite agenzia, la trasparenza va progettata prima della pubblicazione, non ricostruita dopo. Un paziente o un professionista sanitario che crea contenuti non si sceglie per i follower: si sceglie con un processo documentato che regga a una domanda semplice — perché proprio questa persona? Un processo difendibile ha almeno cinque componenti."
+            ],
+            "list": [
+              "Scoring documentato: criteri espliciti su pertinenza, storia dei contenuti, qualità dell'audience e segnali di rischio, come claim terapeutici passati, promozione di prodotti o toni sensazionalistici.",
+              "Verifica dei conflitti di interesse: rapporti con altre aziende del settore, ruoli in associazioni pazienti, attività promozionali in corso.",
+              "Contratto scritto con obblighi puntuali: trasparenza secondo le regole AGCOM, divieto assoluto di riferimenti a medicinali, flusso di approvazione dei contenuti, obblighi di segnalazione verso l'azienda.",
+              "Revisione MLR (medico-legale-regolatoria) di ogni contenuto prima della pubblicazione, con tracciatura delle versioni e delle approvazioni.",
+              "Formazione di farmacovigilanza: chi gestisce canali digitali per conto dell'azienda deve riconoscere una sospetta reazione avversa nei commenti e portarla al personale qualificato entro le finestre di reporting, come richiede il Modulo VI delle GVP europee."
+            ]
+          },
+          {
+            "heading": "Come si riconosce un programma «buono»",
+            "paragraphs": [
+              "Un programma di patient engagement compliant non si riconosce dall'assenza di problemi. Si riconosce dal fatto che ogni scelta è documentata e ricostruibile. Nella pratica, un programma in ordine ha sei caratteristiche."
+            ],
+            "list": [
+              "Una mappa di governance condivisa tra Medical Affairs, Corporate Affairs, Patient Advocacy e i fornitori esterni.",
+              "Contratti scritti con ogni associazione e ogni creator, più un calendario di disclosure che rispetta la scadenza di giugno.",
+              "Un flusso MLR con tempi definiti, che non diventa il collo di bottiglia del programma.",
+              "Moderazione documentata e monitoraggio di farmacovigilanza sui canali gestiti.",
+              "Una checklist AGCOM applicata a ogni collaborazione, rilevante o meno.",
+              "Un archivio unico: brief, versioni, approvazioni, pubblicazioni. Se arriva una domanda dell'autorità, la risposta è già scritta."
+            ]
+          },
+          {
+            "heading": "Da dove cominciare",
+            "paragraphs": [
+              "Chi arriva a una verifica con questo materiale in ordine non deve difendersi: deve solo mostrare come lavora. E chi lo mostra alle associazioni e ai creator prima di firmare ottiene partner migliori, perché i partner seri riconoscono il metodo.",
+              "Enable Pharma ha costruito il proprio Awareness & Compliance Audit per questo: in 4–6 settimane, a prezzo fisso, fotografa lo stato del vostro patient engagement — associazioni, creator, canali — e restituisce un piano di adeguamento con priorità chiare. Se state pianificando attività con associazioni pazienti o influencer per il 2026, è il punto di partenza più prudente."
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "label": "D.Lgs. 219/2006, art. 113 e 124",
+            "note": "Codice del farmaco: informazioni su salute e malattie senza riferimenti a medicinali non sono pubblicità; comunicazione istituzionale ammessa.",
+            "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2006-04-24;219"
+          },
+          {
+            "label": "Codice deontologico Farmindustria, versione 5 aprile 2022",
+            "note": "Art. 3.26, contratti scritti con le associazioni pazienti, disclosure annuale entro giugno; recepisce il Codice EFPIA."
+          },
+          {
+            "label": "AGCOM, delibera 197/25/CONS (23 luglio 2025)",
+            "note": "Linee guida e codice di condotta per gli influencer; elenco pubblico dal 5 febbraio 2026; sanzioni fino a 600.000 euro."
+          },
+          {
+            "label": "EU Good Pharmacovigilance Practices, Modulo VI",
+            "note": "Monitoraggio delle sospette reazioni avverse sui canali digitali gestiti per conto delle aziende."
+          }
+        ]
+      },
+      "en": {
+        "title": "Compliant patient engagement in Italy: associations and influencers after AGCOM 197/25/CONS",
+        "metaTitle": "Compliant Patient Engagement in Italy: AGCOM Rules",
+        "metaDescription": "Patient associations, AGCOM resolution 197/25/CONS and health influencers: how pharma teams build defensible patient engagement in Italy.",
+        "excerpt": "Patient voices are the strongest asset in any awareness programme, and the most regulated one. The Farmindustria rules for patient associations, Italy's new AGCOM framework for influencers, and a defensible method for working with creators.",
+        "sections": [
+          {
+            "heading": "Patient voices are your strongest awareness asset — and your most regulated one",
+            "paragraphs": [
+              "No institutional content carries the credibility of a patient describing their own experience. People trust those who have lived with a condition, not those who describe it from the outside. That is why patient voices are the most powerful asset in any disease awareness programme. It is also the asset where the most rules converge at once: the medicines code, the Farmindustria Code of Conduct, pharmacovigilance, data protection and, since July 2025, Italy's new AGCOM framework for influencers.",
+              "On 23 July 2025 AGCOM gave final approval to resolution 197/25/CONS: guidelines and a code of conduct for influencers, with a public register for the largest profiles, transparency obligations for sponsored content and fines of up to 600,000 euros. Where content affects people's health, the duties of accuracy are reinforced. Anyone building patient engagement programmes in Italy needs to know this framework in detail. Not out of fear — out of method. Read properly, the rules describe exactly how to work."
+            ]
+          },
+          {
+            "heading": "Why patient engagement no longer has a single owner",
+            "paragraphs": [
+              "A decade ago, patient relationships were a chapter in the communications plan. Today they cut across at least four functions. Medical Affairs guards scientific accuracy and the boundary with medicinal product information. Corporate Affairs manages institutional communication and reputation. Patient Advocacy builds and maintains relationships with patient associations. Market Access brings the patient perspective into value dossiers. That spread is progress: it means patient voices genuinely shape decisions.",
+              "But it also creates a specific operational risk: nobody sees the whole process. A contract signed by one function, content published by another, a creator selected by an external vendor. When accountability is fragmented, controls get lost in the handovers. The first requirement of a defensible programme is not a legal document — it is a governance map. Who decides, who approves, who archives, and who answers the regulator if a question arrives."
+            ]
+          },
+          {
+            "heading": "Patient associations: the Farmindustria and EFPIA rules",
+            "paragraphs": [
+              "The Farmindustria Code of Conduct, in its 5 April 2022 version implementing the EFPIA Code, sets precise rules for working with patient associations. First: written contracts, always. Second: annual transparency. By June each year, the company must publish the list of associations it supports and the aggregate amount of value transferred. This is not red tape: it is the condition that lets companies collaborate without compromising the independence of the associations — which is their most valuable capital.",
+              "The same code, at article 3.26, allows information on diseases to be provided to the public only reactively, in response to unsolicited requests — and through non-commercial personnel. The general frame remains Legislative Decree 219/2006: article 113 establishes that information about health and diseases is not advertising if it contains no reference, even indirect, to medicinal products. The company's name and logo are permitted as institutional communication. It is a narrow perimeter, but a clear one: a well-designed awareness programme fits inside it without strain."
+            ]
+          },
+          {
+            "heading": "AGCOM resolution 197/25/CONS: the new framework for health influencers in Italy",
+            "paragraphs": [
+              "Resolution 197/25/CONS, approved in its final form on 23 July 2025, introduces guidelines and a code of conduct for influencers operating in Italy. 'Relevant influencers' — at least 500,000 followers or one million average monthly views — must join a public register, first applied from 5 February 2026. Four points matter for anyone working on health: clear labels such as 'Pubblicità' or 'ADV' naming the commissioning brand; '#invitedby' for invitations and uncontracted collaborations, because hospitality has to be disclosed too; reinforced duties of accuracy wherever content touches people's health; and fines of up to 600,000 euros for violations.",
+              "What about collaborations that are already live? Take a hypothetical but familiar case: in 2025 you signed a creator who talks about living with a long-term condition. The contract predates the decision; the editorial calendar runs into summer 2026. On 5 February 2026 the register of relevant influencers first takes effect. You do not need to rebuild the programme. You need an organised review, in six steps.",
+              "One warning: the most underestimated step is not the contract, it is channel supervision. Comment monitoring sits next to [social media pharmacovigilance](/en/insights/social-media-pharmacovigilance-gvp-module-vi) and deserves the same discipline. For the complete picture, our [compliance services](/en/compliance) cover both fronts."
+            ],
+            "list": [
+              "Check whether the creator meets the register's size criteria set by the decision: actual numbers, channel by channel. Below the threshold today but growing? Diarise a quarterly re-check.",
+              "Revisit the contract: transparency obligations aligned with the code of conduct, accountability for content compliance — who answers, and for what — and a clause covering breaches. If the framework holds, a signed addendum is enough.",
+              "Label every sponsored post clearly — 'Pubblicità' or 'ADV' — and name the commissioning brand. No exceptions for stories or short formats.",
+              "Pre-approve any content that touches health: MLR review before publication, fixed turnaround times, tracked versions.",
+              "Monitor comments and mentions on published content. A suspected adverse reaction in the comments follows your pharmacovigilance procedures, not your social media playbook.",
+              "If the creator publishes something off-perimeter that touches your area: document it, request amendment or removal under the contract, and assess internal escalation. Silence is the worst available option."
+            ]
+          },
+          {
+            "heading": "How to select and contract patient and HCP creators defensibly",
+            "paragraphs": [
+              "For a pharmaceutical company, the issue is not only the influencer's liability — it is the due diligence upstream. If a creator speaking about a condition receives value from the company, directly or through an agency, transparency must be designed before publication, not reconstructed afterwards. A patient or healthcare professional creator is not chosen for their follower count. They are chosen through a documented process that survives one simple question: why this person? A defensible process has at least five components."
+            ],
+            "list": [
+              "Documented scoring: explicit criteria for relevance, content history, audience quality and risk signals such as past therapeutic claims, product promotion or sensationalist tone.",
+              "Conflict-of-interest checks: relationships with other companies in the sector, roles within patient associations, ongoing promotional activity.",
+              "A written contract with precise obligations: transparency under the AGCOM rules, an absolute ban on references to medicinal products, a content approval workflow, and reporting duties towards the company.",
+              "MLR (medical-legal-regulatory) review of every piece of content before publication, with version and approval tracking.",
+              "Pharmacovigilance training: anyone managing digital channels on a company's behalf must recognise a suspected adverse reaction in the comments and route it to qualified personnel within the reporting windows, as required by Module VI of the EU Good Pharmacovigilance Practices."
+            ]
+          },
+          {
+            "heading": "What a good programme looks like",
+            "paragraphs": [
+              "A compliant patient engagement programme is not recognised by the absence of problems. It is recognised by the fact that every choice is documented and can be reconstructed. In practice, a programme in good order has six features."
+            ],
+            "list": [
+              "A governance map shared across Medical Affairs, Corporate Affairs, Patient Advocacy and external vendors.",
+              "Written contracts with every association and every creator, plus a disclosure calendar that meets the June deadline.",
+              "An MLR workflow with defined turnaround times, so review never becomes the programme's bottleneck.",
+              "Documented moderation and pharmacovigilance monitoring on every managed channel.",
+              "An AGCOM checklist applied to every collaboration, whether the creator is 'relevant' or not.",
+              "A single archive: briefs, versions, approvals, publications. If a regulator asks a question, the answer is already written."
+            ]
+          },
+          {
+            "heading": "Where to start",
+            "paragraphs": [
+              "Teams that face a review with this material in order do not need to defend themselves — they only need to show how they work. And teams that show it to associations and creators before signing get better partners, because serious partners recognise method when they see it.",
+              "Enable Pharma built its Awareness & Compliance Audit for exactly this: in 4–6 weeks, at a fixed price, it maps the current state of your patient engagement — associations, creators, channels — and returns a prioritised remediation plan. If you are planning activity with patient associations or health influencers in Italy for 2026, it is the most prudent place to start."
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "label": "Legislative Decree 219/2006, articles 113 and 124",
+            "note": "Italian medicines code: health and disease information without references to medicinal products is not advertising; institutional communication permitted.",
+            "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2006-04-24;219"
+          },
+          {
+            "label": "Farmindustria Code of Conduct, 5 April 2022 version",
+            "note": "Article 3.26, written contracts with patient associations, annual disclosure by June; implements the EFPIA Code."
+          },
+          {
+            "label": "AGCOM, resolution 197/25/CONS (23 July 2025)",
+            "note": "Guidelines and code of conduct for influencers; public register from 5 February 2026; fines up to 600,000 euros."
+          },
+          {
+            "label": "EU Good Pharmacovigilance Practices, Module VI",
+            "note": "Monitoring of suspected adverse reactions on digital channels managed on behalf of pharmaceutical companies."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "slug": {
+      "it": "comunicazione-medico-scientifica-revisione-mlr",
+      "en": "medical-scientific-communication-mlr-review"
+    },
+    "date": "2026-08-03",
+    "keywords": {
+      "it": [
+        "comunicazione medico-scientifica",
+        "revisione MLR",
+        "medical legal regulatory review",
+        "contenuti medico scientifici compliance"
+      ],
+      "en": [
+        "medical affairs communication",
+        "MLR review process",
+        "medical legal regulatory review",
+        "pharma content review"
+      ]
+    },
+    "readingMinutes": 6,
+    "content": {
+      "it": {
+        "title": "Comunicazione medico-scientifica e review MLR: un processo da progettare, non da subire",
+        "metaTitle": "Comunicazione medico-scientifica: progettare la review MLR",
+        "metaDescription": "Come funziona la revisione MLR dei contenuti rivolti al pubblico: ruoli, SLA realistici, che cosa rallenta le review e come arrivarci già predisposti.",
+        "excerpt": "La review MLR ha la reputazione dell'ufficio che dice no: in realtà è un processo progettabile. Ruoli, binari normativi, SLA dichiarati e contenuti che arrivano in revisione con referenze agganciate e claim tracciabili.",
+        "sections": [
+          {
+            "heading": "Dove si forma davvero la coda",
+            "paragraphs": [
+              "In quasi tutte le aziende farmaceutiche la storia suona uguale: il progetto editoriale è approvato, i contenuti sono scritti, e poi «è tutto fermo in revisione». La review MLR — Medical, Legal, Regulatory — ha la reputazione dell'ufficio che dice no. Chi lavora in Medical Affairs conosce anche l'altra metà della storia: i contenuti arrivano in revisione senza fonti, con claim non referenziati, scritti come se il perimetro normativo non esistesse. La coda non nasce in review: nasce prima, quando il contenuto viene concepito.",
+              "La tesi di questo articolo è semplice: la revisione MLR è un processo progettabile, e la coda si aggredisce a monte. E una piattaforma di comunicazione medico-scientifica rivolta al pubblico può essere costruita per arrivare in review già predisposta — referenze agganciate, claim tracciabili, versioni ordinate, classificazione decisa a monte. Non per compiacere i revisori: per pubblicare con continuità e con meno rischio."
+            ]
+          },
+          {
+            "heading": "Tre ruoli, tre domande diverse",
+            "paragraphs": [
+              "MLR non è un timbro unico: sono tre letture dello stesso contenuto, con tre domande diverse. Il medical reviewer chiede se ogni affermazione scientifica è accurata, aggiornata e sostenuta dalla fonte citata. Verifica la coerenza tra claim e referenza e la tenuta del linguaggio quando il testo semplifica per un pubblico non specialista: semplificare senza distorcere è il mestiere più difficile della comunicazione medico-scientifica.",
+              "Il legal legge lo stesso testo con un'altra domanda: espone l'azienda a una responsabilità? Cerca i claim impliciti, le promesse di beneficio, le formulazioni che un lettore potrebbe interpretare come consiglio medico. Controlla testimonianze e contenuti con dati personali — i dati sulla salute richiedono consenso esplicito ex art. 9 GDPR — e poi diritti d'autore e liberatorie su immagini e citazioni.",
+              "Il regulatory pone la domanda che precede tutte le altre: che cosa è questo materiale, e quale percorso deve seguire? Promozionale o istituzionale, destinato al pubblico o agli operatori sanitari, dentro o fuori il perimetro dell'articolo 113. La classificazione non è una formalità: decide gli adempimenti, i tempi e persino chi deve firmare l'approvazione finale.",
+              "Tre competenze, un solo contenuto. Quando un testo va in revisione non c'è un revisore da convincere: c'è un sistema di domande a cui il contenuto deve saper rispondere da solo."
+            ]
+          },
+          {
+            "heading": "Promozionale o istituzionale: la classificazione che decide il percorso",
+            "paragraphs": [
+              "La distinzione più importante avviene prima del primo commento a margine. Il materiale promozionale segue i binari formali del D.Lgs. 219/2006, il Codice del farmaco che attua la direttiva 2001/83/CE: la pubblicità al pubblico è ammessa solo per i medicinali senza obbligo di prescrizione, previa autorizzazione; il materiale rivolto agli operatori sanitari va depositato in AIFA ai sensi dell'art. 120 prima dell'uso.",
+              "Il contenuto istituzionale di disease awareness vive altrove: nell'articolo 113 dello stesso decreto, che esclude dalla nozione di pubblicità le informazioni sulla salute e sulle malattie prive di ogni riferimento, anche indiretto, a medicinali. Niente deposito, niente autorizzazione preventiva — ma non per questo niente review. Al contrario: proprio perché nessuna autorità valida il materiale prima della pubblicazione, la revisione interna è l'unico presidio. Sopra la legge resta poi l'autodisciplina del codice deontologico Farmindustria, che vincola anche i materiali non promozionali. Il [perimetro delle campagne unbranded](/insight/campagne-unbranded-pharma-cosa-si-puo-fare) è scritto nella norma; farlo rispettare, contenuto per contenuto, è compito della review.",
+              "Per Medical Affairs la conseguenza operativa è netta: ogni contenuto deve nascere già classificato. Un articolo di awareness che scivola in territorio promozionale — un riferimento indiretto, un invito a chiedere al medico «delle nuove opzioni» — non è un contenuto da correggere: è un contenuto da rifare su un binario normativo diverso. La classificazione a monte è la prima forma di velocità."
+            ]
+          },
+          {
+            "heading": "Cosa rallenta davvero le review",
+            "paragraphs": [
+              "Chiedete a un medical reviewer che cosa allunga i tempi, e la risposta non sarà «troppi contenuti». Sarà una lista breve e sempre uguale:",
+              "Nessuna di queste cause nasce dentro la review. Sono tutte a monte, e sono tutte progettabili. Il tempo di revisione è in larga parte una variabile dipendente: dipende da come il contenuto è stato costruito, non da quanto i revisori corrono."
+            ],
+            "list": [
+              "Fonti mancanti: il claim c'è, la referenza no. Il revisore deve cercarla, chiederla o respingere il contenuto.",
+              "Referenze generiche: «la letteratura dimostra che», senza autore, anno e pagina. Verificare un riferimento vago costa più che riscrivere il paragrafo.",
+              "Claim non necessari: affermazioni quantitative inserite per dare forza al testo, che impongono una verifica sproporzionata al loro valore.",
+              "Contenuti concepiti fuori dal perimetro: testi scritti come se l'articolo 113 non esistesse, che tornano indietro per ragioni strutturali e non per dettagli.",
+              "Versioni non tracciate: il revisore commenta la terza versione, il team corregge la seconda, e nessuno sa più quale sia il testo valido."
+            ]
+          },
+          {
+            "heading": "Arrivare già predisposti: cosa cambia con una piattaforma continuativa",
+            "paragraphs": [
+              "In una campagna one-off ogni pezzo è un caso a sé e ogni review parte da zero. Una piattaforma editoriale continuativa può permettersi ciò che una campagna non può: infrastruttura. In concreto:",
+              "È lo stesso principio che regge [il processo di farmacovigilanza sui canali social](/insight/farmacovigilanza-social-media-gvp-modulo-vi): l'obbligo non si aggira, si ingegnerizza — e il Modulo VI delle GVP europee vale anche sui canali della piattaforma. Un impianto così non elimina la revisione della comunicazione medico-scientifica: la trasforma da negoziazione in verifica. E una verifica ben preparata è rapida."
+            ],
+            "list": [
+              "Una libreria di referenze verificate: le fonti si validano una volta e si riusano; il claim nuovo si aggancia a una fonte che il medical reviewer conosce già.",
+              "Claim tracciabili: ogni affermazione collegata alla sua referenza dentro il documento di review, non in una mail separata o nella memoria di chi ha scritto.",
+              "Template pre-approvati: strutture di articolo, disclaimer e formule di rinvio al medico già passate in revisione, che non si ridiscutono ogni volta.",
+              "Versioning unico: una sola copia di lavoro, con cronologia delle modifiche e commenti nello stesso ambiente.",
+              "Audit trail: chi ha approvato che cosa, quando e in quale versione — la domanda a cui bisogna saper rispondere anche a distanza di anni."
+            ]
+          },
+          {
+            "heading": "SLA realistici: i tempi si dichiarano, non si sperano",
+            "paragraphs": [
+              "Quanto deve durare una review? Dipende da che cosa entra. Un contenuto nuovo, con claim scientifici originali, richiede la revisione completa a tre voci, ed è ragionevole misurarla in settimane. Un contenuto derivato — un post social costruito su un articolo già approvato, con claim già validati — può seguire un binario abbreviato, misurato in giorni. La distinzione tra i due binari va scritta in procedura, non lasciata alla sensibilità del momento.",
+              "Tre regole rendono gli SLA credibili. Primo: si dichiarano in anticipo, per categoria di contenuto, e si misurano. Secondo: le review si programmano dentro il calendario editoriale; il revisore che riceve dieci contenuti il venerdì pomeriggio non è un collo di bottiglia, è una vittima. Terzo: esiste un percorso di escalation per i disaccordi, con un decisore finale identificato."
+            ]
+          },
+          {
+            "heading": "Da presidio ad argomento",
+            "paragraphs": [
+              "Vista da fuori, una revisione MLR ben disegnata sembra burocrazia. Vista da dentro, è la ragione per cui il progetto continua a esistere: la comunicazione medico-scientifica rivolta al pubblico diventa difendibile contenuto per contenuto, con la sua catena di approvazioni documentata. Quando qualcuno chiede «chi ha approvato questo?», la risposta è un log, non una ricostruzione a memoria. In pratica si vede meglio su [un progetto tipo](/progetto-esempio) che su qualsiasi slide.",
+              "Enable Pharma costruisce piattaforme istituzionali di disease awareness con questa macchina editoriale integrata: [l'approccio compliance-by-design](/compliance) copre la review, non solo il perimetro dei contenuti. Il punto di ingresso è l'Awareness & Compliance Audit: quattro-sei settimane a prezzo fisso per mappare il vostro processo di revisione attuale, definire i binari normativi dei contenuti che volete pubblicare e fissare SLA che il vostro team medico-legale possa sottoscrivere senza riserve."
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "label": "D.Lgs. 219/2006 (Codice del farmaco), artt. 113, 118 e 120",
+            "note": "Perimetro dell'informazione non promozionale; autorizzazione della pubblicità al pubblico; deposito in AIFA del materiale rivolto agli operatori sanitari",
+            "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2006-04-24;219"
+          },
+          {
+            "label": "Direttiva 2001/83/CE",
+            "note": "Codice comunitario dei medicinali per uso umano, attuato in Italia dal D.Lgs. 219/2006; Titoli VIII e VIII-bis sulla pubblicità",
+            "url": "https://eur-lex.europa.eu/eli/dir/2001/83/oj"
+          },
+          {
+            "label": "Regolamento (UE) 2016/679 (GDPR)",
+            "note": "Art. 9 sul trattamento dei dati relativi alla salute nelle testimonianze e nei contenuti con dati personali",
+            "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+          },
+          {
+            "label": "Codice deontologico Farmindustria, versione 5 aprile 2022",
+            "note": "Autodisciplina sui materiali e sull'informazione al pubblico; art. 3.26 sull'informazione reattiva"
+          },
+          {
+            "label": "EU Good Pharmacovigilance Practices, Modulo VI",
+            "note": "Obblighi di monitoraggio delle sospette reazioni avverse sui canali digitali collegati alla piattaforma"
+          }
+        ]
+      },
+      "en": {
+        "title": "The MLR review is a process you can design",
+        "metaTitle": "MLR Review Process: Designing Medical Affairs Communication",
+        "metaDescription": "How the MLR review process works for public-facing content: reviewer roles, realistic SLAs, what slows reviews down, and how to arrive review-ready.",
+        "excerpt": "The MLR review has a reputation as the step where editorial projects go to wait. It is better understood as a designable process: three reviewer roles, two regulatory tracks, declared SLAs, and content engineered to arrive review-ready.",
+        "sections": [
+          {
+            "heading": "Where the queue actually forms",
+            "paragraphs": [
+              "Ask any Medical Affairs team where editorial projects stall and you will hear the same answer: \"stuck in review\". The MLR review — Medical, Legal, Regulatory — has a reputation as the office that says no. Reviewers know the other half of the story: content arrives without sources, with unreferenced claims, written as though the regulatory perimeter did not exist. The queue is not created in review. It is created earlier, when the content is conceived.",
+              "This article takes one position and holds it: the MLR review is a process you can design, and the queue is tackled upstream. A public-facing medical affairs communication programme can be organised to arrive at review already prepared: references attached, claims traceable, versions in order, classification settled upstream. Not to flatter the reviewers, but to publish continuously with less risk."
+            ]
+          },
+          {
+            "heading": "Three roles, three different questions",
+            "paragraphs": [
+              "MLR is not a single rubber stamp: it is three readings of the same piece, each with a different question. The medical reviewer asks whether every scientific statement is accurate, current and supported by the source cited. They check the fit between claim and reference and the honesty of the simplification: writing for a lay audience without distorting is where scientific rigour is tested hardest.",
+              "Legal reads the same piece with a different question: does this expose the company to liability? They look for implied claims, promises of benefit, phrasing a reader could take as medical advice. They check testimonials and any content carrying personal data — health data requires explicit consent under Article 9 of the GDPR — then rights and releases on images and quotations.",
+              "Regulatory asks the question that comes before all the others: what is this material, and which route must it follow? Promotional or institutional, aimed at the public or at healthcare professionals, inside or outside the perimeter of Article 113. Classification is not a formality: it determines the obligations, the timelines, and even who signs the final approval.",
+              "Three disciplines, one piece of content. When a text goes into review there is no reviewer to win over; there is a set of questions the content must be able to answer on its own. The fastest way through an MLR review process is content that answers the questions before they are asked."
+            ]
+          },
+          {
+            "heading": "Promotional or institutional: the classification that sets the route",
+            "paragraphs": [
+              "The most consequential decision happens before the first margin comment. Promotional material follows the formal tracks of Legislative Decree 219/2006, Italy's medicines code implementing Directive 2001/83/EC: advertising to the public is permitted only for non-prescription medicines, subject to authorisation, and material aimed at healthcare professionals must be filed with AIFA under Article 120 before use.",
+              "Institutional disease awareness content lives elsewhere: in Article 113 of the same decree, which excludes from the definition of advertising any information about health and diseases that contains no reference, however indirect, to medicinal products. No filing, no prior authorisation — which does not mean no review. Quite the opposite: precisely because no authority validates the material before publication, internal review is the only safeguard there is. Above the law sits self-regulation: the Farmindustria Code of Conduct binds non-promotional materials too. The [legal perimeter for unbranded campaigns](/en/insights/unbranded-disease-awareness-campaigns-italy) is written in the law; honouring it, piece by piece, is the review's job.",
+              "For Medical Affairs the operational consequence is blunt: every piece must be born already classified. An awareness article that drifts into promotional territory — an indirect reference, an invitation to \"ask your doctor about new options\" — is not a piece to amend. It is a piece to rebuild on a different regulatory track. Classification upstream is the first form of speed."
+            ]
+          },
+          {
+            "heading": "What actually slows reviews down",
+            "paragraphs": [
+              "Ask a medical reviewer what stretches the timeline and the answer will not be \"too much content\". It will be a short list that never changes:",
+              "Not one of these causes originates inside the review. They all sit upstream, and they are all designable. Review time is largely a dependent variable: it depends on how the content was built, not on how fast the reviewers run."
+            ],
+            "list": [
+              "Missing sources: the claim is there, the reference is not. The reviewer must hunt for it, request it or reject the piece.",
+              "Vague references: \"the literature shows that\", with no author, year or page. Verifying a loose citation costs more than rewriting the paragraph.",
+              "Unnecessary claims: quantitative statements added for rhetorical weight, demanding verification out of proportion to their value.",
+              "Content conceived outside the perimeter: texts written as though Article 113 did not exist, which come back for structural reasons rather than details.",
+              "Untracked versions: the reviewer comments on version three, the team amends version two, and nobody can say which text is current."
+            ]
+          },
+          {
+            "heading": "Arriving review-ready: what a continuous platform changes",
+            "paragraphs": [
+              "In a one-off campaign every piece is bespoke and every review starts from zero. A continuous editorial platform can afford what a campaign cannot: infrastructure. In practice:",
+              "It is the same principle that governs [pharmacovigilance on owned social channels](/en/insights/social-media-pharmacovigilance-gvp-module-vi): the obligation is not worked around, it is engineered in — and EU GVP Module VI applies to the platform's channels here too. A programme organised this way does not remove the review of medical affairs communication; it turns it from a negotiation into a verification. And a well-prepared verification is quick."
+            ],
+            "list": [
+              "A library of verified references: sources validated once and reused, so a new claim attaches to a source the medical reviewer already knows.",
+              "Traceable claims: every statement linked to its reference inside the review document, not in a separate email or in the writer's memory.",
+              "Pre-approved templates: article structures, disclaimers and see-your-doctor wording already through review, not renegotiated with every piece.",
+              "Single-source versioning: one working copy, with change history and comments in the same environment.",
+              "An audit trail: who approved what, when, and in which version — the question you must still be able to answer years later."
+            ]
+          },
+          {
+            "heading": "Realistic SLAs: declared, not hoped for",
+            "paragraphs": [
+              "How long should a review take? It depends on what comes in. A new piece with original scientific claims needs the full three-voice review, and it is reasonable to measure that in weeks. A derivative piece — a social post built on an approved article, using claims already validated — can follow an abbreviated track measured in days. The distinction between the two tracks belongs in a written procedure, not in the mood of the moment.",
+              "Three rules make SLAs credible. First, they are declared in advance, per content category, and measured. Second, reviews are scheduled inside the editorial calendar; the reviewer who receives ten pieces on a Friday afternoon is not a bottleneck, they are a casualty. Third, there is a defined escalation route for disagreements, with a named final decision-maker."
+            ]
+          },
+          {
+            "heading": "From checkpoint to argument",
+            "paragraphs": [
+              "Seen from outside, a well-designed MLR review looks like bureaucracy. Seen from inside, it is the reason the programme still exists: every published piece of medical affairs communication is defensible, with its approval chain documented. When someone asks \"who approved this?\", the answer is a log, not a reconstruction from memory. What this looks like in practice is easier to see on [an example project](/en/example-project) than on any slide.",
+              "Enable Pharma builds institutional disease awareness platforms with this editorial machinery built in: [the compliance-by-design approach](/en/compliance) covers the review process, not just the content perimeter. The entry point is the Awareness & Compliance Audit: a fixed-price, four-to-six-week engagement that maps your current review process, sets the regulatory tracks for the content you want to publish, and fixes SLAs your medical-legal team can endorse without reservation."
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "label": "Legislative Decree 219/2006 (Italian medicines code), Articles 113, 118 and 120",
+            "note": "Scope of non-promotional information; authorisation of advertising to the public; AIFA filing of material aimed at healthcare professionals",
+            "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2006-04-24;219"
+          },
+          {
+            "label": "Directive 2001/83/EC",
+            "note": "Community code on medicinal products for human use, implemented in Italy by Legislative Decree 219/2006; Titles VIII and VIIIa on advertising",
+            "url": "https://eur-lex.europa.eu/eli/dir/2001/83/oj"
+          },
+          {
+            "label": "Regulation (EU) 2016/679 (GDPR)",
+            "note": "Article 9 on health data in testimonials and content carrying personal data",
+            "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+          },
+          {
+            "label": "Farmindustria Code of Conduct, 5 April 2022 version",
+            "note": "Self-regulation of materials and information to the public; Article 3.26 on reactive information"
+          },
+          {
+            "label": "EU Good Pharmacovigilance Practices, Module VI",
+            "note": "Monitoring obligations for suspected adverse reactions on digital channels linked to the platform"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "slug": {
+      "it": "comunicazione-malattie-rare-presidio-continuativo",
+      "en": "rare-disease-communication-continuous-presence"
+    },
+    "date": "2026-08-07",
+    "keywords": {
+      "it": [
+        "comunicazione malattie rare",
+        "disease awareness malattie rare",
+        "patient advocacy malattie rare",
+        "community pazienti malattie rare"
+      ],
+      "en": [
+        "rare disease communication",
+        "rare disease awareness",
+        "patient advocacy rare diseases",
+        "rare disease patient community"
+      ]
+    },
+    "readingMinutes": 7,
+    "content": {
+      "it": {
+        "title": "Comunicazione malattie rare: perché serve un presidio, non una campagna",
+        "metaTitle": "Comunicazione malattie rare: presidio, non campagne",
+        "metaDescription": "Il ritardo diagnostico si misura in anni, una campagna in settimane: perché la comunicazione sulle malattie rare richiede un presidio continuativo.",
+        "excerpt": "Il ritardo diagnostico nelle malattie rare si misura in anni; una campagna vive poche settimane. Il percorso del paziente non diagnosticato, il ruolo strutturale delle associazioni e cosa si disperde quando la campagna finisce: perché la comunicazione sulle malattie rare richiede un presidio continuativo.",
+        "sections": [
+          {
+            "heading": "Il ritardo diagnostico si misura in anni. Una campagna in settimane.",
+            "paragraphs": [
+              "Nelle malattie rare il tempo non è una variabile di marketing. È la variabile clinica per eccellenza: il ritardo diagnostico si misura in anni, e in quegli anni il paziente accumula visite, esami, risposte parziali e diagnosi sbagliate. Una campagna di comunicazione, per quanto ben costruita, vive sei, otto, dodici settimane. L'asimmetria è tutta qui, ed è strutturale: un problema che dura anni non si presidia con uno strumento che dura un trimestre.",
+              "Questo articolo è per chi quell'asimmetria la gestisce ogni giorno in azienda: Patient Advocacy e Corporate Affairs. La tesi è semplice. La comunicazione sulle malattie rare non si comporta come quella delle altre aree terapeutiche, perché il pubblico da raggiungere non esiste in un momento preciso: si forma goccia a goccia, un paziente non diagnosticato alla volta. Uno strumento a termine non può intercettare un flusso continuo."
+            ]
+          },
+          {
+            "heading": "Il percorso del paziente non diagnosticato, e dove l'awareness incide davvero",
+            "paragraphs": [
+              "Prima della diagnosi c'è un percorso che chi lavora accanto alle associazioni conosce bene:",
+              "Una community di awareness incide in due punti precisi di questo percorso. Il primo è la ricerca online: contenuti istituzionali con revisione medica che rispondono alle domande formulate con le parole del paziente — i sintomi, non la nosologia — e che devono esistere prima che la ricerca avvenga, perché nessuno può programmarla. Il secondo è l'orientamento: una sezione «trova aiuto» con centri di riferimento e associazioni del territorio, come nel [progetto tipo per le malattie rare](/progetto-esempio), aiuta chi cerca ad arrivare nel posto giusto. Una campagna intercetta solo chi sta cercando in quelle settimane. Tutti gli altri — la maggioranza — cercheranno dopo, quando la campagna non c'è più.",
+              "Un dettaglio non secondario: una parte del pubblico delle malattie rare convive con disabilità motorie, sensoriali o cognitive. L'accessibilità è un obbligo dello European Accessibility Act, non una cortesia, e appartiene al progetto editoriale fin dall'inizio, non alla rifinitura finale."
+            ],
+            "list": [
+              "Sintomi ricorrenti che non compongono un quadro riconoscibile, spesso minimizzati per mesi.",
+              "La ricerca online: il paziente digita i sintomi, non il nome della patologia — che non conosce ancora.",
+              "Il medico di medicina generale, che una specifica malattia rara può incontrarla poche volte in tutta la carriera.",
+              "Lo specialista giusto, spesso dopo quelli sbagliati, quando qualcosa — un contenuto, un'associazione, un centro di riferimento — orienta la ricerca nella direzione corretta."
+            ]
+          },
+          {
+            "heading": "Le associazioni pazienti: un rapporto strutturale, non una media partnership",
+            "paragraphs": [
+              "Nelle malattie rare le associazioni non sono un canale di amplificazione. Sono spesso l'unico presidio stabile della patologia: custodiscono le storie, conoscono i centri, rispondono al telefono. Un'azienda che entra ed esce a ritmo di campagna chiede a organizzazioni con poche risorse di ripartire ogni volta da zero — nuovo referente, nuovo brief, nuova negoziazione. È il modo più rapido per logorare la fiducia. E una comunicazione sulle malattie rare progettata senza le associazioni è progettata a vuoto.",
+              "Il Codice deontologico Farmindustria tratta questi rapporti come rapporti strutturali, e la forma lo conferma: solo contratti scritti, e disclosure annuale — entro giugno — delle associazioni sostenute e del valore trasferito. Una collaborazione impostata su base annuale o pluriennale entra naturalmente in questo impianto; una serie di ingaggi spot lo complica e lo espone. Su come costruire correttamente questi rapporti abbiamo scritto una [guida al patient engagement conforme](/insight/patient-engagement-associazioni-influencer-agcom).",
+              "Per Patient Advocacy la conseguenza operativa è netta: la continuità non è un costo aggiuntivo del rapporto con le associazioni. È il prerequisito perché il rapporto esista."
+            ]
+          },
+          {
+            "heading": "L'equilibrio dell'articolo 113: informazione istituzionale, zero terapie",
+            "paragraphs": [
+              "Il perimetro normativo è lo stesso di ogni progetto di disease awareness: l'articolo 113 del D.Lgs. 219/2006 consente l'informazione sulla salute e sulle malattie, con nome e logo aziendali, a condizione che non ci sia alcun riferimento, neppure indiretto, a medicinali. Ne abbiamo mappato i confini nella [guida alle campagne unbranded](/insight/campagne-unbranded-pharma-cosa-si-puo-fare).",
+              "Nelle malattie rare, però, l'equilibrio è più delicato che altrove. I mercati sono concentrati: in molte patologie rare le opzioni terapeutiche si contano sulle dita di una mano, a volte su un dito solo. Il rischio di riferimento indiretto cresce di conseguenza: parlare di «nuove prospettive» in una patologia dove l'azienda è l'unico operatore è un riferimento indiretto, comunque lo si scriva. La disciplina richiesta è totale: si parla della patologia, del percorso, dei centri. Delle terapie non si parla, mai.",
+              "Questa disciplina è anche un argomento a favore del presidio. Un contenuto istituzionale che non nomina terapie non invecchia con il ciclo di vita di nessun prodotto: resta valido, aggiornabile, riutilizzabile. È la parte dell'investimento nella comunicazione sulle malattie rare che non si brucia."
+            ]
+          },
+          {
+            "heading": "Cosa succede alla community quando la campagna finisce",
+            "paragraphs": [
+              "La settimana più istruttiva di una campagna one-off è quella successiva alla chiusura. Cosa resta? Poco, e si disperde in fretta:",
+              "Il presidio continuativo rovescia il conto. L'infrastruttura — [compliance progettata dentro](/compliance), farmacovigilanza, impianto GDPR, revisione medica — costa quasi lo stesso per un trimestre o per tre anni: su un orizzonte lungo si ammortizza. E gli asset che una campagna disperde — audience, fiducia, consensi, visibilità organica — un presidio li accumula. Nelle malattie rare, dove il pubblico si forma lentamente e non si ricrea a comando, questa differenza non è una voce contabile. È la differenza tra esserci quando il paziente cerca e non esserci."
+            ],
+            "list": [
+              "L'audience: follower e iscritti smettono di ricevere contenuti; il progetto successivo riparte dall'acquisizione, e la paga di nuovo.",
+              "La fiducia: una community che vede sparire il proprio punto di riferimento non torna al secondo tentativo con lo stesso credito.",
+              "I consensi: i dati raccolti con consenso esplicito ex art. 9 GDPR sono legati a finalità e informative precise; non sono un asset trasferibile a piacere al progetto successivo.",
+              "L'infrastruttura di compliance: il monitoraggio di farmacovigilanza ex GVP Modulo VI, la moderazione documentata, i processi approvati — costruiti, e poi smontati."
+            ]
+          },
+          {
+            "heading": "Da campagna a presidio: da dove si comincia",
+            "paragraphs": [
+              "Per Corporate Affairs il presidio continuativo risponde anche a una domanda ricorrente del vertice: «cosa dice di noi la nostra presenza pubblica quando non stiamo lanciando nulla?». Una piattaforma istituzionale che informa sulla patologia tutto l'anno, con revisione medica e fonti citate, è una risposta che una campagna non può dare. Nelle malattie rare la credibilità si costruisce nei mesi silenziosi.",
+              "Un presidio, però, si progetta: non si improvvisa, e il perimetro normativo è la specifica di progetto. Enable Pharma costruisce piattaforme di disease awareness pensate per durare, e il punto di ingresso è sempre lo stesso: l'Awareness & Compliance Audit — quattro-sei settimane, prezzo fisso — per mappare rischi, requisiti e opportunità della vostra area terapeutica prima di decidere se, e come, trasformare la comunicazione sulle malattie rare da campagna a presidio."
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "label": "D.Lgs. 219/2006 (Codice del farmaco), art. 113",
+            "note": "Informazione istituzionale sulla salute e sulle malattie, senza riferimenti neppure indiretti a medicinali",
+            "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2006-04-24;219"
+          },
+          {
+            "label": "Codice deontologico Farmindustria, versione 5 aprile 2022",
+            "note": "Rapporti con le associazioni pazienti: contratti scritti e disclosure annuale entro giugno"
+          },
+          {
+            "label": "EU Good Pharmacovigilance Practices, Modulo VI",
+            "note": "Monitoraggio delle sospette reazioni avverse sui canali digitali gestiti per conto delle aziende"
+          },
+          {
+            "label": "GDPR, art. 9",
+            "note": "Consenso esplicito per il trattamento dei dati sulla salute",
+            "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+          },
+          {
+            "label": "European Accessibility Act (direttiva 2019/882)",
+            "note": "Obblighi di accessibilità digitale, recepiti in Italia con il D.Lgs. 82/2022",
+            "url": "https://eur-lex.europa.eu/eli/dir/2019/882/oj"
+          }
+        ]
+      },
+      "en": {
+        "title": "Rare disease communication: why a presence beats any campaign",
+        "metaTitle": "Rare Disease Communication: Presence, Not Campaigns",
+        "metaDescription": "Diagnostic delay is measured in years, campaigns in weeks: why rare disease communication in Italy needs a continuous, compliant presence.",
+        "excerpt": "Diagnostic delay in rare diseases is measured in years; a campaign lives for weeks. The undiagnosed patient's journey, the structural role of patient associations, and what disperses when a campaign ends: why rare disease communication needs a continuous presence.",
+        "sections": [
+          {
+            "heading": "Diagnostic delay is measured in years. Campaigns are measured in weeks.",
+            "paragraphs": [
+              "In rare diseases, time is not a marketing variable. It is the clinical variable: diagnostic delay is measured in years, and those years fill up with appointments, tests, partial answers and wrong turns. A communication campaign, however well built, lives for six, eight, twelve weeks. That asymmetry is the whole problem, and it is structural: you do not address a problem measured in years with a tool measured in quarters.",
+              "This piece is written for the people who manage that asymmetry every day: Patient Advocacy and Corporate Affairs. The argument is simple. Rare disease communication does not behave like communication in other therapeutic areas, because the audience does not exist at any single moment — it forms slowly, one undiagnosed patient at a time. A time-boxed instrument cannot intercept a continuous flow."
+            ]
+          },
+          {
+            "heading": "The undiagnosed patient's journey — and where awareness actually bites",
+            "paragraphs": [
+              "Before a diagnosis there is a journey that anyone working alongside patient associations will recognise:",
+              "A rare disease awareness community earns its keep at two precise points on that journey. First, the online search: medically reviewed institutional content that answers questions phrased in the patient's own words — symptoms, not nosology — and that must already exist when the search happens, because nobody can schedule it. Second, orientation: a \"find help\" section listing reference centres and local associations, as in our [example rare disease platform](/en/example-project), helps the person searching reach the right place. A campaign only reaches whoever happens to be searching during those weeks. Everyone else — the majority — will search later, when the campaign is gone.",
+              "One further detail that is anything but minor: part of the rare disease audience lives with motor, sensory or cognitive disabilities. Accessibility is an obligation under the European Accessibility Act, not a courtesy — and it belongs in the editorial design from day one, not in the final polish."
+            ],
+            "list": [
+              "Recurring symptoms that do not add up to a recognisable picture, often played down for months.",
+              "Online searching — for the symptoms, not the disease, whose name the patient does not yet know.",
+              "The GP, who may encounter a given rare disease a handful of times in an entire career.",
+              "The right specialist — often after the wrong ones — once something, a piece of content, an association, a reference centre, points the search in the right direction."
+            ]
+          },
+          {
+            "heading": "Patient associations: a structural relationship, not a media partnership",
+            "paragraphs": [
+              "In rare diseases, patient associations are not an amplification channel. They are often the only stable presence the disease has: they hold the stories, know the centres, answer the phone. A company that arrives and leaves at campaign rhythm asks under-resourced organisations to start from scratch every time — new contact, new brief, new negotiation. There is no faster way to wear out trust. And rare disease communication planned without the associations is planned in a vacuum.",
+              "The Farmindustria Code of Conduct treats these relationships as structural, and its form says as much: written contracts only, and annual disclosure — by June — of the associations supported and the value transferred. A collaboration designed on an annual or multi-year basis fits that framework naturally; a string of one-off engagements complicates it and exposes it. We have covered how to build these relationships properly in our [guide to compliant patient engagement](/en/insights/compliant-patient-engagement-agcom-italy).",
+              "For Patient Advocacy the operational consequence is blunt: continuity is not an extra cost of the relationship with associations. It is the precondition for the relationship to exist at all."
+            ]
+          },
+          {
+            "heading": "The Article 113 balance: institutional information, zero therapies",
+            "paragraphs": [
+              "The regulatory perimeter is the same as for any disease awareness project: Article 113 of Legislative Decree 219/2006 permits information about health and diseases, under the company's name and logo, provided it contains no reference — not even an indirect one — to medicinal products. We have mapped those boundaries in our [guide to unbranded disease awareness campaigns in Italy](/en/insights/unbranded-disease-awareness-campaigns-italy).",
+              "In rare diseases, though, the balance is finer than elsewhere. These are concentrated markets: in many rare conditions the therapeutic options can be counted on one hand, sometimes on one finger. The risk of indirect reference rises accordingly — talking about \"new horizons\" in a condition where the company is the only player is an indirect reference, however carefully it is phrased. The discipline required is total: the platform talks about the disease, the journey, the centres. It never talks about therapies.",
+              "That discipline is also an argument for continuity. Institutional content that names no therapy does not age with any product's life cycle: it stays valid, updatable, reusable. It is the part of a rare disease communication budget that does not burn."
+            ]
+          },
+          {
+            "heading": "What happens to the community when the campaign ends",
+            "paragraphs": [
+              "The most instructive week of a one-off campaign is the week after it closes. What remains? Little, and it disperses fast:",
+              "A continuous presence reverses the arithmetic. The infrastructure — [compliance designed in](/en/compliance), pharmacovigilance, the GDPR setup, medical review — costs nearly the same for a quarter as for three years; over a long horizon it amortises. And the assets a campaign disperses — audience, trust, consents, organic visibility — a presence accumulates. In rare diseases, where the audience forms slowly and cannot be recreated on demand, that difference is not an accounting line. It is the difference between being there when the patient searches and not being there."
+            ],
+            "list": [
+              "The audience: followers and subscribers stop hearing from you; the next project starts from acquisition again, and pays for it again.",
+              "The trust: a community that watches its reference point disappear does not come back the second time with the same credit.",
+              "The consents: data collected under explicit GDPR Article 9 consent are tied to specific purposes and notices; they are not an asset you can carry into the next project at will.",
+              "The compliance infrastructure: pharmacovigilance monitoring under GVP Module VI, documented moderation, approved processes — built, then dismantled."
+            ]
+          },
+          {
+            "heading": "From campaign to presence: where to start",
+            "paragraphs": [
+              "For Corporate Affairs, a continuous presence also answers a question boards keep asking: what does our public presence say about us when we are not launching anything? An institutional platform that informs about a disease all year round, medically reviewed and properly sourced, is an answer no campaign can give. In rare disease awareness, credibility is built in the quiet months.",
+              "A presence, however, is designed, not improvised — and the regulatory perimeter is the design spec. Enable Pharma builds disease awareness platforms meant to last, and the entry point is always the same: the Awareness & Compliance Audit — four to six weeks, fixed price — mapping the risks, requirements and opportunities of your therapeutic area before you decide whether, and how, to turn rare disease communication from a campaign into a presence."
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "label": "Legislative Decree 219/2006 (Italian medicines code), Article 113",
+            "note": "Institutional information about health and diseases, with no reference — not even indirect — to medicinal products",
+            "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2006-04-24;219"
+          },
+          {
+            "label": "Farmindustria Code of Conduct, 5 April 2022 version",
+            "note": "Relationships with patient associations: written contracts and annual disclosure by June"
+          },
+          {
+            "label": "EU Good Pharmacovigilance Practices, Module VI",
+            "note": "Monitoring of suspected adverse reactions on company-managed digital channels"
+          },
+          {
+            "label": "GDPR, Article 9",
+            "note": "Explicit consent for the processing of health data",
+            "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+          },
+          {
+            "label": "European Accessibility Act (Directive 2019/882)",
+            "note": "Digital accessibility obligations, transposed in Italy by Legislative Decree 82/2022",
+            "url": "https://eur-lex.europa.eu/eli/dir/2019/882/oj"
+          }
+        ]
+      }
+    }
+  }
+]

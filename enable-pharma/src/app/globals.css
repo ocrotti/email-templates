@@ -1,0 +1,427 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   ENABLE PHARMA — design tokens
+   Active theme: "biotech" — petrol green on a cool off-white. Health
+   without hospital: the colour family the rare-disease and patient-
+   advocacy world actually uses, and far enough from the clinical blue
+   that every second pharma site is built on.
+   Three alternate directions are documented at the bottom of this file
+   ("clinico", "segnale", "lacca"): set data-theme on <html> to switch.
+--------------------------------------------------------------------------- */
+
+@theme {
+  /* Palette (theme: biotech) */
+  --color-paper: #f2f6f4;
+  --color-paper-2: #e5ece9;
+  --color-ink: #0c1f1c;
+  --color-ink-2: #16302c;
+  --color-ink-soft: #46605a;
+  --color-accent: #0d7a68;
+  --color-accent-deep: #095c4e;
+  --color-accent-ondark: #3fd0b4;
+  --color-line: #d2dedb;
+  --color-line-dark: #22403a;
+  /* Borders that ARE the affordance of an interactive control (inputs,
+     the menu button, the locale pill, the accordion marker) need 3:1
+     against their background — WCAG 2.2 SC 1.4.11. The --color-line pair
+     above is 1.32:1 / 1.48:1: right for decorative rules, too faint for
+     a control. These two are 3.52:1 on paper and 3.74:1 on ink. */
+  --color-control: #75887f;
+  --color-control-dark: #6a8079;
+
+  /* Typography */
+  --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, "SFMono-Regular", monospace;
+
+  /* Type scale helpers. The display floor is set by the longest
+     unbreakable word in the hero ("communities," in EN) at the
+     narrowest supported viewport (320px); the svh term keeps the whole
+     hero — headline, subtitle and primary CTA — above the fold on a
+     short laptop screen. See README. */
+  --text-display: clamp(2.45rem, min(8.2vw, 10.5svh), 8rem);
+  --text-display-2: clamp(2.1rem, 6vw, 5.5rem);
+  --text-title: clamp(1.75rem, 3.6vw, 3.25rem);
+
+  /* Motion */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-inout-quart: cubic-bezier(0.76, 0, 0.24, 1);
+
+  /* Layout */
+  --spacing-gutter: clamp(1.25rem, 4vw, 4rem);
+}
+
+/* ------------------------------------------------------------------ base */
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01" on;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-paper);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent-deep);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.on-dark :focus-visible {
+  outline-color: var(--color-accent-ondark);
+}
+
+/* ------------------------------------------------------- type utilities */
+
+.font-display {
+  font-family: var(--font-sans);
+  font-stretch: 125%;
+  font-weight: 680;
+  letter-spacing: -0.025em;
+  line-height: 0.94;
+  text-wrap: balance;
+}
+
+.font-display-soft {
+  font-family: var(--font-sans);
+  font-stretch: 118%;
+  font-weight: 620;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+
+/* On phones the expanded cut costs more width than the layout has.
+   A narrower axis keeps long words intact and actually reads better
+   at small sizes. */
+@media (max-width: 480px) {
+  .font-display {
+    font-stretch: 100%;
+    letter-spacing: -0.03em;
+  }
+
+  .font-display-soft {
+    font-stretch: 100%;
+  }
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.prose-copy {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  max-width: 68ch;
+}
+
+.prose-copy a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--color-accent);
+}
+
+/* Giant section numbers (01–08) */
+.section-number {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: clamp(4.5rem, 14vw, 13rem);
+  line-height: 0.8;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-ink-soft);
+  opacity: 0.55;
+  user-select: none;
+}
+
+/* On ink the line-dark stroke lands at ~1.5:1 and the numeral all but
+   vanishes exactly where the layout changes register; a whispered paper
+   stroke keeps it decorative but present. */
+.on-dark .section-number {
+  -webkit-text-stroke: 1px rgb(244 240 230 / 0.28);
+  opacity: 0.9;
+}
+
+/* On ink the paper-side accent underline drops to 3.4:1; the on-dark
+   token restores it. Deliberately NOT extended to `.text-ink`: the
+   on-dark buttons are ink type on a lacquer fill, and overriding the
+   colour there breaks a contrast that is already correct. */
+.on-dark .decoration-accent {
+  text-decoration-color: var(--color-accent-ondark);
+}
+
+/* ------------------------------------------------------------- marquee */
+
+@keyframes marquee-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-x var(--marquee-duration, 42s) linear infinite;
+  will-change: transform;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* ------------------------------------------------------------ accordion */
+
+.accordion-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.5s var(--ease-out-expo);
+}
+
+.accordion-panel > div {
+  overflow: hidden;
+}
+
+.accordion-item[data-open="true"] .accordion-panel {
+  grid-template-rows: 1fr;
+}
+
+/* ------------------------------------------------------------ reveal */
+
+/* [data-reveal] elements are NOT pre-hidden in CSS. MotionRoot hides
+   only the ones still below the fold when it initialises, so content
+   in the initial viewport paints immediately (good for LCP) and never
+   depends on the motion bundle loading at all. */
+
+/* CSS-only load reveals (hero): paint without waiting for hydration */
+@keyframes split-rise {
+  from {
+    transform: translateY(110%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.split-line {
+  transform: translateY(110%);
+  animation: split-rise 0.85s var(--ease-out-expo) forwards;
+}
+
+@keyframes fade-up-kf {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  opacity: 0;
+  animation: fade-up-kf 0.8s var(--ease-out-expo) forwards;
+}
+
+/* Page transition, replayed on every route change (template.tsx) */
+@keyframes page-enter-kf {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-enter {
+  animation: page-enter-kf 0.55s var(--ease-out-expo) both;
+}
+
+/* Progress line for the process timeline */
+.process-line {
+  transform-origin: top;
+}
+
+/* Card hover: single coherent effect — animated border sweep */
+.card-sweep {
+  position: relative;
+}
+
+.card-sweep::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--color-accent);
+  opacity: 0;
+  transform: scale(0.985);
+  transition:
+    opacity 0.45s var(--ease-out-expo),
+    transform 0.45s var(--ease-out-expo);
+  pointer-events: none;
+}
+
+@media (hover: hover) {
+  .card-sweep:hover::after {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* On ink the lacquer red drops to 3.4:1 and the sweep disappears on the
+   very cards that carry the offer: use the on-dark token there. */
+.on-dark .card-sweep::after {
+  border-color: var(--color-accent-ondark);
+}
+
+/* ------------------------------------------------- reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  /* The track and its rows are flex containers whose children are
+     shrink-0; unsetting that on every level is what actually lets the
+     list wrap instead of overflowing once the animation is off. */
+  .marquee-track {
+    animation: none;
+    flex-wrap: wrap;
+    width: auto;
+  }
+
+  .marquee-track > ul {
+    flex-shrink: 1;
+    flex-wrap: wrap;
+    width: auto;
+  }
+
+  .marquee-track > ul > li {
+    flex-shrink: 1;
+  }
+
+  /* The duplicated row exists only to make the loop seamless. */
+  .marquee-track > ul[aria-hidden="true"] {
+    display: none;
+  }
+
+  .accordion-panel {
+    transition: none;
+  }
+
+  .split-line {
+    animation: none;
+    transform: none;
+  }
+
+  .fade-up {
+    animation: none;
+    opacity: 1;
+  }
+
+  .page-enter {
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.15s !important;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   ALTERNATE THEMES (documented, not active).
+   Switch by setting data-theme on <html> in src/app/[locale]/layout.tsx
+   ("clinico", "lacca", "segnale"). Every palette here is checked against
+   the same contrast floors as the active one: body text 4.5:1, control
+   borders 3:1 (WCAG 1.4.11), on-dark accents 4.5:1 on ink. Re-check if
+   you adjust anything.
+--------------------------------------------------------------------------- */
+
+/* Direction 2 — "clinico": deep navy on cool white, hospital blue.
+   The most immediately legible as pharma; also the most conventional. */
+[data-theme="clinico"] {
+  --color-paper: #f4f7f9;
+  --color-paper-2: #e8edf1;
+  --color-ink: #0e1b28;
+  --color-ink-2: #17293a;
+  --color-ink-soft: #4a5b6b;
+  --color-accent: #0b6fb8;
+  --color-accent-deep: #08558f;
+  --color-accent-ondark: #56b3ef;
+  --color-line: #d5dde4;
+  --color-line-dark: #253746;
+  --color-control: #7a8896;
+  --color-control-dark: #6f8090;
+}
+
+/* Direction 3 — "lacca": the original warm ivory and lacquer red. Kept
+   for reference; retired as the default for being too far from the
+   colour language the pharma buyer expects. */
+[data-theme="lacca"] {
+  --color-paper: #f4f0e6;
+  --color-paper-2: #ebe5d6;
+  --color-ink: #1a1712;
+  --color-ink-2: #2b2820;
+  --color-ink-soft: #57503f;
+  --color-accent: #c73b16;
+  --color-accent-deep: #9c2c0e;
+  --color-accent-ondark: #ff5a2b;
+  --color-line: #d9d2c0;
+  --color-line-dark: #3a362b;
+  --color-control: #857f6c;
+  --color-control-dark: #787264;
+}
+
+/* Direction 4 — "segnale": near-black blue with an electric cyan signal.
+   The most contemporary of the three; digital-health rather than
+   corporate-pharma. */
+[data-theme="segnale"] {
+  --color-paper: #eef2f6;
+  --color-paper-2: #e1e8ee;
+  --color-ink: #0b1220;
+  --color-ink-2: #131d31;
+  --color-ink-soft: #46536b;
+  --color-accent: #1747c4;
+  --color-accent-deep: #10339a;
+  --color-accent-ondark: #4fd2ff;
+  --color-line: #d3dae2;
+  --color-line-dark: #202c44;
+  --color-control: #737f92;
+  --color-control-dark: #6b7a90;
+}
